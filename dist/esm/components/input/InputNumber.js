@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../../themes/ThemeContext';
 const InputNumber = ({}) => {
     const theme = useTheme();
     console.log(theme);
