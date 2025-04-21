@@ -1,5 +1,6 @@
 {
   "name": "@lite-u/ui",
+  "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "tsc --watch",
@@ -8,15 +9,17 @@
   "author": "",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
       "types": "./dist/types/index.d.ts"
     },
     "./input": {
-      "import": "./dist/esm/input"
+      "import": "./dist/esm/input/index.js"
     }
   },
+  "files": ["dist"],
   "license": "ISC",
   "description": "",
   "dependencies": {

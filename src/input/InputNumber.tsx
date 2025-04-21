@@ -1,4 +1,4 @@
-const InputNumber: React.FC<{   }> = ({type}) => {
+const InputNumber: React.FC<{   }> = ({}) => {
   return <input type={'number'}/>
 }
 
