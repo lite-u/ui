@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Modal = ({ children, onBackdropClick }) => {
+const Modal = ({ children, onBackdropClick, backdropBg }) => {
     return _jsx("div", { "data-name": 'modal-root', style: {
             'display': 'flex',
             'position': 'fixed',
@@ -12,7 +12,7 @@ const Modal = ({ children, onBackdropClick }) => {
             'height': '100%',
             'userSelect': 'none',
         }, children: _jsx("div", { "data-name": 'modal-backdrop', style: {
-                backgroundColor: '#fff',
+                backgroundColor: backdropBg ? backdropBg : '#fff',
             }, onClick: () => {
                 if (onBackdropClick) {
                     onBackdropClick();

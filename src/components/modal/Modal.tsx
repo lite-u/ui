@@ -3,7 +3,8 @@ import React from 'react'
 const Modal: React.FC<{
   children?: React.ReactNode,
   onBackdropClick?: VoidFunction,
-}> = ({children, onBackdropClick}) => {
+  backdropBg?: string
+}> = ({children, onBackdropClick, backdropBg}) => {
 
   return <div
     data-name={'modal-root'}
@@ -23,7 +24,7 @@ const Modal: React.FC<{
     <div
       data-name={'modal-backdrop'}
       style={{
-        backgroundColor: '#fff',
+        backgroundColor: backdropBg ? backdropBg : '#fff',
       }}
       onClick={() => {
         if (onBackdropClick) {
