@@ -1,15 +1,19 @@
 import InputNumber from './InputNumber'
+import InputText from './InputText'
 
-const Input: React.FC<{ type: 'number' | 'text' }> = ({type}) => {
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & { label?: string }> = ({type, label, ...props}) => {
 
-  if (type === 'number') {
-    return <InputNumber/>
-  }
+  return <div>
+    {label && <label>{label}</label>}
 
-  if (type === 'text') {
-    return <InputNumber/>
-  }
+    {
+      type === 'number' && <InputNumber {...props}/>
+    }
 
+    {
+      type === 'text' && <InputText {...props}/>
+    }
+  </div>
   return <input type={type}/>
 }
 

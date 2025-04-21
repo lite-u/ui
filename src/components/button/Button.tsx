@@ -1,6 +1,9 @@
-const Button: React.FC<{ type: 'button' | 'reset' | 'submit', size: 'sm' | 'md' | 'xl' }> = ({type}) => {
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & { size: 'sm' | 'md' | 'xl' }> = ({
+                                                                                                          type,
+                                                                                                          ...props
+                                                                                                        }) => {
 
-  return <button type={type}/>
+  return <button type={type} {...props}/>
 }
 
 export default Button
