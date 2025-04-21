@@ -1,7 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import InputNumber from './InputNumber';
 const Input = ({ type }) => {
-    // const theme = useTheme()
     if (type === 'number') {
         return _jsx(InputNumber, {});
     }

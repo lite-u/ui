@@ -1,21 +1,38 @@
-import React, {createContext, useContext, useState} from 'react'
+import React, {createContext, useContext, useEffect, useState} from 'react'
 import {lightTheme} from './light'
 import {darkTheme} from './dark'
 
-const ThemeContext = createContext(lightTheme)
+export const ThemeContext = createContext<{
+  theme: {
+    bg: string; text: string; primary: string;
+  }
+  setTheme: (mode: never) => void
+}>({
+  theme: lightTheme,
+  setTheme: (mode: 'light' | 'dark'): void => {
+    console.log(mode)
+  },
+})
 
-const ThemeProvider = ({children}: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+export const ThemeProvider = ({children}: { children: React.ReactNode }) => {
+  const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light')
 
-  const value = theme === 'light' ? lightTheme : darkTheme
+  useEffect(() => {
+
+  }, [])
+
+  // Function to change the theme
+  const setTheme = (mode: 'light' | 'dark') => {
+    setThemeMode(mode)
+  }
+
+  const currentTheme = themeMode === 'light' ? lightTheme : darkTheme
 
   return (
-    <ThemeContext.Provider value={value}>
-      <div data-theme={theme}>{children}</div>
+    <ThemeContext.Provider value={{theme: currentTheme, setTheme}}>
+      {children}
     </ThemeContext.Provider>
   )
 }
 
 export const useTheme = () => useContext(ThemeContext)
-
-export default ThemeProvider

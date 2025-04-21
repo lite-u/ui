@@ -1,12 +1,22 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { lightTheme } from './light';
 import { darkTheme } from './dark';
-const ThemeContext = createContext(lightTheme);
-const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('light');
-    const value = theme === 'light' ? lightTheme : darkTheme;
-    return (_jsx(ThemeContext.Provider, { value: value, children: _jsx("div", { "data-theme": theme, children: children }) }));
+export const ThemeContext = createContext({
+    theme: lightTheme,
+    setTheme: (mode) => {
+        console.log(mode);
+    },
+});
+export const ThemeProvider = ({ children }) => {
+    const [themeMode, setThemeMode] = useState('light');
+    useEffect(() => {
+    }, []);
+    // Function to change the theme
+    const setTheme = (mode) => {
+        setThemeMode(mode);
+    };
+    const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
+    return (_jsx(ThemeContext.Provider, { value: { theme: currentTheme, setTheme }, children: children }));
 };
 export const useTheme = () => useContext(ThemeContext);
-export default ThemeProvider;

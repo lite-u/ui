@@ -15,11 +15,19 @@
       "import": "./dist/esm/index.js",
       "types": "./dist/types/index.d.ts"
     },
+    "./theme": {
+      "import": "./dist/esm/themes/ThemeContext.js",
+      "types": "./dist/types/themes/ThemeContext.d.ts"
+    },
     "./input": {
-      "import": "./dist/esm/input/index.js"
+      "import": "./dist/esm/components/input/index.js",
+      "types": "./dist/types/components/input/index.d.ts"
+
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "ISC",
   "description": "",
   "dependencies": {

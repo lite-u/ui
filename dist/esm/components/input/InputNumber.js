@@ -2,7 +2,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useTheme } from '../../themes/ThemeContext';
 const InputNumber = ({}) => {
     const theme = useTheme();
-    console.log(theme);
-    return _jsx("input", { type: 'number' });
+    return _jsx("input", { type: 'number', style: {
+            borderColor: theme.theme.bg,
+        } });
 };
 export default InputNumber;
