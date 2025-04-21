@@ -22,7 +22,10 @@
     "./input": {
       "import": "./dist/esm/components/input/index.js",
       "types": "./dist/types/components/input/index.d.ts"
-
+    },
+    "./button": {
+      "import": "./dist/esm/components/button/index.js",
+      "types": "./dist/types/components/button/index.d.ts"
     }
   },
   "files": [
