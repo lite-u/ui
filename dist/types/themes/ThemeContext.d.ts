@@ -7,7 +7,7 @@ export declare const ThemeContext: React.Context<{
     };
     setTheme: (mode: never) => void;
 }>;
-export declare const ThemeProvider: ({ children }: {
+declare const ThemeProvider: ({ children }: {
     children: React.ReactNode;
 }) => import("react/jsx-runtime").JSX.Element;
 export declare const useTheme: () => {
@@ -18,3 +18,4 @@ export declare const useTheme: () => {
     };
     setTheme: (mode: never) => void;
 };
+export default ThemeProvider;

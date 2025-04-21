@@ -14,7 +14,7 @@ export const ThemeContext = createContext<{
   },
 })
 
-export const ThemeProvider = ({children}: { children: React.ReactNode }) => {
+const ThemeProvider = ({children}: { children: React.ReactNode }) => {
   const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light')
 
   useEffect(() => {
@@ -36,3 +36,5 @@ export const ThemeProvider = ({children}: { children: React.ReactNode }) => {
 }
 
 export const useTheme = () => useContext(ThemeContext)
+
+export default ThemeProvider

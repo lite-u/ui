@@ -8,7 +8,7 @@ export const ThemeContext = createContext({
         console.log(mode);
     },
 });
-export const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }) => {
     const [themeMode, setThemeMode] = useState('light');
     useEffect(() => {
     }, []);
@@ -20,3 +20,4 @@ export const ThemeProvider = ({ children }) => {
     return (_jsx(ThemeContext.Provider, { value: { theme: currentTheme, setTheme }, children: children }));
 };
 export const useTheme = () => useContext(ThemeContext);
+export default ThemeProvider;
