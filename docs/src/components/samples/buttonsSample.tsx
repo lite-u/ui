@@ -10,7 +10,7 @@ const ButtonsSample: React.FC = () => {
   const buttonVars = ['default', 'primary', 'error', 'warn']
 
   return <Col id={'buttons'}>
-    <Title h2>Buttons</Title>
+    <Title h2 sticky>Buttons</Title>
     {
       buttonVars.map(buttonVar => {
           let sampleCode = ''

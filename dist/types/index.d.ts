@@ -12,5 +12,6 @@ import MenuItem from './components/menu/MenuItem';
 import Link from './components/link/Link';
 import { ThemeType } from './themes/type';
 import Select from './components/select/Select';
-export { Input, Select, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem };
+import SelectItem from './components/select/SelectItem';
+export { Input, Select, SelectItem, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, };
 export type { ThemeType };

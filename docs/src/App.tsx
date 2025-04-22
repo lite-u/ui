@@ -1,7 +1,7 @@
 import ThemeProvider from '@ui/themes/ThemeContext.tsx'
 import Col from '@ui/components/layouts/Col.tsx'
 import Row from '@ui/components/layouts/Row.tsx'
-import {Menu, MenuItem} from '@ui/index.tsx'
+import {Link, Menu, MenuItem, Select, SelectItem, Title} from '@ui/index.tsx'
 import ButtonsSample from './components/samples/buttonsSample.tsx'
 import InputsSample from './components/samples/InputsSample.tsx'
 import Installation from './components/Installation.tsx'
@@ -37,8 +37,7 @@ function App() {
               ].map((item, index) => {
                 return (
                   <MenuItem sm key={index}>
-                    {/*<Link href={`#${item.toLowerCase()}`}>{item}</Link>*/}
-                    {item}
+                    <Link href={`#${item.toLowerCase()}`}>{item}</Link>
                   </MenuItem>)
               })
             }
@@ -50,6 +49,16 @@ function App() {
             <Installation/>
             <ButtonsSample/>
             <InputsSample/>
+
+
+            <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
+              <Title h2>Select</Title>
+              <Select id={'select'}>
+                <SelectItem>helloa</SelectItem>
+                <SelectItem>hellob</SelectItem>
+                <SelectItem>helloc</SelectItem>
+              </Select>
+            </Col>
           </Col>
         </Col>
       </Row>

@@ -55,19 +55,19 @@ export const Button: React.FC<ButtonProps> = ({
   const variant = getVariant()
   const sizeStyles: Record<SizeVariant, React.CSSProperties> = {
     xs: {
-      minWidth: 40,
+      minWidth: 30,
       height: 20,
     },
     sm: {
-      minWidth: 50,
+      minWidth: 40,
       height: 25,
     },
     md: {
-      minWidth: 60,
+      minWidth: 50,
       height: 30,
     },
     lg: {
-      minWidth: 80,
+      minWidth: 60,
       height: 40,
     },
   }

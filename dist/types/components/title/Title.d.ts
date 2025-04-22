@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 type TitleProps = {
     children: ReactNode;
+    sticky?: boolean;
     h1?: boolean;
     h2?: boolean;
     h3?: boolean;

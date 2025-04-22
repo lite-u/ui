@@ -100,4 +100,13 @@ export declare const liteTheme: {
     menuItemStyles: {
         backgroundColor: string;
     };
+    titleStyles: {
+        h1: number;
+        h2: number;
+        h3: number;
+        h4: number;
+        h5: number;
+        h6: number;
+        backgroundColor: string;
+    };
 };

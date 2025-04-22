@@ -123,4 +123,13 @@ export const liteTheme = {
   menuItemStyles: {
     backgroundColor: '#e4e4e4',
   },
+  titleStyles: {
+    h1:32,
+    h2:28,
+    h3:24,
+    h4:20,
+    h5:18,
+    h6:16,
+    backgroundColor: '#fff',
+  },
 }

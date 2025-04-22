@@ -27,19 +27,19 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
     const variant = getVariant();
     const sizeStyles = {
         xs: {
-            minWidth: 40,
+            minWidth: 30,
             height: 20,
         },
         sm: {
-            minWidth: 50,
+            minWidth: 40,
             height: 25,
         },
         md: {
-            minWidth: 60,
+            minWidth: 50,
             height: 30,
         },
         lg: {
-            minWidth: 80,
+            minWidth: 60,
             height: 40,
         },
     };
