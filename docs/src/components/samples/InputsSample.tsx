@@ -1,7 +1,7 @@
 import {Button, Col, Input, P, Row, Title} from '@ui/index.tsx'
 
-const InputsSample: React.FC<{ id: string }> = () => {
-  return <Col id={'buttons'}>
+const InputsSample: React.FC = () => {
+  return <Col id={'inputs'}>
     <Title h2>Input</Title>
 
     <P>Primary</P>

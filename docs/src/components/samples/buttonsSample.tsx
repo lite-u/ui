@@ -3,7 +3,7 @@ import Title from '@ui/components/title/Title.tsx'
 import {Button, Row} from '@ui/index.tsx'
 import CodeBlock from '../codeBlock/codeBlock.tsx'
 
-const ButtonsSample: React.FC<{ id: string }> = () => {
+const ButtonsSample: React.FC = () => {
   const wrapperWidth = 'auto'
   const blockMT = 50
   const buttonSizes = ['default', 'xs', 's', 'm', 'l']

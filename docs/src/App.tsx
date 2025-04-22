@@ -23,7 +23,7 @@ function App() {
           <MenuItem><Link href={'#buttons'}>Button</Link> </MenuItem>
         </Col>
 
-        <Col fw fh style={{maxHeight: '100%', overflow: 'auto', paddingTop: '1rem'}}>
+        <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
           <Installation/>
           <ButtonsSample/>
           <InputsSample/>
