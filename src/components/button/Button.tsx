@@ -1,80 +1,109 @@
 import {useTheme} from '../../themes/ThemeContext'
 import {useState} from 'react'
 
-const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  xs?: boolean
-  s?: boolean
-  m?: boolean
-  l?: boolean,
-  style?: {}
-}> = ({
-        xs,
-        s,
-        m = true,
-        l,
-        type,
-        style = {},
-        ...props
-      }) => {
+type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
+type Variant = 'primary' | 'error' | 'warn' | 'neutral';
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  xs?: boolean;
+  s?: boolean;
+  m?: boolean;
+  l?: boolean;
+  primary?: boolean;
+  neutral?: boolean;
+  warn?: boolean;
+  error?: boolean;
+  style?: React.CSSProperties;
+};
+
+export const Button: React.FC<ButtonProps> = ({
+                                                xs,
+                                                s,
+                                                m = true,
+                                                l,
+                                                primary,
+                                                warn,
+                                                error,
+                                                neutral = true,
+                                                style = {},
+                                                type = 'button',
+                                                ...props
+                                              }) => {
   const {theme} = useTheme()
-  const {fontSizes, padding, primary, warn, error} = theme
+  const {
+    fontSizes,
+    padding,
+    buttonStyles,
+    borderRadius,
+    colors,
+  } = theme
+  const {
+    primary: primaryColor,
+    neutral: defaultColor,
+    warn: warnColor,
+    error: errorColor,
+  } = colors
+
   const [opacity, setOpacity] = useState(1)
 
-  let buttonDefaultStyle: React.CSSProperties = {
-    cursor: 'pointer',
-    backgroundColor: primary,
-    color: 'white',
-    border: `1px solid ${primary}`,
-    // alignSelf: 'center',
+  const getVariant = (): Variant => {
+    if (primary) return 'primary'
+    if (error) return 'error'
+    if (warn) return 'warn'
+    return 'neutral'
   }
 
-  if (xs) {
-    Object.assign(buttonDefaultStyle, {
+  const getSize = (): SizeVariant => {
+    if (xs) return 'xs'
+    if (s) return 'sm'
+    if (l) return 'lg'
+    return 'md'
+  }
+  const size = getSize()
+  const variant = getVariant()
+  const sizeStyles: Record<SizeVariant, React.CSSProperties> = {
+    xs: {
       minWidth: 40,
       height: 20,
-      fontSize: fontSizes.xs,
-      borderRadius: theme.borderRadius.xs,
-      padding: `0 ${padding.xs.x}px`,
-    })
-  } else if (s) {
-    Object.assign(buttonDefaultStyle, {
+    },
+    sm: {
       minWidth: 50,
       height: 25,
-      fontSize: fontSizes.sm,
-      borderRadius: theme.borderRadius.sm,
-      padding: `0 ${padding.sm.x}px`,
-    })
-  } else if (l) {
-    Object.assign(buttonDefaultStyle, {
-      minWidth: 80,
-      height: 40,
-      fontSize: fontSizes.lg,
-      borderRadius: theme.borderRadius.lg,
-      padding: `0 ${padding.lg.x}px`,
-    })
-  } else if (m) {
-    Object.assign(buttonDefaultStyle, {
+    },
+    md: {
       minWidth: 60,
       height: 30,
-      fontSize: fontSizes.md,
-      borderRadius: theme.borderRadius.md,
-      padding: `0 ${padding.md.x}px`,
-    })
+    },
+    lg: {
+      minWidth: 80,
+      height: 40,
+    },
   }
 
-  Object.assign(buttonDefaultStyle, style)
-  buttonDefaultStyle.opacity = opacity
+  console.log(borderRadius[size])
 
-  return <button type={type}
-                 style={buttonDefaultStyle}
-                 {...props}
-                 onMouseOver={() => {
-                   setOpacity(.8)
-                 }}
-                 onMouseOut={() => {
-                   setOpacity(1)
-                 }}
-  />
+  const styles: React.CSSProperties = {
+    opacity,
+    cursor: 'pointer',
+    fontSize: fontSizes[size],
+    padding: `0 ${padding[size].x}px`,
+    borderRadius: `${borderRadius[size]}px`,
+    borderWidth: 0,
+    ...buttonStyles[variant],
+    ...sizeStyles[size],
+    ...style,
+
+  }
+
+  return (
+    <button
+      type={type}
+      style={styles}
+      onMouseOver={() => setOpacity(0.8)}
+      onMouseOut={() => setOpacity(1)}
+      {...props}
+    />
+  )
 }
 
 export default Button

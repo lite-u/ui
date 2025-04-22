@@ -1,9 +1,14 @@
 /// <reference types="react" />
-declare const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     xs?: boolean;
     s?: boolean;
     m?: boolean;
     l?: boolean;
-    style?: {};
-}>;
+    primary?: boolean;
+    neutral?: boolean;
+    warn?: boolean;
+    error?: boolean;
+    style?: React.CSSProperties;
+};
+export declare const Button: React.FC<ButtonProps>;
 export default Button;
