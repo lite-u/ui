@@ -1,7 +1,4 @@
-import Col from '@ui/components/layouts/Col.tsx'
-import Title from '@ui/components/title/Title.tsx'
-import {P} from '@ui/components/paragraph/Paragraph.tsx'
-import {Button, Row} from '@ui/index.tsx'
+import {Button, Col, Input, P, Row, Title} from '@ui/index.tsx'
 
 const InputsSample: React.FC<{ id: string }> = () => {
   return <Col id={'buttons'}>
@@ -11,7 +8,7 @@ const InputsSample: React.FC<{ id: string }> = () => {
     <Row w={200} around style={{
       alignItems: 'end',
     }}>
-      <Inputs s>Primary</Inputs>
+      <Input s/>
       <Button m>Primary</Button>
       <Button l>Primary</Button>
     </Row>

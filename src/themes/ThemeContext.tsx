@@ -1,11 +1,10 @@
 import React, {createContext, useContext, useEffect, useState} from 'react'
 import {lightTheme} from './light'
 import {darkTheme} from './dark'
+import {ThemeType} from './type'
 
 export const ThemeContext = createContext<{
-  theme: {
-    bg: string; text: string; primary: string;
-  }
+  theme: ThemeType
   setTheme: (mode: never) => void
 }>({
   theme: lightTheme,

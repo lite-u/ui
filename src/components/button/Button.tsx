@@ -1,48 +1,76 @@
 import {useTheme} from '../../themes/ThemeContext'
+import {useState} from 'react'
 
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  xs?: boolean
   s?: boolean
   m?: boolean
-  l?: boolean, style?: {}
+  l?: boolean,
+  style?: {}
 }> = ({
+        xs,
         s,
-        m,
+        m = true,
         l,
         type,
         style = {},
         ...props
       }) => {
-  const theme = useTheme()
-  let buttonDefaultStyle = {
+  const {theme} = useTheme()
+  const {fontSizes, primary, warn, error} = theme
+  const [opacity, setOpacity] = useState(1)
+
+  let buttonDefaultStyle: React.CSSProperties = {
     cursor: 'pointer',
+    backgroundColor: primary,
+    color: 'white',
+    border: `1px solid ${primary}`,
     // alignSelf: 'center',
   }
 
-  if (s) {
+  if (xs) {
     Object.assign(buttonDefaultStyle, {
       minWidth: 40,
       height: 20,
-      fontSize: 12,
+      fontSize: fontSizes.xs,
+      borderRadius: theme.borderRadius.xs,
     })
-  } else if (m) {
+  } else if (s) {
     Object.assign(buttonDefaultStyle, {
-      minWidth: 60,
-      height: 30,
-      fontSize: 14,
+      minWidth: 50,
+      height: 25,
+      fontSize: fontSizes.sm,
+      borderRadius: theme.borderRadius.sm,
     })
   } else if (l) {
     Object.assign(buttonDefaultStyle, {
       minWidth: 80,
       height: 40,
-      fontSize: 16,
+      fontSize: fontSizes.lg,
+      borderRadius: theme.borderRadius.lg,
+    })
+  } else if (m) {
+    Object.assign(buttonDefaultStyle, {
+      minWidth: 60,
+      height: 30,
+      fontSize: fontSizes.md,
+      borderRadius: theme.borderRadius.md,
     })
   }
 
   Object.assign(buttonDefaultStyle, style)
-  // console.log(theme)
+  buttonDefaultStyle.opacity = opacity
 
   return <button type={type}
-                 style={buttonDefaultStyle} {...props}/>
+                 style={buttonDefaultStyle}
+                 {...props}
+                 onMouseOver={() => {
+                   setOpacity(.8)
+                 }}
+                 onMouseOut={() => {
+                   setOpacity(1)
+                 }}
+  />
 }
 
 export default Button

@@ -6,9 +6,12 @@ import Panel from './components/panel/Panel'
 import Row from './components/layouts/Row'
 import Col from './components/layouts/Col'
 import Title from './components/title/Title'
-import Paragraph from './components/paragraph/Paragraph'
+import Paragraph, {P} from './components/paragraph/Paragraph'
 import Menu from './components/menu/Menu'
 import MenuItem from './components/menu/MenuItem'
 import Link from './components/link/Link'
+import {ThemeType} from './themes/type'
 
-export {Input, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, Menu, MenuItem}
+export {Input, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem}
+
+export type {ThemeType}

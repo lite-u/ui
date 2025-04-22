@@ -1,5 +1,2 @@
-export declare const lightTheme: {
-    bg: string;
-    text: string;
-    primary: string;
-};
+import { ThemeType } from './type';
+export declare const lightTheme: ThemeType;

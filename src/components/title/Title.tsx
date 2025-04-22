@@ -20,13 +20,14 @@ const Title: React.FC<{
         ...props
       }) => {
   const theme = useTheme()
+  const styles: React.CSSProperties = {fontWeight: 'bold'}
 
-  if (h1) return <h1>{children}</h1>
-  if (h2) return <h2>{children}</h2>
-  if (h3) return <h3>{children}</h3>
-  if (h4) return <h4>{children}</h4>
-  if (h5) return <h5>{children}</h5>
-  if (h6) return <h6>{children}</h6>
+  if (h1) return <h1 style={styles}>{children}</h1>
+  if (h2) return <h2 style={styles}>{children}</h2>
+  if (h3) return <h3 style={styles}>{children}</h3>
+  if (h4) return <h4 style={styles}>{children}</h4>
+  if (h5) return <h5 style={styles}>{children}</h5>
+  if (h6) return <h6 style={styles}>{children}</h6>
 
   return <h1>{children}</h1>
 }
