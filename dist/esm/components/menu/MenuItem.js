@@ -7,7 +7,7 @@ const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
         height: 30,
         padding: theme.padding.md.y,
         fontSize: theme.fontSizes.md,
-        borderRadius: theme.borderRadius.lg,
+        // borderRadius: theme.borderRadius.lg,
         background: theme.menuItemStyles.backgroundColor,
         cursor: 'pointer',
         display: 'flex',
@@ -15,7 +15,7 @@ const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
     };
     if (sm) {
         styles.height = 20;
-        styles.padding = theme.padding.sm.y;
+        styles.padding = '8px 16px';
         styles.fontSize = theme.fontSizes.sm;
     }
     return _jsx("div", { style: styles, ...props, children: children });

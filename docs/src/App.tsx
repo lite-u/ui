@@ -4,7 +4,7 @@ import Row from '@ui/components/layouts/Row.tsx'
 import {Link, Menu, MenuItem, Select, SelectItem, Title} from '@ui/index.tsx'
 import ButtonsSample from './components/samples/buttonsSample.tsx'
 import InputsSample from './components/samples/InputsSample.tsx'
-import Installation from './components/Installation.tsx'
+import CodeBlock from './components/codeBlock/codeBlock.tsx'
 
 function App() {
   return <ThemeProvider>
@@ -17,10 +17,15 @@ function App() {
       <Row h={'auto'} style={{overflow: 'hidden'}}>
 
         <Col w={200} style={{padding: '50px 10px', overflowY: 'auto'}}>
-          <Menu gap={4}>
+          <Menu gap={0}>
+            <MenuItem sm>
+              <Link href={`#Installation`}>Installation</Link>
+            </MenuItem>
+            <MenuItem sm>
+              <Link href={`#components`}>Components</Link>
+            </MenuItem>
             {
               [
-                'Installation',
                 'Buttons',
                 'Inputs',
                 'Select',
@@ -47,18 +52,32 @@ function App() {
 
         <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
           <Col style={{padding: 50}}>
-            <Installation/>
-            <ButtonsSample/>
-            <InputsSample/>
+            <Col id={'installation'}>
+              <Title h2 sticky>Installation</Title>
 
-            <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
-              <Title h2>Select</Title>
-              <Select id={'select'}>
-                <SelectItem>hello a</SelectItem>
-                <SelectItem>hello b</SelectItem>
-                <SelectItem>hello c</SelectItem>
-              </Select>
+              <Row>
+                <CodeBlock code={`npm install @lite-u/ui`}/>
+              </Row>
             </Col>
+
+            <div id={'components'}>
+              <Title h2 sticky>Components</Title>
+              <ButtonsSample/>
+              <InputsSample/>
+
+              <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
+                <Title h2>Select</Title>
+                <Select id={'select'}>
+                  <SelectItem>hello a</SelectItem>
+                  <SelectItem>hello b</SelectItem>
+                  <SelectItem>hello c</SelectItem>
+                  <SelectItem>hello c</SelectItem>
+                  <SelectItem>hello c</SelectItem>
+                  <SelectItem>hello c</SelectItem>
+                  <SelectItem>hello c</SelectItem>
+                </Select>
+              </Col>
+            </div>
           </Col>
         </Col>
       </Row>

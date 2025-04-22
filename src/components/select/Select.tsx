@@ -18,16 +18,16 @@ const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & {
 
   return <div {...props}>
     {label && <label>{label}</label>}
+{/*
     <div onFocus={() => setSelectFocused(true)}
          onBlur={() => setSelectFocused(false)}>
       {children}
     </div>
-    {
-      openSelect &&
-        <div>
-          {children}
-        </div>
-    }
+*/}
+
+    <div>
+      {children}
+    </div>
 
     {/*<select name="" id=""></select>  */}
   </div>

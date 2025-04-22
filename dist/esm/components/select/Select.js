@@ -6,7 +6,6 @@ const Select = ({ label, children, ...props }) => {
     let styles = {
         border: '1px solid #dfdfdf',
     };
-    return _jsxs("div", { ...props, children: [label && _jsx("label", { children: label }), _jsx("div", { onFocus: () => setSelectFocused(true), onBlur: () => setSelectFocused(false), children: children }), openSelect &&
-                _jsx("div", { children: children })] });
+    return _jsxs("div", { ...props, children: [label && _jsx("label", { children: label }), _jsx("div", { children: children })] });
 };
 export default Select;
