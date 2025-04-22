@@ -63,13 +63,13 @@ function App() {
               <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
                 <Title h2>Select</Title>
                 <Select id={'select'} style={{width: '100px'}}>
-                  <SelectItem>hello a</SelectItem>
-                  <SelectItem>hello b</SelectItem>
-                  <SelectItem>hello c</SelectItem>
-                  <SelectItem>hello c</SelectItem>
-                  <SelectItem>hello c</SelectItem>
-                  <SelectItem>hello c</SelectItem>
-                  <SelectItem>hello c</SelectItem>
+                  {
+                    Array.from({length: 100}).fill(undefined).map((item, index) => {
+                      return <SelectItem key={index}>
+                        <MenuItem>hello {index + 1}</MenuItem>
+                      </SelectItem>
+                    })
+                  }
                 </Select>
               </Col>
 

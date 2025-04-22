@@ -1,21 +1,20 @@
-const SelectItem: React.FC<React.OptionHTMLAttributes<HTMLOptionElement> & {
+const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string,
+  children: React.ReactNode,
   style?: {}
 }> = ({
-        type,
         label,
+        children,
         ...props
       }) => {
-  let styles: React.CSSProperties = {
-    border: '1px solid #dfdfdf',
-  }
+  /*  let styles: React.CSSProperties = {
+      border: '1px solid #dfdfdf',
+    }*/
 
   return <div {...props}>
     {label && <label>{label}</label>}
-      <option value="1">1</option>
+    {children}
   </div>
-
-  return <input type={type}/>
 }
 
 export default SelectItem
