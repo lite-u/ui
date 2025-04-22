@@ -7,27 +7,47 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   w?: number | string,
   h?: number | string,
   around?: boolean,
+  // center?: boolean,
   style?: {}
 }> = ({
         children,
-        fw = false,
-        fh = true,
+        fw = true,
+        fh = false,
         around = false,
-        w = 'auto',
-        h = 'auto',
+        // center = false,
+        w,
+        h,
         style = {},
         ...props
       }) => {
+  let styles:React.CSSProperties = {display: 'flex', flexDirection: 'column', width: 'auto', height: 'auto', ...style}
 
+  if (fw) {
+    styles.width = '100%'
+  }
+
+  if (fh) {
+    styles.height = '100%'
+  }
+
+  if (w) {
+    styles.width = w
+  }
+
+  if (h) {
+    styles.height = h
+  }
+
+  if (around) {
+    styles.justifyContent = 'space-around'
+  }
+
+  /*if (center) {
+    styles.alignItems = 'center'
+  }*/
+  console.log(styles)
   return <div
-    style={{
-      width: fw ? '100%' : w,
-      height: fh ? '100%' : h,
-      ...style,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: around ? 'space-around' : 'start',
-    }}
+    style={styles}
     {...props}
   >
     {children}

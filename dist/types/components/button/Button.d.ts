@@ -1,5 +1,8 @@
 /// <reference types="react" />
 declare const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    size: 'sm' | 'md' | 'xl';
+    s?: boolean;
+    m?: boolean;
+    l?: boolean;
+    style?: {};
 }>;
 export default Button;

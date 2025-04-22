@@ -1,15 +1,16 @@
 import ThemeProvider from '@ui/themes/ThemeContext.tsx'
 import Col from '@ui/components/layouts/Col.tsx'
-import Buttons from './samples/buttons.tsx'
+import ButtonsSample from './samples/buttonsSample.tsx'
 import Row from '@ui/components/layouts/Row.tsx'
 import Link from '@ui/components/link/Link.tsx'
 import {MenuItem} from '@ui/index.tsx'
+import Inputs from './samples/InputsSample.tsx'
 
 function App() {
   return <ThemeProvider>
     <Col>
-      <Col style={{height: 50}}>
-        Header
+      <Col around style={{height: 50, borderBottom: '1px solid gray'}}>
+        <header>header</header>
       </Col>
 
       <Row fh>
@@ -19,8 +20,9 @@ function App() {
           <MenuItem> <Link href={'#buttons'}>Button</Link> </MenuItem>
         </Col>
 
-        <Col fw>
-          <Buttons id={'buttons'}/>
+        <Col fw style={{overflow: 'auto'}}>
+          <ButtonsSample/>
+          <Inputs/>
         </Col>
       </Row>
 
