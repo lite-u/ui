@@ -55,7 +55,7 @@ function App() {
 
             <Installation/>
 
-            <div id={'components'} style={{marginTop: 100}}>
+            <div id={'components'} style={{marginTop: 50}}>
               {/*<Title h2 sticky>Components</Title>*/}
               <ButtonsSample/>
               <InputsSample/>
