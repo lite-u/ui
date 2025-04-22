@@ -1,18 +1,24 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import tailwindcss from '@tailwindcss/vite'
+import * as path from 'path'
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig(({mode}) => {
   return {
     base: './',
     plugins: [
-      react(), tailwindcss(),
+      react(), /*tailwindcss(),*/
     ],
-    optimizeDeps: ['@lite-u/ui'],
+    optimizeDeps: [],
     resolve: {
       preserveSymlinks: true,
       alias: {
+        react: path.resolve(__dirname, './node_modules/react'),
+        '@ui': path.resolve(__dirname, '../src'),
+
         // /esm/icons/index.mjs only exports the icons statically, so no separate chunks are created
         // '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
       },
@@ -32,5 +38,10 @@ export default defineConfig(({mode}) => {
         },
       },
     },
+    server: {
+    fs: {
+      allow: ['..'],
+    },
+  },
   }
 })
