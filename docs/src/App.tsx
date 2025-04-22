@@ -72,6 +72,11 @@ function App() {
                   <SelectItem>hello c</SelectItem>
                 </Select>
               </Col>
+
+              <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
+                <Title h2>Link</Title>
+                <Link href={`#link`} id={'link'}>Link</Link>
+              </Col>
             </div>
           </Col>
         </Col>

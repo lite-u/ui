@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 declare const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & {
     label?: string;
     children?: React.ReactNode;
