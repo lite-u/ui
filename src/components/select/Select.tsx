@@ -13,6 +13,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   const [openSelect, setOpenSelect] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
+  const [position, setPosition] = useState<{ top?: string, bottom?: string }>({})
   const [wrapperHeight, setWrapperHeight] = useState(0)
 
   useEffect(() => {
@@ -20,13 +21,26 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
-      setWrapperHeight(Math.min(maxHeight, h))
+      if (h > maxHeight) {
+        setWrapperHeight(300)
+      } else {
+        setWrapperHeight(h)
+      }
     }
   }, [children])
 
   const handleOpen = (e) => {
+    const maxHeight = window.innerHeight
     const rect = wrapperRef.current?.getBoundingClientRect()
-    // setPosition({top: rect!.top, bottom: rect!.bottom})
+    const newPosition: { top?: string, bottom?: string } = {}
+
+    if (rect!.y > maxHeight / 2) {
+      newPosition.bottom = '100%'
+    } else {
+      newPosition.top = '100%'
+    }
+
+    setPosition(newPosition)
     setOpenSelect(!openSelect)
   }
 
@@ -50,7 +64,9 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
       // top: position.top,
       backgroundColor: '#fff',
       boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
-      bottom: '100%',
+      ...position,
+      // bottom: '100%',
+      // top: '100%',
     }}>
       <div ref={containerRef}
            style={{

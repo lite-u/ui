@@ -10,7 +10,8 @@ function App() {
   return <ThemeProvider>
     <Col fw fh style={{overflow: 'hidden'}}>
 
-      <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
+      <Col between style={{borderBottom: '1px solid gray'}}>
+
         <header style={{height: 50}}>header</header>
       </Col>
 
@@ -60,11 +61,11 @@ function App() {
               <ButtonsSample/>
               <InputsSample/>
 
-              <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
-                <Title h2>Select</Title>
+              <Col between style={{borderBottom: '1px solid gray'}}>
+                <Title h2 sticky>Select</Title>
                 <Select id={'select'} style={{width: '100px'}}>
                   {
-                    Array.from({length: 100}).fill(undefined).map((item, index) => {
+                    Array.from({length: 100}).fill(undefined).map((_, index) => {
                       return <SelectItem key={index}>
                         <MenuItem>hello {index + 1}</MenuItem>
                       </SelectItem>
@@ -74,8 +75,8 @@ function App() {
               </Col>
 
 
-              <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
-                <Title h2>Link</Title>
+              <Col between style={{borderBottom: '1px solid gray'}}>
+                <Title h2 sticky>Link</Title>
                 <Link href={`#link`} id={'link'}>Link</Link>
               </Col>
 

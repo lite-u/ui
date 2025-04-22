@@ -4,17 +4,31 @@ const Select = ({ label, style, children, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
+    const [position, setPosition] = useState({});
     const [wrapperHeight, setWrapperHeight] = useState(0);
     useEffect(() => {
         const maxHeight = window.innerHeight;
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
-            setWrapperHeight(Math.min(maxHeight, h));
+            if (h > maxHeight) {
+                setWrapperHeight(300);
+            }
+            else {
+                setWrapperHeight(h);
+            }
         }
     }, [children]);
     const handleOpen = (e) => {
+        const maxHeight = window.innerHeight;
         const rect = wrapperRef.current?.getBoundingClientRect();
-        // setPosition({top: rect!.top, bottom: rect!.bottom})
+        const newPosition = {};
+        if (rect.y > maxHeight / 2) {
+            newPosition.bottom = '100%';
+        }
+        else {
+            newPosition.top = '100%';
+        }
+        setPosition(newPosition);
         setOpenSelect(!openSelect);
     };
     return _jsxs("div", { ref: wrapperRef, style: {
@@ -30,7 +44,9 @@ const Select = ({ label, style, children, ...props }) => {
                     // top: position.top,
                     backgroundColor: '#fff',
                     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
-                    bottom: '100%',
+                    ...position,
+                    // bottom: '100%',
+                    // top: '100%',
                 }, children: _jsx("div", { ref: containerRef, style: {
                         width: '100%',
                         backgroundColor: '#fff',
