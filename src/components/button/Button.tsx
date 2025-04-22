@@ -17,7 +17,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
         ...props
       }) => {
   const {theme} = useTheme()
-  const {fontSizes, primary, warn, error} = theme
+  const {fontSizes, padding, primary, warn, error} = theme
   const [opacity, setOpacity] = useState(1)
 
   let buttonDefaultStyle: React.CSSProperties = {
@@ -34,6 +34,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
       height: 20,
       fontSize: fontSizes.xs,
       borderRadius: theme.borderRadius.xs,
+      padding: `0 ${padding.xs.x}px`,
     })
   } else if (s) {
     Object.assign(buttonDefaultStyle, {
@@ -41,6 +42,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
       height: 25,
       fontSize: fontSizes.sm,
       borderRadius: theme.borderRadius.sm,
+      padding: `0 ${padding.sm.x}px`,
     })
   } else if (l) {
     Object.assign(buttonDefaultStyle, {
@@ -48,6 +50,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
       height: 40,
       fontSize: fontSizes.lg,
       borderRadius: theme.borderRadius.lg,
+      padding: `0 ${padding.lg.x}px`,
     })
   } else if (m) {
     Object.assign(buttonDefaultStyle, {
@@ -55,6 +58,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
       height: 30,
       fontSize: fontSizes.md,
       borderRadius: theme.borderRadius.md,
+      padding: `0 ${padding.md.x}px`,
     })
   }
 

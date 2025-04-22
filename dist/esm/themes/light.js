@@ -11,6 +11,7 @@ export const lightTheme = {
         button: string
       }*/
     padding: {
+        xs: { x: 1, y: 2 },
         sm: { x: 2, y: 4 },
         md: { x: 4, y: 8 },
         lg: { x: 8, y: 16 },

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-declare const Title: React.FC<{
+type TitleProps = {
     children: ReactNode;
     h1?: boolean;
     h2?: boolean;
@@ -7,5 +7,6 @@ declare const Title: React.FC<{
     h4?: boolean;
     h5?: boolean;
     h6?: boolean;
-}>;
+} & React.HTMLAttributes<HTMLHeadingElement>;
+export declare const Title: React.FC<TitleProps>;
 export default Title;

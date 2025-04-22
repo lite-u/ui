@@ -1,10 +1,10 @@
 export interface ThemeType {
     bg: string;
     text: string;
-    primary: '#4f46e5';
-    secondary: '#4f46e5';
-    warning: '#ffc107';
-    error: '#ffc107';
+    primary: string;
+    secondary: string;
+    warning: string;
+    error: string;
     form: {
         input: string;
         button: string;

@@ -3,6 +3,7 @@ import Prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.min.css'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-tsx'
+import {Button, Col, Row} from '@ui/index.tsx'
 
 type CodeBlockProps = {
   code: string;
@@ -34,17 +35,28 @@ const CodeBlock: React.FC<CodeBlockProps> = ({code, language = 'tsx'}) => {
       console.error('Failed to copy code:', err)
     }
   }
+
   return (
-    <pre style={styles.pre}>
-      <code ref={ref} className={`language-${language}`}>
-        {code}
-      </code>
-    </pre>
+    <Col w={'auto'} style={{marginTop: 30}}>
+      <Row fw between>
+        <div></div>
+        <Button s onClick={handleCopy}>
+          {copied ? '✓ Copied' : 'Copy'}
+        </Button>
+      </Row>
+
+      <pre style={styles.pre}>
+        <code ref={ref} className={`language-${language}`}>{code}</code>
+      </pre>
+    </Col>
   )
 }
 
 const styles: { pre: React.CSSProperties } = {
   pre: {
+    width: '100%',
+    margin: '0 auto',
+    padding: 20,
     /*background: '#2d2d2d',
     color: '#ccc',
     padding: '1rem',

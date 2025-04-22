@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from 'react'
-import {lightTheme} from './light'
+import {liteTheme} from './lite'
 import {darkTheme} from './dark'
 import {ThemeType} from './type'
 
@@ -7,25 +7,25 @@ export const ThemeContext = createContext<{
   theme: ThemeType
   setTheme: (mode: never) => void
 }>({
-  theme: lightTheme,
-  setTheme: (mode: 'light' | 'dark'): void => {
+  theme: liteTheme,
+  setTheme: (mode: 'lite' | 'dark'): void => {
     console.log(mode)
   },
 })
 
 const ThemeProvider = ({children}: { children: React.ReactNode }) => {
-  const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light')
+  const [themeMode, setThemeMode] = useState<'lite' | 'dark'>('lite')
 
   useEffect(() => {
 
   }, [])
 
   // Function to change the theme
-  const setTheme = (mode: 'light' | 'dark') => {
+  const setTheme = (mode: 'lite' | 'dark') => {
     setThemeMode(mode)
   }
 
-  const currentTheme = themeMode === 'light' ? lightTheme : darkTheme
+  const currentTheme = themeMode === 'lite' ? liteTheme : darkTheme
 
   return (
     <ThemeContext.Provider value={{theme: currentTheme, setTheme}}>

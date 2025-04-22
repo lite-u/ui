@@ -6,6 +6,7 @@ declare const Row: React.FC<{
     w?: number | string;
     h?: number | string;
     around?: boolean;
+    between?: boolean;
     style?: {};
 }>;
 export default Row;

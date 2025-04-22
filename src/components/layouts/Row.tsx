@@ -7,12 +7,14 @@ const Row: React.FC<{
   w?: number | string,
   h?: number | string,
   around?: boolean,
+  between?: boolean,
   style?: {}
 }> = ({
         children,
         fw = true,
         fh = false,
         around = false,
+        between = false,
         w = 'auto',
         h = 'auto',
         style = {},
@@ -38,6 +40,10 @@ const Row: React.FC<{
 
   if (around) {
     styles.justifyContent = 'space-around'
+  }
+
+  if (between) {
+    styles.justifyContent = 'space-between'
   }
   return <div
     role={'row'}

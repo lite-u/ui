@@ -1,6 +1,6 @@
 import {ThemeType} from './type'
 
-export const lightTheme: ThemeType = {
+export const liteTheme: ThemeType = {
   bg: '#ffffff',
   text: '#111111',
   primary: '#0750a8',
@@ -13,6 +13,7 @@ export const lightTheme: ThemeType = {
       button: string
     }*/
   padding: {
+    xs: {x: 1, y: 2},
     sm: {x: 2, y: 4},
     md: {x: 4, y: 8},
     lg: {x: 8, y: 16},

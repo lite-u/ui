@@ -1,22 +1,22 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useContext, useEffect, useState } from 'react';
-import { lightTheme } from './light';
+import { liteTheme } from './lite';
 import { darkTheme } from './dark';
 export const ThemeContext = createContext({
-    theme: lightTheme,
+    theme: liteTheme,
     setTheme: (mode) => {
         console.log(mode);
     },
 });
 const ThemeProvider = ({ children }) => {
-    const [themeMode, setThemeMode] = useState('light');
+    const [themeMode, setThemeMode] = useState('lite');
     useEffect(() => {
     }, []);
     // Function to change the theme
     const setTheme = (mode) => {
         setThemeMode(mode);
     };
-    const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
+    const currentTheme = themeMode === 'lite' ? liteTheme : darkTheme;
     return (_jsx(ThemeContext.Provider, { value: { theme: currentTheme, setTheme }, children: children }));
 };
 export const useTheme = () => useContext(ThemeContext);

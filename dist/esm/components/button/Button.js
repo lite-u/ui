@@ -3,7 +3,7 @@ import { useTheme } from '../../themes/ThemeContext';
 import { useState } from 'react';
 const Button = ({ xs, s, m = true, l, type, style = {}, ...props }) => {
     const { theme } = useTheme();
-    const { fontSizes, primary, warn, error } = theme;
+    const { fontSizes, padding, primary, warn, error } = theme;
     const [opacity, setOpacity] = useState(1);
     let buttonDefaultStyle = {
         cursor: 'pointer',
@@ -18,6 +18,7 @@ const Button = ({ xs, s, m = true, l, type, style = {}, ...props }) => {
             height: 20,
             fontSize: fontSizes.xs,
             borderRadius: theme.borderRadius.xs,
+            padding: `0 ${padding.xs.x}px`,
         });
     }
     else if (s) {
@@ -26,6 +27,7 @@ const Button = ({ xs, s, m = true, l, type, style = {}, ...props }) => {
             height: 25,
             fontSize: fontSizes.sm,
             borderRadius: theme.borderRadius.sm,
+            padding: `0 ${padding.sm.x}px`,
         });
     }
     else if (l) {
@@ -34,6 +36,7 @@ const Button = ({ xs, s, m = true, l, type, style = {}, ...props }) => {
             height: 40,
             fontSize: fontSizes.lg,
             borderRadius: theme.borderRadius.lg,
+            padding: `0 ${padding.lg.x}px`,
         });
     }
     else if (m) {
@@ -42,6 +45,7 @@ const Button = ({ xs, s, m = true, l, type, style = {}, ...props }) => {
             height: 30,
             fontSize: fontSizes.md,
             borderRadius: theme.borderRadius.md,
+            padding: `0 ${padding.md.x}px`,
         });
     }
     Object.assign(buttonDefaultStyle, style);

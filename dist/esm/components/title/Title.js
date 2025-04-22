@@ -1,20 +1,29 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useTheme } from '../../themes/ThemeContext';
-const Title = ({ h1, h2, h3, h4, h5, h6, children, ...props }) => {
-    const theme = useTheme();
-    const styles = { fontWeight: 'bold' };
-    if (h1)
-        return _jsx("h1", { style: styles, children: children });
-    if (h2)
-        return _jsx("h2", { style: styles, children: children });
-    if (h3)
-        return _jsx("h3", { style: styles, children: children });
-    if (h4)
-        return _jsx("h4", { style: styles, children: children });
-    if (h5)
-        return _jsx("h5", { style: styles, children: children });
-    if (h6)
-        return _jsx("h6", { style: styles, children: children });
-    return _jsx("h1", { children: children });
+export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, ...rest }) => {
+    const { theme } = useTheme();
+    const { padding } = theme;
+    const headingMap = {
+        h1: { margin: padding.lg.y },
+        h2: { margin: padding.lg.y },
+        h3: { margin: padding.md.y },
+        h4: { margin: padding.md.y },
+        h5: { margin: padding.sm.y },
+        h6: { margin: padding.sm.y },
+    };
+    const level = (h1 && 'h1') ||
+        (h2 && 'h2') ||
+        (h3 && 'h3') ||
+        (h4 && 'h4') ||
+        (h5 && 'h5') ||
+        (h6 && 'h6') ||
+        'h1';
+    const Tag = level;
+    const margin = headingMap[Tag].margin;
+    return (_jsx(Tag, { style: {
+            fontWeight: 'bold',
+            margin: `${margin}px 0`,
+            ...style,
+        }, ...rest, children: children }));
 };
 export default Title;
