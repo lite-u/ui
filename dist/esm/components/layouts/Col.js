@@ -30,7 +30,7 @@ w, h, style = {}, ...props }) => {
     /*if (center) {
       styles.alignItems = 'center'
     }*/
-    console.log(styles);
+    // console.log(styles)
     return _jsx("div", { style: styles, ...props, children: children });
 };
 export default Col;

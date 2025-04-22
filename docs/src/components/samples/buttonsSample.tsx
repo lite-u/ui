@@ -16,7 +16,7 @@ const ButtonsSample: React.FC = () => {
           let sampleCode = ''
 
           return <div key={buttonVar}>
-            <Title h4 style={{marginTop: blockMT}}>{buttonVar}</Title>
+            <Title h5 style={{marginTop: blockMT, fontWeight: 'normal'}}>{buttonVar}</Title>
             <Row between
                  w={wrapperWidth}
                  style={{
@@ -30,6 +30,7 @@ const ButtonsSample: React.FC = () => {
                   const text = size || 'default'
                   const d = []
                   let str = ''
+
                   if (buttonVar !== 'default' || size !== 'default') {
                     // @ts-ignore
                     props[buttonVar] = true

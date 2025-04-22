@@ -56,7 +56,7 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   /*if (center) {
     styles.alignItems = 'center'
   }*/
-  console.log(styles)
+  // console.log(styles)
   return <div
     style={styles}
     {...props}

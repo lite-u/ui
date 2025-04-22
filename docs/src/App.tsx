@@ -15,7 +15,8 @@ function App() {
       </Col>
 
       <Row h={'auto'} style={{overflow: 'hidden'}}>
-        <Col w={200} style={{padding: 8, overflowY: 'auto'}}>
+
+        <Col w={200} style={{padding: '50px 10px', overflowY: 'auto'}}>
           <Menu gap={4}>
             {
               [
@@ -45,18 +46,17 @@ function App() {
         </Col>
 
         <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
-          <Col style={{padding: 20}}>
+          <Col style={{padding: 50}}>
             <Installation/>
             <ButtonsSample/>
             <InputsSample/>
 
-
             <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
               <Title h2>Select</Title>
               <Select id={'select'}>
-                <SelectItem>helloa</SelectItem>
-                <SelectItem>hellob</SelectItem>
-                <SelectItem>helloc</SelectItem>
+                <SelectItem>hello a</SelectItem>
+                <SelectItem>hello b</SelectItem>
+                <SelectItem>hello c</SelectItem>
               </Select>
             </Col>
           </Col>

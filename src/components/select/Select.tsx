@@ -1,21 +1,36 @@
+import {useState} from 'react'
+
 const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & {
-  label?: string,
+  label?: string
+  children?: React.ReactNode
   style?: {}
 }> = ({
-        type,
         label,
+        children,
         ...props
       }) => {
+  const [openSelect, setOpenSelect] = useState(false)
+  const [selectFocused, setSelectFocused] = useState(false)
+
   let styles: React.CSSProperties = {
     border: '1px solid #dfdfdf',
   }
 
   return <div {...props}>
     {label && <label>{label}</label>}
-    <select name="" id=""></select>
-  </div>
+    <div onFocus={() => setSelectFocused(true)}
+         onBlur={() => setSelectFocused(false)}>
+      {children}
+    </div>
+    {
+      openSelect &&
+        <div>
+          {children}
+        </div>
+    }
 
-  return <input type={type}/>
+    {/*<select name="" id=""></select>  */}
+  </div>
 }
 
 export default Select
