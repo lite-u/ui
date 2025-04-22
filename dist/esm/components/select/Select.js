@@ -32,6 +32,9 @@ const Select = ({ label, style, children, ...props }) => {
         setOpenSelect(!openSelect);
     };
     return _jsxs("div", { ref: wrapperRef, style: {
+            width: 100,
+            height: 40,
+            cursor: 'pointer',
             ...style,
             position: 'relative',
         }, ...props, children: [_jsx("div", { onClick: (e) => {

@@ -61,21 +61,33 @@ function App() {
               <ButtonsSample/>
               <InputsSample/>
 
-              <Col between style={{borderBottom: '1px solid gray'}}>
-                <Title h2 sticky>Select</Title>
-                <Select id={'select'} style={{width: '100px'}}>
-                  {
-                    Array.from({length: 100}).fill(undefined).map((_, index) => {
-                      return <SelectItem key={index}>
-                        <MenuItem>hello {index + 1}</MenuItem>
-                      </SelectItem>
-                    })
-                  }
-                </Select>
+              <Col between style={{}}>
+                <Title h2 sticky style={{zIndex: 60}}>Select</Title>
+                <Row style={{zIndex: 50}}>
+                  <Select id={'select'} style={{width: '100px', zIndex: 9}}>
+                    {
+                      Array.from({length: 100}).fill(undefined).map((_, index) => {
+                        return <SelectItem key={index}>
+                          <MenuItem>hello {index + 1}</MenuItem>
+                        </SelectItem>
+                      })
+                    }
+                  </Select>
+
+                  <Select id={'select'} style={{width: '100px', zIndex: 9}}>
+                    {
+                      ['px', 'mm', 'cm'].map((_, index) => {
+                        return <SelectItem key={index}>
+                          <MenuItem>hello {index + 1}</MenuItem>
+                        </SelectItem>
+                      })
+                    }
+                  </Select>
+                </Row>
+
               </Col>
 
-
-              <Col between style={{borderBottom: '1px solid gray'}}>
+              <Col between style={{marginTop: 50}}>
                 <Title h2 sticky>Link</Title>
                 <Link href={`#link`} id={'link'}>Link</Link>
               </Col>

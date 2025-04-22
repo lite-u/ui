@@ -19,7 +19,7 @@ export const App() {
       <CodeBlock code={code1}/>
     </Row>
 
-    <Title h4 sticky>Import</Title>
+    <Title h4>Import</Title>
     <Row>
       <CodeBlock code={code2}/>
     </Row>

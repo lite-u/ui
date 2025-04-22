@@ -26,6 +26,7 @@ export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, ...rest
             margin: `${margin}px 0`,
             fontSize: fontSize + 'px',
             position: sticky ? 'sticky' : 'static',
+            zIndex: 10,
             left: sticky ? 0 : 'auto',
             top: sticky ? 0 : 'auto',
             backgroundColor: theme.titleStyles.backgroundColor,

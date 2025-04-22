@@ -45,14 +45,14 @@ export const Title: React.FC<TitleProps> = ({
   const Tag: HeadingLevel = level
   const margin = headingMap[Tag].margin
   const fontSize = headingMap[Tag].fontSize
-
-  return (
+   return (
     <Tag
       style={{
         fontWeight: 'bold',
         margin: `${margin}px 0`,
         fontSize: fontSize + 'px',
         position: sticky ? 'sticky' : 'static',
+        zIndex: 10,
         left: sticky ? 0 : 'auto',
         top: sticky ? 0 : 'auto',
         backgroundColor: theme.titleStyles.backgroundColor,

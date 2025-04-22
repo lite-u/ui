@@ -10,8 +10,8 @@ const ButtonsSample: React.FC = () => {
   const buttonVars = ['default', 'primary', 'error', 'warn']
 
   return <Col id={'buttons'} style={{marginTop: 50}}>
-    <Title h3 sticky>Buttons</Title>
-    <Title h4 sticky>Import</Title>
+    <Title h2 sticky>Buttons</Title>
+    <Title h4>Import</Title>
     <Row>
       <CodeBlock code={`import {Button} from '@lite-u/ui'`}/>
     </Row>

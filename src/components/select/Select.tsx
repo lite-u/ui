@@ -46,6 +46,9 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   return <div ref={wrapperRef}
               style={{
+                width: 100,
+                height: 40,
+                cursor: 'pointer',
                 ...style,
                 position: 'relative',
               }}
