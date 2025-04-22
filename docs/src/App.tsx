@@ -4,7 +4,7 @@ import Row from '@ui/components/layouts/Row.tsx'
 import {Link, Menu, MenuItem, Select, SelectItem, Title} from '@ui/index.tsx'
 import ButtonsSample from './components/samples/buttonsSample.tsx'
 import InputsSample from './components/samples/InputsSample.tsx'
-import CodeBlock from './components/codeBlock/codeBlock.tsx'
+import Installation from './components/Installation.tsx'
 
 function App() {
   return <ThemeProvider>
@@ -51,17 +51,12 @@ function App() {
         </Col>
 
         <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
-          <Col style={{padding: 50}}>
-            <Col id={'installation'}>
-              <Title h2 sticky>Installation</Title>
+          <Col style={{padding: '0 50px'}}>
 
-              <Row>
-                <CodeBlock code={`npm install @lite-u/ui`}/>
-              </Row>
-            </Col>
+            <Installation/>
 
-            <div id={'components'}>
-              <Title h2 sticky>Components</Title>
+            <div id={'components'} style={{marginTop: 100}}>
+              {/*<Title h2 sticky>Components</Title>*/}
               <ButtonsSample/>
               <InputsSample/>
 

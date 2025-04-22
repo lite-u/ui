@@ -3,7 +3,7 @@ import Prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.min.css'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-tsx'
-import {Button, Col, Row} from '@ui/index.tsx'
+import {Button} from '@ui/index.tsx'
 
 type CodeBlockProps = {
   code: string;
@@ -37,34 +37,25 @@ const CodeBlock: React.FC<CodeBlockProps> = ({code, language = 'tsx'}) => {
   }
 
   return (
-    <Col w={'auto'} style={{marginTop: 30}}>
-      <Row fw between>
-        <div></div>
-        <Button s onClick={handleCopy}>
-          {copied ? '✓ Copied' : 'Copy'}
-        </Button>
-      </Row>
+    <div style={{width: '100%', position: 'relative'}}>
+      <Button s onClick={handleCopy} style={{
+        position: 'absolute',
+        right: 0,
+        top: 0,
+      }}>
+        {copied ? '✓ Copied' : 'Copy'}
+      </Button>
 
-      <pre style={styles.pre}>
+      <pre style={{
+        minWidth: 300,
+        margin: 0,
+        padding: '30px 20px',
+        borderRadius: '5px',
+      }}>
         <code ref={ref} className={`language-${language}`}>{code}</code>
       </pre>
-    </Col>
+    </div>
   )
-}
-
-const styles: { pre: React.CSSProperties } = {
-  pre: {
-    width: '100%',
-    margin: '0 auto',
-    padding: 20,
-    /*background: '#2d2d2d',
-    color: '#ccc',
-    padding: '1rem',
-    borderRadius: '8px',
-    fontSize: '14px',
-    overflowX: 'auto',
-    fontFamily: 'Fira Code, monospace',*/
-  },
 }
 
 export default CodeBlock

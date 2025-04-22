@@ -20,6 +20,7 @@ const ButtonsSample: React.FC = () => {
             <Row between
                  w={wrapperWidth}
                  style={{
+                   marginBottom: 20,
                    alignItems: 'end',
                    display: 'inline-flex',
                    gap: 8,
