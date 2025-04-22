@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Col = ({ children, fw = true, fh = false, around = false, 
+const Col = ({ children, fw = true, fh = false, around = false, between = false, 
 // center = false,
 w, h, style = {}, ...props }) => {
     let styles = { display: 'flex', flexDirection: 'column', width: 'auto', height: 'auto', ...style };
@@ -17,6 +17,9 @@ w, h, style = {}, ...props }) => {
     }
     if (around) {
         styles.justifyContent = 'space-around';
+    }
+    if (between) {
+        styles.justifyContent = 'space-between';
     }
     /*if (center) {
       styles.alignItems = 'center'

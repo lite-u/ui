@@ -3,20 +3,6 @@ import Title from '@ui/components/title/Title.tsx'
 import {Button, Row} from '@ui/index.tsx'
 import CodeBlock from '../codeBlock/codeBlock.tsx'
 
-const ButtonPrimaryCode = `
-<Button>default</Button>
-<Button xs>xs</Button>
-<Button s>small</Button>
-<Button m>middle</Button>
-<Button l>large</Button>
-`
-const sampleLabel = (strings: TemplateStringsArray) => {
-  const var0 = strings[0]
-  const var1 = strings[1]
-  console.log(strings)
-  return `<Button ${var0} ${var1}></Button>\n`
-}
-
 const ButtonsSample: React.FC<{ id: string }> = () => {
   const wrapperWidth = 'auto'
   const blockMT = 50
@@ -75,64 +61,6 @@ const ButtonsSample: React.FC<{ id: string }> = () => {
         },
       )
     }
-    {/*
-
-    <Title h4 style={{marginTop: blockMT}}>Default</Title>
-    <Row between
-         w={wrapperWidth}
-         style={{
-           alignItems: 'end',
-         }}>
-      <Button xs>xs</Button>
-      <Button s>small</Button>
-      <Button m>middle</Button>
-      <Button l>large</Button>
-      <Button>default</Button>
-    </Row>
-
-    <Title h4 style={{marginTop: blockMT}}>Primary</Title>
-    <Row between
-         w={wrapperWidth}
-         style={{
-           alignItems: 'end',
-         }}>
-      <Button primary xs>xs</Button>
-      <Button primary s>small</Button>
-      <Button primary m>middle</Button>
-      <Button primary l>large</Button>
-      <Button primary>default</Button>
-    </Row>
-
-    <Title h4 style={{marginTop: blockMT}}>Error</Title>
-    <Row between
-         w={wrapperWidth}
-         style={{
-           alignItems: 'end',
-         }}>
-      <Button error xs>xs</Button>
-      <Button error s>small</Button>
-      <Button error m>middle</Button>
-      <Button error l>large</Button>
-      <Button error>default</Button>
-    </Row>
-
-    <Title h4 style={{marginTop: blockMT}}>Warn</Title>
-    <Row between
-         w={wrapperWidth}
-         style={{
-           alignItems: 'end',
-         }}>
-      <Button warn xs>xs</Button>
-      <Button warn s>small</Button>
-      <Button warn m>middle</Button>
-      <Button warn l>large</Button>
-      <Button warn>default</Button>
-    </Row>
-*/}
-
-    {/*<Row>
-      <CodeBlock code={ButtonPrimaryCode}/>
-    </Row>*/}
   </Col>
 }
 

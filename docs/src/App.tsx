@@ -8,26 +8,25 @@ import InputsSample from './components/samples/InputsSample.tsx'
 
 function App() {
   return <ThemeProvider>
-    <Col>
-      <Col around style={{height: 50, borderBottom: '1px solid gray'}}>
-        <header>header</header>
+    <Col fw fh style={{overflow: 'hidden'}}>
+
+      <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
+        <header style={{height: 50}}>header</header>
       </Col>
 
-      <Row fh>
-        <Col w={100}>
+      <Row h={'auto'} style={{overflow: 'auto'}}>
+        <Col w={200}>
           <MenuItem><Link href={'#installation'}>Installation</Link> </MenuItem>
           <MenuItem><Link href={'#buttons'}>Button</Link> </MenuItem>
           <MenuItem><Link href={'#input'}>Input</Link> </MenuItem>
           <MenuItem><Link href={'#buttons'}>Button</Link> </MenuItem>
         </Col>
 
-        <Col fw style={{overflow: 'auto'}}>
+        <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
           <ButtonsSample/>
           <InputsSample/>
         </Col>
       </Row>
-
-      <Row fw></Row>
     </Col>
   </ThemeProvider>
 }

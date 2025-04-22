@@ -15,11 +15,12 @@ const Row: React.FC<{
         fh = false,
         around = false,
         between = false,
-        w = 'auto',
-        h = 'auto',
+        w,
+        h,
         style = {},
         ...props
       }) => {
+
   let styles: React.CSSProperties = {display: 'flex', flexDirection: 'row', width: 'auto', height: 'auto', ...style}
 
   if (fw) {
@@ -45,6 +46,7 @@ const Row: React.FC<{
   if (between) {
     styles.justifyContent = 'space-between'
   }
+
   return <div
     role={'row'}
     style={styles}

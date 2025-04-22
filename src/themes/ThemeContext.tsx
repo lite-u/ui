@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from 'react'
 import {liteTheme} from './lite'
 import {darkTheme} from './dark'
-import {ThemeType} from './type'
+// import {ThemeType} from './type'
 
 export const ThemeContext = createContext<{
   theme: ThemeType

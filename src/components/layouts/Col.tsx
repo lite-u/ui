@@ -7,6 +7,7 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   w?: number | string,
   h?: number | string,
   around?: boolean,
+  between?: boolean,
   // center?: boolean,
   style?: {}
 }> = ({
@@ -14,13 +15,14 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
         fw = true,
         fh = false,
         around = false,
+        between = false,
         // center = false,
         w,
         h,
         style = {},
         ...props
       }) => {
-  let styles:React.CSSProperties = {display: 'flex', flexDirection: 'column', width: 'auto', height: 'auto', ...style}
+  let styles: React.CSSProperties = {display: 'flex', flexDirection: 'column', width: 'auto', height: 'auto', ...style}
 
   if (fw) {
     styles.width = '100%'
@@ -40,6 +42,9 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (around) {
     styles.justifyContent = 'space-around'
+  }
+  if (between) {
+    styles.justifyContent = 'space-between'
   }
 
   /*if (center) {

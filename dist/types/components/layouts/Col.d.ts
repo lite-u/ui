@@ -6,6 +6,7 @@ declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     w?: number | string;
     h?: number | string;
     around?: boolean;
+    between?: boolean;
     style?: {};
 }>;
 export default Col;

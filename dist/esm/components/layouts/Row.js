@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Row = ({ children, fw = true, fh = false, around = false, between = false, w = 'auto', h = 'auto', style = {}, ...props }) => {
+const Row = ({ children, fw = true, fh = false, around = false, between = false, w, h, style = {}, ...props }) => {
     let styles = { display: 'flex', flexDirection: 'row', width: 'auto', height: 'auto', ...style };
     if (fw) {
         styles.width = '100%';
