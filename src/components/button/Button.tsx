@@ -82,7 +82,6 @@ export const Button: React.FC<ButtonProps> = ({
     ...buttonStyles[variant],
     ...sizeStyles[size],
     ...style,
-
   }
 
   return (
