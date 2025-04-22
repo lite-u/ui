@@ -11,6 +11,10 @@ const ButtonsSample: React.FC = () => {
 
   return <Col id={'buttons'} style={{marginTop: 50}}>
     <Title h3 sticky>Buttons</Title>
+    <Title h4 sticky>Import</Title>
+    <Row>
+      <CodeBlock code={`import {Button} from '@lite-u/ui'`}/>
+    </Row>
     {
       buttonVars.map(buttonVar => {
           let sampleCode = ''

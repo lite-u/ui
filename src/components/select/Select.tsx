@@ -6,6 +6,7 @@ const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & {
   style?: {}
 }> = ({
         label,
+        style,
         children,
         ...props
       }) => {
@@ -28,15 +29,25 @@ const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & {
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
-      console.log(wrapperRef.current.getBoundingClientRect())
       // console.log(Math.min(maxHeight, h))
       setWrapperHeight(Math.min(maxHeight, h))
     }
   }, [children])
 
-  return <div ref={wrapperRef} {...props} style={{
-    position: 'relative',
-  }}>
+  const handleOpen = (e) => {
+    const rect = wrapperRef.current?.getBoundingClientRect()
+    console.log(rect)
+    setPosition({top: rect!.top, bottom: rect!.bottom})
+    setOpenSelect(!openSelect)
+  }
+
+  // console.log(position)
+  return <div ref={wrapperRef}
+              style={{
+                ...style,
+                position: 'relative',
+              }}
+              {...props}>
     {/*{label && <label>{label}</label>}*/}
     {/*
                     <div onFocus={() => setSelectFocused(true)}
@@ -45,18 +56,30 @@ const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & {
                     </div>
                 */}
 
-    <div onClick={() => {
-      setOpenSelect(!openSelect)
-    }}>selected
+    <div onClick={(e) => {
+      handleOpen(e)
+    }}>placeholder
     </div>
 
     <div style={{
-      position: 'relative',
+      position: 'absolute',
       overflow: 'hidden',
+      width: '100%',
       height: openSelect ? wrapperHeight : 0,
+      // top: position.top,
+      backgroundColor: '#fff',
+      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
+      bottom: '100%',
     }}>
       <div ref={containerRef}
-           style={{position: 'absolute', height: 'auto'}} {...props}>
+           style={{
+             width: '100%',
+             backgroundColor: '#fff',
+             position: 'absolute',
+             height: 'auto',
+             top: 0,
+             left: 0,
+           }} {...props}>
         {children}
       </div>
     </div>

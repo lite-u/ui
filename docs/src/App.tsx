@@ -62,7 +62,7 @@ function App() {
 
               <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
                 <Title h2>Select</Title>
-                <Select id={'select'}>
+                <Select id={'select'} style={{width: '100px'}}>
                   <SelectItem>hello a</SelectItem>
                   <SelectItem>hello b</SelectItem>
                   <SelectItem>hello c</SelectItem>
@@ -73,10 +73,16 @@ function App() {
                 </Select>
               </Col>
 
+
               <Col between style={{borderBottom: '1px solid gray', position: 'sticky'}}>
                 <Title h2>Link</Title>
                 <Link href={`#link`} id={'link'}>Link</Link>
               </Col>
+
+              <div style={{
+                height: '800px',
+              }}></div>
+
             </div>
           </Col>
         </Col>
