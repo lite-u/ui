@@ -21,7 +21,12 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
         ...props
       }) => {
 
-  let styles: React.CSSProperties = {display: 'flex', flexDirection: 'row', width: 'auto', height: 'auto', ...style}
+  let styles: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'row',
+    boxSizing: 'border-box',
+    width: 'auto', height: 'auto', ...style,
+  }
 
   if (fw) {
     styles.width = '100%'

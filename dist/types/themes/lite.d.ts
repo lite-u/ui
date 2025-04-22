@@ -94,4 +94,10 @@ export declare const liteTheme: {
             borderRadius: string;
         };
     };
+    menuStyles: {
+        gat: number;
+    };
+    menuItemStyles: {
+        backgroundColor: string;
+    };
 };

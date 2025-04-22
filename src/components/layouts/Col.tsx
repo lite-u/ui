@@ -22,7 +22,13 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
         style = {},
         ...props
       }) => {
-  let styles: React.CSSProperties = {display: 'flex', flexDirection: 'column', width: 'auto', height: 'auto', ...style}
+  let styles: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
+    width: 'auto',
+    height: 'auto', ...style,
+  }
 
   if (fw) {
     styles.width = '100%'

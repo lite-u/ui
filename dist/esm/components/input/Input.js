@@ -9,6 +9,5 @@ const Input = ({ type, label, s, m, l, ...props }) => {
         Object.assign(styles, {});
     }
     return _jsxs("div", { children: [label && _jsx("label", { children: label }), type === 'number' && _jsx(InputNumber, { style: styles, ...props }), type === 'text' && _jsx(InputText, { style: styles, ...props })] });
-    return _jsx("input", { type: type });
 };
 export default Input;

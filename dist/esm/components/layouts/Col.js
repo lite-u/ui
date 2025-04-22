@@ -2,7 +2,13 @@ import { jsx as _jsx } from "react/jsx-runtime";
 const Col = ({ children, fw = true, fh = false, around = false, between = false, 
 // center = false,
 w, h, style = {}, ...props }) => {
-    let styles = { display: 'flex', flexDirection: 'column', width: 'auto', height: 'auto', ...style };
+    let styles = {
+        display: 'flex',
+        flexDirection: 'column',
+        boxSizing: 'border-box',
+        width: 'auto',
+        height: 'auto', ...style,
+    };
     if (fw) {
         styles.width = '100%';
     }

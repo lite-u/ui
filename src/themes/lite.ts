@@ -117,4 +117,10 @@ export const liteTheme = {
       borderRadius: '6px',
     },
   },
+  menuStyles: {
+    gat: 8,
+  },
+  menuItemStyles: {
+    backgroundColor: '#e4e4e4',
+  },
 }

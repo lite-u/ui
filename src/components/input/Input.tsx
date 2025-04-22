@@ -32,8 +32,6 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
       type === 'text' && <InputText style={styles} {...props}/>
     }
   </div>
-
-  return <input type={type}/>
 }
 
 export default Input

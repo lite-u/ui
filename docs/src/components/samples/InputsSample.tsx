@@ -1,16 +1,14 @@
-import {Button, Col, Input, P, Row, Title} from '@ui/index.tsx'
+import {Col, Input, P, Row, Title} from '@ui/index.tsx'
 
 const InputsSample: React.FC = () => {
   return <Col id={'inputs'}>
-    <Title h2>Input</Title>
+    <Title h2>Inputs</Title>
 
-    <P>Primary</P>
+    <Title h4>Primary</Title>
     <Row w={200} around style={{
       alignItems: 'end',
     }}>
       <Input s/>
-      <Button m>Primary</Button>
-      <Button l>Primary</Button>
     </Row>
   </Col>
 }

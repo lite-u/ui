@@ -1,7 +1,26 @@
-const Menu: React.FC<{ label?: string }> = ({_, ...props}) => {
+import {ReactNode} from 'react'
+import {useTheme} from '../../themes/ThemeContext'
 
-  return <div>
+const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
+  { children: ReactNode, gap?: number }> = ({
+                                              children,
+                                              style = {},
+                                              gap = 8,
+                                              ...props
+                                            }) => {
+  const {theme} = useTheme()
 
+  return <div style={{
+    ...style,
+    gap,
+    cursor: 'pointer',
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    alignItems: 'normal',
+  }}
+              {...props}>
+    {children}
   </div>
 }
 
