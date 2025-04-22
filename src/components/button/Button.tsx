@@ -30,21 +30,13 @@ export const Button: React.FC<ButtonProps> = ({
                                                 ...props
                                               }) => {
   const {theme} = useTheme()
+  const [opacity, setOpacity] = useState(1)
   const {
     fontSizes,
     padding,
     buttonStyles,
     borderRadius,
-    colors,
   } = theme
-  const {
-    primary: primaryColor,
-    neutral: defaultColor,
-    warn: warnColor,
-    error: errorColor,
-  } = colors
-
-  const [opacity, setOpacity] = useState(1)
 
   const getVariant = (): Variant => {
     if (primary) return 'primary'
@@ -79,8 +71,6 @@ export const Button: React.FC<ButtonProps> = ({
       height: 40,
     },
   }
-
-  console.log(borderRadius[size])
 
   const styles: React.CSSProperties = {
     opacity,

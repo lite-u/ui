@@ -3,9 +3,8 @@ import { useTheme } from '../../themes/ThemeContext';
 import { useState } from 'react';
 export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, type = 'button', ...props }) => {
     const { theme } = useTheme();
-    const { fontSizes, padding, buttonStyles, borderRadius, colors, } = theme;
-    const { primary: primaryColor, neutral: defaultColor, warn: warnColor, error: errorColor, } = colors;
     const [opacity, setOpacity] = useState(1);
+    const { fontSizes, padding, buttonStyles, borderRadius, } = theme;
     const getVariant = () => {
         if (primary)
             return 'primary';
@@ -44,7 +43,6 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
             height: 40,
         },
     };
-    console.log(borderRadius[size]);
     const styles = {
         opacity,
         cursor: 'pointer',
