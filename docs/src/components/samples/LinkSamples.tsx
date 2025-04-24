@@ -1,8 +1,7 @@
 import {Col, Link, Panel, Row, Title} from '@ui/index.tsx'
 
 const LinkSamples: React.FC = () => {
-  return <Col id={'link'}>
-    <Title h2>Link</Title>
+  return <Col  >
 
     <Col between style={{marginTop: 50}}>
       <Title h2 sticky>Link</Title>

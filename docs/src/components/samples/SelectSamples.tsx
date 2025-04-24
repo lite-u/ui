@@ -1,9 +1,7 @@
 import {Col, MenuItem, Panel, Row, Select, SelectItem, Title} from '@ui/index.tsx'
 
 const SelectSamples: React.FC = () => {
-  return <Col id={'select'}>
-    <Title h2>Select</Title>
-
+  return <Col>
     <Col between style={{}}>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
       <Row style={{zIndex: 50}}>

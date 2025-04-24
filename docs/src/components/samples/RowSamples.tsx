@@ -2,15 +2,8 @@ import {Button, Col, Con, Row, Title} from '@ui/index.tsx'
 import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
 const RowSamples: React.FC = () => {
-  return <Col id={'row'}>
-    <Title h2 sticky>Row</Title>
-
+  return <Col  >
     <Col between>
-      <Title h4>Import</Title>
-
-      <CodeWrap code={`import { Row } from '@lite-u/ui'`}/>
-      <Con m={20}></Con>
-
       <Title h4>With width</Title>
       <Con m={10}></Con>
       <Row between center w={400}>

@@ -1,20 +1,8 @@
 import ThemeProvider from '@ui/themes/ThemeContext.tsx'
-// import Col from '@ui/components/layouts/Col.tsx'
-// import Row from '@u/**/i/components/layouts/Row.tsx'
 import {Col, Link, Menu, MenuItem, Row} from '@ui/index.tsx'
-import ButtonsSample from '@samples/ButtonsSample.tsx'
-import InputsSample from '@samples/InputsSample.tsx'
 import Installation from '@samples/Installation.tsx'
-import SelectSamples from '@samples/SelectSamples.tsx'
-import PanelSamples from '@samples/PanelSamples.tsx'
-import LinkSamples from '@samples/LinkSamples.tsx'
-import ColSamples from '@samples/ColSamples.tsx'
-import MenuItemSamples from '@samples/MenuItemSamples.tsx'
-import MenuSamples from '@samples/MenuSamples.tsx'
-import ModalSamples from '@samples/ModalSamples.tsx'
-import RowSamples from '@samples/RowSamples.tsx'
-import TitleSamples from '@samples/TitleSamples.tsx'
-import ConSamples from '@samples/ConSamples.tsx'
+import SAMPLES from '@samples/index.tsx'
+import SampleBase from '@samples/SampleBase.tsx'
 
 function App() {
   return <ThemeProvider>
@@ -36,26 +24,10 @@ function App() {
               <Link href={`#components`}>Components</Link>
             </MenuItem>
             {
-              [
-                'Buttons',
-                'Inputs',
-                'Select',
-                'Link',
-                'ThemeProvider',
-                'Modal',
-                'Panel',
-                'Con',
-                'Row',
-                'Col',
-                'Title',
-                'Paragraph',
-                'P',
-                'Menu',
-                'MenuItem',
-              ].map((item, index) => {
+              SAMPLES.map((item, index) => {
                 return (
                   <MenuItem sm key={index}>
-                    <Link href={`#${item.toLowerCase()}`}>{item}</Link>
+                    <Link href={`#${item.name.toLowerCase()}`}>{item.name.toLowerCase()}</Link>
                   </MenuItem>)
               })
             }
@@ -68,20 +40,51 @@ function App() {
             <Installation/>
 
             <div id={'components'} style={{marginTop: 50}}>
+              {
+                SAMPLES.map((sample, index) => {
+                  return <SampleBase key={index} name={sample.name}>{sample.comp}</SampleBase>
+                })
+              }
               {/*<Title h2 sticky>Components</Title>*/}
-              <ButtonsSample/>
-              <InputsSample/>
-              <SelectSamples/>
-              <PanelSamples/>
-              <LinkSamples/>
-              <ButtonsSample/>
-              <ColSamples/>
-              <MenuItemSamples/>
-              <MenuSamples/>
-              <ModalSamples/>
-              <RowSamples/>
-              <TitleSamples/>
-              <ConSamples/>
+              {/*<SampleBase
+              ><ButtonsSample/>
+              </SampleBase>
+              <SampleBase
+              ><InputsSample/>
+              </SampleBase>
+              <SampleBase
+              ><SelectSamples/>
+              </SampleBase>
+              <SampleBase
+              ><PanelSamples/>
+              </SampleBase>
+              <SampleBase
+              ><LinkSamples/>
+              </SampleBase>
+              <SampleBase
+              ><ButtonsSample/>
+              </SampleBase>
+              <SampleBase
+              ><ColSamples/>
+              </SampleBase>
+              <SampleBase
+              ><MenuItemSamples/>
+              </SampleBase>
+              <SampleBase
+              ><MenuSamples/>
+              </SampleBase>
+              <SampleBase
+              ><ModalSamples/>
+              </SampleBase>
+              <SampleBase
+              ><RowSamples/>
+              </SampleBase>
+              <SampleBase
+              ><TitleSamples/>
+              </SampleBase>
+              <SampleBase
+              ><ConSamples/>
+              </SampleBase>*/}
             </div>
           </Col>
         </Col>

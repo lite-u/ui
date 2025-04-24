@@ -1,8 +1,7 @@
 import {Col, MenuItem, Panel, Row, Select, SelectItem, Title} from '@ui/index.tsx'
 
 const MenuSamples: React.FC = () => {
-  return <Col id={'Menu'}>
-    <Title h2>Menu</Title>
+  return <Col  >
 
     <Col between style={{}}>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>

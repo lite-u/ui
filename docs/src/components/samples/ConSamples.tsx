@@ -1,16 +1,10 @@
-import {Col, Con, Panel, Row, Title} from '@ui/index.tsx'
+import {Col, Con, Panel, Row,  } from '@ui/index.tsx'
 import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
 const ConSamples: React.FC = () => {
-  return <Col id={'con'}>
-    <Title h2>Con Container</Title>
+  return <Col  >
 
     <Col between>
-      <Title h4>Import</Title>
-
-      <CodeWrap code={`import { Con } from '@lite-u/ui'`}/>
-
-      <Con m={20}></Con>
 
       <Con w={200} h={200} p={20} bg={'blue'}>
         <Con fh p={20} bg={'green'}>
