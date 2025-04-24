@@ -4,10 +4,12 @@ import SelectContext from './SelectContext'
 const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
+  defaultValue?: ''
   style?: {}
 }> = ({
         label,
         style,
+        defaultValue = '',
         children,
         ...props
       }) => {
@@ -16,7 +18,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState<{ top?: string, bottom?: string }>({})
   const [wrapperHeight, setWrapperHeight] = useState(0)
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(defaultValue)
 
   useEffect(() => {
     const maxHeight = window.innerHeight
@@ -58,8 +60,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
 
       <div onClick={(e) => {
         handleOpen(e)
-      }}>placeholder
-      </div>
+      }}>{value}</div>
 
       <div style={{
         position: 'absolute',

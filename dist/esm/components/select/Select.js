@@ -1,13 +1,13 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
-const Select = ({ label, style, children, ...props }) => {
+const Select = ({ label, style, defaultValue = '', children, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
     const [position, setPosition] = useState({});
     const [wrapperHeight, setWrapperHeight] = useState(0);
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(defaultValue);
     useEffect(() => {
         const maxHeight = window.innerHeight;
         if (containerRef.current) {
@@ -41,7 +41,7 @@ const Select = ({ label, style, children, ...props }) => {
                 position: 'relative',
             }, ...props, children: [_jsx("div", { onClick: (e) => {
                         handleOpen(e);
-                    }, children: "placeholder" }), _jsx("div", { style: {
+                    }, children: value }), _jsx("div", { style: {
                         position: 'absolute',
                         overflow: openSelect ? 'auto' : 'hidden',
                         width: '100%',
