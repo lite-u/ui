@@ -1,5 +1,5 @@
 import {Col, Row, Title} from '@ui/index.tsx'
-import CodeBlock from './codeBlock/codeBlock.tsx'
+import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
 const Installation: React.FC = () => {
   const code1 = `npm install @lite-u/ui`
@@ -16,12 +16,12 @@ export const App() {
     <Title h2 sticky>Installation</Title>
 
     <Row>
-      <CodeBlock code={code1}/>
+      <CodeWrap code={code1}/>
     </Row>
 
     <Title h4>Import</Title>
     <Row>
-      <CodeBlock code={code2}/>
+      <CodeWrap code={code2}/>
     </Row>
   </Col>
 }

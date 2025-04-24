@@ -18,7 +18,7 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
         fw = true,
         fh = false,
         bg = 'transparent',
-        color = 'auto',
+        color = 'inherit',
         w,
         h,
         p,

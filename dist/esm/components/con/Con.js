@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', color = 'auto', w, h, p, m, style = {}, ...props }) => {
+const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', color = 'inherit', w, h, p, m, style = {}, ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',

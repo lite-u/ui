@@ -1,7 +1,7 @@
 import Col from '@ui/components/layouts/Col.tsx'
 import Title from '@ui/components/title/Title.tsx'
 import {Button, Row} from '@ui/index.tsx'
-import CodeBlock from '../codeBlock/codeBlock.tsx'
+import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
 const ButtonsSample: React.FC = () => {
   const wrapperWidth = 'auto'
@@ -13,7 +13,7 @@ const ButtonsSample: React.FC = () => {
     <Title h2 sticky>Buttons</Title>
     <Title h4>Import</Title>
     <Row>
-      <CodeBlock code={`import {Button} from '@lite-u/ui'`}/>
+      <CodeWrap code={`import {Button} from '@lite-u/ui'`}/>
     </Row>
     {
       buttonVars.map(buttonVar => {
@@ -60,7 +60,7 @@ const ButtonsSample: React.FC = () => {
             </Row>
 
             <Row>
-              <CodeBlock code={sampleCode}/>
+              <CodeWrap code={sampleCode}/>
             </Row>
 
           </div>
