@@ -85,5 +85,5 @@ export interface ThemeType {
       color: string;
       borderRadius: string;
     };
-  };
+  }
 }
