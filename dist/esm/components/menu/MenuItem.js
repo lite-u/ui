@@ -8,7 +8,7 @@ const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
         padding: theme.padding.md.y,
         fontSize: theme.fontSizes.md,
         // borderRadius: theme.borderRadius.lg,
-        background: theme.menuItemStyles.backgroundColor,
+        background: theme.menuItem.backgroundColor,
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',

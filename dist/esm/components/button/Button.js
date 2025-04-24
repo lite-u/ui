@@ -4,7 +4,7 @@ import { useState } from 'react';
 export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, type = 'button', ...props }) => {
     const { theme } = useTheme();
     const [opacity, setOpacity] = useState(1);
-    const { fontSizes, padding, buttonStyles, borderRadius, } = theme;
+    const { fontSizes, padding, button, borderRadius, } = theme;
     const getVariant = () => {
         if (primary)
             return 'primary';
@@ -50,7 +50,7 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
         padding: `0 ${padding[size].x}px`,
         borderRadius: `${borderRadius[size]}px`,
         borderWidth: 0,
-        ...buttonStyles[variant],
+        ...button[variant],
         ...sizeStyles[size],
         ...style,
     };

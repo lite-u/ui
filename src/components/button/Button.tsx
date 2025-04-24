@@ -34,7 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
   const {
     fontSizes,
     padding,
-    buttonStyles,
+    button,
     borderRadius,
   } = theme
 
@@ -79,7 +79,7 @@ export const Button: React.FC<ButtonProps> = ({
     padding: `0 ${padding[size].x}px`,
     borderRadius: `${borderRadius[size]}px`,
     borderWidth: 0,
-    ...buttonStyles[variant],
+    ...button[variant],
     ...sizeStyles[size],
     ...style,
   }

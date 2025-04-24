@@ -46,7 +46,7 @@ export interface ThemeType {
         md: string;
         lg: string;
     };
-    buttonStyles: {
+    button: {
         primary: {
             backgroundColor: string;
             color: string;
@@ -72,7 +72,7 @@ export interface ThemeType {
             borderRadius: string;
         };
     };
-    inputStyles: {
+    input: {
         primary: {
             backgroundColor: string;
             border: string;
@@ -96,6 +96,24 @@ export interface ThemeType {
             border: string;
             color: string;
             borderRadius: string;
+        };
+    };
+    menuItem: {
+        backgroundColor: string;
+    };
+    title: {
+        h1: number;
+        h2: number;
+        h3: number;
+        h4: number;
+        h5: number;
+        h6: number;
+        backgroundColor: string;
+    };
+    panel: {
+        primaryColor: string;
+        head: {
+            backgroundColor: string;
         };
     };
 }

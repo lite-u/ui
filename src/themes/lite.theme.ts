@@ -32,6 +32,7 @@ export const liteTheme: ThemeType = {
     lg: 16,
   },
 }*/
+const primaryColor = '#0a2e71'
 
 export const liteTheme = {
   colors: {
@@ -69,7 +70,7 @@ export const liteTheme = {
     md: 4,
     lg: 5,
   },
-  buttonStyles: {
+  button: {
     primary: {
       backgroundColor: '#0a2e71',
       color: 'white',
@@ -91,7 +92,7 @@ export const liteTheme = {
       borderColor: '#ccc',
     },
   },
-  inputStyles: {
+  input: {
     primary: {
       backgroundColor: '#ffffff',
       border: '1px solid #007bff',
@@ -117,19 +118,23 @@ export const liteTheme = {
       borderRadius: '6px',
     },
   },
-  menuStyles: {
+  menu: {
     gat: 8,
   },
-  menuItemStyles: {
+  menuItem: {
     backgroundColor: '#e4e4e4',
   },
-  titleStyles: {
-    h1:32,
-    h2:28,
-    h3:24,
-    h4:20,
-    h5:18,
-    h6:16,
+  title: {
+    h1: 32,
+    h2: 28,
+    h3: 24,
+    h4: 20,
+    h5: 18,
+    h6: 16,
     backgroundColor: '#fff',
+  },
+  panel: {
+    primaryColor,
+
   },
 }

@@ -1,5 +1,7 @@
 import {useTheme} from '../../themes/ThemeContext'
 import {ReactNode} from 'react'
+import {Col} from '../../index'
+import Paragraph from '../paragraph/Paragraph'
 
 const Panel: React.FC<{
   title: string,
@@ -15,12 +17,14 @@ const Panel: React.FC<{
       }) => {
   const {theme} = useTheme()
 
-  return <div {...props}>
-    <div style={{background: theme.bg}} className={titleClass}>{title}</div>
-    <div style={{border: `1px solid ${theme.primary}`}} className={boxClass}>
+  return <Col {...props}>
+    <div style={{background: theme.panel.primaryColor, color: '#fff'}} className={titleClass}>
+      <Paragraph center size={18} style={{padding:8}}>{title}</Paragraph>
+    </div>
+    <div style={{border: `1px solid ${theme.panel.primaryColor}`, height: 100}} className={boxClass}>
       {children}
     </div>
-  </div>
+  </Col>
 
 }
 

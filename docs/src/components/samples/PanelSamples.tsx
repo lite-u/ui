@@ -7,7 +7,9 @@ const PanelSamples: React.FC = () => {
     <Row w={200} around style={{
       alignItems: 'end',
     }}>
-      <Panel/>
+      <Panel title={'hello'} >
+        hello
+      </Panel>
     </Row>
   </Col>
 }

@@ -25,12 +25,12 @@ export const Title: React.FC<TitleProps> = ({
   const {padding} = theme
 
   const headingMap: Record<HeadingLevel, { fontSize: number, margin: number }> = {
-    h1: {fontSize: theme.titleStyles.h1, margin: padding.lg.x},
-    h2: {fontSize: theme.titleStyles.h2, margin: padding.lg.x},
-    h3: {fontSize: theme.titleStyles.h3, margin: padding.md.x},
-    h4: {fontSize: theme.titleStyles.h4, margin: padding.md.x},
-    h5: {fontSize: theme.titleStyles.h5, margin: padding.sm.x},
-    h6: {fontSize: theme.titleStyles.h6, margin: padding.sm.x},
+    h1: {fontSize: theme.title.h1, margin: padding.lg.x},
+    h2: {fontSize: theme.title.h2, margin: padding.lg.x},
+    h3: {fontSize: theme.title.h3, margin: padding.md.x},
+    h4: {fontSize: theme.title.h4, margin: padding.md.x},
+    h5: {fontSize: theme.title.h5, margin: padding.sm.x},
+    h6: {fontSize: theme.title.h6, margin: padding.sm.x},
   }
 
   const level =
@@ -55,7 +55,7 @@ export const Title: React.FC<TitleProps> = ({
         zIndex: 10,
         left: sticky ? 0 : 'auto',
         top: sticky ? 0 : 'auto',
-        backgroundColor: theme.titleStyles.backgroundColor,
+        backgroundColor: theme.title.backgroundColor,
         ...style,
       }}
       {...rest}

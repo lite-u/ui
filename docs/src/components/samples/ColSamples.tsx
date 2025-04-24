@@ -1,4 +1,4 @@
-import {Col, MenuItem, Panel, Row, Select, SelectItem, Title} from '@ui/index.tsx'
+import {Col, MenuItem, Row, Select, SelectItem, Title} from '@ui/index.tsx'
 
 const ColSamples: React.FC = () => {
   return <Col id={'col'}>
