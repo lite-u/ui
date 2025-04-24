@@ -6,15 +6,16 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   fh?: boolean,
   w?: number | string,
   h?: number | string,
-  space?: number
+  // align items
   start?: boolean,
   center?: boolean,
   stretch?: boolean,
   end?: boolean,
+  // justify-content
   around?: boolean,
   jc?: boolean,
   between?: boolean,
-  // center?: boolean,
+  space?: number
   style?: {}
 }> = ({
         children,

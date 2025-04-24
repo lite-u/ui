@@ -5,7 +5,6 @@ declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     fh?: boolean;
     w?: number | string;
     h?: number | string;
-    space?: number;
     start?: boolean;
     center?: boolean;
     stretch?: boolean;
@@ -13,6 +12,7 @@ declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     around?: boolean;
     jc?: boolean;
     between?: boolean;
+    space?: number;
     style?: {};
 }>;
 export default Col;

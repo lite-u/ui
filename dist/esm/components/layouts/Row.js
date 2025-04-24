@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Row = ({ children, fw = true, fh = false, around = false, jc = false, between = false, start = true, center = false, end = false, space = 0, w, h, style = {}, ...props }) => {
+const Row = ({ children, fw = true, fh = false, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, space = 0, w, h, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'row',
@@ -36,6 +36,9 @@ const Row = ({ children, fw = true, fh = false, around = false, jc = false, betw
     }
     if (end) {
         styles.alignItems = 'end';
+    }
+    if (stretch) {
+        styles.alignItems = 'stretch';
     }
     return _jsx("div", { role: 'row', style: styles, ...props, children: children });
 };

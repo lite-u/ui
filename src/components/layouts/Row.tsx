@@ -2,15 +2,19 @@ import {ReactNode} from 'react'
 
 const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
   children: ReactNode,
+  // size
   fw?: boolean,
   fh?: boolean,
   w?: number | string,
   h?: number | string,
+  // align items
   start?: boolean,
-  jc?: boolean,
   center?: boolean,
+  stretch?: boolean,
   end?: boolean,
+  // justify-content
   around?: boolean,
+  jc?: boolean,
   between?: boolean,
   space?: number
   style?: {}
@@ -23,6 +27,7 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
         between = false,
         start = true,
         center = false,
+        stretch = false,
         end = false,
         space = 0,
         w,
@@ -77,6 +82,10 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (end) {
     styles.alignItems = 'end'
+  }
+
+  if (stretch) {
+    styles.alignItems = 'stretch'
   }
 
   return <div
