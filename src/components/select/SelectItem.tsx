@@ -1,20 +1,27 @@
+import {useContext} from 'react'
+import SelectContext from './SelectContext'
+
 const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string,
+  value: string,
   children: React.ReactNode,
   style?: {}
 }> = ({
         label,
+        value,
         children,
         ...props
       }) => {
-  /*  let styles: React.CSSProperties = {
-      border: '1px solid #dfdfdf',
-    }*/
+  const context = useContext(SelectContext)
+  if (!context) return null
 
-  return <div {...props}>
-    {label && <label>{label}</label>}
-    {children}
-  </div>
+  const {setValue} = context
+
+  return (
+    <div onClick={() => setValue(value)} {...props}>
+      {children}
+    </div>
+  )
 }
 
 export default SelectItem

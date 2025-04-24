@@ -1,8 +1,11 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-const SelectItem = ({ label, children, ...props }) => {
-    /*  let styles: React.CSSProperties = {
-        border: '1px solid #dfdfdf',
-      }*/
-    return _jsxs("div", { ...props, children: [label && _jsx("label", { children: label }), children] });
+import { jsx as _jsx } from "react/jsx-runtime";
+import { useContext } from 'react';
+import SelectContext from './SelectContext';
+const SelectItem = ({ label, value, children, ...props }) => {
+    const context = useContext(SelectContext);
+    if (!context)
+        return null;
+    const { setValue } = context;
+    return (_jsx("div", { onClick: () => setValue(value), ...props, children: children }));
 };
 export default SelectItem;
