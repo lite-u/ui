@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import Con from '../con/Con'
+import {Col, Row} from '../../index'
 
 const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string
@@ -65,9 +66,9 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
          }}
          {...props}>
 
-      <Con fh onClick={() => {
+      <Row center jc fh onClick={() => {
         handleOpen()
-      }}>{value}</Con>
+      }}>{value}</Row>
 
       <div style={{
         position: 'absolute',

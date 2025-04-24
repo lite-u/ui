@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
-import Con from '../con/Con';
+import { Row } from '../../index';
 const Select = ({ label, style, defaultValue = '', children, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
@@ -45,7 +45,7 @@ const Select = ({ label, style, defaultValue = '', children, ...props }) => {
                 cursor: 'pointer',
                 ...style,
                 position: 'relative',
-            }, ...props, children: [_jsx(Con, { fh: true, onClick: () => {
+            }, ...props, children: [_jsx(Row, { center: true, jc: true, fh: true, onClick: () => {
                         handleOpen();
                     }, children: value }), _jsx("div", { style: {
                         position: 'absolute',
