@@ -21,7 +21,7 @@ export interface ThemeType {
     sm: string;
     md: string;
     lg: string;
-  };
+  }
   padding: {
     xs: { x: number; y: number };
     sm: { x: number; y: number };
