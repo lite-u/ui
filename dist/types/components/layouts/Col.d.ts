@@ -11,6 +11,7 @@ declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     stretch?: boolean;
     end?: boolean;
     around?: boolean;
+    jc?: boolean;
     between?: boolean;
     style?: {};
 }>;

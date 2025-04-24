@@ -6,6 +6,7 @@ declare const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
     w?: number | string;
     h?: number | string;
     start?: boolean;
+    jc?: boolean;
     center?: boolean;
     end?: boolean;
     around?: boolean;

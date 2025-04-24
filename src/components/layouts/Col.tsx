@@ -12,6 +12,7 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   stretch?: boolean,
   end?: boolean,
   around?: boolean,
+  jc?: boolean,
   between?: boolean,
   // center?: boolean,
   style?: {}
@@ -20,6 +21,7 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
         fw = true,
         fh = false,
         around = false,
+        jc = false,
         between = false,
         space = 0,
         start = true,
@@ -62,6 +64,10 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (between) {
     styles.justifyContent = 'space-between'
+  }
+
+  if (jc) {
+    styles.justifyContent = 'center'
   }
 
   if (start) {

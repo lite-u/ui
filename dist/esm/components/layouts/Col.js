@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Col = ({ children, fw = true, fh = false, around = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, w, h, style = {}, ...props }) => {
+const Col = ({ children, fw = true, fh = false, around = false, jc = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, w, h, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'column',
@@ -25,6 +25,9 @@ const Col = ({ children, fw = true, fh = false, around = false, between = false,
     }
     if (between) {
         styles.justifyContent = 'space-between';
+    }
+    if (jc) {
+        styles.justifyContent = 'center';
     }
     if (start) {
         styles.alignItems = 'start';

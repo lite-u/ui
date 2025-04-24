@@ -7,6 +7,7 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
   w?: number | string,
   h?: number | string,
   start?: boolean,
+  jc?: boolean,
   center?: boolean,
   end?: boolean,
   around?: boolean,
@@ -18,6 +19,7 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
         fw = true,
         fh = false,
         around = false,
+        jc = false,
         between = false,
         start = true,
         center = false,
@@ -55,6 +57,10 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (around) {
     styles.justifyContent = 'space-around'
+  }
+
+  if (jc) {
+    styles.justifyContent = 'center'
   }
 
   if (between) {
