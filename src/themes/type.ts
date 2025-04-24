@@ -29,7 +29,7 @@ export interface ThemeType {
     lg: { x: number; y: number };
   };
   borderRadius: {
-    xs: string;
+    xs: string
     sm: string;
     md: string;
     lg: string;
