@@ -32,7 +32,7 @@ export interface ThemeType {
     xs: string
     sm: string
     md: string;
-    lg: string;
+    lg: string
   };
   buttonStyles: {
     primary: {
