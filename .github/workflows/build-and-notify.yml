@@ -28,6 +28,12 @@ jobs:
           cd docs
           npm install
           npm run build-doc
+
+      - name: Upload dist as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ui docs keep dist
+          path: ui/docs/dist
 #      - name: Build project
 #        run: npm run build
 
