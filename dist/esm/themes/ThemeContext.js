@@ -2,7 +2,6 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useContext, useEffect, useState } from 'react';
 import { liteTheme } from './lite';
 import { darkTheme } from './dark';
-// import {ThemeType} from './type'
 export const ThemeContext = createContext({
     theme: liteTheme,
     setTheme: (mode) => {

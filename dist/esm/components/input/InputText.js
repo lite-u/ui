@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 const InputNumber = () => {
-    return _jsx("input", { type: 'number' });
+    return _jsx("input", { type: 'text' });
 };
 export default InputNumber;

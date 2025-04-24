@@ -1,5 +1,5 @@
 const InputNumber: React.FC<{   }> = () => {
-  return <input type={'number'}/>
+  return <input type={'text'}/>
 }
 
 export default InputNumber
