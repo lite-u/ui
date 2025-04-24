@@ -29,11 +29,11 @@ jobs:
           npm install
           npm run build-doc
 
-      - name: Upload dist as artifact
+      - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ui docs keep dist
-          path: ui/docs/dist
+          path: docs/dist
 #      - name: Build project
 #        run: npm run build
 
