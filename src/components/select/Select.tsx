@@ -6,11 +6,13 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
   defaultValue?: string
+  onChange?: (value: string | number) => void
   style?: {}
 }> = ({
         label,
         style,
         defaultValue = '',
+        onChange,
         children,
         ...props
       }) => {
@@ -34,8 +36,11 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     }
   }, [children])
 
-  const handleItemClick = (value: string) => {
-    setValue(value)
+  const handleItemClick = (newValue: string) => {
+    setValue(newValue)
+    if (value !== value) {
+      onChange && onChange(value)
+    }
     setOpenSelect(false)
   }
 

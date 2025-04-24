@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row } from '../../index';
-const Select = ({ label, style, defaultValue = '', children, ...props }) => {
+const Select = ({ label, style, defaultValue = '', onChange, children, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -21,8 +21,11 @@ const Select = ({ label, style, defaultValue = '', children, ...props }) => {
             }
         }
     }, [children]);
-    const handleItemClick = (value) => {
-        setValue(value);
+    const handleItemClick = (newValue) => {
+        setValue(newValue);
+        if (value !== value) {
+            onChange && onChange(value);
+        }
         setOpenSelect(false);
     };
     const handleOpen = () => {
