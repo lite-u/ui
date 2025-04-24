@@ -5,8 +5,12 @@ declare const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
     fh?: boolean;
     w?: number | string;
     h?: number | string;
+    start?: boolean;
+    center?: boolean;
+    end?: boolean;
     around?: boolean;
     between?: boolean;
+    space?: number;
     style?: {};
 }>;
 export default Row;

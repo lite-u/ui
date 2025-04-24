@@ -1,11 +1,10 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Col = ({ children, fw = true, fh = false, around = false, between = false, 
-// center = false,
-w, h, style = {}, ...props }) => {
+const Col = ({ children, fw = true, fh = false, around = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, w, h, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'column',
         boxSizing: 'border-box',
+        gap: space,
         width: 'auto',
         height: 'auto', ...style,
     };
@@ -27,10 +26,18 @@ w, h, style = {}, ...props }) => {
     if (between) {
         styles.justifyContent = 'space-between';
     }
-    /*if (center) {
-      styles.alignItems = 'center'
-    }*/
-    // console.log(styles)
+    if (start) {
+        styles.alignItems = 'start';
+    }
+    if (center) {
+        styles.alignItems = 'center';
+    }
+    if (end) {
+        styles.alignItems = 'end';
+    }
+    if (stretch) {
+        styles.alignItems = 'stretch';
+    }
     return _jsx("div", { style: styles, ...props, children: children });
 };
 export default Col;

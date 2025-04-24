@@ -6,6 +6,11 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   fh?: boolean,
   w?: number | string,
   h?: number | string,
+  space?: number
+  start?: boolean,
+  center?: boolean,
+  stretch?: boolean,
+  end?: boolean,
   around?: boolean,
   between?: boolean,
   // center?: boolean,
@@ -16,7 +21,11 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
         fh = false,
         around = false,
         between = false,
-        // center = false,
+        space = 0,
+        start = true,
+        center = false,
+        stretch = false,
+        end = false,
         w,
         h,
         style = {},
@@ -26,6 +35,7 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     display: 'flex',
     flexDirection: 'column',
     boxSizing: 'border-box',
+    gap: space,
     width: 'auto',
     height: 'auto', ...style,
   }
@@ -49,14 +59,27 @@ const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
   if (around) {
     styles.justifyContent = 'space-around'
   }
+
   if (between) {
     styles.justifyContent = 'space-between'
   }
 
-  /*if (center) {
+  if (start) {
+    styles.alignItems = 'start'
+  }
+
+  if (center) {
     styles.alignItems = 'center'
-  }*/
-  // console.log(styles)
+  }
+
+  if (end) {
+    styles.alignItems = 'end'
+  }
+
+  if (stretch) {
+    styles.alignItems = 'stretch'
+  }
+
   return <div
     style={styles}
     {...props}

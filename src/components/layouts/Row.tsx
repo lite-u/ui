@@ -6,8 +6,12 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
   fh?: boolean,
   w?: number | string,
   h?: number | string,
+  start?: boolean,
+  center?: boolean,
+  end?: boolean,
   around?: boolean,
   between?: boolean,
+  space?: number
   style?: {}
 }> = ({
         children,
@@ -15,6 +19,10 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
         fh = false,
         around = false,
         between = false,
+        start = true,
+        center = false,
+        end = false,
+        space = 0,
         w,
         h,
         style = {},
@@ -26,6 +34,7 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
     flexDirection: 'row',
     boxSizing: 'border-box',
     width: 'auto', height: 'auto', ...style,
+    gap: space,
   }
 
   if (fw) {
@@ -50,6 +59,18 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (between) {
     styles.justifyContent = 'space-between'
+  }
+
+  if (start) {
+    styles.alignItems = 'start'
+  }
+
+  if (center) {
+    styles.alignItems = 'center'
+  }
+
+  if (end) {
+    styles.alignItems = 'end'
   }
 
   return <div

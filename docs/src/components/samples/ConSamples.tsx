@@ -23,10 +23,10 @@ const ConSamples: React.FC = () => {
       <Con m={20}></Con>
 
       <CodeWrap code={`
-              <Con w={200} h={200} p={20} bg={'blue'}>
+      <Con w={200} h={200} p={20} bg={'blue'}>
         <Con fh p={20} bg={'green'}>
           <Con fh p={20} bg={'red'}>
-            <Con fh p={20} box={false} bg={'yellow'}></Con>
+            <Con fh p={20} bg={'yellow'} box={false}></Con>
           </Con>
         </Con>
       </Con>

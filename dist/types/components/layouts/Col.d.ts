@@ -5,6 +5,11 @@ declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     fh?: boolean;
     w?: number | string;
     h?: number | string;
+    space?: number;
+    start?: boolean;
+    center?: boolean;
+    stretch?: boolean;
+    end?: boolean;
     around?: boolean;
     between?: boolean;
     style?: {};

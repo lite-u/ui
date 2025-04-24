@@ -1,10 +1,11 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Row = ({ children, fw = true, fh = false, around = false, between = false, w, h, style = {}, ...props }) => {
+const Row = ({ children, fw = true, fh = false, around = false, between = false, start = true, center = false, end = false, space = 0, w, h, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'row',
         boxSizing: 'border-box',
         width: 'auto', height: 'auto', ...style,
+        gap: space,
     };
     if (fw) {
         styles.width = '100%';
@@ -23,6 +24,15 @@ const Row = ({ children, fw = true, fh = false, around = false, between = false,
     }
     if (between) {
         styles.justifyContent = 'space-between';
+    }
+    if (start) {
+        styles.alignItems = 'start';
+    }
+    if (center) {
+        styles.alignItems = 'center';
+    }
+    if (end) {
+        styles.alignItems = 'end';
     }
     return _jsx("div", { role: 'row', style: styles, ...props, children: children });
 };
