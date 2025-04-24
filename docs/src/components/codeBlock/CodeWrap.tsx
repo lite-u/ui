@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
-import 'prismjs/themes/prism-tomorrow.min.css'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-tsx'
 import {Button, Con} from '@ui/index.tsx'
-import CodeBlock from './codeBlock.tsx'
 import dedent from 'dedent'
+import CodeBlock from './codeBlock.tsx'
 
 const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   code: string;
@@ -22,7 +19,13 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   return (
-    <Con w={400} style={{width: '100%', position: 'relative'}}>
+    <Con w={400} style={{
+      width: '100%',
+      boxShadow: '1px 1px 5px 1px #000',
+      borderRadius: '5px',
+      overflow: 'hidden',
+      position: 'relative',
+    }}>
       <Button s
               onClick={handleCopy}
               style={{
@@ -33,11 +36,11 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
         {copied ? '✓ Copied' : 'Copy'}
       </Button>
 
-      <CodeWrap code={dedent(code)}
+      <CodeBlock code={dedent(code)}
                  style={{
                    // minWidth: 300,
                    margin: 0,
-                   // padding: '30px 20px',
+                   padding: '25px 20px 15px 20px',
                    // borderRadius: '5px',
                  }}/>
     </Con>

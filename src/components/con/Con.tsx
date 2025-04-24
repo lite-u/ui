@@ -1,7 +1,7 @@
 import {CSSProperties, ReactNode} from 'react'
 
 const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
-  children: ReactNode,
+  children?: ReactNode,
   box?: boolean,
   fw?: boolean,
   fh?: boolean,
