@@ -28,7 +28,7 @@ function App() {
       <Row h={'auto'} style={{overflow: 'hidden'}}>
 
         <Col w={200} style={{padding: '50px 10px', overflowY: 'auto'}}>
-          <Menu gap={0}>
+          <Menu space={0}>
             <MenuItem sm>
               <Link href={`#installation`}>Installation</Link>
             </MenuItem>

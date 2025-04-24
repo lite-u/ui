@@ -7,7 +7,7 @@ const Panel: React.FC<{
   title: string,
   titleClass?: string,
   boxClass?: string,
-  children: ReactNode
+  children?: ReactNode
 }> = ({
         title,
         titleClass = '',
@@ -18,8 +18,8 @@ const Panel: React.FC<{
   const {theme} = useTheme()
 
   return <Col fh {...props}>
-    <div style={{background: theme.panel.primaryColor, color: '#fff'}} className={titleClass}>
-      <Paragraph center size={18} style={{padding: 8}}>{title}</Paragraph>
+    <div style={{background: theme.panel.primaryColor,borderRadius:'3px 3px 0 0', color: '#fff'}} className={titleClass}>
+      <Paragraph center size={16} style={{padding: 8}}>{title}</Paragraph>
     </div>
     <div style={{border: `1px solid ${theme.panel.primaryColor}`}} className={boxClass}>
       {children}

@@ -6,7 +6,7 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   center?: boolean
 }> = ({
         children,
-        size = 12,
+        size = 16,
         style = {},
         center = false,
         ...props

@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Paragraph = ({ children, size = 12, style = {}, center = false, ...props }) => {
+const Paragraph = ({ children, size = 16, style = {}, center = false, ...props }) => {
     // const theme = useTheme()
     const styles = {};
     if (center) {

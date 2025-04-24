@@ -2,17 +2,17 @@ import {ReactNode} from 'react'
 import {useTheme} from '../../themes/ThemeContext'
 
 const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
-  { children: ReactNode, gap?: number }> = ({
+  { children: ReactNode, space?: number }> = ({
                                               children,
                                               style = {},
-                                              gap = 8,
+                                              space = 8,
                                               ...props
                                             }) => {
   const {theme} = useTheme()
 
   return <div style={{
     ...style,
-    gap,
+    gap: space,
     cursor: 'pointer',
     display: 'flex',
     flexDirection: 'column',
