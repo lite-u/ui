@@ -27,7 +27,7 @@ export interface ThemeType {
     sm: { x: number; y: number };
     md: { x: number; y: number };
     lg: { x: number; y: number };
-  };
+  }
   borderRadius: {
     xs: string
     sm: string
