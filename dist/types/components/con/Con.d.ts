@@ -1,12 +1,15 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 declare const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     children: ReactNode;
+    box?: boolean;
     fw?: boolean;
     fh?: boolean;
-    p?: number | string;
-    m?: number | string;
-    w?: number | string;
-    h?: number | string;
+    bg?: CSSProperties['backgroundColor'];
+    color?: CSSProperties['color'];
+    p?: CSSProperties['padding'];
+    m?: CSSProperties['margin'];
+    w?: CSSProperties['width'];
+    h?: CSSProperties['height'];
     style?: {};
 }>;
 export default Con;

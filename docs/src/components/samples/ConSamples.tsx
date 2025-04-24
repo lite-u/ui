@@ -5,7 +5,10 @@ const ConSamples: React.FC = () => {
     <Title h2>O</Title>
 
     <Col between>
-      <Con></Con>
+      <Con w={300} bg={'blue'} color={'white'}>
+        <Con p={10}> Hello </Con>
+        <Con p={20}> Hello </Con>
+      </Con>
     </Col>
   </Col>
 }
