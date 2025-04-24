@@ -59,7 +59,7 @@ export interface ThemeType {
       border: string;
       borderRadius: string;
     };
-  };
+  }
   inputStyles: {
     primary: {
       backgroundColor: string;
