@@ -1,33 +1,16 @@
-import {Col, MenuItem,   Row, Select, SelectItem, Title} from '@ui/index.tsx'
+import {Col, Title} from '@ui/index.tsx'
 
 const TitleSamples: React.FC = () => {
   return <Col id={'title'}>
-    <Title h2>Select</Title>
+    <Title h2>Title</Title>
 
-    <Col between style={{}}>
-      <Title h2 sticky style={{zIndex: 60}}>Select</Title>
-      <Row style={{zIndex: 50}}>
-        <Select id={'select'} style={{width: '100px', zIndex: 9}}>
-          {
-            Array.from({length: 100}).fill(undefined).map((_, index) => {
-              return <SelectItem key={index}>
-                <MenuItem>hello {index + 1}</MenuItem>
-              </SelectItem>
-            })
-          }
-        </Select>
-
-        <Select id={'select'} style={{width: '100px', zIndex: 9}}>
-          {
-            ['px', 'mm', 'cm'].map((_, index) => {
-              return <SelectItem key={index}>
-                <MenuItem>hello {index + 1}</MenuItem>
-              </SelectItem>
-            })
-          }
-        </Select>
-      </Row>
-
+    <Col between>
+      <Title h1>h1</Title>
+      <Title h2>h2</Title>
+      <Title h3>h3</Title>
+      <Title h4>h4</Title>
+      <Title h5>h5</Title>
+      <Title h6>h6</Title>
     </Col>
   </Col>
 }

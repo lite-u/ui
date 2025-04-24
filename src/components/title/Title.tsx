@@ -2,7 +2,7 @@ import {useTheme} from '../../themes/ThemeContext'
 import React, {ReactNode} from 'react'
 
 type TitleProps = {
-  children: ReactNode
+  children?: ReactNode
   sticky?: boolean
   h1?: boolean
   h2?: boolean
