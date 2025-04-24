@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "doc dev": "vite",
-    "doc build": "tsc -b && vite build",
+    "doc build": "../tsc -b && vite build",
     "doc fource build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
