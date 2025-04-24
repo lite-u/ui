@@ -1,6 +1,6 @@
 import {ReactNode} from 'react'
 
-const O: React.FC<React.HTMLProps<HTMLDivElement> & {
+const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   children: ReactNode,
   fw?: boolean,
   fh?: boolean,
@@ -50,4 +50,4 @@ const O: React.FC<React.HTMLProps<HTMLDivElement> & {
   </div>
 }
 
-export default O
+export default Con

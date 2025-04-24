@@ -13,6 +13,6 @@ import Link from './components/link/Link';
 import { ThemeType } from './themes/type';
 import Select from './components/select/Select';
 import SelectItem from './components/select/SelectItem';
-import O from './components/o/O';
-export { Input, Select, SelectItem, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, O };
+import Con from './components/con/Con';
+export { Input, Select, SelectItem, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, Con };
 export type { ThemeType };

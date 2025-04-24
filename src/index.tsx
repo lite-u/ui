@@ -13,7 +13,7 @@ import Link from './components/link/Link'
 import {ThemeType} from './themes/type'
 import Select from './components/select/Select'
 import SelectItem from './components/select/SelectItem'
-import O from './components/o/O'
+import Con from './components/con/Con'
 
 export {
   Input,
@@ -31,7 +31,7 @@ export {
   P,
   Menu,
   MenuItem,
-  O
+  Con
 }
 
 export type {ThemeType}

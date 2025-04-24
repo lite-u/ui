@@ -14,6 +14,7 @@ import MenuSamples from '@samples/MenuSamples.tsx'
 import ModalSamples from '@samples/ModalSamples.tsx'
 import RowSamples from '@samples/RowSamples.tsx'
 import TitleSamples from '@samples/TitleSamples.tsx'
+import ConSamples from '@samples/ConSamples.tsx'
 
 function App() {
   return <ThemeProvider>
@@ -43,6 +44,7 @@ function App() {
                 'ThemeProvider',
                 'Modal',
                 'Panel',
+                'Con',
                 'Row',
                 'Col',
                 'Title',
@@ -79,6 +81,7 @@ function App() {
               <ModalSamples/>
               <RowSamples/>
               <TitleSamples/>
+              <ConSamples/>
             </div>
           </Col>
         </Col>

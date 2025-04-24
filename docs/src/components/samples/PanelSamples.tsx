@@ -8,7 +8,7 @@ const PanelSamples: React.FC = () => {
       alignItems: 'end',
     }}>
 
-      <Panel title={'hello'} >
+      <Panel title={'hello'}>
         hello
       </Panel>
     </Row>
