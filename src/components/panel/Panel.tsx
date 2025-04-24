@@ -17,11 +17,11 @@ const Panel: React.FC<{
       }) => {
   const {theme} = useTheme()
 
-  return <Col {...props}>
+  return <Col fh {...props}>
     <div style={{background: theme.panel.primaryColor, color: '#fff'}} className={titleClass}>
-      <Paragraph center size={18} style={{padding:8}}>{title}</Paragraph>
+      <Paragraph center size={18} style={{padding: 8}}>{title}</Paragraph>
     </div>
-    <div style={{border: `1px solid ${theme.panel.primaryColor}`, height: 100}} className={boxClass}>
+    <div style={{border: `1px solid ${theme.panel.primaryColor}`}} className={boxClass}>
       {children}
     </div>
   </Col>
