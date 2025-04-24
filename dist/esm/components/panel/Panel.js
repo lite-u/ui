@@ -4,6 +4,10 @@ import { Col } from '../../index';
 import Paragraph from '../paragraph/Paragraph';
 const Panel = ({ title, titleClass = '', boxClass = '', children, ...props }) => {
     const { theme } = useTheme();
-    return _jsxs(Col, { fh: true, stretch: true, ...props, children: [_jsx("div", { style: { background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff' }, className: titleClass, children: _jsx(Paragraph, { center: true, size: 16, style: { padding: 8 }, children: title }) }), _jsx("div", { style: { border: `1px solid ${theme.panel.primaryColor}`, height: '100%' }, className: boxClass, children: children })] });
+    return _jsxs(Col, { fh: true, stretch: true, ...props, children: [_jsx("div", { style: { background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff' }, className: titleClass, children: _jsx(Paragraph, { center: true, size: 16, style: { padding: 8 }, children: title }) }), _jsx("div", { style: {
+                    border: `1px solid ${theme.panel.primaryColor}`,
+                    borderTop: 'none',
+                    height: '100%',
+                }, className: boxClass, children: children })] });
 };
 export default Panel;

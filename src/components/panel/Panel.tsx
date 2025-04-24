@@ -22,7 +22,11 @@ const Panel: React.FC<{
          className={titleClass}>
       <Paragraph center size={16} style={{padding: 8}}>{title}</Paragraph>
     </div>
-    <div style={{border: `1px solid ${theme.panel.primaryColor}`, height: '100%'}} className={boxClass}>
+    <div style={{
+      border: `1px solid ${theme.panel.primaryColor}`,
+      borderTop: 'none',
+      height: '100%',
+    }} className={boxClass}>
       {children}
     </div>
   </Col>
