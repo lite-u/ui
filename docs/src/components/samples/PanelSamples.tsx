@@ -1,8 +1,7 @@
-import {Col, Con, P, Panel, Title} from '@ui/index.tsx'
+import {Col, Con, P, Panel} from '@ui/index.tsx'
 
 const PanelSamples: React.FC = () => {
-  return <Col  >
-
+  return <Col>
     <Con w={200} h={200}>
       <Panel title={'Title'}>
         <Con p={10}>
