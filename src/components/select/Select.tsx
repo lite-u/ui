@@ -40,7 +40,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   const handleItemClick = (newValue: string) => {
     setValue(newValue)
     if (newValue !== value) {
-      onChange && onChange(value)
+      onChange && onChange(newValue)
     }
     setOpenSelect(false)
   }

@@ -6,10 +6,12 @@ const SelectSamples: React.FC = () => {
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
       <Row style={{zIndex: 60}} space={10}>
-        <Select defaultValue={'1'} id={'select'} style={{position: 'relative', width: '100px', zIndex: 100}}>
-          <SelectItem value={'1'}>
-            <MenuItem>hello 1</MenuItem>
-          </SelectItem>
+        <Select onChange={(v)=>{
+          console.log(v)
+        }} defaultValue={'2'} id={'select'} style={{position: 'relative', width: '100px', zIndex: 100}}>
+          <SelectItem value={'1'}><MenuItem>hello 1</MenuItem></SelectItem>
+          <SelectItem value={'2'}><MenuItem>hello 2</MenuItem></SelectItem>
+          <SelectItem value={'3'}><MenuItem>hello 3</MenuItem></SelectItem>
         </Select>
 
         <Select defaultValue={'12'} id={'select'} style={{position: 'relative', width: '100px', zIndex: 100}}>
@@ -22,7 +24,6 @@ const SelectSamples: React.FC = () => {
           }
         </Select>
       </Row>
-
 
 
     </Col>
