@@ -31,7 +31,7 @@ export interface ThemeType {
   borderRadius: {
     xs: string
     sm: string
-    md: string;
+    md: string
     lg: string
   };
   buttonStyles: {
