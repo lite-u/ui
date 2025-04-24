@@ -25,6 +25,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   useEffect(() => {
     const maxHeight = window.innerHeight
+    setValue(defaultValue)
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
@@ -34,7 +35,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
         setWrapperHeight(h)
       }
     }
-  }, [children])
+  }, [children, defaultValue])
 
   const handleItemClick = (newValue: string) => {
     setValue(newValue)

@@ -11,6 +11,7 @@ const Select = ({ label, style, defaultValue = '', onChange, children, ...props 
     const [value, setValue] = useState(defaultValue);
     useEffect(() => {
         const maxHeight = window.innerHeight;
+        setValue(defaultValue);
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
             if (h > maxHeight) {
@@ -20,7 +21,7 @@ const Select = ({ label, style, defaultValue = '', onChange, children, ...props 
                 setWrapperHeight(h);
             }
         }
-    }, [children]);
+    }, [children, defaultValue]);
     const handleItemClick = (newValue) => {
         setValue(newValue);
         if (value !== value) {
