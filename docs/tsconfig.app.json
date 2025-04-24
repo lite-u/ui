@@ -5,7 +5,8 @@
     "useDefineForClassFields": true,
     "baseUrl": ".",
     "paths": {
-      "@ui/*": ["../src/*"]
+      "@ui/*": ["../src/*"],
+      "@samples/*": ["./src/components/samples/*"]
     },
     "lib": [
       "ES2020",

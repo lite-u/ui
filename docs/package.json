@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "doc dev": "vite",
+    "dev-doc": "vite",
     "doc build": "../tsc -b && vite build",
     "build-doc": "vite build",
     "lint": "eslint .",

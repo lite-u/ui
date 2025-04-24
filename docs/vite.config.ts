@@ -18,6 +18,7 @@ export default defineConfig(({mode}) => {
       alias: {
         react: path.resolve(__dirname, './node_modules/react'),
         '@ui': path.resolve(__dirname, '../src'),
+        '@samples': './components/samples',
 
         // /esm/icons/index.mjs only exports the icons statically, so no separate chunks are created
         // '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
