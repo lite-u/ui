@@ -30,7 +30,7 @@ export interface ThemeType {
   };
   borderRadius: {
     xs: string
-    sm: string;
+    sm: string
     md: string;
     lg: string;
   };
