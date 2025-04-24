@@ -1,6 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
+import Con from '../con/Con';
 const Select = ({ label, style, defaultValue = '', children, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
@@ -20,6 +21,10 @@ const Select = ({ label, style, defaultValue = '', children, ...props }) => {
             }
         }
     }, [children]);
+    const handleItemClick = (value) => {
+        setValue(value);
+        setOpenSelect(false);
+    };
     const handleOpen = () => {
         const maxHeight = window.innerHeight;
         const rect = wrapperRef.current?.getBoundingClientRect();
@@ -33,14 +38,15 @@ const Select = ({ label, style, defaultValue = '', children, ...props }) => {
         setPosition(newPosition);
         setOpenSelect(!openSelect);
     };
-    return _jsx(SelectContext.Provider, { value: { value, setValue }, children: _jsxs("div", { ref: wrapperRef, style: {
+    return _jsx(SelectContext.Provider, { value: { value, itemClick: handleItemClick }, children: _jsxs("div", { ref: wrapperRef, style: {
                 width: 100,
                 height: 40,
+                border: '1px solid #dfdfdf',
                 cursor: 'pointer',
                 ...style,
                 position: 'relative',
-            }, ...props, children: [_jsx("div", { onClick: (e) => {
-                        handleOpen(e);
+            }, ...props, children: [_jsx(Con, { fh: true, onClick: () => {
+                        handleOpen();
                     }, children: value }), _jsx("div", { style: {
                         position: 'absolute',
                         overflow: openSelect ? 'auto' : 'hidden',

@@ -1,10 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
+import Con from '../con/Con'
 
 const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
-  defaultValue?: ''
+  defaultValue?: string
   style?: {}
 }> = ({
         label,
@@ -33,6 +34,10 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     }
   }, [children])
 
+  const handleItemClick = (value) => {
+    setValue(value)
+    setOpenSelect(false)
+  }
   const handleOpen = () => {
     const maxHeight = window.innerHeight
     const rect = wrapperRef.current?.getBoundingClientRect()
@@ -47,20 +52,22 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     setPosition(newPosition)
     setOpenSelect(!openSelect)
   }
-  return <SelectContext.Provider value={{value, setValue}}>
+
+  return <SelectContext.Provider value={{value, itemClick: handleItemClick}}>
     <div ref={wrapperRef}
          style={{
            width: 100,
            height: 40,
+           border: '1px solid #dfdfdf',
            cursor: 'pointer',
            ...style,
            position: 'relative',
          }}
          {...props}>
 
-      <div onClick={(e) => {
-        handleOpen(e)
-      }}>{value}</div>
+      <Con fh onClick={() => {
+        handleOpen()
+      }}>{value}</Con>
 
       <div style={{
         position: 'absolute',

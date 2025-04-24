@@ -14,16 +14,6 @@ const SelectSamples: React.FC = () => {
             })
           }
         </Select>
-
-        <Select id={'select'} style={{width: '100px', zIndex: 9}}>
-          {
-            ['px', 'mm', 'cm'].map((_, index) => {
-              return <SelectItem key={index}>
-                <MenuItem>hello {index + 1}</MenuItem>
-              </SelectItem>
-            })
-          }
-        </Select>
       </Row>
 
     </Col>

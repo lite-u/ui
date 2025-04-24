@@ -15,10 +15,10 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   const context = useContext(SelectContext)
   if (!context) return null
 
-  const {setValue} = context
+  const {itemClick} = context
 
   return (
-    <div onClick={() => setValue(value)} {...props}>
+    <div onClick={() => itemClick(value)} {...props}>
       {children}
     </div>
   )
