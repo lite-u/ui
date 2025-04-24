@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
-import Con from '../con/Con'
-import {Col, Row} from '../../index'
+import {Row} from '../../index'
 
 const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string
@@ -35,10 +34,11 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     }
   }, [children])
 
-  const handleItemClick = (value) => {
+  const handleItemClick = (value: string) => {
     setValue(value)
     setOpenSelect(false)
   }
+
   const handleOpen = () => {
     const maxHeight = window.innerHeight
     const rect = wrapperRef.current?.getBoundingClientRect()
