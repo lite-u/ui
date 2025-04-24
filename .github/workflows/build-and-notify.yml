@@ -29,9 +29,6 @@ jobs:
           npm install
           npm run build-doc
 
-      - name: Ensure dist directory exists
-        run: mkdir -p ui/docs/dist
-
       - name: Upload dist as artifact
         uses: actions/upload-artifact@v4
         with:
