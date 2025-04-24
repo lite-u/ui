@@ -18,7 +18,7 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
         fw = true,
         fh = false,
         bg = 'transparent',
-        color = '#000',
+        color = 'auto',
         w,
         h,
         p,
@@ -65,7 +65,7 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     styles.background = bg
   }
   if (color) {
-    styles.background = color
+    styles.color = color
   }
 
   return <div

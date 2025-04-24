@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', color = '#000', w, h, p, m, style = {}, ...props }) => {
+const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', color = 'auto', w, h, p, m, style = {}, ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -30,7 +30,7 @@ const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', 
         styles.background = bg;
     }
     if (color) {
-        styles.background = color;
+        styles.color = color;
     }
     return _jsx("div", { role: 'O', style: styles, ...props, children: children });
 };
