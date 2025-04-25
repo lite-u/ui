@@ -8,6 +8,7 @@ const Panel = ({ title, titleClass = '', boxClass = '', children, ...props }) =>
                     border: `1px solid ${theme.panel.primaryColor}`,
                     borderTop: 'none',
                     height: '100%',
+                    backgroundColor: '#fff',
                 }, className: boxClass, children: children })] });
 };
 export default Panel;

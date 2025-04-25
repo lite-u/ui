@@ -26,6 +26,7 @@ const Panel: React.FC<{
       border: `1px solid ${theme.panel.primaryColor}`,
       borderTop: 'none',
       height: '100%',
+      backgroundColor: '#fff',
     }}
          className={boxClass}>
       {children}
