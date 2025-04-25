@@ -2,9 +2,10 @@ import React from 'react'
 
 const Modal: React.FC<{
   children?: React.ReactNode,
+  style?: React.CSSProperties
   onBackdropClick?: VoidFunction,
   backdropBg?: string
-}> = ({children, onBackdropClick, backdropBg}) => {
+}> = ({children, style, onBackdropClick, backdropBg}) => {
 
   return <div
     data-name={'modal-root'}
@@ -24,6 +25,7 @@ const Modal: React.FC<{
     <div
       data-name={'modal-backdrop'}
       style={{
+        ...style,
         backgroundColor: backdropBg ? backdropBg : '#fff',
       }}
       onClick={() => {
