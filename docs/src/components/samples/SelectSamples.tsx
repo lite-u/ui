@@ -5,15 +5,6 @@ const SelectSamples: React.FC = () => {
     <Col between style={{}}>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
-      <Select defaultValue={'mm'} onChange={(newUnit) => {
-        // console.log(currentPageSet.unit)
-        // handleNewUnit(newUnit)
-        console.log(newUnit)
-      }}>
-        <SelectItem value={300}><MenuItem>300</MenuItem></SelectItem>
-        <SelectItem value={96}><MenuItem>96</MenuItem></SelectItem>
-        <SelectItem value={72}><MenuItem>72</MenuItem></SelectItem>
-      </Select>
       <Con m={80}/>
       <Row style={{zIndex: 60}} space={10}>
         <Select onChange={(v) => {

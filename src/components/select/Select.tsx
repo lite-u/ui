@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row} from '../../index'
 
-const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
+const Select: React.FC<{
   label?: string
   children?: React.ReactNode
   defaultValue?: string | number

@@ -1,5 +1,5 @@
 import React from 'react';
-declare const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
+declare const Select: React.FC<{
     label?: string;
     children?: React.ReactNode;
     defaultValue?: string | number;
