@@ -1,10 +1,20 @@
-import {Col, MenuItem, Row, Select, SelectItem, Title} from '@ui/index.tsx'
+import {Col, Con, MenuItem, Row, Select, SelectItem, Title} from '@ui/index.tsx'
 
 const SelectSamples: React.FC = () => {
   return <Col>
     <Col between style={{}}>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
+      <Select defaultValue={'mm'} onChange={(newUnit) => {
+        // console.log(currentPageSet.unit)
+        // handleNewUnit(newUnit)
+        console.log(newUnit)
+      }}>
+        <SelectItem value={'px'}><MenuItem>px</MenuItem></SelectItem>
+        <SelectItem value={'mm'}><MenuItem>mm</MenuItem></SelectItem>
+        <SelectItem value={'cm'}><MenuItem>cm</MenuItem></SelectItem>
+      </Select>
+<Con m={80}/>
       <Row style={{zIndex: 60}} space={10}>
         <Select onChange={(v)=>{
           console.log(v)

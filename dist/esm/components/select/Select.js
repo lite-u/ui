@@ -25,7 +25,7 @@ const Select = ({ label, style, defaultValue = '', onChange, children, ...props 
     const handleItemClick = (newValue) => {
         setValue(newValue);
         if (newValue !== value) {
-            onChange && onChange(value);
+            onChange && onChange(newValue);
         }
         setOpenSelect(false);
     };
