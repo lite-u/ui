@@ -5,7 +5,7 @@ const Modal: React.FC<{
   style?: React.CSSProperties
   onBackdropClick?: VoidFunction,
   backdropBg?: string
-}> = ({children, style, onBackdropClick, backdropBg}) => {
+}> = ({children, style, onBackdropClick, backdropBg = 'rgba(0,0,0,.5)'}) => {
 
   return <div
     data-name={'modal-root'}
@@ -20,22 +20,28 @@ const Modal: React.FC<{
       'width': '100%',
       'height': '100%',
       'userSelect': 'none',
+      zIndex: 1000,
+      ...style,
     }}
   >
     <div
       data-name={'modal-backdrop'}
       style={{
-        ...style,
-        backgroundColor: backdropBg ? backdropBg : '#fff',
+        'position': 'absolute',
+        'top': '0',
+        'left': '0',
+        'width': '100%',
+        'height': '100%',
+        zIndex: -1,
+        backgroundColor: backdropBg,
       }}
       onClick={() => {
         if (onBackdropClick) {
           onBackdropClick()
         }
-      }}
-      className={'absolute top-0 left-0 w-full h-full flex flex-row items-center justify-center select-none'}>
-      {children}
+      }}>
     </div>
+    {children}
   </div>
 }
 

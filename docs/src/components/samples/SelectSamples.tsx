@@ -7,7 +7,7 @@ const SelectSamples: React.FC = () => {
 
       <Row style={{zIndex: 60}} space={10}>
         <Select onChange={(v) => {
-          // console.log(v)
+          console.log(v)
         }}
                 defaultValue={'2'}
                 style={{position: 'relative', width: '100px', zIndex: 100}}>
