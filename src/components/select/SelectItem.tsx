@@ -1,10 +1,10 @@
-import {useContext} from 'react'
+import {ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
 
 const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string,
-  value: string,
-  children: React.ReactNode,
+  value: string | number,
+  children: ReactNode,
   style?: {}
 }> = ({
         label,

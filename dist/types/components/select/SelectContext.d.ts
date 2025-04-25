@@ -1,6 +1,6 @@
 /// <reference types="react" />
 declare const SelectContext: import("react").Context<{
-    value: string;
-    itemClick: (v: string) => void;
+    value: string | number;
+    itemClick: (v: string | number) => void;
 } | null>;
 export default SelectContext;

@@ -1,8 +1,8 @@
-/// <reference types="react" />
+import { ReactNode } from 'react';
 declare const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     label?: string;
-    value: string;
-    children: React.ReactNode;
+    value: string | number;
+    children: ReactNode;
     style?: {};
 }>;
 export default SelectItem;

@@ -1,8 +1,8 @@
 import {createContext} from 'react'
 
 const SelectContext = createContext<{
-  value: string;
-  itemClick: (v: string) => void;
-} | null>(null);
+  value: string | number
+  itemClick: (v: string | number) => void;
+} | null>(null)
 
-export default SelectContext;
+export default SelectContext

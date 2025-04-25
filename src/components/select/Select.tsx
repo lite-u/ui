@@ -5,7 +5,7 @@ import {Row} from '../../index'
 const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
-  defaultValue?: string
+  defaultValue?: string | number
   onChange?: (value: string | number) => void
   style?: {}
 }> = ({
@@ -37,7 +37,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     }
   }, [children, defaultValue])
 
-  const handleItemClick = (newValue: string) => {
+  const handleItemClick = (newValue: string | number) => {
     setValue(newValue)
     if (newValue !== value) {
       onChange && onChange(newValue)

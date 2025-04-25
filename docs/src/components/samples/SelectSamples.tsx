@@ -10,13 +10,13 @@ const SelectSamples: React.FC = () => {
         // handleNewUnit(newUnit)
         console.log(newUnit)
       }}>
-        <SelectItem value={'px'}><MenuItem>px</MenuItem></SelectItem>
-        <SelectItem value={'mm'}><MenuItem>mm</MenuItem></SelectItem>
-        <SelectItem value={'cm'}><MenuItem>cm</MenuItem></SelectItem>
+        <SelectItem value={300}><MenuItem>300</MenuItem></SelectItem>
+        <SelectItem value={96}><MenuItem>96</MenuItem></SelectItem>
+        <SelectItem value={72}><MenuItem>72</MenuItem></SelectItem>
       </Select>
-<Con m={80}/>
+      <Con m={80}/>
       <Row style={{zIndex: 60}} space={10}>
-        <Select onChange={(v)=>{
+        <Select onChange={(v) => {
           console.log(v)
         }} defaultValue={'2'} id={'select'} style={{position: 'relative', width: '100px', zIndex: 100}}>
           <SelectItem value={'1'}><MenuItem>hello 1</MenuItem></SelectItem>
