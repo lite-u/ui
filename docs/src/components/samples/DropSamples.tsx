@@ -4,9 +4,6 @@ import {useState} from 'react'
 import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
 const DropSamples: React.FC = () => {
-  const [isDraggingA, setIsDraggingA] = useState(false)
-  const [isDraggingB, setIsDraggingB] = useState(false)
-  const [isDraggingC, setIsDraggingC] = useState(false)
   const [sampleAData, setSampleAData] = useState({
     bg: '#cab077',
     defaultBg: '#cab077',
@@ -25,12 +22,6 @@ const DropSamples: React.FC = () => {
     msg: 'I accept ALL',
     defaultMsg: 'I accept ALL',
   })
-  const [msgA, setMsgA] = useState('I love PNG')
-  const [msgB, setMsgB] = useState('I love IMAGE')
-  const [msgC, setMsgC] = useState('I love ALL files')
-  const [droppedA, setDroppedA] = useState('')
-  const [droppedB, setDroppedB] = useState('')
-  const [droppedC, setDroppedC] = useState('')
 
   return <Col>
     <Row w={620} h={200} stretch space={10}>
