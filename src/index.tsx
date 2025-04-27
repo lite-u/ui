@@ -15,6 +15,7 @@ import Select from './components/select/Select'
 import SelectItem from './components/select/SelectItem'
 import Con from './components/con/Con'
 import Drop from './components/drop/Drop'
+import {useNotification} from './components/notification/NotificationContext'
 
 export {
   Input,
@@ -33,7 +34,8 @@ export {
   Menu,
   MenuItem,
   Con,
-  Drop
+  Drop,
+  useNotification
 }
 export default LiteUIProvider
 export type {ThemeType}
