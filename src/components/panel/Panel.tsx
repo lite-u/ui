@@ -1,4 +1,4 @@
-import {useTheme} from '../../LiteUIContext'
+import {useLiteUIContext} from '../../LiteUIProvider'
 import {ReactNode} from 'react'
 import {Col} from '../../index'
 import Paragraph from '../paragraph/Paragraph'
@@ -15,7 +15,7 @@ const Panel: React.FC<{
         children,
         ...props
       }) => {
-  const {theme} = useTheme()
+  const {theme} = useLiteUIContext()
 
   return <Col fh stretch {...props}>
     <div style={{background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff'}}

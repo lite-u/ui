@@ -1,13 +1,14 @@
 import React from 'react';
-export declare const ThemeContext: React.Context<{
+import { ThemeType } from './themes/type';
+export declare const LiteUIContext: React.Context<{
     theme: ThemeType;
     setTheme: (mode: 'lite' | 'dark') => void;
 }>;
-declare const ThemeProvider: ({ children }: {
+declare const LiteUIProvider: ({ children }: {
     children: React.ReactNode;
 }) => import("react/jsx-runtime").JSX.Element;
-export declare const useTheme: () => {
+export declare const useLiteUIContext: () => {
     theme: ThemeType;
     setTheme: (mode: 'lite' | 'dark') => void;
 };
-export default ThemeProvider;
+export default LiteUIProvider;

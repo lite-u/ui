@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../LiteUIContext';
+import { useLiteUIContext } from '../../LiteUIProvider';
 const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
-    const { theme } = useTheme();
+    const { theme } = useLiteUIContext();
     const styles = {
         ...style,
         height: 30,

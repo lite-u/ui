@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../LiteUIContext';
+import { useLiteUIContext } from '../../LiteUIProvider';
 const InputNumber = ({ style, ...props }) => {
-    const theme = useTheme();
+    const theme = useLiteUIContext();
     return _jsx("input", { type: 'text', style: {
             // borderColor: theme.theme.bg,
             ...style,

@@ -15,9 +15,9 @@
       "import": "./dist/esm/index.js",
       "types": "./dist/types/index.d.ts"
     },
-    "./LiteUIContext": {
-      "import": "./dist/esm/LiteUIContext.js",
-      "types": "./dist/types/LiteUIContext.d.ts"
+    "./LiteUIProvider": {
+      "import": "./dist/esm/LiteUIProvider.js",
+      "types": "./dist/types/LiteUIProvider.d.ts"
     },
     "./input": {
       "import": "./dist/esm/components/input/index.js",

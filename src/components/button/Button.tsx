@@ -1,4 +1,4 @@
-import {useTheme} from '../../LiteUIContext'
+import {useLiteUIContext} from '../../LiteUIProvider'
 import {useState} from 'react'
 
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
                                                 type = 'button',
                                                 ...props
                                               }) => {
-  const {theme} = useTheme()
+  const {theme} = useLiteUIContext()
   const [opacity, setOpacity] = useState(1)
   const {
     fontSizes,

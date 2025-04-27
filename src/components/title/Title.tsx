@@ -1,4 +1,4 @@
-import {useTheme} from '../../LiteUIContext'
+import {useLiteUIContext} from '../../LiteUIProvider'
 import React, {ReactNode} from 'react'
 
 type TitleProps = {
@@ -21,7 +21,7 @@ export const Title: React.FC<TitleProps> = ({
                                               sticky,
                                               ...rest
                                             }) => {
-  const {theme} = useTheme()
+  const {theme} = useLiteUIContext()
   const {padding} = theme
 
   const headingMap: Record<HeadingLevel, { fontSize: number, margin: number }> = {

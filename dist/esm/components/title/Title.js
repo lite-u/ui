@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../LiteUIContext';
+import { useLiteUIContext } from '../../LiteUIProvider';
 export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, ...rest }) => {
-    const { theme } = useTheme();
+    const { theme } = useLiteUIContext();
     const { padding } = theme;
     const headingMap = {
         h1: { fontSize: theme.title.h1, margin: padding.lg.x },

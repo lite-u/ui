@@ -1,6 +1,6 @@
 import Input from './components/input/Input';
 import Button from './components/button/Button';
-import LiteUIProvider from './LiteUIContext';
+import LiteUIProvider from './LiteUIProvider';
 import Modal from './components/modal/Modal';
 import Panel from './components/panel/Panel';
 import Row from './components/layouts/Row';

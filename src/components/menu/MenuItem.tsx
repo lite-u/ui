@@ -1,5 +1,5 @@
 import {ReactNode} from 'react'
-import {useTheme} from '../../LiteUIContext'
+import {useLiteUIContext} from '../../LiteUIProvider'
 
 const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & { children: ReactNode, sm?: boolean }> = ({
                                                                                                        children,
@@ -7,7 +7,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & { children: ReactNode
                                                                                                        sm = false,
                                                                                                        ...props
                                                                                                      }) => {
-  const {theme} = useTheme()
+  const {theme} = useLiteUIContext()
   const styles: React.CSSProperties = {
     ...style,
     height: 30,

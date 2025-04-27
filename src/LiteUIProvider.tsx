@@ -36,6 +36,6 @@ const LiteUIProvider = ({children}: { children: React.ReactNode }) => {
   )
 }
 
-export const useTheme = () => useContext(LiteUIContext)
+export const useLiteUIContext = () => useContext(LiteUIContext)
 
 export default LiteUIProvider

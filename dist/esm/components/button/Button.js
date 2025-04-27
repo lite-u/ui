@@ -1,8 +1,8 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../LiteUIContext';
+import { useLiteUIContext } from '../../LiteUIProvider';
 import { useState } from 'react';
 export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, type = 'button', ...props }) => {
-    const { theme } = useTheme();
+    const { theme } = useLiteUIContext();
     const [opacity, setOpacity] = useState(1);
     const { fontSizes, padding, button, borderRadius, } = theme;
     const getVariant = () => {
