@@ -54,7 +54,6 @@ const Panel: React.FC<{
     headPadding = theme.padding.lg.y
   }
 
-  console.log(headFontSize)
   return <Con fw fh role={'panel'} {...props}>
     <Col fw fh stretch>
       <Con role={'panel-head'}
