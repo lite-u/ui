@@ -41,7 +41,7 @@ const NotificationProvider = ({ children }) => {
         position: 'fixed',
         background: '#fff',
         padding: 10,
-        maxWidth: 200,
+        maxWidth: 300,
         borderRadius: 5,
         border: '1px solid #000',
         // boxShadow: '0 0 3px 0 #000',
@@ -49,6 +49,7 @@ const NotificationProvider = ({ children }) => {
         left: '50%',
         transition: 'transform .5s',
         transform: 'translate(-50%, -50%)',
+        textAlign: 'center',
     };
     console.log([...notifications]);
     return (_jsxs(NotificationContext.Provider, { value: {
