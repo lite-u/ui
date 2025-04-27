@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Con = ({ children, ovh = false, box = true, fw = true, fh = false, bg, color = 'inherit', w, h, maxW, maxH, minW, minH, p, m, style = {}, ...props }) => {
+const Container = ({ children, ovh = false, box = true, fw = true, fh = false, bg, color, w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -32,6 +32,30 @@ const Con = ({ children, ovh = false, box = true, fw = true, fh = false, bg, col
     if (p) {
         styles.padding = p;
     }
+    if (pt) {
+        styles.paddingTop = pt;
+    }
+    if (pr) {
+        styles.paddingRight = pr;
+    }
+    if (pb) {
+        styles.paddingBottom = pb;
+    }
+    if (pl) {
+        styles.paddingLeft = pl;
+    }
+    if (mt) {
+        styles.marginTop = mt;
+    }
+    if (mr) {
+        styles.marginRight = mr;
+    }
+    if (mb) {
+        styles.marginBottom = mb;
+    }
+    if (ml) {
+        styles.marginLeft = ml;
+    }
     if (m) {
         styles.margin = m;
     }
@@ -47,6 +71,7 @@ const Con = ({ children, ovh = false, box = true, fw = true, fh = false, bg, col
     if (ovh) {
         styles.overflow = 'hidden';
     }
-    return _jsx("div", { "data-role": 'container', style: styles, ...props, children: children });
+    return _jsx("div", { "data-role": role, style: styles, ...props, children: children });
 };
-export default Con;
+export const Con = Container;
+export default Container;

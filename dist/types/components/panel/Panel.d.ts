@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import { ColumnProps } from '../layouts/Col';
+import { ContainerProps } from '../con/Con';
 declare const Panel: React.FC<{
     title: string;
     titleClass?: string;
     boxClass?: string;
     children?: ReactNode;
-} & ColumnProps & React.HTMLProps<HTMLDivElement>>;
+} & ContainerProps & React.HTMLProps<HTMLDivElement>>;
 export default Panel;

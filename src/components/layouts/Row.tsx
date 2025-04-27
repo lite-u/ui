@@ -1,12 +1,6 @@
-import {ReactNode} from 'react'
+import Flex, {FlexProps} from './Flex'
 
-const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
-  children?: ReactNode,
-  // size
-  fw?: boolean,
-  fh?: boolean,
-  w?: number | string,
-  h?: number | string,
+interface RowProps extends FlexProps {
   // align items
   start?: boolean,
   center?: boolean,
@@ -16,25 +10,22 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
   around?: boolean,
   jc?: boolean,
   between?: boolean,
-  space?: number
-  style?: {}
-}> = ({
-        children,
-        fw = true,
-        fh = false,
-        around = false,
-        jc = false,
-        between = false,
-        start = true,
-        center = false,
-        stretch = false,
-        end = false,
-        space = 0,
-        w,
-        h,
-        style = {},
-        ...props
-      }) => {
+}
+
+const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
+                                                                     children,
+                                                                     around = false,
+                                                                     jc = false,
+                                                                     between = false,
+                                                                     start = true,
+                                                                     center = false,
+                                                                     stretch = false,
+                                                                     end = false,
+                                                                     role = 'row',
+                                                                     space = 0,
+                                                                     style = {},
+                                                                     ...props
+                                                                   }) => {
 
   let styles: React.CSSProperties = {
     display: 'flex',
@@ -42,22 +33,6 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
     boxSizing: 'border-box',
     width: 'auto', height: 'auto', ...style,
     gap: space,
-  }
-
-  if (fw) {
-    styles.width = '100%'
-  }
-
-  if (fh) {
-    styles.height = '100%'
-  }
-
-  if (w) {
-    styles.width = w
-  }
-
-  if (h) {
-    styles.height = h
   }
 
   if (around) {
@@ -88,13 +63,13 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
     styles.alignItems = 'stretch'
   }
 
-  return <div
-    role={'row'}
+  return <Flex
+    role={role}
     style={styles}
     {...props}
   >
     {children}
-  </div>
+  </Flex>
 }
 
 export default Row

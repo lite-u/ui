@@ -1,5 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Row = ({ children, fw = true, fh = false, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, space = 0, w, h, style = {}, ...props }) => {
+import Flex from './Flex';
+const Row = ({ children, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'row',
@@ -7,18 +8,6 @@ const Row = ({ children, fw = true, fh = false, around = false, jc = false, betw
         width: 'auto', height: 'auto', ...style,
         gap: space,
     };
-    if (fw) {
-        styles.width = '100%';
-    }
-    if (fh) {
-        styles.height = '100%';
-    }
-    if (w) {
-        styles.width = w;
-    }
-    if (h) {
-        styles.height = h;
-    }
     if (around) {
         styles.justifyContent = 'space-around';
     }
@@ -40,6 +29,6 @@ const Row = ({ children, fw = true, fh = false, around = false, jc = false, betw
     if (stretch) {
         styles.alignItems = 'stretch';
     }
-    return _jsx("div", { role: 'row', style: styles, ...props, children: children });
+    return _jsx(Flex, { role: role, style: styles, ...props, children: children });
 };
 export default Row;

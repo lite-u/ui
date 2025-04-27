@@ -1,100 +1,49 @@
-import {ReactNode} from 'react'
+import {CSSProperties} from 'react'
+import Container, {ContainerProps} from '../con/Con'
 
-export interface FlexProps {
-  children: ReactNode,
-  fw?: boolean,
-  fh?: boolean,
-  w?: number | string,
-  h?: number | string,
-  // align items
-  start?: boolean,
-  center?: boolean,
-  stretch?: boolean,
-  end?: boolean,
-  // justify-content
-  around?: boolean,
-  jc?: boolean,
-  between?: boolean,
+export interface FlexProps extends ContainerProps {
+  col?: boolean,
+  row?: boolean,
+  alignItems?: CSSProperties['alignItems'],
+  justifyContent?: CSSProperties['justifyContent'],
   space?: number
-  style?: {}
 }
 
-const Col: React.FC<FlexProps & React.HTMLProps<HTMLDivElement>> = ({
-                                                                        children,
-                                                                        fw = true,
-                                                                        fh = false,
-                                                                        around = false,
-                                                                        jc = false,
-                                                                        between = false,
-                                                                        space = 0,
-                                                                        start = true,
-                                                                        center = false,
-                                                                        stretch = false,
-                                                                        end = false,
-                                                                        w,
-                                                                        h,
-                                                                        style = {},
-                                                                        ...props
-                                                                      }) => {
+const Flex: React.FC<FlexProps & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
+                                                                                        children,
+                                                                                        row = true,
+                                                                                        col,
+                                                                                        space = 0,
+                                                                                        alignItems = 'start',
+                                                                                        justifyContent = 'normal',
+                                                                                        style = {},
+                                                                                        role = 'flex',
+                                                                                        ...props
+                                                                                      }) => {
   let styles: React.CSSProperties = {
     display: 'flex',
-    flexDirection: 'column',
     boxSizing: 'border-box',
     gap: space,
-    width: 'auto',
-    height: 'auto', ...style,
+    ...style,
   }
 
-  if (fw) {
-    styles.width = '100%'
+  styles.alignItems = alignItems
+  styles.justifyContent = justifyContent
+
+  if (row) {
+    styles.flexDirection = 'row'
   }
 
-  if (fh) {
-    styles.height = '100%'
+  if (col) {
+    styles.flexDirection = 'column'
   }
 
-  if (w) {
-    styles.width = w
-  }
-
-  if (h) {
-    styles.height = h
-  }
-
-  if (around) {
-    styles.justifyContent = 'space-around'
-  }
-
-  if (between) {
-    styles.justifyContent = 'space-between'
-  }
-
-  if (jc) {
-    styles.justifyContent = 'center'
-  }
-
-  if (start) {
-    styles.alignItems = 'start'
-  }
-
-  if (center) {
-    styles.alignItems = 'center'
-  }
-
-  if (end) {
-    styles.alignItems = 'end'
-  }
-
-  if (stretch) {
-    styles.alignItems = 'stretch'
-  }
-
-  return <div
+  return <Container
+    role={role}
     style={styles}
-    {...props}
-  >
+    {...props}  >
     {children}
-  </div>
+  </Container>
 }
 
-export default Col
+export default Flex

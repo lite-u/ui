@@ -1,12 +1,6 @@
-import {ReactNode} from 'react'
+import Flex, {FlexProps} from './Flex'
 
-export interface ColumnProps {
-  children: ReactNode,
-  fw?: boolean,
-  fh?: boolean,
-  w?: number | string,
-  h?: number | string,
-  // align items
+export interface ColumnProps extends FlexProps {
   start?: boolean,
   center?: boolean,
   stretch?: boolean,
@@ -15,14 +9,10 @@ export interface ColumnProps {
   around?: boolean,
   jc?: boolean,
   between?: boolean,
-  space?: number
-  style?: {}
 }
 
 const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
                                                                         children,
-                                                                        fw = true,
-                                                                        fh = false,
                                                                         around = false,
                                                                         jc = false,
                                                                         between = false,
@@ -31,8 +21,7 @@ const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
                                                                         center = false,
                                                                         stretch = false,
                                                                         end = false,
-                                                                        w,
-                                                                        h,
+                                                                        role = 'column',
                                                                         style = {},
                                                                         ...props
                                                                       }) => {
@@ -43,22 +32,6 @@ const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
     gap: space,
     width: 'auto',
     height: 'auto', ...style,
-  }
-
-  if (fw) {
-    styles.width = '100%'
-  }
-
-  if (fh) {
-    styles.height = '100%'
-  }
-
-  if (w) {
-    styles.width = w
-  }
-
-  if (h) {
-    styles.height = h
   }
 
   if (around) {
@@ -89,12 +62,14 @@ const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
     styles.alignItems = 'stretch'
   }
 
-  return <div
+  return <Flex
+    col
+    role={role}
     style={styles}
     {...props}
   >
     {children}
-  </div>
+  </Flex>
 }
 
 export default Col

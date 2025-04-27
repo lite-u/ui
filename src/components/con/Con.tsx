@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode} from 'react'
 
-interface ContainerProps {
+export interface ContainerProps {
   children?: ReactNode,
   box?: boolean,
   ovh?: boolean,
@@ -24,6 +24,7 @@ interface ContainerProps {
   minH?: CSSProperties['minHeight']
   w?: CSSProperties['width']
   h?: CSSProperties['height']
+  role?: string
   style?: {}
 }
 
@@ -52,6 +53,7 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  mb,
                                                                                  ml,
                                                                                  style = {},
+                                                                                 role = 'container',
                                                                                  ...props
                                                                                }) => {
 
@@ -150,7 +152,7 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
   }
 
   return <div
-    data-role={'container'}
+    data-role={role}
     style={styles}
     {...props}
   >
