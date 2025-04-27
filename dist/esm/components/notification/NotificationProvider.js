@@ -11,7 +11,7 @@ const NotificationProvider = ({ children }) => {
         const arr = Array.from(notificationsRef.current.values());
         setNotifications(arr);
     };
-    const addNotification = (text, type = 'info', delay = 3000) => {
+    const addNotification = (text, type = 'info', delay = 2000) => {
         const id = type + '-' + Date.now();
         const n = {
             id,
@@ -20,6 +20,7 @@ const NotificationProvider = ({ children }) => {
             timer: NaN,
         };
         n.timer = setTimeout(() => {
+            // console.log(9)
             removeNotification(id);
         }, delay);
         notificationsRef.current.set(id, n);
@@ -27,6 +28,7 @@ const NotificationProvider = ({ children }) => {
     };
     const removeNotification = (id) => {
         const n = notificationsRef.current.get(id);
+        // console.log(n)
         if (n) {
             clearTimeout(n.timer);
             notificationsRef.current.delete(id);
@@ -35,22 +37,38 @@ const NotificationProvider = ({ children }) => {
         }
         return false;
     };
+    const basicStyles = {
+        position: 'fixed',
+        background: '#fff',
+        padding: 10,
+        maxWidth: 200,
+        borderRadius: 5,
+        border: '1px solid #000',
+        // boxShadow: '0 0 3px 0 #000',
+        top: '50%',
+        left: '50%',
+        transition: 'transform .5s',
+        transform: 'translate(-50%, -50%)',
+    };
+    console.log([...notifications]);
     return (_jsxs(NotificationContext.Provider, { value: {
             notifications,
             add: addNotification,
             remove: removeNotification,
-        }, children: [children, notifications.map((notification) => {
+        }, children: [children, notifications.map(({ id, text, type }, index) => {
+                let color = '#000';
+                if (type === 'error') {
+                    color = 'red';
+                }
+                if (type === 'warn') {
+                    color = 'yellow';
+                }
                 return _jsx(Row, { jc: true, center: true, style: {
-                        position: 'fixed',
-                        background: '#fff',
-                        padding: 10,
-                        maxWidth: 200,
-                        borderRadius: 5,
-                        boxShadow: '0 0 3px 0 #000',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                    }, children: notification.text }, notification.id);
+                        ...basicStyles,
+                        borderColor: color,
+                        color,
+                        // zIndex: 1000 + index,
+                    }, children: text }, id);
             })] }));
 };
 export default NotificationProvider;
