@@ -16,6 +16,7 @@ import SelectItem from './components/select/SelectItem'
 import Con from './components/con/Con'
 import Drop from './components/drop/Drop'
 import {useNotification} from './components/notification/NotificationContext'
+import Flex from './components/layouts/Flex'
 
 export {
   Input,
@@ -28,6 +29,7 @@ export {
   Panel,
   Row,
   Col,
+  Flex,
   Title,
   Paragraph,
   P,
