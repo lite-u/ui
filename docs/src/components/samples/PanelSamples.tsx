@@ -23,13 +23,13 @@ const PanelSamples: React.FC = () => {
 
       <Panel mb={10} md title={'Title'}>
         <Con p={10}>
-          <P>Panel sm</P>
+          <P>Panel md</P>
         </Con>
       </Panel>
 
       <Panel mb={10} lg title={'Title'}>
         <Con p={10}>
-          <P>Panel sm</P>
+          <P>Panel lg</P>
         </Con>
       </Panel>
 
