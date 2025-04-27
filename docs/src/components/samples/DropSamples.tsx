@@ -1,5 +1,4 @@
-import Drop from '@ui/components/drop/Drop.tsx'
-import {Col, Con, P, Row} from '@ui/index.tsx'
+import {Col, Con, Drop, P, Row} from '@ui/index.tsx'
 import {useState} from 'react'
 import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
@@ -40,6 +39,7 @@ const DropSamples: React.FC = () => {
                 bg: f ? 'blue' : 'red',
                 msg: f ? 'I Love PNG !' : 'I Love PNG ONLY',
               })
+
             }}
             onDragIsLeave={() => {
               setSampleAData({
@@ -120,6 +120,7 @@ const DropSamples: React.FC = () => {
         <Row w={620} h={200} stretch space={10}>
 
       <Drop accepts={['image/png']}
+            style={{cursor}}
             onDrop={(e) => {
               setSampleAData({
                 ...sampleAData,

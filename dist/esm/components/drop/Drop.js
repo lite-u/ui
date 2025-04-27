@@ -8,6 +8,7 @@ onDragEnter, onDragLeave, onDragOver, ...props }) => {
     const handleDragEnter = useCallback((e) => {
         onDragEnter && onDragEnter(e);
         const f = handleFileType(e);
+        e.dataTransfer.dropEffect = f ? 'copy' : 'none';
         dragCounter.current++;
         if (dragCounter.current === 1) {
             onDragIsOver && onDragIsOver(f);
@@ -23,7 +24,8 @@ onDragEnter, onDragLeave, onDragOver, ...props }) => {
     }, []);
     const handleDragOver = useCallback((e) => {
         onDragOver && onDragOver(e);
-        handleFileType(e);
+        const f = handleFileType(e);
+        e.dataTransfer.dropEffect = f ? 'copy' : 'none';
     }, []);
     const handleDrop = useCallback((e) => {
         const f = handleFileType(e);

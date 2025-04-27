@@ -29,7 +29,7 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
     onDragEnter && onDragEnter(e)
 
     const f = handleFileType(e)
-
+    e.dataTransfer.dropEffect = f ? 'copy' : 'none'
     dragCounter.current++
 
     if (dragCounter.current === 1) {
@@ -50,7 +50,8 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     onDragOver && onDragOver(e)
-    handleFileType(e)
+    const f = handleFileType(e)
+    e.dataTransfer.dropEffect = f ? 'copy' : 'none'
   }, [])
 
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
