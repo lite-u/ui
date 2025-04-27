@@ -23,7 +23,6 @@ const Panel = ({ xs, sm, md = true, lg, xl, title, titleClass = '', titleStyle =
         headFontSize = theme.fontSizes.lg;
         headPadding = theme.padding.lg.y;
     }
-    console.log(headFontSize);
     return _jsx(Con, { fw: true, fh: true, role: 'panel', ...props, children: _jsxs(Col, { fw: true, fh: true, stretch: true, children: [_jsx(Con, { role: 'panel-head', fw: true, style: { background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff', ...titleStyle }, className: titleClass, children: _jsx(Paragraph, { center: true, size: headFontSize, style: { padding: headPadding }, children: title }) }), _jsx(Con, { role: 'panel-box', fw: true, bg: '#fff', style: {
                         overflow: 'auto',
                         border: `1px solid ${theme.panel.primaryColor}`,
