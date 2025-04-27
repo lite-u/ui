@@ -36,22 +36,22 @@ const Panel: React.FC<{
 
   if (md) {
     headFontSize = theme.fontSizes.md
-    headPadding = theme.padding.md.x
+    headPadding = theme.padding.md.y
   }
 
   if (sm) {
     headFontSize = theme.fontSizes.sm
-    headPadding = theme.padding.sm.x
+    headPadding = theme.padding.sm.y
   }
 
   if (xs) {
     headFontSize = theme.fontSizes.xs
-    headPadding = theme.padding.xs.x
+    headPadding = theme.padding.xs.y
   }
 
   if (lg) {
     headFontSize = theme.fontSizes.lg
-    headPadding = theme.padding.lg.x
+    headPadding = theme.padding.lg.y
   }
 
   console.log(headFontSize)

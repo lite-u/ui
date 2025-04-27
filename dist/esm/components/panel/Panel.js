@@ -9,19 +9,19 @@ const Panel = ({ xs, sm, md = true, lg, xl, title, titleClass = '', titleStyle =
     let headPadding = theme.padding.md.x;
     if (md) {
         headFontSize = theme.fontSizes.md;
-        headPadding = theme.padding.md.x;
+        headPadding = theme.padding.md.y;
     }
     if (sm) {
         headFontSize = theme.fontSizes.sm;
-        headPadding = theme.padding.sm.x;
+        headPadding = theme.padding.sm.y;
     }
     if (xs) {
         headFontSize = theme.fontSizes.xs;
-        headPadding = theme.padding.xs.x;
+        headPadding = theme.padding.xs.y;
     }
     if (lg) {
         headFontSize = theme.fontSizes.lg;
-        headPadding = theme.padding.lg.x;
+        headPadding = theme.padding.lg.y;
     }
     console.log(headFontSize);
     return _jsx(Con, { fw: true, fh: true, role: 'panel', ...props, children: _jsxs(Col, { fw: true, fh: true, stretch: true, children: [_jsx(Con, { role: 'panel-head', fw: true, style: { background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff', ...titleStyle }, className: titleClass, children: _jsx(Paragraph, { center: true, size: headFontSize, style: { padding: headPadding }, children: title }) }), _jsx(Con, { role: 'panel-box', fw: true, bg: '#fff', style: {
