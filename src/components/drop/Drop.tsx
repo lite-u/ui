@@ -25,7 +25,6 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
   const dragCounter = useRef(0)
 
   const handleDragEnter = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    console.log(e.dataTransfer.items[0])
     onDragEnter && onDragEnter(e)
 
     if (!handleFileType(e)) return
