@@ -57,6 +57,7 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
     const f = handleFileType(e)
 
     dragCounter.current = 0
+
     if (f) {
       onDrop && onDrop(e)
     } else {
@@ -70,7 +71,7 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
     e.stopPropagation()
     const firstFile = e.dataTransfer.items[0]
 
-    if (!(firstFile && firstFile.type)) {
+    if (!firstFile) {
       return false
     }
 

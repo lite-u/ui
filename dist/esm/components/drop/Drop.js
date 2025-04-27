@@ -39,7 +39,7 @@ onDragEnter, onDragLeave, onDragOver, ...props }) => {
         e.preventDefault();
         e.stopPropagation();
         const firstFile = e.dataTransfer.items[0];
-        if (!(firstFile && firstFile.type)) {
+        if (!firstFile) {
             return false;
         }
         const fileType = firstFile.type;
