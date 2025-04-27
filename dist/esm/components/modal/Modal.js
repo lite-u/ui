@@ -20,6 +20,7 @@ const Modal = ({ children, style, onBackdropClick, backdropBg = 'rgba(0,0,0,.5)'
                     'width': '100%',
                     'height': '100%',
                     zIndex: -1,
+                    pointerEvents: onBackdropClick ? 'auto' : 'none',
                     backgroundColor: backdropBg,
                 }, onClick: () => {
                     if (onBackdropClick) {
