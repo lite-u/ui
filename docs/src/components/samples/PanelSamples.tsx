@@ -2,16 +2,38 @@ import {Col, Con, P, Panel} from '@ui/index.tsx'
 
 const PanelSamples: React.FC = () => {
   return <Col>
-    <Con w={200} h={200}>
-      <Panel title={'Title'}>
+    <Con w={200}>
+      <Panel mb={10} title={'Title'}>
         <Con p={10}>
-          <Col space={5}>
-            <P>Panel content</P>
-            <P>With</P>
-            <P>Auto full height</P>
-          </Col>
+          <P>Panel md : default</P>
         </Con>
       </Panel>
+
+      <Panel mb={10} xs title={'Title'}>
+        <Con p={10}>
+          <P>Panel xs</P>
+        </Con>
+      </Panel>
+
+      <Panel mb={10} sm title={'Title'}>
+        <Con p={10}>
+          <P>Panel sm</P>
+        </Con>
+      </Panel>
+
+      <Panel mb={10} md title={'Title'}>
+        <Con p={10}>
+          <P>Panel sm</P>
+        </Con>
+      </Panel>
+
+      <Panel mb={10} lg title={'Title'}>
+        <Con p={10}>
+          <P>Panel sm</P>
+        </Con>
+      </Panel>
+
+
     </Con>
   </Col>
 }

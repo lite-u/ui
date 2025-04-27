@@ -5,6 +5,11 @@ import Paragraph from '../paragraph/Paragraph'
 import {Con, ContainerProps} from '../con/Con'
 
 const Panel: React.FC<{
+  xs?: boolean
+  sm?: boolean
+  md?: boolean
+  lg?: boolean
+  xl?: boolean
   title: string,
   titleStyle?: React.CSSProperties,
   titleClass?: string,
@@ -12,6 +17,11 @@ const Panel: React.FC<{
   boxClass?: string,
   children?: ReactNode
 } & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
+                                                           xs,
+                                                           sm,
+                                                           md = true,
+                                                           lg,
+                                                           xl,
                                                            title,
                                                            titleClass = '',
                                                            titleStyle = {},
@@ -21,14 +31,37 @@ const Panel: React.FC<{
                                                            ...props
                                                          }) => {
   const {theme} = useLiteUIContext()
+  let headFontSize = theme.fontSizes.md
+  let headPadding = theme.padding.md.x
 
+  if (md) {
+    headFontSize = theme.fontSizes.md
+    headPadding = theme.padding.md.x
+  }
+
+  if (sm) {
+    headFontSize = theme.fontSizes.sm
+    headPadding = theme.padding.sm.x
+  }
+
+  if (xs) {
+    headFontSize = theme.fontSizes.xs
+    headPadding = theme.padding.xs.x
+  }
+
+  if (lg) {
+    headFontSize = theme.fontSizes.lg
+    headPadding = theme.padding.lg.x
+  }
+
+  console.log(headFontSize)
   return <Con fw fh role={'panel'} {...props}>
     <Col fw fh stretch>
       <Con role={'panel-head'}
            fw
            style={{background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff', ...titleStyle}}
            className={titleClass}>
-        <Paragraph center size={16} style={{padding: 8}}>{title}</Paragraph>
+        <Paragraph center size={headFontSize} style={{padding: headPadding}}>{title}</Paragraph>
       </Con>
 
       <Con role={'panel-box'}
