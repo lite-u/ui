@@ -1,4 +1,4 @@
-import ButtonsSample from './ButtonsSample.tsx'
+import ButtonsSamples from './ButtonsSamples.tsx'
 import InputsSample from './InputsSample.tsx'
 import SelectSamples from './SelectSamples.tsx'
 import PanelSamples from './PanelSamples.tsx'
@@ -9,11 +9,12 @@ import ModalSamples from './ModalSamples.tsx'
 import RowSamples from './RowSamples.tsx'
 import TitleSamples from './TitleSamples.tsx'
 import ConSamples from './ConSamples.tsx'
+import DropSamples from './DropSamples.tsx'
 
 const SAMPLES = [
   {
     name: 'Buttons',
-    comp: <ButtonsSample/>,
+    comp: <ButtonsSamples/>,
   },
   {
     name: 'Inputs',
@@ -62,6 +63,10 @@ const SAMPLES = [
   {
     name: 'MenuItem',
     comp: <MenuItemSamples/>,
+  },
+  {
+    name: 'Drop',
+    comp: <DropSamples/>,
   },
 ]
 

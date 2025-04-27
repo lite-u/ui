@@ -17,10 +17,10 @@ export interface ThemeType {
     textSuccess: string;
   };
   fontSizes: {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
+    xs: number
+    sm: number
+    md: number
+    lg: number
   }
   padding: {
     xs: { x: number; y: number };
@@ -29,35 +29,32 @@ export interface ThemeType {
     lg: { x: number; y: number };
   }
   borderRadius: {
-    xs: string
-    sm: string
-    md: string
-    lg: string
+    xs: number
+    sm: number
+    md: number
+    lg: number
   };
   button: {
     primary: {
-      backgroundColor: string;
-      color: string;
-      border: string;
-      borderRadius: string;
+      backgroundColor: string
+      color: string
+      borderColor: string
+
     };
     warn: {
-      backgroundColor: string;
-      color: string;
-      border: string;
-      borderRadius: string;
+      backgroundColor: string
+      color: string
+      borderColor: string
     };
     error: {
-      backgroundColor: string;
-      color: string;
-      border: string;
-      borderRadius: string;
+      backgroundColor: string
+      color: string
+      borderColor: string
     };
     neutral: {
-      backgroundColor: string;
-      color: string;
-      border: string;
-      borderRadius: string;
+      backgroundColor: string
+      color: string
+      borderColor: string
     };
   }
   input: {
@@ -96,10 +93,10 @@ export interface ThemeType {
     h6: number
     backgroundColor: string
   }
-  panel:{
-    primaryColor:string
-    head:{
+  panel: {
+    primaryColor: string
+/*    head?: {
       backgroundColor: string
-    }
+    }*/
   }
 }

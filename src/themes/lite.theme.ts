@@ -135,6 +135,5 @@ export const liteTheme = {
   },
   panel: {
     primaryColor,
-
   },
 }

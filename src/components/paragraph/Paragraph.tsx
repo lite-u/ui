@@ -3,11 +3,13 @@ import React, {CSSProperties, ReactNode} from 'react'
 const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   size?: number,
   children?: ReactNode
+  color?: CSSProperties['color']
   center?: boolean
 }> = ({
         children,
         size = 16,
         style = {},
+        color,
         center = false,
         ...props
       }) => {
@@ -17,6 +19,11 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   if (center) {
     styles.textAlign = 'center'
   }
+
+  if (color) {
+    styles.color = color
+  }
+
   if (size) {
     styles.fontSize = size
   }

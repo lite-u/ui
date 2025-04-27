@@ -13,4 +13,5 @@ import Link from './components/link/Link';
 import Select from './components/select/Select';
 import SelectItem from './components/select/SelectItem';
 import Con from './components/con/Con';
-export { Input, Select, SelectItem, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, Con };
+import Drop from './components/drop/Drop';
+export { Input, Select, SelectItem, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, Con, Drop };

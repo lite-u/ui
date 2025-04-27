@@ -14,6 +14,7 @@ import {ThemeType} from './themes/type'
 import Select from './components/select/Select'
 import SelectItem from './components/select/SelectItem'
 import Con from './components/con/Con'
+import Drop from './components/drop/Drop'
 
 export {
   Input,
@@ -31,7 +32,8 @@ export {
   P,
   Menu,
   MenuItem,
-  Con
+  Con,
+  Drop
 }
 
 export type {ThemeType}

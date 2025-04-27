@@ -1,5 +1,4 @@
 import {ReactNode} from 'react'
-import {useTheme} from '../../themes/ThemeContext'
 
 const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
   { children: ReactNode, space?: number }> = ({
@@ -8,7 +7,7 @@ const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
                                               space = 8,
                                               ...props
                                             }) => {
-  const {theme} = useTheme()
+  // const {theme} = useTheme()
 
   return <div style={{
     ...style,

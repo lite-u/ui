@@ -64,12 +64,13 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   if (bg) {
     styles.background = bg
   }
+
   if (color) {
     styles.color = color
   }
 
   return <div
-    role={'O'}
+    data-role={'container'}
     style={styles}
     {...props}
   >

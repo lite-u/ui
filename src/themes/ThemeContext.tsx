@@ -5,12 +5,10 @@ import {ThemeType} from './type'
 
 export const ThemeContext = createContext<{
   theme: ThemeType
-  setTheme: (mode: never) => void
+  setTheme: (mode: 'lite' | 'dark') => void
 }>({
   theme: liteTheme,
-  setTheme: (mode: 'lite' | 'dark'): void => {
-    console.log(mode)
-  },
+  setTheme: () => { },
 })
 
 const ThemeProvider = ({children}: { children: React.ReactNode }) => {
@@ -25,7 +23,8 @@ const ThemeProvider = ({children}: { children: React.ReactNode }) => {
     setThemeMode(mode)
   }
 
-  const currentTheme = themeMode === 'lite' ? liteTheme : darkTheme
+  // @ts-ignore
+  const currentTheme:ThemeType = themeMode === 'lite' ? liteTheme : darkTheme
 
   return (
     <ThemeContext.Provider value={{theme: currentTheme, setTheme}}>
