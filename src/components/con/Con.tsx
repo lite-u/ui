@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode} from 'react'
 
-const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
+interface ContainerProps {
   children?: ReactNode,
   box?: boolean,
   ovh?: boolean,
@@ -9,7 +9,15 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   bg?: CSSProperties['backgroundColor'],
   color?: CSSProperties['color'],
   p?: CSSProperties['padding']
+  pt?: CSSProperties['paddingTop']
+  pr?: CSSProperties['paddingRight']
+  pb?: CSSProperties['paddingBottom']
+  pl?: CSSProperties['paddingLeft']
   m?: CSSProperties['margin']
+  mt?: CSSProperties['marginTop']
+  mr?: CSSProperties['marginRight']
+  mb?: CSSProperties['marginBottom']
+  ml?: CSSProperties['marginLeft']
   maxW?: CSSProperties['maxWidth']
   maxH?: CSSProperties['maxHeight']
   minW?: CSSProperties['minWidth']
@@ -17,25 +25,35 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   w?: CSSProperties['width']
   h?: CSSProperties['height']
   style?: {}
-}> = ({
-        children,
-        ovh = false,
-        box = true,
-        fw = true,
-        fh = false,
-        bg,
-        color = 'inherit',
-        w,
-        h,
-        maxW,
-        maxH,
-        minW,
-        minH,
-        p,
-        m,
-        style = {},
-        ...props
-      }) => {
+}
+
+const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
+                                                                                 children,
+                                                                                 ovh = false,
+                                                                                 box = true,
+                                                                                 fw = true,
+                                                                                 fh = false,
+                                                                                 bg,
+                                                                                 color,
+                                                                                 w,
+                                                                                 h,
+                                                                                 maxW,
+                                                                                 maxH,
+                                                                                 minW,
+                                                                                 minH,
+                                                                                 p,
+                                                                                 m,
+                                                                                 pt,
+                                                                                 pr,
+                                                                                 pb,
+                                                                                 pl,
+                                                                                 mt,
+                                                                                 mr,
+                                                                                 mb,
+                                                                                 ml,
+                                                                                 style = {},
+                                                                                 ...props
+                                                                               }) => {
 
   let styles: React.CSSProperties = {
     width: 'auto',
@@ -79,6 +97,38 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     styles.padding = p
   }
 
+  if (pt) {
+    styles.paddingTop = pt
+  }
+
+  if (pr) {
+    styles.paddingRight = pr
+  }
+
+  if (pb) {
+    styles.paddingBottom = pb
+  }
+
+  if (pl) {
+    styles.paddingLeft = pl
+  }
+
+  if (mt) {
+    styles.marginTop = mt
+  }
+
+  if (mr) {
+    styles.marginRight = mr
+  }
+
+  if (mb) {
+    styles.marginBottom = mb
+  }
+
+  if (ml) {
+    styles.marginLeft = ml
+  }
+
   if (m) {
     styles.margin = m
   }
@@ -107,5 +157,5 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     {children}
   </div>
 }
-
-export default Con
+export const Con = Container
+export default Container

@@ -1,6 +1,6 @@
 import {ReactNode} from 'react'
 
-export interface ColumnProps {
+export interface FlexProps {
   children: ReactNode,
   fw?: boolean,
   fh?: boolean,
@@ -19,7 +19,7 @@ export interface ColumnProps {
   style?: {}
 }
 
-const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
+const Col: React.FC<FlexProps & React.HTMLProps<HTMLDivElement>> = ({
                                                                         children,
                                                                         fw = true,
                                                                         fh = false,

@@ -2,19 +2,21 @@ import {useLiteUIContext} from '../../LiteUIProvider'
 import {ReactNode} from 'react'
 import {Col} from '../../index'
 import Paragraph from '../paragraph/Paragraph'
+import {ColumnProps} from '../layouts/Col'
 
 const Panel: React.FC<{
   title: string,
   titleClass?: string,
   boxClass?: string,
   children?: ReactNode
-}> = ({
-        title,
-        titleClass = '',
-        boxClass = '',
-        children,
-        ...props
-      }) => {
+} & ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
+                                                        title,
+                                                        titleClass = '',
+                                                        boxClass = '',
+                                                        // style,
+                                                        children,
+                                                        ...props
+                                                      }) => {
   const {theme} = useLiteUIContext()
 
   return <Col fh stretch {...props}>

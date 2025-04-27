@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
+export interface ColumnProps {
     children: ReactNode;
     fw?: boolean;
     fh?: boolean;
@@ -14,5 +14,6 @@ declare const Col: React.FC<React.HTMLProps<HTMLDivElement> & {
     between?: boolean;
     space?: number;
     style?: {};
-}>;
+}
+declare const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>>;
 export default Col;
