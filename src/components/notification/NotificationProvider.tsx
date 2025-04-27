@@ -86,7 +86,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
             ...basicStyles,
             borderColor: color,
             color,
-            // zIndex: 1000 + index,
+            zIndex: 1000 + index,
           }}>
             {text}
           </Row>

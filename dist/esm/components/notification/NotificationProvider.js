@@ -67,7 +67,7 @@ const NotificationProvider = ({ children }) => {
                         ...basicStyles,
                         borderColor: color,
                         color,
-                        // zIndex: 1000 + index,
+                        zIndex: 1000 + index,
                     }, children: text }, id);
             })] }));
 };
