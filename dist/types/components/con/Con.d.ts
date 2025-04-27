@@ -2,6 +2,7 @@ import { CSSProperties, ReactNode } from 'react';
 declare const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     children?: ReactNode;
     box?: boolean;
+    ovh?: boolean;
     fw?: boolean;
     fh?: boolean;
     bg?: CSSProperties['backgroundColor'];

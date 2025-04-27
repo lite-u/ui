@@ -6,9 +6,6 @@ const DropSamples: React.FC = () => {
   const [isDraggingA, setIsDraggingA] = useState(false)
   const [isDraggingB, setIsDraggingB] = useState(false)
   const [isDraggingC, setIsDraggingC] = useState(false)
-  const [validA, setValidA] = useState(false)
-  const [validB, setValidB] = useState(false)
-  const [validC, setValidC] = useState(false)
   const [msgA, setMsgA] = useState('I love PNG')
   const [msgB, setMsgB] = useState('I love IMAGES')
   const [msgC, setMsgC] = useState('I love ALL files')
@@ -33,7 +30,7 @@ const DropSamples: React.FC = () => {
                 setDroppedA('')
               }
             }}>
-        <Con fw fh bg={droppedA ? 'green' : isDraggingA ? 'blue' : '#ff8e8e'}>
+        <Con fw fh bg={droppedA ? 'green' : isDraggingA ? 'blue' : '#cab077'}>
           <Row fh center jc>
             <P color={'white'}>{droppedA || msgA}</P>
           </Row>
@@ -80,7 +77,7 @@ const DropSamples: React.FC = () => {
                 setDroppedC('')
               }
             }}>
-        <Con fw fh bg={droppedC ? 'green' : isDraggingC ? 'blue' : '#ff8e8e'}>
+        <Con fw fh bg={droppedC ? 'green' : isDraggingC ? 'blue' : '#53aeb1'}>
           <Row fh center jc>
             <P center color={'white'}>{droppedC || msgC}</P>
           </Row>
