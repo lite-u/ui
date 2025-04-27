@@ -1,4 +1,4 @@
-import {useTheme} from '../../themes/ThemeContext'
+import {useTheme} from '../../LiteUIContext'
 import React, {ReactNode} from 'react'
 
 type TitleProps = {

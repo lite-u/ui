@@ -117,98 +117,96 @@ const DropSamples: React.FC = () => {
     <Con m={10}></Con>
 
     <CodeWrap code={`
-    import Drop from '@ui/components/drop/Drop.tsx'
-import {Con, P, Row} from '@ui/index.tsx'
-import {useState} from 'react'
+        <Row w={620} h={200} stretch space={10}>
 
-const DropSamples: React.FC = () => {
-  const [isDraggingA, setIsDraggingA] = useState(false)
-  const [isDraggingB, setIsDraggingB] = useState(false)
-  const [isDraggingC, setIsDraggingC] = useState(false)
-  const [msgA, setMsgA] = useState('I love PNG')
-  const [msgB, setMsgB] = useState('I love IMAGES')
-  const [msgC, setMsgC] = useState('I love ALL files')
-  const [droppedA, setDroppedA] = useState('')
-  const [droppedB, setDroppedB] = useState('')
-  const [droppedC, setDroppedC] = useState('')
-
-  return <Row w={620} h={200} stretch space={10}>
-    <Con bg={'#dfdfdf'}>
       <Drop accepts={['image/png']}
             onDrop={(e) => {
-              setDroppedA(e.dataTransfer.files[0].name)
+              setSampleAData({
+                ...sampleAData,
+                bg: 'green',
+                msg: e.dataTransfer.files[0].name,
+              })
             }}
-            onExcluded={(msg, d) => {
-              console.log(msg, d)
+            onDragIsOver={(f) => {
+              setSampleAData({
+                ...sampleAData,
+                bg: f ? 'blue' : 'red',
+                msg: f ? 'I Love PNG !' : 'I Love PNG ONLY',
+              })
             }}
-            onDragOverChanged={(v) => {
-              setIsDraggingA(v)
-              setMsgA(v ? 'I love PNG' : 'I accept PNG only')
-
-              if (v) {
-                setDroppedA('')
-              }
+            onDragIsLeave={() => {
+              setSampleAData({
+                ...sampleAData,
+                bg: sampleAData.defaultBg,
+                msg: sampleAData.defaultMsg,
+              })
             }}>
-        <Con fw fh bg={droppedA ? 'green' : isDraggingA ? 'blue' : '#cab077'}>
+        <Con fw fh bg={sampleAData.bg}>
           <Row fh center jc>
-            <P color={'white'}>{droppedA || msgA}</P>
+            <P color={'white'}>{sampleAData.msg}</P>
           </Row>
         </Con>
       </Drop>
-    </Con>
 
-    <Con bg={'#dfdfdf'}>
       <Drop accepts={['image/*']}
             onDrop={(e) => {
-              setDroppedB(e.dataTransfer.files[0].name)
+              setSampleBData({
+                ...sampleBData,
+                bg: 'green',
+                msg: e.dataTransfer.files[0].name,
+              })
             }}
-            onExcluded={(msg, d) => {
-              console.log(msg, d)
+            onDragIsOver={(f) => {
+              setSampleBData({
+                ...sampleBData,
+                bg: f ? 'blue' : 'red',
+                msg: f ? 'I Love IMAGE !' : 'I Love IMAGE ONLY',
+              })
             }}
-            onDragOverChanged={(v) => {
-              setIsDraggingB(v)
-              setMsgB(v ? 'I love IMAGES' : 'I Accept ALL Images')
-
-              if (v) {
-                setDroppedB('')
-              }
+            onDragIsLeave={() => {
+              setSampleBData({
+                ...sampleBData,
+                bg: sampleBData.defaultBg,
+                msg: sampleBData.defaultMsg,
+              })
             }}>
-        <Con fw fh bg={droppedB ? 'green' : isDraggingB ? 'blue' : '#ff8e8e'}>
+        <Con fw fh bg={sampleBData.bg}>
           <Row fh center jc>
-            <P color={'white'}>{droppedB || msgB}</P>
+            <P color={'white'}>{sampleBData.msg}</P>
           </Row>
         </Con>
       </Drop>
-    </Con>
 
-    <Con bg={'#dfdfdf'} ovh>
       <Drop onDrop={(e) => {
-        setDroppedC(e.dataTransfer.files[0].name)
+        setSampleCData({
+          ...sampleCData,
+          bg: 'green',
+          msg: e.dataTransfer.files[0].name,
+        })
       }}
-            onExcluded={(msg, d) => {
-              console.log(msg, d)
+            onDragIsOver={(f) => {
+              setSampleCData({
+                ...sampleCData,
+                bg: f ? 'blue' : 'red',
+                msg: f ? 'More And More !' : 'What Is This?',
+              })
             }}
-            onDragOverChanged={(v) => {
-              setIsDraggingC(v)
-              setMsgC(v ? 'I love ALL' : 'I Accept ALL types')
-
-              if (v) {
-                setDroppedC('')
-              }
+            onDragIsLeave={() => {
+              setSampleCData({
+                ...sampleCData,
+                bg: sampleCData.defaultBg,
+                msg: sampleCData.defaultMsg,
+              })
             }}>
-        <Con fw fh bg={droppedC ? 'green' : isDraggingC ? 'blue' : '#53aeb1'}>
+        <Con fw fh bg={sampleCData.bg}>
           <Row fh center jc>
-            <P center color={'white'}>{droppedC || msgC}</P>
+            <P color={'white'}>{sampleCData.msg}</P>
           </Row>
         </Con>
       </Drop>
-    </Con>
 
+    </Row>
 
-  </Row>
-}
-
-export default DropSamples
     `}></CodeWrap>
 
   </Col>

@@ -1,4 +1,4 @@
-import {useTheme} from '../../themes/ThemeContext'
+import {useTheme} from '../../LiteUIContext'
 import {ReactNode} from 'react'
 import {Col} from '../../index'
 import Paragraph from '../paragraph/Paragraph'

@@ -9,10 +9,12 @@ declare const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     color?: CSSProperties['color'];
     p?: CSSProperties['padding'];
     m?: CSSProperties['margin'];
-    mw?: CSSProperties['maxWidth'];
+    maxW?: CSSProperties['maxWidth'];
+    maxH?: CSSProperties['maxHeight'];
+    minW?: CSSProperties['minWidth'];
+    minH?: CSSProperties['minHeight'];
     w?: CSSProperties['width'];
     h?: CSSProperties['height'];
-    mh?: CSSProperties['maxHeight'];
     style?: {};
 }>;
 export default Con;

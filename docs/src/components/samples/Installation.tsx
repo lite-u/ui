@@ -4,12 +4,12 @@ import CodeWrap from '../codeBlock/CodeWrap.tsx'
 const Installation: React.FC = () => {
   const code1 = `npm install @lite-u/ui`
   const code2 =
-    `import ThemeProvider from '@lite-u/ui/theme'
+    `import LiteUIProvider from '@ui/index'
 
 export const App() {
-  return <ThemeProvider>
+  return <LiteUIProvider>
     Your Code Block
-  </ThemeProvider>
+  </LiteUIProvider>
 }`
 
   return <Col id={'installation'} style={{marginTop: 100}}>

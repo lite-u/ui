@@ -1,4 +1,4 @@
-import {useTheme} from '../../themes/ThemeContext'
+import {useTheme} from '../../LiteUIContext'
 
 const InputNumber: React.FC<{ style: React.CSSProperties }> = ({style, ...props}) => {
   const theme = useTheme()

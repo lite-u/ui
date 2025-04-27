@@ -1,5 +1,5 @@
 import {ReactNode} from 'react'
-import {useTheme} from '../../themes/ThemeContext'
+import {useTheme} from '../../LiteUIContext'
 
 const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & { children: ReactNode, sm?: boolean }> = ({
                                                                                                        children,

@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../themes/ThemeContext';
+import { useTheme } from '../../LiteUIContext';
 const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
     const { theme } = useTheme();
     const styles = {

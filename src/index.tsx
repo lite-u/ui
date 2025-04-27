@@ -1,6 +1,6 @@
 import Input from './components/input/Input'
 import Button from './components/button/Button'
-import ThemeProvider from './themes/ThemeContext'
+import LiteUIProvider from './LiteUIContext'
 import Modal from './components/modal/Modal'
 import Panel from './components/panel/Panel'
 import Row from './components/layouts/Row'
@@ -22,7 +22,7 @@ export {
   SelectItem,
   Link,
   Button,
-  ThemeProvider,
+  LiteUIProvider,
   Modal,
   Panel,
   Row,
@@ -35,5 +35,5 @@ export {
   Con,
   Drop
 }
-
+export default LiteUIProvider
 export type {ThemeType}

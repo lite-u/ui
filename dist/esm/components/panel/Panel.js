@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useTheme } from '../../themes/ThemeContext';
+import { useTheme } from '../../LiteUIContext';
 import { Col } from '../../index';
 import Paragraph from '../paragraph/Paragraph';
 const Panel = ({ title, titleClass = '', boxClass = '', children, ...props }) => {

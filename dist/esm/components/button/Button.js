@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../themes/ThemeContext';
+import { useTheme } from '../../LiteUIContext';
 import { useState } from 'react';
 export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, type = 'button', ...props }) => {
     const { theme } = useTheme();

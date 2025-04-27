@@ -10,10 +10,12 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   color?: CSSProperties['color'],
   p?: CSSProperties['padding']
   m?: CSSProperties['margin']
-  mw?: CSSProperties['maxWidth']
+  maxW?: CSSProperties['maxWidth']
+  maxH?: CSSProperties['maxHeight']
+  minW?: CSSProperties['minWidth']
+  minH?: CSSProperties['minHeight']
   w?: CSSProperties['width']
   h?: CSSProperties['height']
-  mh?: CSSProperties['maxHeight']
   style?: {}
 }> = ({
         children,
@@ -25,8 +27,10 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
         color = 'inherit',
         w,
         h,
-        mw,
-        mh,
+        maxW,
+        maxH,
+        minW,
+        minH,
         p,
         m,
         style = {},
@@ -55,12 +59,20 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
     styles.height = h
   }
 
-  if (mw) {
-    styles.maxWidth = mw
+  if (maxW) {
+    styles.maxWidth = maxW
   }
 
-  if (mh) {
-    styles.maxHeight = mh
+  if (maxH) {
+    styles.maxHeight = maxH
+  }
+
+  if (minW) {
+    styles.minWidth = minW
+  }
+
+  if (minH) {
+    styles.minHeight = minH
   }
 
   if (p) {

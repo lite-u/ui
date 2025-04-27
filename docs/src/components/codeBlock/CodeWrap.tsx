@@ -20,7 +20,7 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   return (
     <Con w={400}
-         mh={200}
+         maxH={200}
          style={{
            backgroundColor: '#2d2d2d',
            padding: '25px 20px',

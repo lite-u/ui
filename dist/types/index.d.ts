@@ -1,6 +1,6 @@
 import Input from './components/input/Input';
 import Button from './components/button/Button';
-import ThemeProvider from './themes/ThemeContext';
+import LiteUIProvider from './LiteUIContext';
 import Modal from './components/modal/Modal';
 import Panel from './components/panel/Panel';
 import Row from './components/layouts/Row';
@@ -15,5 +15,6 @@ import Select from './components/select/Select';
 import SelectItem from './components/select/SelectItem';
 import Con from './components/con/Con';
 import Drop from './components/drop/Drop';
-export { Input, Select, SelectItem, Link, Button, ThemeProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, Con, Drop };
+export { Input, Select, SelectItem, Link, Button, LiteUIProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, Con, Drop };
+export default LiteUIProvider;
 export type { ThemeType };

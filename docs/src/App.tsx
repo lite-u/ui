@@ -1,15 +1,14 @@
-import ThemeProvider from '@ui/themes/ThemeContext.tsx'
+import LiteUIProvider from '@ui/index'
 import {Col, Link, Menu, MenuItem, Row} from '@ui/index.tsx'
 import Installation from '@samples/Installation.tsx'
 import SAMPLES from '@samples/index.tsx'
 import SampleBase from '@samples/SampleBase.tsx'
 
 function App() {
-  return <ThemeProvider>
+  return <LiteUIProvider>
     <Col fw fh style={{overflow: 'hidden'}}>
 
       <Col between style={{borderBottom: '1px solid gray'}}>
-
         <header style={{height: 50}}>header</header>
       </Col>
 
@@ -45,52 +44,12 @@ function App() {
                   return <SampleBase key={index} name={sample.name}>{sample.comp}</SampleBase>
                 })
               }
-              {/*<Title h2 sticky>Components</Title>*/}
-              {/*<SampleBase
-              ><ButtonsSample/>
-              </SampleBase>
-              <SampleBase
-              ><InputsSample/>
-              </SampleBase>
-              <SampleBase
-              ><SelectSamples/>
-              </SampleBase>
-              <SampleBase
-              ><PanelSamples/>
-              </SampleBase>
-              <SampleBase
-              ><LinkSamples/>
-              </SampleBase>
-              <SampleBase
-              ><ButtonsSample/>
-              </SampleBase>
-              <SampleBase
-              ><ColSamples/>
-              </SampleBase>
-              <SampleBase
-              ><MenuItemSamples/>
-              </SampleBase>
-              <SampleBase
-              ><MenuSamples/>
-              </SampleBase>
-              <SampleBase
-              ><ModalSamples/>
-              </SampleBase>
-              <SampleBase
-              ><RowSamples/>
-              </SampleBase>
-              <SampleBase
-              ><TitleSamples/>
-              </SampleBase>
-              <SampleBase
-              ><ConSamples/>
-              </SampleBase>*/}
             </div>
           </Col>
         </Col>
       </Row>
     </Col>
-  </ThemeProvider>
+  </LiteUIProvider>
 }
 
 export default App

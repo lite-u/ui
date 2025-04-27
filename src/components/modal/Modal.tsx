@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {CSSProperties} from 'react'
 
 const Modal: React.FC<{
   children?: React.ReactNode,
   style?: React.CSSProperties
   onBackdropClick?: VoidFunction,
-  backdropBg?: string
+  backdropBg?: CSSProperties['backgroundColor']
 }> = ({children, style, onBackdropClick, backdropBg = 'rgba(0,0,0,.5)'}) => {
 
   return <div
@@ -33,6 +33,7 @@ const Modal: React.FC<{
         'width': '100%',
         'height': '100%',
         zIndex: -1,
+        pointerEvents: onBackdropClick ? 'auto' : 'none',
         backgroundColor: backdropBg,
       }}
       onClick={() => {

@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../themes/ThemeContext';
+import { useTheme } from '../../LiteUIContext';
 export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, ...rest }) => {
     const { theme } = useTheme();
     const { padding } = theme;

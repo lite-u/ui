@@ -10,6 +10,7 @@ import RowSamples from './RowSamples.tsx'
 import TitleSamples from './TitleSamples.tsx'
 import ConSamples from './ConSamples.tsx'
 import DropSamples from './DropSamples.tsx'
+import NotificationSamples from './NotificationSamples.tsx'
 
 const SAMPLES = [
   {
@@ -67,6 +68,10 @@ const SAMPLES = [
   {
     name: 'Drop',
     comp: <DropSamples/>,
+  },
+  {
+    name: 'Notification',
+    comp: <NotificationSamples/>,
   },
 ]
 

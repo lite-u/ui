@@ -1,4 +1,4 @@
-import {useTheme} from '../../themes/ThemeContext'
+import {useTheme} from '../../LiteUIContext'
 import {useState} from 'react'
 
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
