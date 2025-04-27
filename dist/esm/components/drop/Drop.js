@@ -1,46 +1,45 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import Con from '../con/Con';
-export const Drop = ({ onDragOverChanged, onExcluded, children, style = {}, onDragEnter, onDragLeave, onDragOver, onDrop, accepts = [], ...props }) => {
-    const [isDragging, setIsDragging] = useState(false);
+export const Drop = ({ accepts = [], onDragIsOver, onDragIsLeave, children, onDrop, style = {}, 
+// native events
+onDragEnter, onDragLeave, onDragOver, ...props }) => {
     const dragCounter = useRef(0);
     const handleDragEnter = useCallback((e) => {
-        console.log(e.dataTransfer.items[0]);
         onDragEnter && onDragEnter(e);
-        if (!handleFileType(e))
-            return;
+        const f = handleFileType(e);
         dragCounter.current++;
         if (dragCounter.current === 1) {
-            setIsDragging(true);
+            onDragIsOver && onDragIsOver(f);
         }
     }, []);
     const handleDragLeave = useCallback((e) => {
         onDragLeave && onDragLeave(e);
-        if (!handleFileType(e))
-            return;
+        handleFileType(e);
         dragCounter.current--;
         if (dragCounter.current === 0) {
-            setIsDragging(false);
+            onDragIsLeave && onDragIsLeave();
         }
     }, []);
     const handleDragOver = useCallback((e) => {
         onDragOver && onDragOver(e);
-        if (!handleFileType(e))
-            return;
+        handleFileType(e);
     }, []);
     const handleDrop = useCallback((e) => {
-        if (!handleFileType(e))
-            return;
+        const f = handleFileType(e);
         dragCounter.current = 0;
-        setIsDragging(false);
-        onDrop && onDrop(e);
+        if (f) {
+            onDrop && onDrop(e);
+        }
+        else {
+            onDragIsLeave && onDragIsLeave();
+        }
     }, []);
     const handleFileType = (e) => {
         e.preventDefault();
         e.stopPropagation();
         const firstFile = e.dataTransfer.items[0];
         if (!(firstFile && firstFile.type)) {
-            onExcluded && onExcluded('File type has not been set in the accepts parameter.', firstFile);
             return false;
         }
         const fileType = firstFile.type;
@@ -61,9 +60,6 @@ export const Drop = ({ onDragOverChanged, onExcluded, children, style = {}, onDr
     const styles = {
         ...style,
     };
-    useEffect(() => {
-        onDragOverChanged && onDragOverChanged(isDragging);
-    }, [isDragging]);
-    return _jsx(Con, { fw: true, fh: true, style: styles, ...props, onDragEnter: handleDragEnter, onDragLeave: handleDragLeave, onDragOver: handleDragOver, onDrop: handleDrop, children: children });
+    return _jsx(Con, { fw: true, fh: true, "data-role": 'drop', style: styles, ...props, onDragEnter: handleDragEnter, onDragLeave: handleDragLeave, onDragOver: handleDragOver, onDrop: handleDrop, children: children });
 };
 export default Drop;

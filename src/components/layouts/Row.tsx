@@ -1,7 +1,7 @@
 import {ReactNode} from 'react'
 
 const Row: React.FC<React.HTMLProps<HTMLDivElement> & {
-  children: ReactNode,
+  children?: ReactNode,
   // size
   fw?: boolean,
   fh?: boolean,

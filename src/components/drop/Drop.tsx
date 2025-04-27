@@ -1,62 +1,68 @@
-import {HTMLProps, useCallback, useEffect, useRef, useState} from 'react'
+import {HTMLProps, useCallback, useRef} from 'react'
 import Con from '../con/Con'
 
 type DropProps = {
-  onDragOverChanged?: (v: boolean) => void
-  onExcluded?: (msg: string, d: DataTransferItem) => void
+  accepts?: string[]
+  onDragIsOver?: (isFileTypeValid: boolean) => void
+  onDragIsLeave?: () => void
+  onDrop?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void
   children?: React.ReactNode
   style?: React.CSSProperties
-  accepts?: string[]
 };
 
 export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
-                                                                        onDragOverChanged,
-                                                                        onExcluded,
+                                                                        accepts = [],
+                                                                        onDragIsOver,
+                                                                        onDragIsLeave,
                                                                         children,
+                                                                        onDrop,
                                                                         style = {},
+                                                                        // native events
                                                                         onDragEnter,
                                                                         onDragLeave,
                                                                         onDragOver,
-                                                                        onDrop,
-                                                                        accepts = [],
                                                                         ...props
                                                                       }) => {
-  const [isDragging, setIsDragging] = useState(false)
   const dragCounter = useRef(0)
 
   const handleDragEnter = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     onDragEnter && onDragEnter(e)
 
-    if (!handleFileType(e)) return
+    const f = handleFileType(e)
 
     dragCounter.current++
+
     if (dragCounter.current === 1) {
-      setIsDragging(true)
+      onDragIsOver && onDragIsOver(f)
     }
   }, [])
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     onDragLeave && onDragLeave(e)
 
-    if (!handleFileType(e)) return
-
+    handleFileType(e)
     dragCounter.current--
+
     if (dragCounter.current === 0) {
-      setIsDragging(false)
+      onDragIsLeave && onDragIsLeave()
     }
   }, [])
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     onDragOver && onDragOver(e)
-    if (!handleFileType(e)) return
+    handleFileType(e)
   }, [])
 
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    if (!handleFileType(e)) return
+    const f = handleFileType(e)
 
     dragCounter.current = 0
-    setIsDragging(false)
-    onDrop && onDrop(e)
+    if (f) {
+      onDrop && onDrop(e)
+    } else {
+      onDragIsLeave && onDragIsLeave()
+    }
+
   }, [])
 
   const handleFileType = (e: React.DragEvent<HTMLDivElement>): boolean => {
@@ -65,7 +71,6 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
     const firstFile = e.dataTransfer.items[0]
 
     if (!(firstFile && firstFile.type)) {
-      onExcluded && onExcluded('File type has not been set in the accepts parameter.', firstFile)
       return false
     }
 
@@ -93,11 +98,8 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
     ...style,
   }
 
-  useEffect(() => {
-    onDragOverChanged && onDragOverChanged(isDragging)
-  }, [isDragging])
-
   return <Con fw fh
+              data-role={'drop'}
               style={styles}
               {...props}
               onDragEnter={handleDragEnter}

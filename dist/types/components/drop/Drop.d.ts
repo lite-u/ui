@@ -1,10 +1,11 @@
 import { HTMLProps } from 'react';
 type DropProps = {
-    onDragOverChanged?: (v: boolean) => void;
-    onExcluded?: (msg: string, d: DataTransferItem) => void;
+    accepts?: string[];
+    onDragIsOver?: (isFileTypeValid: boolean) => void;
+    onDragIsLeave?: () => void;
+    onDrop?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void;
     children?: React.ReactNode;
     style?: React.CSSProperties;
-    accepts?: string[];
 };
 export declare const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps>;
 export default Drop;

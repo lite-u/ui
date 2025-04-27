@@ -7,6 +7,14 @@ const DropSamples: React.FC = () => {
   const [isDraggingA, setIsDraggingA] = useState(false)
   const [isDraggingB, setIsDraggingB] = useState(false)
   const [isDraggingC, setIsDraggingC] = useState(false)
+  const [sampleAData, setSampleAData] = useState({
+    bg: '#cab077',
+    defaultBg: '#cab077',
+    msg: 'I accept PNG only',
+    defaultMsg: 'I accept PNG only',
+    cursor: 'default',
+    defaultCursor: 'default',
+  })
   const [msgA, setMsgA] = useState('I love PNG')
   const [msgB, setMsgB] = useState('I love IMAGES')
   const [msgC, setMsgC] = useState('I love ALL files')
@@ -16,25 +24,37 @@ const DropSamples: React.FC = () => {
 
   return <Col>
     <Row w={620} h={200} stretch space={10}>
+
       <Con bg={'#dfdfdf'}>
         <Drop accepts={['image/png']}
               onDrop={(e) => {
-                setDroppedA(e.dataTransfer.files[0].name)
+                setSampleAData({
+                  ...sampleAData,
+                  bg: 'green',
+                  cursor: sampleAData.defaultCursor,
+                  msg: e.dataTransfer.files[0].name,
+                })
+                // console.log('drop')
               }}
-              onExcluded={(msg, d) => {
-                console.log(msg, d)
+              onDragIsOver={(f) => {
+                setSampleAData({
+                  ...sampleAData,
+                  bg: f ? 'blue' : 'red',
+                  cursor: f ? 'drop' : 'no-drop',
+                  msg: f ? 'I Love PNG !' : 'I Love PNG ONLY',
+                })
               }}
-              onDragOverChanged={(v) => {
-                setIsDraggingA(v)
-                setMsgA(v ? 'I love PNG' : 'I accept PNG only')
-
-                if (v) {
-                  setDroppedA('')
-                }
+              onDragIsLeave={() => {
+                setSampleAData({
+                  ...sampleAData,
+                  bg: sampleAData.defaultBg,
+                  cursor: sampleAData.defaultCursor,
+                  msg: sampleAData.defaultMsg,
+                })
               }}>
-          <Con fw fh bg={droppedA ? 'green' : isDraggingA ? 'blue' : '#cab077'}>
+          <Con fw fh bg={sampleAData.bg}>
             <Row fh center jc>
-              <P color={'white'}>{droppedA || msgA}</P>
+              <P color={'white'}>{sampleAData.msg}</P>
             </Row>
           </Con>
         </Drop>
@@ -45,14 +65,11 @@ const DropSamples: React.FC = () => {
               onDrop={(e) => {
                 setDroppedB(e.dataTransfer.files[0].name)
               }}
-              onExcluded={(msg, d) => {
-                console.log(msg, d)
-              }}
-              onDragOverChanged={(v) => {
-                setIsDraggingB(v)
-                setMsgB(v ? 'I love IMAGES' : 'I Accept ALL Images')
+              onDragOver={(isDragOver, isFileTypeValid) => {
+                setIsDraggingB(isDragOver)
+                setMsgB(isDragOver ? 'I love IMAGES' : 'I Accept ALL Images')
 
-                if (v) {
+                if (isFileTypeValid) {
                   setDroppedB('')
                 }
               }}>
@@ -71,7 +88,7 @@ const DropSamples: React.FC = () => {
               onExcluded={(msg, d) => {
                 console.log(msg, d)
               }}
-              onDragOverChanged={(v) => {
+              onDragOver={(v) => {
                 setIsDraggingC(v)
                 setMsgC(v ? 'I love ALL' : 'I Accept ALL types')
 
