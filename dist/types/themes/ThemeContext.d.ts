@@ -2,13 +2,13 @@ import React from 'react';
 import { ThemeType } from './type';
 export declare const ThemeContext: React.Context<{
     theme: ThemeType;
-    setTheme: (mode: never) => void;
+    setTheme: (mode: 'lite' | 'dark') => void;
 }>;
 declare const ThemeProvider: ({ children }: {
     children: React.ReactNode;
 }) => import("react/jsx-runtime").JSX.Element;
 export declare const useTheme: () => {
     theme: ThemeType;
-    setTheme: (mode: never) => void;
+    setTheme: (mode: 'lite' | 'dark') => void;
 };
 export default ThemeProvider;

@@ -3,6 +3,7 @@ import {CSSProperties, ReactNode} from 'react'
 const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   children?: ReactNode,
   box?: boolean,
+  ovh?: boolean,
   fw?: boolean,
   fh?: boolean,
   bg?: CSSProperties['backgroundColor'],
@@ -14,6 +15,7 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   style?: {}
 }> = ({
         children,
+        ovh = true,
         box = true,
         fw = true,
         fh = false,
@@ -67,6 +69,10 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (color) {
     styles.color = color
+  }
+
+  if (ovh) {
+    styles.overflow = 'hidden'
   }
 
   return <div

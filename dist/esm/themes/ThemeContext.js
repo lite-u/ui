@@ -4,9 +4,7 @@ import { liteTheme } from './lite.theme';
 import { darkTheme } from './dark';
 export const ThemeContext = createContext({
     theme: liteTheme,
-    setTheme: (mode) => {
-        console.log(mode);
-    },
+    setTheme: () => { },
 });
 const ThemeProvider = ({ children }) => {
     const [themeMode, setThemeMode] = useState('lite');
@@ -16,6 +14,7 @@ const ThemeProvider = ({ children }) => {
     const setTheme = (mode) => {
         setThemeMode(mode);
     };
+    // @ts-ignore
     const currentTheme = themeMode === 'lite' ? liteTheme : darkTheme;
     return (_jsx(ThemeContext.Provider, { value: { theme: currentTheme, setTheme }, children: children }));
 };

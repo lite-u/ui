@@ -1,7 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useTheme } from '../../themes/ThemeContext';
 const Menu = ({ children, style = {}, space = 8, ...props }) => {
-    const { theme } = useTheme();
+    // const {theme} = useTheme()
     return _jsx("div", { style: {
             ...style,
             gap: space,

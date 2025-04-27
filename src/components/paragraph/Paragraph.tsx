@@ -5,12 +5,14 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   children?: ReactNode
   color?: CSSProperties['color']
   center?: boolean
+  wb?: CSSProperties['wordBreak']
 }> = ({
         children,
         size = 16,
         style = {},
         color,
         center = false,
+        wb = 'break-word',
         ...props
       }) => {
   // const theme = useTheme()
@@ -27,6 +29,11 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   if (size) {
     styles.fontSize = size
   }
+
+  if (wb) {
+    styles.wordBreak = wb
+  }
+
   return <p style={{...style, ...styles}} {...props}>
     {children}
   </p>

@@ -17,10 +17,10 @@ export interface ThemeType {
         textSuccess: string;
     };
     fontSizes: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
+        xs: number;
+        sm: number;
+        md: number;
+        lg: number;
     };
     padding: {
         xs: {
@@ -41,35 +41,31 @@ export interface ThemeType {
         };
     };
     borderRadius: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
+        xs: number;
+        sm: number;
+        md: number;
+        lg: number;
     };
     button: {
         primary: {
             backgroundColor: string;
             color: string;
-            border: string;
-            borderRadius: string;
+            borderColor: string;
         };
         warn: {
             backgroundColor: string;
             color: string;
-            border: string;
-            borderRadius: string;
+            borderColor: string;
         };
         error: {
             backgroundColor: string;
             color: string;
-            border: string;
-            borderRadius: string;
+            borderColor: string;
         };
         neutral: {
             backgroundColor: string;
             color: string;
-            border: string;
-            borderRadius: string;
+            borderColor: string;
         };
     };
     input: {
@@ -112,8 +108,5 @@ export interface ThemeType {
     };
     panel: {
         primaryColor: string;
-        head: {
-            backgroundColor: string;
-        };
     };
 }

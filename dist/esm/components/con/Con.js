@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', color = 'inherit', w, h, p, m, style = {}, ...props }) => {
+const Con = ({ children, ovh = true, box = true, fw = true, fh = false, bg = 'transparent', color = 'inherit', w, h, p, m, style = {}, ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -32,6 +32,9 @@ const Con = ({ children, box = true, fw = true, fh = false, bg = 'transparent', 
     if (color) {
         styles.color = color;
     }
-    return _jsx("div", { role: 'O', style: styles, ...props, children: children });
+    if (ovh) {
+        styles.overflow = 'hidden';
+    }
+    return _jsx("div", { "data-role": 'container', style: styles, ...props, children: children });
 };
 export default Con;
