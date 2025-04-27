@@ -35,7 +35,6 @@ const NotificationProvider = ({ children }) => {
         }
         return false;
     };
-    // console.log(notifications.length)
     return (_jsxs(NotificationContext.Provider, { value: {
             notifications,
             add: addNotification,
@@ -51,7 +50,7 @@ const NotificationProvider = ({ children }) => {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                    }, children: notification.text });
+                    }, children: notification.text }, notification.id);
             })] }));
 };
 export default NotificationProvider;

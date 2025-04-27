@@ -16,7 +16,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     setNotifications(arr)
   }
 
-  const addNotification = (text: string, type = 'info', delay = 3000) => {
+  const addNotification = (text: string, type: NotificationProps['type'] = 'info', delay = 3000) => {
     const id = type + '-' + Date.now()
     const n = {
       id,
@@ -47,7 +47,6 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
     return false
   }
-  // console.log(notifications.length)
 
   return (
     <NotificationContext.Provider value={{
@@ -58,7 +57,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
       {children}
       {
         notifications.map((notification) => {
-          return <Row jc center style={{
+          return <Row key={notification.id} jc center style={{
             position: 'fixed',
             background: '#fff',
             padding: 10,
