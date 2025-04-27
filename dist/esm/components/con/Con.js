@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Con = ({ children, ovh = true, box = true, fw = true, fh = false, bg = 'transparent', color = 'inherit', w, h, p, m, style = {}, ...props }) => {
+const Con = ({ children, ovh = false, box = true, fw = true, fh = false, bg, color = 'inherit', w, h, mw, mh, p, m, style = {}, ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -16,6 +16,12 @@ const Con = ({ children, ovh = true, box = true, fw = true, fh = false, bg = 'tr
     }
     if (h) {
         styles.height = h;
+    }
+    if (mw) {
+        styles.maxWidth = mw;
+    }
+    if (mh) {
+        styles.maxHeight = mh;
     }
     if (p) {
         styles.padding = p;

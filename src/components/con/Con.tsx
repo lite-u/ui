@@ -10,19 +10,23 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
   color?: CSSProperties['color'],
   p?: CSSProperties['padding']
   m?: CSSProperties['margin']
+  mw?: CSSProperties['maxWidth']
   w?: CSSProperties['width']
   h?: CSSProperties['height']
+  mh?: CSSProperties['maxHeight']
   style?: {}
 }> = ({
         children,
-        ovh = true,
+        ovh = false,
         box = true,
         fw = true,
         fh = false,
-        bg = 'transparent',
+        bg,
         color = 'inherit',
         w,
         h,
+        mw,
+        mh,
         p,
         m,
         style = {},
@@ -49,6 +53,14 @@ const Con: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   if (h) {
     styles.height = h
+  }
+
+  if (mw) {
+    styles.maxWidth = mw
+  }
+
+  if (mh) {
+    styles.maxHeight = mh
   }
 
   if (p) {

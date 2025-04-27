@@ -1,7 +1,7 @@
-import {useTheme} from '../../themes/ThemeContext'
+// import {useTheme} from '../../themes/ThemeContext'
 
 const InputNumber: React.FC<{ style: React.CSSProperties }> = ({style, ...props}) => {
-  const theme = useTheme()
+  // const theme = useTheme()
 
   return <input
     type={'number'}

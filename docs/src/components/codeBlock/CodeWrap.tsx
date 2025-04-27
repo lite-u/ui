@@ -19,13 +19,17 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   return (
-    <Con w={400} style={{
-      width: '100%',
-      boxShadow: '1px 1px 5px 1px #000',
-      borderRadius: '5px',
-      overflow: 'hidden',
-      position: 'relative',
-    }}>
+    <Con w={400}
+         mh={200}
+         style={{
+           backgroundColor: '#2d2d2d',
+           padding: '25px 20px',
+           width: '100%',
+           boxShadow: '1px 1px 5px 1px #000',
+           borderRadius: '5px',
+           overflow: 'auto',
+           position: 'relative',
+         }}>
       <Button s
               onClick={handleCopy}
               style={{
@@ -40,7 +44,8 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
                  style={{
                    // minWidth: 300,
                    margin: 0,
-                   padding: '25px 20px 15px 20px',
+                   padding: 0,
+                   // padding: '25px 20px 15px 20px',
                    // borderRadius: '5px',
                  }}/>
     </Con>
