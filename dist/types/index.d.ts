@@ -16,6 +16,7 @@ import SelectItem from './components/select/SelectItem';
 import Con from './components/con/Con';
 import Drop from './components/drop/Drop';
 import { useNotification } from './components/notification/NotificationContext';
-export { Input, Select, SelectItem, Link, Button, LiteUIProvider, Modal, Panel, Row, Col, Title, Paragraph, P, Menu, MenuItem, Con, Drop, useNotification };
+import Flex from './components/layouts/Flex';
+export { Input, Select, SelectItem, Link, Button, LiteUIProvider, Modal, Panel, Row, Col, Flex, Title, Paragraph, P, Menu, MenuItem, Con, Drop, useNotification };
 export default LiteUIProvider;
 export type { ThemeType };
