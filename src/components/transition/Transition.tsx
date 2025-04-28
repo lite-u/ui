@@ -10,9 +10,14 @@ type TimingFunction =
 
 const Transition: FC<{
   visible: boolean,
+  transformOrigin?: CSSProperties['transformOrigin'],
   scale?: {
     from: number
     to: number
+  }
+  rotate?: {
+    from: `rotate(${number}deg)`
+    to: `rotate(${number}deg)`
   }
   translate?: {
     from: string
@@ -53,7 +58,9 @@ const Transition: FC<{
   children: ReactNode
 }> = ({
         children,
+        transformOrigin = 'center',
         scale,
+        rotate,
         translate,
         opacity,
         width,
@@ -63,8 +70,8 @@ const Transition: FC<{
         bottom,
         left,
         effect = 'ease',
-        visible = true, // Controls visibility (scale from 0 to 1)
-        duration = 300, // Duration of the animation in ms
+        visible = true,
+        duration = 300,
       }) => {
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
 
@@ -89,6 +96,7 @@ const Transition: FC<{
     bottom,
     left,
     scale,
+    rotate,
     opacity,
   ])
 
@@ -104,6 +112,7 @@ const Transition: FC<{
       right?: CSSProperties['right']
       bottom?: CSSProperties['bottom']
       left?: CSSProperties['left']
+      rotate?: string
     } = {}
 
     let showing = state === 'entered' || state === 'entering'
@@ -113,6 +122,11 @@ const Transition: FC<{
     if (scale) {
       transformDeclares.push(showing ? `scale(${scale.to})` : `scale(${scale.from})`)
       transitionDeclares.add(`transform ${duration}ms ${effect}`)
+    }
+
+    if (rotate) {
+      transformDeclares.push(showing ? rotate.to : rotate.from)
+      transitionDeclares.add(`rotate ${duration}ms ${effect}`)
     }
 
     if (translate) {
@@ -170,7 +184,7 @@ const Transition: FC<{
     <div
       role={'transition'}
       style={{
-        transformOrigin: 'center center',
+        transformOrigin,
         overflow: 'hidden',
         ...getStyle(),
       }}

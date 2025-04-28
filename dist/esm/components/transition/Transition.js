@@ -1,8 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
-const Transition = ({ children, scale, translate, opacity, width, height, top, right, bottom, left, effect = 'ease', visible = true, // Controls visibility (scale from 0 to 1)
-duration = 300, // Duration of the animation in ms
- }) => {
+const Transition = ({ children, transformOrigin = 'center', scale, rotate, translate, opacity, width, height, top, right, bottom, left, effect = 'ease', visible = true, duration = 300, }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     useEffect(() => {
         if (visible) {
@@ -26,6 +24,7 @@ duration = 300, // Duration of the animation in ms
         bottom,
         left,
         scale,
+        rotate,
         opacity,
     ]);
     // Get the scaling style
@@ -37,6 +36,10 @@ duration = 300, // Duration of the animation in ms
         if (scale) {
             transformDeclares.push(showing ? `scale(${scale.to})` : `scale(${scale.from})`);
             transitionDeclares.add(`transform ${duration}ms ${effect}`);
+        }
+        if (rotate) {
+            transformDeclares.push(showing ? rotate.to : rotate.from);
+            transitionDeclares.add(`rotate ${duration}ms ${effect}`);
         }
         if (translate) {
             transformDeclares.push(showing ? translate.to : translate.from);
@@ -79,7 +82,7 @@ duration = 300, // Duration of the animation in ms
         return r;
     };
     return (_jsx("div", { role: 'transition', style: {
-            transformOrigin: 'center center',
+            transformOrigin,
             overflow: 'hidden',
             ...getStyle(),
         }, children: children }));

@@ -2,9 +2,14 @@ import { CSSProperties, FC, ReactNode } from 'react';
 type TimingFunction = 'ease' | 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out' | `cubic-bezier(${number}, ${number}, ${number}, ${number})`;
 declare const Transition: FC<{
     visible: boolean;
+    transformOrigin?: CSSProperties['transformOrigin'];
     scale?: {
         from: number;
         to: number;
+    };
+    rotate?: {
+        from: `rotate(${number}deg)`;
+        to: `rotate(${number}deg)`;
     };
     translate?: {
         from: string;
