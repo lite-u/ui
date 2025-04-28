@@ -53,7 +53,6 @@ const Panel: React.FC<{
   const boxFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
   const boxPadding = theme.padding[size as keyof typeof theme['padding']].x
 
-  console.log(headPadding)
   return <Con fw fh role={'panel'} {...props}>
     <Col fw fh stretch>
       <Con role={'panel-head'}

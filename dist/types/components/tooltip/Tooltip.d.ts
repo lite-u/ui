@@ -5,7 +5,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
     bgColor?: string;
     color?: string;
     position?: TooltipPosition;
-    children: React.ReactNode;
+    children: React.ReactElement;
 };
 export declare const Tooltip: React.FC<ToolTipProps>;
 export default Tooltip;

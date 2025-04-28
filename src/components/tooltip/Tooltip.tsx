@@ -1,4 +1,6 @@
-import {useEffect, useRef, useState} from 'react'
+import {RefObject, useEffect, useRef, useState} from 'react'
+import useElementMoveDetect from '../../hooks/useElementMoveDetect'
+import {createPortal} from 'react-dom'
 
 type TooltipPosition = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
 type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
@@ -6,7 +8,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
   bgColor?: string
   color?: string
   position?: TooltipPosition
-  children: React.ReactNode;
+  children: React.ReactElement;
 };
 
 export const Tooltip: React.FC<ToolTipProps> = ({
@@ -19,9 +21,20 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   const [isVisible, setIsVisible] = useState(false)
   const [localPosition, setLocalPosition] = useState<TooltipPosition | null>()
   const tooltipRef = useRef<HTMLDivElement | null>(null)
-  const targetRef = useRef<HTMLDivElement | null>(null)
+  const targetRef = useRef<HTMLDivElement>(null)
   const backgroundColor = bgColor || '#333'
   const textColor = color || '#fff'
+  const [realTimePosition, setRealTimePosition] = useState({
+    width: 0,
+    height: 0,
+    top: 0,
+    left: 0,
+  })
+
+  useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
+    calcPosition()
+  })
+
   useEffect(() => {
     if (position) {
       setLocalPosition(position)
@@ -62,6 +75,20 @@ export const Tooltip: React.FC<ToolTipProps> = ({
       }
     }
   }, [isVisible, position])
+
+  const calcPosition = () => {
+    const firstChild = targetRef.current?.firstElementChild
+
+    if (firstChild) {
+      const {width, height, top, left} = firstChild.getBoundingClientRect()
+      setRealTimePosition({
+        width,
+        height,
+        top,
+        left,
+      })
+    }
+  }
 
   const getPositionStyles = () => {
     switch (localPosition) {
@@ -168,44 +195,52 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   }
 
   const handleMouseLeave = () => {
-    setIsVisible(false)
+    setTimeout(() => {
+      setIsVisible(false)
+    }, 1000)
   }
 
   return (
     <div
       role={'tooltip'}
       ref={targetRef}
-      style={{position: 'relative', display: 'inline-block'}}
+      style={{display: 'inline-block'}}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {children}
-      {isVisible && (
-        <div
-          ref={tooltipRef}
-          style={{
-            position: 'absolute',
-            backgroundColor: backgroundColor,
-            padding: '5px 10px',
-            borderRadius: '4px',
-            // whiteSpace: 'nowrap',
-            zIndex: 1000,
-            fontSize: '12px',
-            color: textColor,
-            ...getPositionStyles(),
-          }}
-        >
-          {title}
+
+      {isVisible && realTimePosition && createPortal(
+        <div style={{
+          position: 'fixed',
+          pointerEvents:'none',
+          ...realTimePosition,
+        }}>
           <div
+            ref={tooltipRef}
             style={{
+              position: 'absolute',
+              backgroundColor: backgroundColor,
+              padding: '5px 10px',
+              borderRadius: '4px',
+              // whiteSpace: 'nowrap',
+              zIndex: 1000,
+              fontSize: '12px',
+              color: textColor,
+              ...getPositionStyles(),
+            }}
+          >
+            {title}
+            <div style={{
               content: '',
               position: 'absolute',
               borderStyle: 'solid',
               color: textColor,
               ...getArrowStyles(),
-            }}
-          />
-        </div>
+            }}/>
+          </div>
+        </div>,
+        document.body,
       )}
     </div>
   )

@@ -1,5 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
+import useElementMoveDetect from '../../hooks/useElementMoveDetect';
+import { createPortal } from 'react-dom';
 export const Tooltip = ({ title, color, bgColor, position, children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
@@ -7,6 +9,15 @@ export const Tooltip = ({ title, color, bgColor, position, children, }) => {
     const targetRef = useRef(null);
     const backgroundColor = bgColor || '#333';
     const textColor = color || '#fff';
+    const [realTimePosition, setRealTimePosition] = useState({
+        width: 0,
+        height: 0,
+        top: 0,
+        left: 0,
+    });
+    useElementMoveDetect(targetRef, () => {
+        calcPosition();
+    });
     useEffect(() => {
         if (position) {
             setLocalPosition(position);
@@ -52,6 +63,18 @@ export const Tooltip = ({ title, color, bgColor, position, children, }) => {
             }
         }
     }, [isVisible, position]);
+    const calcPosition = () => {
+        const firstChild = targetRef.current?.firstElementChild;
+        if (firstChild) {
+            const { width, height, top, left } = firstChild.getBoundingClientRect();
+            setRealTimePosition({
+                width,
+                height,
+                top,
+                left,
+            });
+        }
+    };
     const getPositionStyles = () => {
         switch (localPosition) {
             case 't':
@@ -154,24 +177,30 @@ export const Tooltip = ({ title, color, bgColor, position, children, }) => {
         setIsVisible(true);
     };
     const handleMouseLeave = () => {
-        setIsVisible(false);
+        setTimeout(() => {
+            setIsVisible(false);
+        }, 1000);
     };
-    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { position: 'relative', display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && (_jsxs("div", { ref: tooltipRef, style: {
-                    position: 'absolute',
-                    backgroundColor: backgroundColor,
-                    padding: '5px 10px',
-                    borderRadius: '4px',
-                    // whiteSpace: 'nowrap',
-                    zIndex: 1000,
-                    fontSize: '12px',
-                    color: textColor,
-                    ...getPositionStyles(),
-                }, children: [title, _jsx("div", { style: {
-                            content: '',
-                            position: 'absolute',
-                            borderStyle: 'solid',
-                            color: textColor,
-                            ...getArrowStyles(),
-                        } })] }))] }));
+    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && realTimePosition && createPortal(_jsx("div", { style: {
+                    position: 'fixed',
+                    pointerEvents: 'none',
+                    ...realTimePosition,
+                }, children: _jsxs("div", { ref: tooltipRef, style: {
+                        position: 'absolute',
+                        backgroundColor: backgroundColor,
+                        padding: '5px 10px',
+                        borderRadius: '4px',
+                        // whiteSpace: 'nowrap',
+                        zIndex: 1000,
+                        fontSize: '12px',
+                        color: textColor,
+                        ...getPositionStyles(),
+                    }, children: [title, _jsx("div", { style: {
+                                content: '',
+                                position: 'absolute',
+                                borderStyle: 'solid',
+                                color: textColor,
+                                ...getArrowStyles(),
+                            } })] }) }), document.body)] }));
 };
 export default Tooltip;
