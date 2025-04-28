@@ -152,7 +152,7 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
   }
 
   return <div
-    data-role={role}
+    role={role}
     style={styles}
     {...props}
   >

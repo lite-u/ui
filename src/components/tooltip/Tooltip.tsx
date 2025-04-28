@@ -1,117 +1,213 @@
-import {useRef, useState} from 'react'
-import {Con} from '../con/Con'
+import {useEffect, useRef, useState} from 'react'
 
-type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
-type Variant = 'primary' | 'error' | 'warn' | 'neutral';
-
+type TooltipPosition = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
 type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
-  xs?: boolean;
-  s?: boolean;
-  m?: boolean;
-  l?: boolean;
-  primary?: boolean;
-  neutral?: boolean;
-  warn?: boolean;
-  error?: boolean;
-  style?: React.CSSProperties;
+  title: string
+  bgColor?: string
+  color?: string
+  position?: TooltipPosition
   children: React.ReactNode;
 };
 
 export const Tooltip: React.FC<ToolTipProps> = ({
-                                                  xs,
-                                                  s,
-                                                  m = true,
-                                                  l,
-                                                  primary,
-                                                  warn,
-                                                  error,
-                                                  neutral = true,
-                                                  style = {},
-                                                  type = 'button',
+                                                  title,
+                                                  color,
+                                                  bgColor,
+                                                  position,
                                                   children,
-                                                  ...props
                                                 }) => {
-  // const {theme} = useLiteUIContext()
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const [show, setShow] = useState(false)
-  const [position, setPosition] = useState({x: 0, y: 0})
-  const handlePosition = () => {
-    if (!wrapperRef.current) {
+  const [isVisible, setIsVisible] = useState(true)
+  const [localPosition, setLocalPosition] = useState<TooltipPosition | null>()
+  const tooltipRef = useRef<HTMLDivElement | null>(null)
+  const targetRef = useRef<HTMLDivElement | null>(null)
+  const backgroundColor = bgColor || '#333'
+  const textColor = color || '#fff'
+  useEffect(() => {
+    if (position) {
+      setLocalPosition(position)
       return
     }
 
-    const rect = wrapperRef.current.getBoundingClientRect()
+    if (isVisible && targetRef.current && tooltipRef.current) {
+      const targetRect = targetRef.current.getBoundingClientRect()
+      const tooltipRect = tooltipRef.current.getBoundingClientRect()
 
+      // Calculate available space
+      const spaceAbove = targetRect.top
+      const spaceBelow = window.innerHeight - targetRect.bottom
+      const spaceLeft = targetRect.left
+      const spaceRight = window.innerWidth - targetRect.right
+
+      // Auto position tooltip in various directions
+      if (spaceAbove > tooltipRect.height) {
+        setLocalPosition('t')
+      } else if (spaceBelow > tooltipRect.height) {
+        setLocalPosition('b')
+      } else if (spaceLeft > tooltipRect.width) {
+        setLocalPosition('l')
+      } else if (spaceRight > tooltipRect.width) {
+        setLocalPosition('r')
+      } else {
+        if (spaceAbove > tooltipRect.height / 2 && spaceLeft > tooltipRect.width / 2) {
+          setLocalPosition('tl')
+        } else if (spaceAbove > tooltipRect.height / 2 && spaceRight > tooltipRect.width / 2) {
+          setLocalPosition('tr')
+        } else if (spaceBelow > tooltipRect.height / 2 && spaceLeft > tooltipRect.width / 2) {
+          setLocalPosition('bl')
+        } else if (spaceBelow > tooltipRect.height / 2 && spaceRight > tooltipRect.width / 2) {
+          setLocalPosition('br')
+        } else {
+          setLocalPosition('b')
+        }
+      }
+    }
+  }, [isVisible, position])
+
+  const getPositionStyles = () => {
+    switch (localPosition) {
+      case 't':
+        return {bottom: '120%', left: '50%', transform: 'translateX(-50%)'}
+      case 'b':
+        return {top: '120%', left: '50%', transform: 'translateX(-50%)'}
+      case 'l':
+        return {right: '120%', top: '50%', transform: 'translateY(-50%)'}
+      case 'r':
+        return {left: '120%', top: '50%', transform: 'translateY(-50%)'}
+      case 'tl':
+        return {bottom: '120%', left: '0', transform: 'translateX(0)'}
+      case 'tr':
+        return {bottom: '120%', right: '0', transform: 'translateX(0)'}
+      case 'bl':
+        return {top: '120%', left: '0', transform: 'translateX(0)'}
+      case 'br':
+        return {top: '120%', right: '0', transform: 'translateX(0)'}
+      default:
+        return {bottom: '120%', left: '50%', transform: 'translateX(-50%)'}
+    }
   }
-  // const [opacity, setOpacity] = useState(1)
-  /* const {
-     fontSizes,
-     padding,
-     button,
-     borderRadius,
-   } = theme*/
-  /*
-    const getVariant = (): Variant => {
-      if (primary) return 'primary'
-      if (error) return 'error'
-      if (warn) return 'warn'
-      return 'neutral'
-    }*/
-  /*
-    const getSize = (): SizeVariant => {
-      if (xs) return 'xs'
-      if (s) return 'sm'
-      if (l) return 'lg'
-      return 'md'
-    }*/
-  /*
-  const size = getSize()
-  const variant = getVariant()
-  const sizeStyles: Record<SizeVariant, React.CSSProperties> = {
-    xs: {
-      minWidth: 30,
-      height: 20,
-    },
-    sm: {
-      minWidth: 40,
-      height: 25,
-    },
-    md: {
-      minWidth: 50,
-      height: 30,
-    },
-    lg: {
-      minWidth: 60,
-      height: 40,
-    },
-  }*/
-  /*
-    const styles: React.CSSProperties = {
-      opacity,
-      // cursor: 'pointer',
-      fontSize: fontSizes[size],
-      padding: `0 ${padding[size].x}px`,
-      borderRadius: `${borderRadius[size]}px`,
-      borderWidth: 0,
-      ...button[variant],
-      ...sizeStyles[size],
-      ...style,
-    }*/
+
+  const getArrowStyles = () => {
+    switch (localPosition) {
+      case 't':
+        return {
+          top: '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          borderWidth: '6px 6px 0 6px',
+          borderColor: `${backgroundColor} transparent transparent transparent`,
+        }
+      case 'b':
+        return {
+          bottom: '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          borderWidth: '0 6px 6px 6px',
+          borderColor: `transparent transparent ${backgroundColor} transparent`,
+        }
+      case 'l':
+        return {
+          left: '100%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          borderWidth: '6px 0 6px 6px',
+          borderColor: `transparent transparent transparent ${backgroundColor}`,
+        }
+      case 'r':
+        return {
+          right: '100%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          borderWidth: '6px 6px 6px 0',
+          borderColor: `transparent ${backgroundColor} transparent transparent`,
+        }
+      case 'tl':
+        return {
+          top: '100%',
+          left: '15%',
+          transform: 'translateX(0)',
+          borderWidth: '6px 6px 0 6px',
+          borderColor: `${backgroundColor} transparent transparent transparent`,
+        }
+      case 'tr':
+        return {
+          top: '100%',
+          right: '15%',
+          transform: 'translateX(0)',
+          borderWidth: '6px 6px 0 6px',
+          borderColor: `${backgroundColor} transparent transparent transparent`,
+        }
+      case 'bl':
+        return {
+          bottom: '100%',
+          left: '15%',
+          transform: 'translateX(0)',
+          borderWidth: '0 6px 6px 6px',
+          borderColor: `transparent transparent ${backgroundColor} transparent`,
+        }
+      case 'br':
+        return {
+          bottom: '100%',
+          right: '15%',
+          transform: 'translateX(0)',
+          borderWidth: '0 6px 6px 6px',
+          borderColor: `transparent transparent ${backgroundColor} transparent`,
+        }
+      default:
+        return {
+          top: '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          borderWidth: '6px 6px 0 6px',
+          borderColor: `${backgroundColor} transparent transparent transparent`,
+        }
+    }
+  }
+
+  const handleMouseEnter = () => {
+    setIsVisible(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsVisible(false)
+  }
 
   return (
-    <Con
-      ref={wrapperRef}
+    <div
       role={'tooltip'}
-      onMouseOver={() => setShow(true)}
-      onMouseOut={() => setShow(false)}
-      {...props}>
+      ref={targetRef}
+      style={{position: 'relative', display: 'inline-block'}}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {children}
-      {show && <Con style={{
-        position: 'fixed',
-        top: position.y,
-        left: position.x,
-      }}></Con>}
-    </Con>
+      {isVisible && (
+        <div
+          ref={tooltipRef}
+          style={{
+            position: 'absolute',
+            backgroundColor: backgroundColor,
+            padding: '5px 10px',
+            borderRadius: '4px',
+            // whiteSpace: 'nowrap',
+            zIndex: 1000,
+            fontSize: '12px',
+            color: textColor,
+            ...getPositionStyles(),
+          }}
+        >
+          {title}
+          <div
+            style={{
+              content: '',
+              position: 'absolute',
+              borderStyle: 'solid',
+              color: textColor,
+              ...getArrowStyles(),
+            }}
+          />
+        </div>
+      )}
+    </div>
   )
 }
 

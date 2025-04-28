@@ -71,7 +71,7 @@ const Container = ({ children, ovh = false, box = true, fw = true, fh = false, b
     if (ovh) {
         styles.overflow = 'hidden';
     }
-    return _jsx("div", { "data-role": role, style: styles, ...props, children: children });
+    return _jsx("div", { role: role, style: styles, ...props, children: children });
 };
 export const Con = Container;
 export default Container;

@@ -18,6 +18,7 @@ import Drop from './components/drop/Drop';
 import { useNotification } from './components/notification/NotificationContext';
 import Flex from './components/layouts/Flex';
 import Transition from './components/transition/Transition';
-export { Input, Select, SelectItem, Link, Button, LiteUIProvider, Transition, Modal, Panel, Row, Col, Flex, Title, Paragraph, P, Menu, MenuItem, Con, Drop, useNotification, };
+import Tooltip from './components/tooltip/Tooltip';
+export { Input, Select, SelectItem, Link, Button, LiteUIProvider, Transition, Modal, Panel, Row, Col, Flex, Title, Paragraph, P, Menu, MenuItem, Tooltip, Con, Drop, useNotification, };
 export default LiteUIProvider;
 export type { ThemeType };

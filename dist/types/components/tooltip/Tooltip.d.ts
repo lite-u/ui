@@ -1,14 +1,10 @@
 /// <reference types="react" />
+type TooltipPosition = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br';
 type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
-    xs?: boolean;
-    s?: boolean;
-    m?: boolean;
-    l?: boolean;
-    primary?: boolean;
-    neutral?: boolean;
-    warn?: boolean;
-    error?: boolean;
-    style?: React.CSSProperties;
+    title: string;
+    bgColor?: string;
+    color?: string;
+    position?: TooltipPosition;
     children: React.ReactNode;
 };
 export declare const Tooltip: React.FC<ToolTipProps>;

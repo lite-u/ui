@@ -42,7 +42,7 @@ const Transition: FC<{
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
   // const [waiting, setWaiting] = useState()
   useEffect(() => {
-    console.log(state)
+    // console.log(state)
     if (visible) {
       setState('entering')
       const timer = setTimeout(() => setState('entered'), duration)

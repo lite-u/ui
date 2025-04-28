@@ -18,6 +18,7 @@ import Drop from './components/drop/Drop'
 import {useNotification} from './components/notification/NotificationContext'
 import Flex from './components/layouts/Flex'
 import Transition from './components/transition/Transition'
+import Tooltip from './components/tooltip/Tooltip'
 
 export {
   Input,
@@ -37,6 +38,7 @@ export {
   P,
   Menu,
   MenuItem,
+  Tooltip,
   Con,
   Drop,
   useNotification,

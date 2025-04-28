@@ -12,8 +12,13 @@ import ConSamples from './ConSamples.tsx'
 import DropSamples from './DropSamples.tsx'
 import NotificationSamples from './NotificationSamples.tsx'
 import TransitionSamples from './TransitionSamples.tsx'
+import TooltipSamples from './TooltipSamples.tsx'
 
 const SAMPLES = [
+  {
+    name: 'Tooltip',
+    comp: <TooltipSamples/>,
+  },
   {
     name: 'Buttons',
     comp: <ButtonsSamples/>,
@@ -77,6 +82,10 @@ const SAMPLES = [
   {
     name: 'Transition',
     comp: <TransitionSamples/>,
+  },
+  {
+    name: 'Tooltip',
+    comp: <TooltipSamples/>,
   },
 ]
 
