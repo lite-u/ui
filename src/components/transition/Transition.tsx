@@ -8,70 +8,34 @@ type TimingFunction =
   | 'ease-in-out'
   | `cubic-bezier(${number}, ${number}, ${number}, ${number})`;
 
+type FromType = {
+  [key in keyof CSSProperties]: CSSProperties[key] |
+  {
+    value: CSSProperties[key]
+    effect?: TimingFunction
+    duration?: number,
+    delay?: number,
+  }
+};
+
 const Transition: FC<{
   visible: boolean,
-  transformOrigin?: CSSProperties['transformOrigin'],
-  scale?: {
-    from: number
-    to: number
-  }
-  rotate?: {
-    from: `rotate(${number}deg)`
-    to: `rotate(${number}deg)`
-  }
-  translate?: {
-    from: string
-    to: string
-  }
-  opacity?: {
-    from: number
-    to: number
-    duration?: number
-    effect?: TimingFunction
-  }
-  width?: {
-    from: CSSProperties['width']
-    to: CSSProperties['width']
-  }
-  height?: {
-    from: CSSProperties['height']
-    to: CSSProperties['height']
-  }
-  top?: {
-    from: CSSProperties['top']
-    to: CSSProperties['top']
-  }
-  right?: {
-    from: CSSProperties['right']
-    to: CSSProperties['right']
-  }
-  bottom?: {
-    from: CSSProperties['bottom']
-    to: CSSProperties['bottom']
-  }
-  left?: {
-    from: CSSProperties['left']
-    to: CSSProperties['left']
-  }
+  from: FromType
+  to: FromType
+  transformOrigin?: string
   effect?: TimingFunction
   duration?: number,
+  delay?: number,
   children: ReactNode
 }> = ({
         children,
+        from = {},
+        to = {},
         transformOrigin = 'center',
-        scale,
-        rotate,
-        translate,
-        opacity,
-        width,
-        height,
-        top,
-        right,
-        bottom,
-        left,
-        effect = 'ease',
         visible = true,
+        effect = 'ease',
         duration = 300,
+        delay = 0,
       }) => {
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
 
@@ -88,96 +52,56 @@ const Transition: FC<{
   }, [
     visible,
     duration,
-    translate,
-    width,
-    height,
-    top,
-    right,
-    bottom,
-    left,
-    scale,
-    rotate,
-    opacity,
+    from,
+    to,
   ])
 
   // Get the scaling style
   const getStyle = () => {
-    const r: {
-      transform?: CSSProperties['transform']
-      opacity?: CSSProperties['opacity']
-      transition?: CSSProperties['transition']
-      width?: CSSProperties['width']
-      height?: CSSProperties['height']
-      top?: CSSProperties['top']
-      right?: CSSProperties['right']
-      bottom?: CSSProperties['bottom']
-      left?: CSSProperties['left']
-      rotate?: string
-    } = {}
-
+    const styles: CSSProperties = {}
     let showing = state === 'entered' || state === 'entering'
-    let transformDeclares = []
-    let transitionDeclares = new Set()
+    let transitionDeclarations = new Set()
+    let handlingObj = showing ? to : from
+    const keys = Object.keys(handlingObj) as unknown as (keyof CSSProperties)[]
 
-    if (scale) {
-      transformDeclares.push(showing ? `scale(${scale.to})` : `scale(${scale.from})`)
-      transitionDeclares.add(`transform ${duration}ms ${effect}`)
+    keys.forEach((key) => {
+        const item = handlingObj[key]
+        let itemTransitionDeclaration = ''
+        let itemDelay = delay
+        let itemDuration = duration
+        let itemEffect = effect
+        let itemStyleValue: CSSProperties[typeof key]
+
+        if (typeof item === 'object') {
+          itemStyleValue = item.value
+
+          if (item.delay) {
+            itemDelay = item.delay
+          }
+
+          if (item.duration) {
+            itemDuration = item.duration
+          }
+
+          if (item.effect) {
+            itemEffect = item.effect
+          }
+        } else {
+          itemStyleValue = item
+        }
+
+        itemTransitionDeclaration = `${handleCamelPropsName(key)} ${itemDuration}ms ${itemEffect} ${itemDelay}ms`
+        // @ts-ignore
+        styles[key] = itemStyleValue as CSSProperties[typeof key]
+        transitionDeclarations.add(itemTransitionDeclaration)
+      },
+    )
+
+    if (transitionDeclarations.size > 0) {
+      styles.transition = [...transitionDeclarations.values()].join(', ')
     }
 
-    if (rotate) {
-      transformDeclares.push(showing ? rotate.to : rotate.from)
-      transitionDeclares.add(`rotate ${duration}ms ${effect}`)
-    }
-
-    if (translate) {
-      transformDeclares.push(showing ? translate.to : translate.from)
-      transitionDeclares.add(`transform ${duration}ms ${effect}`)
-    }
-
-    if (opacity) {
-      r.opacity = showing ? opacity.to : opacity.from
-      transitionDeclares.add(`opacity ${opacity.duration || duration}ms ${opacity.effect || effect}`)
-    }
-
-    if (width) {
-      r.width = showing ? width.to : width.from
-      transitionDeclares.add(`width ${duration}ms ${effect}`)
-    }
-
-    if (height) {
-      r.height = showing ? height.to : height.from
-      transitionDeclares.add(`height ${duration}ms ${effect}`)
-    }
-
-    if (top) {
-      r.top = showing ? top.to : top.from
-      transitionDeclares.add(`top ${duration}ms ${effect}`)
-    }
-
-    if (right) {
-      r.right = showing ? right.to : right.from
-      transitionDeclares.add(`right ${duration}ms ${effect}`)
-    }
-
-    if (bottom) {
-      r.bottom = showing ? bottom.to : bottom.from
-      transitionDeclares.add(`bottom ${duration}ms ${effect}`)
-    }
-
-    if (left) {
-      r.left = showing ? left.to : left.from
-      transitionDeclares.add(`left ${duration}ms ${effect}`)
-    }
-
-    if (transitionDeclares.size > 0) {
-      r.transition = [...transitionDeclares.values()].join(', ')
-    }
-
-    if (transformDeclares.length > 0) {
-      r.transform = transformDeclares.join(' ')
-    }
-
-    return r
+    return styles
   }
 
   return (
@@ -193,5 +117,7 @@ const Transition: FC<{
     </div>
   )
 }
+
+const handleCamelPropsName = (propName: keyof CSSProperties) => propName.replace(/[A-Z]/g, (a) => '-' + a.toLowerCase())
 
 export default Transition

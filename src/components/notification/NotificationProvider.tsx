@@ -1,4 +1,4 @@
-import {CSSProperties, FC, ReactNode, useEffect, useRef, useState} from 'react'
+import {CSSProperties, FC, ReactNode, useRef, useState} from 'react'
 import {Transition} from '../../index'
 import {NotificationContext, NotificationProps} from './NotificationContext'
 import {Con} from '../con/Con'
@@ -6,10 +6,12 @@ import {Con} from '../con/Con'
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationProps[]>([])
   const notificationsRef = useRef<Map<string, NotificationProps>>(new Map())
+  const animationExitDuration = 300
+  /*
+    useEffect(() => {
 
-  useEffect(() => {
-
-  }, [])
+    }, [])
+  */
 
   const updateNotifications = () => {
     const arr = Array.from(notificationsRef.current.values())
@@ -23,22 +25,43 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
       id,
       type,
       text,
+      anim: false,
       timer: NaN,
     }
 
-    n.timer = setTimeout(() => {
-      // console.log(9)
-      removeNotification(id)
-    }, delay)
-
     notificationsRef.current.set(id, n)
+
+    // handle animation enter
+    setTimeout(() => {
+      const n = notificationsRef.current.get(id)
+
+      if (n) {
+        n.anim = true
+
+        updateNotifications()
+      }
+    }, 0)
+
+    // handle animation exit
+    n.timer = setTimeout(() => {
+      const n = notificationsRef.current.get(id)
+
+      if (n) {
+        n.anim = false
+        updateNotifications()
+
+        setTimeout(() => {
+          removeNotification(id)
+        }, animationExitDuration)
+      }
+    }, delay)
 
     updateNotifications()
   }
 
   const removeNotification = (id: string): boolean => {
     const n = notificationsRef.current.get(id)
-    // console.log(n)
+
     if (n) {
       clearTimeout(n.timer)
       notificationsRef.current.delete(id)
@@ -57,7 +80,6 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     maxWidth: 300,
     borderRadius: 5,
     border: '1px solid #000',
-    // boxShadow: '0 0 3px 0 #000',
     top: '50%',
     left: '50%',
     transition: 'transform .5s',
@@ -65,7 +87,6 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     textAlign: 'center',
   }
 
-  // console.log([...notifications])
   return (
     <NotificationContext.Provider value={{
       notifications,
@@ -74,15 +95,37 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     }}>
       {children}
       {
-        notifications.map(({id, text, type}, index) => {
+        notifications.map(({id, text, type, anim}, index) => {
           let color = '#000'
 
           if (type === 'error') {
             color = 'red'
           }
+
           if (type === 'warn') {
             color = 'yellow'
           }
+
+          /*   return <div key={id} style={{
+               position: 'fixed',
+               top: '50%',
+               left: '50%',
+               transform: 'translate(-50%, -50%)',
+               textAlign: 'center',
+               zIndex: 9999,
+             }}>
+               <Transition
+                 visible={anim}
+                 from={{
+                   scale: 0,
+                 }}
+                 to={{
+                   scale: 1,
+                 }}
+               >
+                 <Con w={100} h={100} bg={'red'}>{text}</Con>
+               </Transition>
+             </div>*/
 
           return <Con key={id} style={{
             ...basicStyles,
@@ -90,12 +133,16 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
             color,
             zIndex: 1000 + index,
           }}>
-            <Transition visible={true}
-                        scale={{
-                          from: 0,
-                          to: 1,
-                        }}>
-              {text}
+            <Transition
+              visible={anim}
+              from={{
+                scale: 0,
+              }}
+              to={{
+                scale: 1,
+              }}
+            >
+              <Con w={100} h={100}>{text}</Con>
             </Transition>
           </Con>
         })

@@ -3,6 +3,7 @@ export interface NotificationProps {
     id: string;
     text: string;
     type: 'info' | 'warn' | 'error';
+    anim: boolean;
     timer: number;
 }
 interface NotificationContextType {

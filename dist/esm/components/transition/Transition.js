@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
-const Transition = ({ children, transformOrigin = 'center', scale, rotate, translate, opacity, width, height, top, right, bottom, left, effect = 'ease', visible = true, duration = 300, }) => {
+const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, delay = 0, }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     useEffect(() => {
         if (visible) {
@@ -16,70 +16,47 @@ const Transition = ({ children, transformOrigin = 'center', scale, rotate, trans
     }, [
         visible,
         duration,
-        translate,
-        width,
-        height,
-        top,
-        right,
-        bottom,
-        left,
-        scale,
-        rotate,
-        opacity,
+        from,
+        to,
     ]);
     // Get the scaling style
     const getStyle = () => {
-        const r = {};
+        const styles = {};
         let showing = state === 'entered' || state === 'entering';
-        let transformDeclares = [];
-        let transitionDeclares = new Set();
-        if (scale) {
-            transformDeclares.push(showing ? `scale(${scale.to})` : `scale(${scale.from})`);
-            transitionDeclares.add(`transform ${duration}ms ${effect}`);
+        let transitionDeclarations = new Set();
+        let handlingObj = showing ? to : from;
+        const keys = Object.keys(handlingObj);
+        keys.forEach((key) => {
+            const item = handlingObj[key];
+            let itemTransitionDeclaration = '';
+            let itemDelay = delay;
+            let itemDuration = duration;
+            let itemEffect = effect;
+            let itemStyleValue;
+            if (typeof item === 'object') {
+                itemStyleValue = item.value;
+                if (item.delay) {
+                    itemDelay = item.delay;
+                }
+                if (item.duration) {
+                    itemDuration = item.duration;
+                }
+                if (item.effect) {
+                    itemEffect = item.effect;
+                }
+            }
+            else {
+                itemStyleValue = item;
+            }
+            itemTransitionDeclaration = `${handleCamelPropsName(key)} ${itemDuration}ms ${itemEffect} ${itemDelay}ms`;
+            // @ts-ignore
+            styles[key] = itemStyleValue;
+            transitionDeclarations.add(itemTransitionDeclaration);
+        });
+        if (transitionDeclarations.size > 0) {
+            styles.transition = [...transitionDeclarations.values()].join(', ');
         }
-        if (rotate) {
-            transformDeclares.push(showing ? rotate.to : rotate.from);
-            transitionDeclares.add(`rotate ${duration}ms ${effect}`);
-        }
-        if (translate) {
-            transformDeclares.push(showing ? translate.to : translate.from);
-            transitionDeclares.add(`transform ${duration}ms ${effect}`);
-        }
-        if (opacity) {
-            r.opacity = showing ? opacity.to : opacity.from;
-            transitionDeclares.add(`opacity ${opacity.duration || duration}ms ${opacity.effect || effect}`);
-        }
-        if (width) {
-            r.width = showing ? width.to : width.from;
-            transitionDeclares.add(`width ${duration}ms ${effect}`);
-        }
-        if (height) {
-            r.height = showing ? height.to : height.from;
-            transitionDeclares.add(`height ${duration}ms ${effect}`);
-        }
-        if (top) {
-            r.top = showing ? top.to : top.from;
-            transitionDeclares.add(`top ${duration}ms ${effect}`);
-        }
-        if (right) {
-            r.right = showing ? right.to : right.from;
-            transitionDeclares.add(`right ${duration}ms ${effect}`);
-        }
-        if (bottom) {
-            r.bottom = showing ? bottom.to : bottom.from;
-            transitionDeclares.add(`bottom ${duration}ms ${effect}`);
-        }
-        if (left) {
-            r.left = showing ? left.to : left.from;
-            transitionDeclares.add(`left ${duration}ms ${effect}`);
-        }
-        if (transitionDeclares.size > 0) {
-            r.transition = [...transitionDeclares.values()].join(', ');
-        }
-        if (transformDeclares.length > 0) {
-            r.transform = transformDeclares.join(' ');
-        }
-        return r;
+        return styles;
     };
     return (_jsx("div", { role: 'transition', style: {
             transformOrigin,
@@ -87,4 +64,5 @@ const Transition = ({ children, transformOrigin = 'center', scale, rotate, trans
             ...getStyle(),
         }, children: children }));
 };
+const handleCamelPropsName = (propName) => propName.replace(/[A-Z]/g, (a) => '-' + a.toLowerCase());
 export default Transition;
