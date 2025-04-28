@@ -6,7 +6,7 @@ import {useState} from 'react'
 const TransitionSample: React.FC = () => {
   return <Flex>
     <TransitionSample1/>
-    {/*<TransitionSample2/>*/}
+    <TransitionSample2/>
     {/*<TransitionSample3/>*/}
   </Flex>
 }
@@ -18,18 +18,11 @@ const TransitionSample1 = () => {
     <Button onClick={() => {
       setShowGreeting(!showGreeting)
     }}>Toggle</Button>
-    <div>
-      <div style={{
-        scale: 0,
-        width: '100px',
-        height: '100px',
-      }}></div>
-    </div>
     <div style={{
       position: 'fixed',
       top: '50%',
       left: '50%',
-      backgroundColor: 'red',
+      // backgroundColor: 'red',
       transform: 'translate(-50%, -50%)',
       pointerEvents: showGreeting ? 'auto' : 'none',
       textAlign: 'center',
@@ -38,14 +31,19 @@ const TransitionSample1 = () => {
       <Transition
         from={{
           scale: 0,
-          // rotate: '0deg',
         }}
         to={{
           scale: 1,
-          // rotate: '180deg',
         }}
         visible={showGreeting}>
-        <Con w={100} h={100} bg={'red'}>hello world</Con>
+        <Flex w={100}
+              h={100}
+              alignItems="center"
+              justifyContent="center"
+              style={{
+                backgroundColor: '#fff',
+                boxShadow: '0 0 3px 0 #000',
+              }}>hello world</Flex>
       </Transition>
     </div>
   </Con>
@@ -58,19 +56,26 @@ const TransitionSample2 = () => {
     <Button onClick={() => {
       setShowGreeting(!showGreeting)
     }}>Toggle</Button>
-    <Transition
-      visible={showGreeting}
-      scale={{from: 0, to: 1}}
-    >
-      <Transition
-        visible={showGreeting}
-        width={{from: 0, to: 100}}
-        height={{from: 0, to: 100}}
-      >
-        <Con w={100} h={100} bg={'black'}>show half</Con>
-      </Transition>
-    </Transition>
 
+    <Transition
+      from={{
+        translate: '-100px -100px',
+        scale: .5,
+      }}
+      to={{
+        translate: '0 0',
+        scale: 1,
+      }}
+      visible={showGreeting}>
+      <Flex w={100}
+            h={100}
+            alignItems="center"
+            justifyContent="center"
+            style={{
+              backgroundColor: '#fff',
+              boxShadow: '0 0 3px 0 #000',
+            }}>hello world</Flex>
+    </Transition>
   </Con>
 }
 
