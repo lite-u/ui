@@ -7,7 +7,7 @@ const TransitionSample: React.FC = () => {
   return <Flex>
     <TransitionSample1/>
     <TransitionSample2/>
-    {/*<TransitionSample3/>*/}
+    <TransitionSample3/>
   </Flex>
 }
 
@@ -87,24 +87,46 @@ const TransitionSample3 = () => {
       setShowGreeting(!showGreeting)
     }}>Toggle</Button>
 
-    <div style={{
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      textAlign: 'center',
-      zIndex: 9999,
-    }}>
+    <Transition
+      from={{
+        marginLeft: {
+          value: 10,
+          delay: 1000,
+          duration: 2000,
+        },
+        scale: .5,
+      }}
+      to={{
+        marginLeft: {
+          value: -1000,
+          delay: 500,
+          duration: 2000,
+        },
+        scale: 1,
+      }}
+      visible={showGreeting}
+      duration={3000}
+    >
       <Transition
-        visible={showGreeting}
-        scale={{from: 0, to: 1}}
-        opacity={{from: 0, to: 1}}
-        duration={200}
-        effect={'ease'}
-      >
-        <Con w={100} h={100} bg={'red'}>hello world</Con>
+        from={{
+          translate: '-100px -100px',
+          scale: .5,
+        }}
+        to={{
+          translate: '0 0',
+          scale: 1,
+        }}
+        visible={showGreeting}>
+        <Flex w={100}
+              h={100}
+              alignItems="center"
+              justifyContent="center"
+              style={{
+                backgroundColor: '#fff',
+                boxShadow: '0 0 3px 0 #000',
+              }}>hello world</Flex>
       </Transition>
-    </div>
+    </Transition>
   </Con>
 }
 
