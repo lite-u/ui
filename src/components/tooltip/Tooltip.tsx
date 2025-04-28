@@ -16,7 +16,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   position,
                                                   children,
                                                 }) => {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
   const [localPosition, setLocalPosition] = useState<TooltipPosition | null>()
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const targetRef = useRef<HTMLDivElement | null>(null)
