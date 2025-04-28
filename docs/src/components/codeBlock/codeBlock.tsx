@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import Prism from 'prismjs'
-import 'prismjs/themes/prism-tomorrow.min.css'
+import 'prismjs/themes/prism.min.css'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-tsx'
 

@@ -9,15 +9,15 @@ const ButtonsSamples: React.FC = () => {
   const buttonSizes = ['default', 'xs', 's', 'm', 'l']
   const buttonVars = ['default', 'primary', 'error', 'warn']
 
-  return <Col  style={{marginTop: 50}}>
+  return <Col style={{marginTop: 50}}>
     {
       buttonVars.map(buttonVar => {
           let sampleCode = ''
 
           return <div key={buttonVar}>
             <Title h5 style={{marginTop: blockMT, fontWeight: 'normal'}}>{buttonVar}</Title>
-            <Row between
-                 end
+            <Row justifyContent={'between'}
+                 alignItems={'end'}
                  space={10}
                  w={wrapperWidth}
                  style={{
