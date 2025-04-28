@@ -1,7 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
-import { Row } from '../../index';
+import { Transition } from '../../index';
 import { NotificationContext } from './NotificationContext';
+import { Con } from '../con/Con';
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
@@ -51,7 +52,7 @@ const NotificationProvider = ({ children }) => {
         transform: 'translate(-50%, -50%)',
         textAlign: 'center',
     };
-    console.log([...notifications]);
+    // console.log([...notifications])
     return (_jsxs(NotificationContext.Provider, { value: {
             notifications,
             add: addNotification,
@@ -64,12 +65,15 @@ const NotificationProvider = ({ children }) => {
                 if (type === 'warn') {
                     color = 'yellow';
                 }
-                return _jsx(Row, { jc: true, center: true, style: {
+                return _jsx(Con, { style: {
                         ...basicStyles,
                         borderColor: color,
                         color,
                         zIndex: 1000 + index,
-                    }, children: text }, id);
+                    }, children: _jsx(Transition, { visible: true, scale: {
+                            from: 0,
+                            to: 1,
+                        }, children: text }) }, id);
             })] }));
 };
 export default NotificationProvider;

@@ -17,6 +17,7 @@ import Con from './components/con/Con'
 import Drop from './components/drop/Drop'
 import {useNotification} from './components/notification/NotificationContext'
 import Flex from './components/layouts/Flex'
+import Transition from './components/transition/Transition'
 
 export {
   Input,
@@ -25,6 +26,7 @@ export {
   Link,
   Button,
   LiteUIProvider,
+  Transition,
   Modal,
   Panel,
   Row,
@@ -37,7 +39,7 @@ export {
   MenuItem,
   Con,
   Drop,
-  useNotification
+  useNotification,
 }
 export default LiteUIProvider
 export type {ThemeType}

@@ -1,6 +1,7 @@
 import {CSSProperties, FC, ReactNode, useEffect, useRef, useState} from 'react'
-import {Row} from '../../index'
+import {Transition} from '../../index'
 import {NotificationContext, NotificationProps} from './NotificationContext'
+import {Con} from '../con/Con'
 
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationProps[]>([])
@@ -64,7 +65,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     textAlign: 'center',
   }
 
-  console.log([...notifications])
+  // console.log([...notifications])
   return (
     <NotificationContext.Provider value={{
       notifications,
@@ -81,16 +82,22 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
           }
           if (type === 'warn') {
             color = 'yellow'
-
           }
-          return <Row key={id} jc center style={{
+
+          return <Con key={id} style={{
             ...basicStyles,
             borderColor: color,
             color,
             zIndex: 1000 + index,
           }}>
-            {text}
-          </Row>
+            <Transition visible={true}
+                        scale={{
+                          from: 0,
+                          to: 1,
+                        }}>
+              {text}
+            </Transition>
+          </Con>
         })
       }
     </NotificationContext.Provider>
