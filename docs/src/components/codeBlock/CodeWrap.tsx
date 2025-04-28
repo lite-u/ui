@@ -32,7 +32,7 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
            position: 'relative',
          }}>
 
-      <Tooltip title={copied ? 'Copied' : 'Copy'}>
+      <Tooltip delay={300} title={copied ? 'Copied' : 'Copy'}>
         <IconButton s
                     title={copied ? 'Copied' : 'Copy'}
                     onClick={handleCopy}

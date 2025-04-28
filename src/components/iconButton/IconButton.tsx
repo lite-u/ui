@@ -2,7 +2,7 @@ import {useLiteUIContext} from '../../LiteUIProvider'
 import {useState} from 'react'
 
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
-type Variant = 'primary' | 'error' | 'warn' | 'neutral';
+// type Variant = 'primary' | 'error' | 'warn' | 'neutral';
 
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   xs?: boolean;

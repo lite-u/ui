@@ -4,6 +4,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
     title: string;
     bgColor?: string;
     color?: string;
+    delay?: number;
     position?: TooltipPosition;
     children: React.ReactElement;
 };

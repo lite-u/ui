@@ -1,12 +1,14 @@
 import {RefObject, useEffect, useRef, useState} from 'react'
 import useElementMoveDetect from '../../hooks/useElementMoveDetect'
 import {createPortal} from 'react-dom'
+import {Transition} from '../../index'
 
 type TooltipPosition = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
 type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
   title: string
   bgColor?: string
   color?: string
+  delay?: number
   position?: TooltipPosition
   children: React.ReactElement;
 };
@@ -16,6 +18,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   color,
                                                   bgColor,
                                                   position,
+                                                  delay = 0,
                                                   children,
                                                 }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -30,6 +33,9 @@ export const Tooltip: React.FC<ToolTipProps> = ({
     top: 0,
     left: 0,
   })
+  const [animationVisible, setAnimationVisible] = useState(false)
+  const leavingTimerRef = useRef<number>(0)
+  const animationDuration = 300
 
   useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
     calcPosition()
@@ -191,13 +197,30 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   }
 
   const handleMouseEnter = () => {
-    setIsVisible(true)
+    // If it is leaving
+    if (leavingTimerRef.current) {
+      clearTimeout(leavingTimerRef.current)
+      leavingTimerRef.current = 0
+      setAnimationVisible(true)
+    } else {
+      setIsVisible(true)
+      setTimeout(() => {
+        setAnimationVisible(true)
+      }, 1)
+    }
   }
 
   const handleMouseLeave = () => {
-    setTimeout(() => {
+    console.log('leaving')
+    setAnimationVisible(false)
+    clearTimeout(leavingTimerRef.current)
+    leavingTimerRef.current = 0
+    leavingTimerRef.current = setTimeout(() => {
       setIsVisible(false)
-    }, 1000)
+      leavingTimerRef.current = 0
+    }, delay * 2)
+
+    console.log(leavingTimerRef.current)
   }
 
   return (
@@ -211,34 +234,54 @@ export const Tooltip: React.FC<ToolTipProps> = ({
       {children}
 
       {isVisible && realTimePosition && createPortal(
-        <div style={{
-          position: 'fixed',
-          pointerEvents:'none',
-          ...realTimePosition,
-        }}>
-          <div
-            ref={tooltipRef}
-            style={{
-              position: 'absolute',
-              backgroundColor: backgroundColor,
-              padding: '5px 10px',
-              borderRadius: '4px',
-              // whiteSpace: 'nowrap',
-              zIndex: 1000,
-              fontSize: '12px',
-              color: textColor,
-              ...getPositionStyles(),
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            position: 'fixed',
+            // pointerEvents: 'none',
+            zIndex: 1000,
+            ...realTimePosition,
+          }}>
+          <Transition
+            visible={animationVisible}
+            transformOrigin={'top'}
+            from={{
+              scale: 0,
             }}
-          >
-            {title}
-            <div style={{
-              content: '',
-              position: 'absolute',
-              borderStyle: 'solid',
-              color: textColor,
-              ...getArrowStyles(),
-            }}/>
-          </div>
+            to={{
+              scale: 1,
+            }}
+            style={{
+              position: 'relative',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+            }}>
+            <div
+              ref={tooltipRef}
+              style={{
+                position: 'absolute',
+                backgroundColor: backgroundColor,
+                padding: '5px 10px',
+                borderRadius: '4px',
+                // whiteSpace: 'nowrap',
+                fontSize: '12px',
+                color: textColor,
+                ...getPositionStyles(),
+              }}
+            >
+              {title}
+              <div style={{
+                content: '',
+                position: 'absolute',
+                borderStyle: 'solid',
+                color: textColor,
+                ...getArrowStyles(),
+              }}/>
+            </div>
+          </Transition>
         </div>,
         document.body,
       )}

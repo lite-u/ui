@@ -2,7 +2,8 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import useElementMoveDetect from '../../hooks/useElementMoveDetect';
 import { createPortal } from 'react-dom';
-export const Tooltip = ({ title, color, bgColor, position, children, }) => {
+import { Transition } from '../../index';
+export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
     const tooltipRef = useRef(null);
@@ -15,6 +16,9 @@ export const Tooltip = ({ title, color, bgColor, position, children, }) => {
         top: 0,
         left: 0,
     });
+    const [animationVisible, setAnimationVisible] = useState(false);
+    const leavingTimerRef = useRef(0);
+    const animationDuration = 300;
     useElementMoveDetect(targetRef, () => {
         calcPosition();
     });
@@ -174,33 +178,60 @@ export const Tooltip = ({ title, color, bgColor, position, children, }) => {
         }
     };
     const handleMouseEnter = () => {
-        setIsVisible(true);
+        // If it is leaving
+        if (leavingTimerRef.current) {
+            clearTimeout(leavingTimerRef.current);
+            leavingTimerRef.current = 0;
+            setAnimationVisible(true);
+        }
+        else {
+            setIsVisible(true);
+            setTimeout(() => {
+                setAnimationVisible(true);
+            }, 1);
+        }
     };
     const handleMouseLeave = () => {
-        setTimeout(() => {
+        console.log('leaving');
+        setAnimationVisible(false);
+        clearTimeout(leavingTimerRef.current);
+        leavingTimerRef.current = 0;
+        leavingTimerRef.current = setTimeout(() => {
             setIsVisible(false);
-        }, 1000);
+            leavingTimerRef.current = 0;
+        }, delay * 2);
+        console.log(leavingTimerRef.current);
     };
-    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && realTimePosition && createPortal(_jsx("div", { style: {
+    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && realTimePosition && createPortal(_jsx("div", { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, style: {
                     position: 'fixed',
-                    pointerEvents: 'none',
+                    // pointerEvents: 'none',
+                    zIndex: 1000,
                     ...realTimePosition,
-                }, children: _jsxs("div", { ref: tooltipRef, style: {
-                        position: 'absolute',
-                        backgroundColor: backgroundColor,
-                        padding: '5px 10px',
-                        borderRadius: '4px',
-                        // whiteSpace: 'nowrap',
-                        zIndex: 1000,
-                        fontSize: '12px',
-                        color: textColor,
-                        ...getPositionStyles(),
-                    }, children: [title, _jsx("div", { style: {
-                                content: '',
-                                position: 'absolute',
-                                borderStyle: 'solid',
-                                color: textColor,
-                                ...getArrowStyles(),
-                            } })] }) }), document.body)] }));
+                }, children: _jsx(Transition, { visible: animationVisible, transformOrigin: 'top', from: {
+                        scale: 0,
+                    }, to: {
+                        scale: 1,
+                    }, style: {
+                        position: 'relative',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                    }, children: _jsxs("div", { ref: tooltipRef, style: {
+                            position: 'absolute',
+                            backgroundColor: backgroundColor,
+                            padding: '5px 10px',
+                            borderRadius: '4px',
+                            // whiteSpace: 'nowrap',
+                            fontSize: '12px',
+                            color: textColor,
+                            ...getPositionStyles(),
+                        }, children: [title, _jsx("div", { style: {
+                                    content: '',
+                                    position: 'absolute',
+                                    borderStyle: 'solid',
+                                    color: textColor,
+                                    ...getArrowStyles(),
+                                } })] }) }) }), document.body)] }));
 };
 export default Tooltip;
