@@ -19,6 +19,7 @@ import {useNotification} from './components/notification/NotificationContext'
 import Flex from './components/layouts/Flex'
 import Transition from './components/transition/Transition'
 import Tooltip from './components/tooltip/Tooltip'
+import IconButton from './components/iconButton/IconButton'
 
 export {
   Input,
@@ -26,6 +27,7 @@ export {
   SelectItem,
   Link,
   Button,
+  IconButton,
   LiteUIProvider,
   Transition,
   Modal,

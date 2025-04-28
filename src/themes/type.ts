@@ -39,7 +39,6 @@ export interface ThemeType {
       backgroundColor: string
       color: string
       borderColor: string
-
     };
     warn: {
       backgroundColor: string
@@ -95,8 +94,8 @@ export interface ThemeType {
   }
   panel: {
     primaryColor: string
-/*    head?: {
-      backgroundColor: string
-    }*/
+    /*    head?: {
+          backgroundColor: string
+        }*/
   }
 }

@@ -13,11 +13,15 @@ import DropSamples from './DropSamples.tsx'
 import NotificationSamples from './NotificationSamples.tsx'
 import TransitionSamples from './TransitionSamples.tsx'
 import TooltipSamples from './TooltipSamples.tsx'
+import IconButtonsSamples from './IconButtonsSamples.tsx'
 
 const SAMPLES = [
   {
     name: 'Buttons',
     comp: <ButtonsSamples/>,
+  }, {
+    name: 'IconButtons',
+    comp: <IconButtonsSamples/>,
   },
   {
     name: 'Inputs',
