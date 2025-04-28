@@ -18,7 +18,7 @@ export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, 
     });
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);
-    const animationDuration = 300;
+    // const animationDuration = 300
     useElementMoveDetect(targetRef, () => {
         calcPosition();
     });

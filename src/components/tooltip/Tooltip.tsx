@@ -35,7 +35,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   })
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)
-  const animationDuration = 300
+  // const animationDuration = 300
 
   useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
     calcPosition()
