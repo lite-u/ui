@@ -9,7 +9,7 @@ const Panel: React.FC<{
   sm?: boolean
   md?: boolean
   lg?: boolean
-  xl?: boolean
+  size?: 'md' | 'sm' | 'xs' | 'lg'
   title: string,
   titleStyle?: React.CSSProperties,
   titleClass?: string,
@@ -19,10 +19,10 @@ const Panel: React.FC<{
 } & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
                                                            xs,
                                                            sm,
-                                                           md = true,
+                                                           md,
                                                            lg,
-                                                           xl,
                                                            title,
+                                                           size = 'md',
                                                            titleClass = '',
                                                            titleStyle = {},
                                                            boxClass = '',
@@ -31,29 +31,29 @@ const Panel: React.FC<{
                                                            ...props
                                                          }) => {
   const {theme} = useLiteUIContext()
-  let headFontSize = theme.fontSizes.md
-  let headPadding = theme.padding.md.x
 
   if (md) {
-    headFontSize = theme.fontSizes.md
-    headPadding = theme.padding.md.y
+    size = 'md'
   }
 
   if (sm) {
-    headFontSize = theme.fontSizes.sm
-    headPadding = theme.padding.sm.y
+    size = 'sm'
   }
 
   if (xs) {
-    headFontSize = theme.fontSizes.xs
-    headPadding = theme.padding.xs.y
+    size = 'xs'
   }
 
   if (lg) {
-    headFontSize = theme.fontSizes.lg
-    headPadding = theme.padding.lg.y
+    size = 'lg'
   }
 
+  const headFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
+  const headPadding = theme.padding[size as keyof typeof theme['padding']].y
+  const boxFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
+  const boxPadding = theme.padding[size as keyof typeof theme['padding']].x
+
+  console.log(headPadding)
   return <Con fw fh role={'panel'} {...props}>
     <Col fw fh stretch>
       <Con role={'panel-head'}
@@ -71,6 +71,8 @@ const Panel: React.FC<{
              border: `1px solid ${theme.panel.primaryColor}`,
              borderTop: 'none',
              flex: '100%',
+             fontSize: boxFontSize,
+             padding: boxPadding,
              ...boxStyle,
            }}
            className={boxClass}>

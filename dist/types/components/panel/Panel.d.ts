@@ -5,7 +5,7 @@ declare const Panel: React.FC<{
     sm?: boolean;
     md?: boolean;
     lg?: boolean;
-    xl?: boolean;
+    size?: 'md' | 'sm' | 'xs' | 'lg';
     title: string;
     titleStyle?: React.CSSProperties;
     titleClass?: string;
