@@ -35,19 +35,22 @@ const TransitionSample: React.FC = () => {
         </Transition>
       </div>
     </Con>
+
     <Con w={100} h={100}>
       <Button onClick={() => {
         setShowGreetings2(!showGreetings2)
       }}>Toggle</Button>
-
       <Transition
         visible={showGreetings2}
-        width={{from: 0, to: 100}}
-        height={{from: 0, to: 100}}
-        duration={200}
-        effect={'ease'}
+        scale={{from: 0, to: 1}}
       >
-        <span style={{width: 100, display: 'block'}}>show half</span>
+        <Transition
+          visible={showGreetings2}
+          width={{from: 0, to: 100}}
+          height={{from: 0, to: 100}}
+        >
+          <Con w={100} h={100} bg={'black'}>show half</Con>
+        </Transition>
       </Transition>
 
     </Con>

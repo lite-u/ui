@@ -53,8 +53,8 @@ const Transition: FC<{
     from: CSSProperties['left']
     to: CSSProperties['left']
   }
-  effect: TimingFunction
-  duration: number,
+  effect?: TimingFunction
+  duration?: number,
   children: ReactNode
 }> = ({
         children,
