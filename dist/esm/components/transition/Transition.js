@@ -1,8 +1,10 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
-const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, delay = 0, }) => {
+const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, delay = 0, style = {}, }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
+    // const [waiting, setWaiting] = useState()
     useEffect(() => {
+        console.log(state);
         if (visible) {
             setState('entering');
             const timer = setTimeout(() => setState('entered'), duration);
@@ -18,6 +20,9 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
         duration,
         from,
         to,
+        transformOrigin,
+        effect,
+        delay,
     ]);
     // Get the scaling style
     const getStyle = () => {
@@ -60,7 +65,10 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
     };
     return (_jsx("div", { role: 'transition', style: {
             transformOrigin,
-            overflow: 'hidden',
+            // pointerEvents: state === 'entered' ? 'auto' : 'none',
+            // overflow: 'hidden',
+            // position: 'absolute',
+            ...style,
             ...getStyle(),
         }, children: children }));
 };

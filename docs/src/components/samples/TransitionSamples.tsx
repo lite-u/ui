@@ -18,11 +18,20 @@ const TransitionSample1 = () => {
     <Button onClick={() => {
       setShowGreeting(!showGreeting)
     }}>Toggle</Button>
+    <div>
+      <div style={{
+        scale: 0,
+        width: '100px',
+        height: '100px',
+      }}></div>
+    </div>
     <div style={{
       position: 'fixed',
       top: '50%',
       left: '50%',
+      backgroundColor: 'red',
       transform: 'translate(-50%, -50%)',
+      pointerEvents: showGreeting ? 'auto' : 'none',
       textAlign: 'center',
       zIndex: 9999,
     }}>

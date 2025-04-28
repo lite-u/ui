@@ -1,7 +1,8 @@
-import {CSSProperties, FC, ReactNode, useRef, useState} from 'react'
+import {FC, ReactNode, useRef, useState} from 'react'
 import {Transition} from '../../index'
 import {NotificationContext, NotificationProps} from './NotificationContext'
 import {Con} from '../con/Con'
+import {useLiteUIContext} from '../../LiteUIProvider'
 
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationProps[]>([])
@@ -12,7 +13,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
     }, [])
   */
-
+  const {theme} = useLiteUIContext()
   const updateNotifications = () => {
     const arr = Array.from(notificationsRef.current.values())
 
@@ -73,20 +74,6 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     return false
   }
 
-  const basicStyles: CSSProperties = {
-    position: 'fixed',
-    background: '#fff',
-    padding: 10,
-    maxWidth: 300,
-    borderRadius: 5,
-    border: '1px solid #000',
-    top: '50%',
-    left: '50%',
-    transition: 'transform .5s',
-    transform: 'translate(-50%, -50%)',
-    textAlign: 'center',
-  }
-
   return (
     <NotificationContext.Provider value={{
       notifications,
@@ -99,38 +86,18 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
           let color = '#000'
 
           if (type === 'error') {
-            color = 'red'
+            color = theme.colors.error
           }
 
           if (type === 'warn') {
-            color = 'yellow'
+            color = theme.colors.warn
           }
 
-          /*   return <div key={id} style={{
-               position: 'fixed',
-               top: '50%',
-               left: '50%',
-               transform: 'translate(-50%, -50%)',
-               textAlign: 'center',
-               zIndex: 9999,
-             }}>
-               <Transition
-                 visible={anim}
-                 from={{
-                   scale: 0,
-                 }}
-                 to={{
-                   scale: 1,
-                 }}
-               >
-                 <Con w={100} h={100} bg={'red'}>{text}</Con>
-               </Transition>
-             </div>*/
-
-          return <Con key={id} style={{
-            ...basicStyles,
-            borderColor: color,
-            color,
+          return <div key={id} style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             zIndex: 1000 + index,
           }}>
             <Transition
@@ -141,10 +108,21 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
               to={{
                 scale: 1,
               }}
+              style={{overflow: 'visible'}}
             >
-              <Con w={100} h={100}>{text}</Con>
+              <Con style={{
+                background: '#fff',
+                padding: 10,
+                // border: '1px solid #000',
+                // borderColor: color,
+                textAlign: 'center',
+                borderRadius: 5,
+                fontSize: theme.fontSizes.sm,
+                boxShadow: color + ' 0 0 3px 0',
+                color,
+              }}>{text}</Con>
             </Transition>
-          </Con>
+          </div>
         })
       }
     </NotificationContext.Provider>

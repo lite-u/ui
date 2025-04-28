@@ -17,5 +17,6 @@ declare const Transition: FC<{
     duration?: number;
     delay?: number;
     children: ReactNode;
+    style?: CSSProperties;
 }>;
 export default Transition;

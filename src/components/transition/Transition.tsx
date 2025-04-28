@@ -27,6 +27,7 @@ const Transition: FC<{
   duration?: number,
   delay?: number,
   children: ReactNode
+  style?: CSSProperties
 }> = ({
         children,
         from = {},
@@ -36,10 +37,12 @@ const Transition: FC<{
         effect = 'ease',
         duration = 300,
         delay = 0,
+        style = {},
       }) => {
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
-
+  // const [waiting, setWaiting] = useState()
   useEffect(() => {
+    console.log(state)
     if (visible) {
       setState('entering')
       const timer = setTimeout(() => setState('entered'), duration)
@@ -54,6 +57,9 @@ const Transition: FC<{
     duration,
     from,
     to,
+    transformOrigin,
+    effect,
+    delay,
   ])
 
   // Get the scaling style
@@ -109,7 +115,10 @@ const Transition: FC<{
       role={'transition'}
       style={{
         transformOrigin,
-        overflow: 'hidden',
+        // pointerEvents: state === 'entered' ? 'auto' : 'none',
+        // overflow: 'hidden',
+        // position: 'absolute',
+        ...style,
         ...getStyle(),
       }}
     >
