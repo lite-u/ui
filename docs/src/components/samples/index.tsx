@@ -16,10 +16,6 @@ import TooltipSamples from './TooltipSamples.tsx'
 
 const SAMPLES = [
   {
-    name: 'Tooltip',
-    comp: <TooltipSamples/>,
-  },
-  {
     name: 'Buttons',
     comp: <ButtonsSamples/>,
   },
