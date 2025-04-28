@@ -4,10 +4,11 @@ import Installation from '@samples/Installation.tsx'
 import SAMPLES from '@samples/index.tsx'
 import SampleBase from '@samples/SampleBase.tsx'
 
+// import TransitionSample from '@samples/TransitionSamples.tsx'
+
 function App() {
   return <LiteUIProvider>
     <Col fw fh style={{overflow: 'hidden'}}>
-
       <Col between style={{borderBottom: '1px solid gray'}}>
         <header style={{height: 50}}>header</header>
       </Col>
