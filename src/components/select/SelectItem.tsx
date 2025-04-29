@@ -1,4 +1,4 @@
-import {ReactNode, useContext} from 'react'
+import {CSSProperties, ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
 import MenuItemBase from '../menu/MenuItemBase'
 
@@ -17,10 +17,14 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
       }) => {
   const context = useContext(SelectContext)
   if (!context) return null
-
+  const bgStyle: CSSProperties = {}
   const {itemClick, selectValue, itemStyle} = context
 
-  const styles = {
+  if (selectValue === value) {
+    bgStyle.backgroundColor = '#dfdfdf'
+  }
+
+  const styles: CSSProperties = {
     padding: itemStyle.padding,
     height: itemStyle.height,
     boxSizing: 'border-box',
@@ -28,12 +32,13 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     justifyContent: 'center',
     alignItems: 'center',
     whiteSpace: 'nowrap',
+    ...bgStyle,
     ...style,
   }
 
-  if (selectValue === value) {
-    styles.backgroundColor = '#dfdfdf'
-  }
+  // if (selectValue === value) {
+  //   styles.backgroundColor = '#dfdfdf'
+  // }
 
   return (
     <MenuItemBase tabIndex={0}

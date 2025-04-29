@@ -54,11 +54,14 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
 
   useEffect(() => {
     const maxHeight = window.innerHeight
+
     setValue(defaultValue)
     setItemStyle(sizeStyle[size])
+
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
+      console.log(containerRef.current, h)
       if (h > maxHeight) {
         setWrapperHeight(300)
       } else {
@@ -99,13 +102,12 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
            border: '1px solid #dfdfdf',
            cursor: 'pointer',
            ...style,
-           // position: 'relative',
          }}
          {...props}>
 
       <MenuItemBase
         role={'placeholder'}
-        style={{height: itemStyle.height}}
+        style={{height: '100%'}}
         onClick={() => {
           handleOpen()
         }}
@@ -159,6 +161,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                   }}>
         <div role={'select-wrapper'} style={{
           overflowY: openSelect ? 'auto' : 'hidden',
+          // overflowY: 'auto',
           overflowX: 'hidden',
           width: '100%',
           height: wrapperHeight,
@@ -167,7 +170,8 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         }}>
           <div ref={containerRef}
                style={{
-                 width: 'auto',
+                 position: 'absolute',
+                 width: '100%',
                  backgroundColor: '#fff',
                  height: 'auto',
                }}

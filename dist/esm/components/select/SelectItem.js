@@ -6,7 +6,11 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
     const context = useContext(SelectContext);
     if (!context)
         return null;
+    const bgStyle = {};
     const { itemClick, selectValue, itemStyle } = context;
+    if (selectValue === value) {
+        bgStyle.backgroundColor = '#dfdfdf';
+    }
     const styles = {
         padding: itemStyle.padding,
         height: itemStyle.height,
@@ -15,11 +19,12 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         justifyContent: 'center',
         alignItems: 'center',
         whiteSpace: 'nowrap',
+        ...bgStyle,
         ...style,
     };
-    if (selectValue === value) {
-        styles.backgroundColor = '#dfdfdf';
-    }
+    // if (selectValue === value) {
+    //   styles.backgroundColor = '#dfdfdf'
+    // }
     return (_jsx(MenuItemBase, { tabIndex: 0, style: styles, onKeyDown: (e) => {
             if (e.code.toLowerCase() === 'space') {
                 e.preventDefault();

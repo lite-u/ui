@@ -40,6 +40,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
         setItemStyle(sizeStyle[size]);
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
+            console.log(containerRef.current, h);
             if (h > maxHeight) {
                 setWrapperHeight(300);
             }
@@ -74,8 +75,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                 border: '1px solid #dfdfdf',
                 cursor: 'pointer',
                 ...style,
-                // position: 'relative',
-            }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', style: { height: itemStyle.height }, onClick: () => {
+            }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', style: { height: '100%' }, onClick: () => {
                         handleOpen();
                     }, onKeyDown: (e) => {
                         if (e.code.toLowerCase() === 'space') {
@@ -103,13 +103,15 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                         ...position,
                     }, children: _jsx("div", { role: 'select-wrapper', style: {
                             overflowY: openSelect ? 'auto' : 'hidden',
+                            // overflowY: 'auto',
                             overflowX: 'hidden',
                             width: '100%',
                             height: wrapperHeight,
                             backgroundColor: '#fff',
                             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
                         }, children: _jsx("div", { ref: containerRef, style: {
-                                width: 'auto',
+                                position: 'absolute',
+                                width: '100%',
                                 backgroundColor: '#fff',
                                 height: 'auto',
                             }, ...props, children: children }) }) })] }) });
