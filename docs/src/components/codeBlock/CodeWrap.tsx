@@ -33,8 +33,9 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
            padding: '15px 0 15px 20px',
          }}>
       <Transition visible={visible}
-                  from={{opacity: 0}}
-                  to={{opacity: 1}}
+                  from={{scale: 0}}
+                  to={{scale: 1}}
+                  duration={200}
                   style={{
                     position: 'absolute',
                     right: 0,
