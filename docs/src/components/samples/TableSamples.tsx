@@ -3,7 +3,7 @@ import {Col, Con, Table, TableRow} from '@ui/index.tsx'
 const TableSamples: React.FC = () => {
   return <Col id={'col'}>
     <Con w={400}>
-      <Table fw fh>
+      <Table fw fh fixed>
         <TableRow head>
           <span>name</span>
           <span>age</span>

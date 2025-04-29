@@ -35,13 +35,14 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
   }
 
   const rowStyle = {
-    borderBottom: '1px solid #b5b5b5',
+    // borderBottom: '1px solid #b5b5b5',
     color: '#292929',
     ...extraRowStyle,
   }
 
   const cellStyle = {
     padding: '10px 0',
+    border: '1px solid #b5b5b5',
   }
 
   const cellDivStyle = {
