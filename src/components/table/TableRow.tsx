@@ -40,6 +40,15 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
     ...extraRowStyle,
   }
 
+  const cellStyle = {
+    padding: '10px 0',
+  }
+
+  const cellDivStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+  }
+
   return <tr
     onMouseEnter={(e) => {
       handleMouseEnter()
@@ -58,8 +67,12 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
     {
       nodes?.map((child, index) => {
         return head ?
-          <th key={index}>{child}</th> :
-          <td key={index}>{child}</td>
+          <th style={cellStyle} key={index}>
+            <div style={cellDivStyle}>{child}</div>
+          </th> :
+          <td style={cellStyle} key={index}>
+            <div style={cellDivStyle}>{child}</div>
+          </td>
       })
     }
   </tr>

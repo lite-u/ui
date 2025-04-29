@@ -25,6 +25,13 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
         color: '#292929',
         ...extraRowStyle,
     };
+    const cellStyle = {
+        padding: '10px 0',
+    };
+    const cellDivStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+    };
     return _jsx("tr", { onMouseEnter: (e) => {
             handleMouseEnter();
             onMouseEnter && onMouseEnter(e);
@@ -38,8 +45,8 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
             ...style,
         }, ...props, children: nodes?.map((child, index) => {
             return head ?
-                _jsx("th", { children: child }, index) :
-                _jsx("td", { children: child }, index);
+                _jsx("th", { style: cellStyle, children: _jsx("div", { style: cellDivStyle, children: child }) }, index) :
+                _jsx("td", { style: cellStyle, children: _jsx("div", { style: cellDivStyle, children: child }) }, index);
         }) });
 };
 export default TableRow;

@@ -10,7 +10,13 @@ const TableSamples: React.FC = () => {
           <span>birth</span>
         </TableRow>
         <TableRow>
-          <span>Andy</span>
+          <p style={{
+            width: 100,
+            // overflow: 'auto',
+            textAlign: 'center',
+            wordWrap: 'break-word',
+            whiteSpace: 'wrap',
+          }}>AndyAndyAndyAndyAndyAndyAndyAndy</p>
           <span>28</span>
           <span>1970</span>
         </TableRow>
