@@ -5,7 +5,7 @@ const SelectSamples: React.FC = () => {
     <Col between>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
-      <Row style={{zIndex: 60}} space={10}>
+      <Row style={{zIndex: 60}} space={10} alignItems={'end'}>
         <Select size={'sm'}
                 defaultValue={'2'}
                 onChange={(v) => {
@@ -16,7 +16,7 @@ const SelectSamples: React.FC = () => {
           <SelectItem value={'3'}>3</SelectItem>
         </Select>
 
-        <Select defaultValue={'2'}
+        <Select size={'md'} defaultValue={'2'}
                 onChange={(v) => {
                   console.log(v)
                 }}>
@@ -25,8 +25,7 @@ const SelectSamples: React.FC = () => {
           <SelectItem value={'3'}>hello 3</SelectItem>
         </Select>
 
-
-        <Select defaultValue={'12'}>
+        <Select size={'lg'} defaultValue={'12'}>
           {
             Array.from({length: 100}).fill(undefined).map((_, index) => {
               return <SelectItem key={index} value={(index + 1) + ''}>

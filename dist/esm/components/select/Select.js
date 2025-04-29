@@ -27,22 +27,16 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
             height: 40,
             padding: 10,
         },
-        xl: {
-            width: 140,
-            height: 60,
-            padding: 10,
-        },
     };
-    // const [itemStyle, setItemStyle] = useState<CSSProperties>(sizeStyle[size])
     const itemStyle = sizeStyle[size];
     useEffect(() => {
         const maxHeight = window.innerHeight;
         setValue(defaultValue);
         // setItemStyle(sizeStyle[size])
-        console.log(containerRef.current);
+        // console.log(containerRef.current)
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
-            console.log(containerRef.current, h);
+            console.log(h);
             if (h > maxHeight) {
                 setWrapperHeight(300);
             }
@@ -71,11 +65,13 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
         setPosition(newPosition);
         setOpenSelect(!openSelect);
     };
+    console.log(position);
     return _jsx(SelectContext.Provider, { value: { itemStyle, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
                 width: itemStyle.width,
                 height: itemStyle.height,
-                border: '1px solid #dfdfdf',
+                boxShadow: '0 0 1px 0 #000',
                 cursor: 'pointer',
+                boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
             }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', style: { height: '100%' }, onClick: () => {
@@ -96,13 +92,13 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                         height: wrapperHeight,
                     }, style: {
                         position: 'absolute',
-                        top: '100%',
+                        // top: '100%',
                         left: 0,
                         overflow: 'hidden',
                         width: '100%',
                         height: wrapperHeight,
                         backgroundColor: '#fff',
-                        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
+                        boxShadow: '0 0 1px 0 #000',
                         ...position,
                     }, children: _jsx("div", { role: 'select-wrapper', style: {
                             overflowY: openSelect ? 'auto' : 'hidden',
@@ -110,7 +106,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                             // width: '100%',
                             height: wrapperHeight,
                             backgroundColor: '#fff',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                            // boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
                         }, children: _jsx("div", { ref: containerRef, style: {
                                 // position: 'absolute',
                                 width: '100%',

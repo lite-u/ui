@@ -3,7 +3,7 @@ import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import MenuItemBase from '../menu/MenuItemBase'
 
-export type SelectSize = 'sm' | 'md' | 'lg' | 'xl'
+export type SelectSize = 'sm' | 'md' | 'lg'
 const Select: React.FC<HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
@@ -44,13 +44,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
       height: 40,
       padding: 10,
     },
-    xl: {
-      width: 140,
-      height: 60,
-      padding: 10,
-    },
   }
-  // const [itemStyle, setItemStyle] = useState<CSSProperties>(sizeStyle[size])
   const itemStyle = sizeStyle[size]
 
   useEffect(() => {
@@ -58,11 +52,11 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
 
     setValue(defaultValue)
     // setItemStyle(sizeStyle[size])
-    console.log(containerRef.current)
+    // console.log(containerRef.current)
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
-      console.log(containerRef.current, h)
+      console.log(h)
       if (h > maxHeight) {
         setWrapperHeight(300)
       } else {
@@ -94,14 +88,16 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
     setOpenSelect(!openSelect)
   }
 
+  console.log(position)
   return <SelectContext.Provider value={{itemStyle, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}
          style={{
            width: itemStyle.width,
            height: itemStyle.height,
-           border: '1px solid #dfdfdf',
+           boxShadow: '0 0 1px 0 #000',
            cursor: 'pointer',
+           boxSizing: 'border-box',
            ...style,
            position: 'relative',
          }}
@@ -153,13 +149,13 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                   }}
                   style={{
                     position: 'absolute',
-                    top: '100%',
+                    // top: '100%',
                     left: 0,
                     overflow: 'hidden',
                     width: '100%',
                     height: wrapperHeight,
                     backgroundColor: '#fff',
-                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
+                    boxShadow: '0 0 1px 0 #000',
                     ...position,
                   }}>
         <div role={'select-wrapper'}
@@ -169,7 +165,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                // width: '100%',
                height: wrapperHeight,
                backgroundColor: '#fff',
-               boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+               // boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
              }}>
           <div ref={containerRef}
                style={{
