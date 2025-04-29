@@ -132,14 +132,14 @@ const DropSamples: React.FC = () => {
               setSampleAData({
                 ...sampleAData,
                 bg: f ? 'blue' : 'red',
-                msg: f ? 'I Love PNG !' : 'I Love PNG ONLY',
+                msg: f ? 'I Love PNG !' : 'I Love PNG ONLY'
               })
             }}
             onDragIsLeave={() => {
               setSampleAData({
                 ...sampleAData,
                 bg: sampleAData.defaultBg,
-                msg: sampleAData.defaultMsg,
+                msg: sampleAData.defaultMsg
               })
             }}>
         <Con fw fh bg={sampleAData.bg}>
@@ -154,7 +154,7 @@ const DropSamples: React.FC = () => {
               setSampleBData({
                 ...sampleBData,
                 bg: 'green',
-                msg: e.dataTransfer.files[0].name,
+                msg: e.dataTransfer.files[0].name
               })
             }}
             onDragIsOver={(f) => {
@@ -168,7 +168,7 @@ const DropSamples: React.FC = () => {
               setSampleBData({
                 ...sampleBData,
                 bg: sampleBData.defaultBg,
-                msg: sampleBData.defaultMsg,
+                msg: sampleBData.defaultMsg
               })
             }}>
         <Con fw fh bg={sampleBData.bg}>
@@ -182,21 +182,21 @@ const DropSamples: React.FC = () => {
         setSampleCData({
           ...sampleCData,
           bg: 'green',
-          msg: e.dataTransfer.files[0].name,
+          msg: e.dataTransfer.files[0].name
         })
       }}
             onDragIsOver={(f) => {
               setSampleCData({
                 ...sampleCData,
                 bg: f ? 'blue' : 'red',
-                msg: f ? 'More And More !' : 'What Is This?',
+                msg: f ? 'More And More !' : 'What Is This?'
               })
             }}
             onDragIsLeave={() => {
               setSampleCData({
                 ...sampleCData,
                 bg: sampleCData.defaultBg,
-                msg: sampleCData.defaultMsg,
+                msg: sampleCData.defaultMsg
               })
             }}>
         <Con fw fh bg={sampleCData.bg}>
