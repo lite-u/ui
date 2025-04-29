@@ -3,15 +3,17 @@ import CodeWrap from '../codeBlock/CodeWrap.tsx'
 import {ReactNode} from 'react'
 
 const SampleBase: React.FC<{ name: string, children: ReactNode }> = ({name, children}) => {
-  return <Col id={name.toLowerCase()}>
-    <Con m={20}></Con>
-    <Title h2>{name}</Title>
-    <Title h4>Import</Title>
-    <CodeWrap code={`import { ${name} } from '@lite-u/ui'`}/>
-    <Con m={'0 0 20px 0'}></Con>
+  return <Con>
+    <Col id={name.toLowerCase()}>
+      <Con m={20}></Con>
+      <Title h2>{name}</Title>
+      <Title h4>Import</Title>
+      <CodeWrap code={`import { ${name} } from '@lite-u/ui'`}/>
+      <Con m={'0 0 20px 0'}></Con>
 
-    {children}
-  </Col>
+      {children}
+    </Col>
+  </Con>
 }
 
 export default SampleBase

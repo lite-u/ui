@@ -20,6 +20,8 @@ import Flex from './components/layouts/Flex'
 import Transition from './components/transition/Transition'
 import Tooltip from './components/tooltip/Tooltip'
 import IconButton from './components/iconButton/IconButton'
+import Table from './components/table/Table'
+import TableRow from './components/table/TableRow'
 
 export {
   Input,
@@ -44,6 +46,8 @@ export {
   Con,
   Drop,
   useNotification,
+  Table,
+  TableRow
 }
 export default LiteUIProvider
 export type {ThemeType}

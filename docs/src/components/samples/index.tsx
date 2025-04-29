@@ -14,9 +14,13 @@ import NotificationSamples from './NotificationSamples.tsx'
 import TransitionSamples from './TransitionSamples.tsx'
 import TooltipSamples from './TooltipSamples.tsx'
 import IconButtonsSamples from './IconButtonsSamples.tsx'
+import TableSamples from './TableSamples.tsx'
 
 const SAMPLES = [
   {
+    name: 'Table',
+    comp: <TableSamples/>,
+  }, {
     name: 'Buttons',
     comp: <ButtonsSamples/>,
   }, {
