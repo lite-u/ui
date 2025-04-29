@@ -271,7 +271,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
     <div
       role={'tooltip'}
       ref={targetRef}
-      style={{display: 'inline-block'}}
+      style={{display: 'inline'}}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

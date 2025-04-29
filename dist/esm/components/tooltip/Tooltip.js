@@ -229,7 +229,7 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 100, ch
     // const positionStyle = getPositionStyles()
     // console.log(positionStyle)
     // const transformOrigin = '6px 0px'
-    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
+    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
                     scale: {
                         value: 0,
                         duration: animationExitDuration,
