@@ -70,10 +70,13 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
   const handleFileType = (e: React.DragEvent<HTMLDivElement>): boolean => {
     e.preventDefault()
     e.stopPropagation()
+    console.log(e)
+    console.log(e.dataTransfer.files.length)
+    console.log(e.dataTransfer.files[0])
     const firstFile = e.dataTransfer.items[0]
-
+    console.log(firstFile)
     if (!firstFile) {
-      return false
+      return true
     }
 
     const fileType = firstFile.type
