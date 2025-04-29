@@ -19,19 +19,12 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   return (
-    <Con w={460}
-         maxH={200}
-         ovh
-         style={{
-           backgroundColor: '#fff',
-           padding: '15px 20px',
-           width: '100%',
-           boxShadow: '0 0 1px 0px #000',
-           borderRadius: 2,
-           overflow: 'auto',
-           position: 'relative',
-         }}>
-
+    <Con ovh w={460} style={{
+      position: 'relative',
+      boxShadow: '0 0 1px 0px #000',
+      width: '100%',
+      padding: '15px 0 15px 20px',
+    }}>
       <Tooltip position={'t'} title={copied ? 'Copied' : 'Copy'}>
         <IconButton s
                     title={copied ? 'Copied' : 'Copy'}
@@ -59,13 +52,24 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
         </IconButton>
       </Tooltip>
 
-      <CodeBlock code={dedent(code)}
-                 style={{
-                   backgroundColor: 'transparent',
-                   margin: 0,
-                   padding: 0,
-                 }}/>
-    </Con>
+      <Con
+        maxH={200}
+        style={{
+          backgroundColor: '#fff',
+          // boxShadow: '0 0 1px 0px #000',
+          borderRadius: 2,
+          overflow: 'auto',
+          // position: 'relative',
+        }}>
+
+
+        <CodeBlock code={dedent(code)}
+                   style={{
+                     backgroundColor: 'transparent',
+                     margin: 0,
+                     padding: 0,
+                   }}/>
+      </Con></Con>
   )
 }
 
