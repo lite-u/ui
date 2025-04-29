@@ -24,7 +24,7 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
          ovh
          style={{
            backgroundColor: '#fff',
-           padding: '25px 20px',
+           padding: '15px 20px',
            width: '100%',
            boxShadow: '0 0 1px 0px #000',
            borderRadius: 2,
@@ -32,7 +32,7 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
            position: 'relative',
          }}>
 
-      <Tooltip delay={300000} position={'t'} title={copied ? 'Copied' : 'Copy'}>
+      <Tooltip position={'t'} title={copied ? 'Copied' : 'Copy'}>
         <IconButton s
                     title={copied ? 'Copied' : 'Copy'}
                     onClick={handleCopy}

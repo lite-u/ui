@@ -3,7 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import useElementMoveDetect from '../../hooks/useElementMoveDetect';
 import { createPortal } from 'react-dom';
 import { Transition } from '../../index';
-export const Tooltip = ({ title, color, bgColor, position = 't', delay = 100, children, }) => {
+export const Tooltip = ({ title, color, bgColor, position = 't', 
+// delay = 100,
+children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
     const tooltipRef = useRef(null);
@@ -224,7 +226,7 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 100, ch
         leavingTimerRef.current = setTimeout(() => {
             setIsVisible(false);
             leavingTimerRef.current = 0;
-        }, delay || animationExitDuration);
+        }, animationExitDuration);
     };
     // const positionStyle = getPositionStyles()
     // console.log(positionStyle)
