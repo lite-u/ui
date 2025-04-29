@@ -1,9 +1,8 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
-import { useState } from 'react';
+import ButtonBase from '../button/ButtonBase';
 export const IconButton = ({ xs, s, m = true, l, style = {}, type = 'button', ...props }) => {
     const { theme } = useLiteUIContext();
-    const [opacity, setOpacity] = useState(1);
     const { fontSizes,
     // button,
     // borderRadius,
@@ -38,7 +37,6 @@ export const IconButton = ({ xs, s, m = true, l, style = {}, type = 'button', ..
     };
     const sizeStyle = sizeStyles[size];
     const styles = {
-        opacity,
         cursor: 'pointer',
         fontSize: fontSizes[size],
         padding: 2,
@@ -50,6 +48,6 @@ export const IconButton = ({ xs, s, m = true, l, style = {}, type = 'button', ..
         ...sizeStyle,
         ...style,
     };
-    return (_jsx("button", { type: type, style: styles, onMouseOver: () => setOpacity(0.8), onMouseOut: () => setOpacity(1), ...props }));
+    return (_jsx(ButtonBase, { type: type, style: styles, ...props }));
 };
 export default IconButton;

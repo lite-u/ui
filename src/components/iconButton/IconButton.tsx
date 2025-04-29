@@ -1,5 +1,5 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {useState} from 'react'
+import ButtonBase from '../button/ButtonBase'
 
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
 // type Variant = 'primary' | 'error' | 'warn' | 'neutral';
@@ -23,7 +23,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
                                                         ...props
                                                       }) => {
   const {theme} = useLiteUIContext()
-  const [opacity, setOpacity] = useState(1)
   const {
     fontSizes,
     // button,
@@ -57,7 +56,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
   }
   const sizeStyle = sizeStyles[size]
   const styles: React.CSSProperties = {
-    opacity,
     cursor: 'pointer',
     fontSize: fontSizes[size],
     padding: 2,
@@ -71,11 +69,9 @@ export const IconButton: React.FC<IconButtonProps> = ({
   }
 
   return (
-    <button
+    <ButtonBase
       type={type}
       style={styles}
-      onMouseOver={() => setOpacity(0.8)}
-      onMouseOut={() => setOpacity(1)}
       {...props}
     />
   )
