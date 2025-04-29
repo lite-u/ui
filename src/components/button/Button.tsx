@@ -27,6 +27,11 @@ export const Button: React.FC<ButtonProps> = ({
                                                 neutral = true,
                                                 style = {},
                                                 type = 'button',
+                                                onMouseEnter,
+                                                onMouseOver,
+                                                onMouseLeave,
+                                                onMouseDown,
+                                                onMouseUp,
                                                 ...props
                                               }) => {
   const {theme} = useLiteUIContext()
@@ -72,6 +77,26 @@ export const Button: React.FC<ButtonProps> = ({
     },
   }
 
+  const handleMouseEnter = () => {
+    setOpacity(.8)
+  }
+
+  const handleMouseOver = () => {
+    setOpacity(.8)
+  }
+
+  const handleMouseLeave = () => {
+    setOpacity(1)
+  }
+
+  const handleMouseDown = () => {
+    setOpacity(1)
+  }
+
+  const handleMouseUp = () => {
+    setOpacity(.8)
+  }
+
   const styles: React.CSSProperties = {
     opacity,
     cursor: 'pointer',
@@ -88,8 +113,28 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       style={styles}
-      onMouseOver={() => setOpacity(0.8)}
-      onMouseOut={() => setOpacity(1)}
+      // onMouseOver={() => setOpacity(0.8)}
+      // onMouseOut={() => setOpacity(1)}
+      onMouseEnter={(e) => {
+        handleMouseEnter()
+        onMouseEnter && onMouseEnter(e)
+      }}
+      onMouseOver={(e) => {
+        handleMouseOver()
+        onMouseOver && onMouseOver(e)
+      }}
+      onMouseLeave={(e) => {
+        handleMouseLeave()
+        onMouseLeave && onMouseLeave(e)
+      }}
+      onMouseDown={(e) => {
+        handleMouseDown()
+        onMouseDown && onMouseDown(e)
+      }}
+      onMouseUp={(e) => {
+        handleMouseUp()
+        onMouseUp && onMouseUp(e)
+      }}
       {...props}
     />
   )

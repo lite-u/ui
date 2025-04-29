@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { useState } from 'react';
-export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, type = 'button', ...props }) => {
+export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, type = 'button', onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, ...props }) => {
     const { theme } = useLiteUIContext();
     const [opacity, setOpacity] = useState(1);
     const { fontSizes, padding, button, borderRadius, } = theme;
@@ -43,6 +43,21 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
             height: 40,
         },
     };
+    const handleMouseEnter = () => {
+        setOpacity(.8);
+    };
+    const handleMouseOver = () => {
+        setOpacity(.8);
+    };
+    const handleMouseLeave = () => {
+        setOpacity(1);
+    };
+    const handleMouseDown = () => {
+        setOpacity(1);
+    };
+    const handleMouseUp = () => {
+        setOpacity(.8);
+    };
     const styles = {
         opacity,
         cursor: 'pointer',
@@ -54,6 +69,24 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
         ...sizeStyles[size],
         ...style,
     };
-    return (_jsx("button", { type: type, style: styles, onMouseOver: () => setOpacity(0.8), onMouseOut: () => setOpacity(1), ...props }));
+    return (_jsx("button", { type: type, style: styles, 
+        // onMouseOver={() => setOpacity(0.8)}
+        // onMouseOut={() => setOpacity(1)}
+        onMouseEnter: (e) => {
+            handleMouseEnter();
+            onMouseEnter && onMouseEnter(e);
+        }, onMouseOver: (e) => {
+            handleMouseOver();
+            onMouseOver && onMouseOver(e);
+        }, onMouseLeave: (e) => {
+            handleMouseLeave();
+            onMouseLeave && onMouseLeave(e);
+        }, onMouseDown: (e) => {
+            handleMouseDown();
+            onMouseDown && onMouseDown(e);
+        }, onMouseUp: (e) => {
+            handleMouseUp();
+            onMouseUp && onMouseUp(e);
+        }, ...props }));
 };
 export default Button;
