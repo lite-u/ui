@@ -1,8 +1,9 @@
-import {createContext} from 'react'
+import {createContext, CSSProperties} from 'react'
 
 const SelectContext = createContext<{
-  value: string | number
+  selectValue: string | number
   itemClick: (v: string | number) => void;
+  itemStyle: CSSProperties
 } | null>(null)
 
 export default SelectContext

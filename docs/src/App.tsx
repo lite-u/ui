@@ -20,6 +20,7 @@ function App() {
             <MenuItem sm>
               <Link href={`#components`}>Components</Link>
             </MenuItem>
+
             {
               SAMPLES.map((item, index) => {
                 return (
@@ -28,6 +29,11 @@ function App() {
                   </MenuItem>)
               })
             }
+
+            <MenuItem sm><Link href={`#Accessibility`}>Compatibility</Link></MenuItem>
+            <MenuItem><Link href={`#Accessibility`}>Accessibility</Link></MenuItem>
+            <MenuItem><Link href={`#Accessibility`}>I18n</Link></MenuItem>
+            <MenuItem><Link href={`#Accessibility`}>Responsible Design</Link></MenuItem>
           </Menu>
         </Flex>
 

@@ -1,16 +1,20 @@
-import React, {HTMLProps, useEffect, useRef, useState} from 'react'
+import React, {CSSProperties, HTMLProps, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
-import {Row} from '../../index'
+import {Row, Transition} from '../../index'
+import MenuItemBase from '../menu/MenuItemBase'
 
+type SelectSize = 'sm' | 'md' | 'lg' | 'xl'
 const Select: React.FC<HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
   defaultValue?: string | number
   onChange?: (value: string | number) => void
+  size?: SelectSize
   style?: {}
 }> = ({
         label,
         style,
+        size = 'md' as SelectSize,
         defaultValue = '',
         onChange,
         children,
@@ -23,10 +27,31 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
   const [position, setPosition] = useState<{ top?: string, bottom?: string }>({})
   const [wrapperHeight, setWrapperHeight] = useState(0)
   const [value, setValue] = useState(defaultValue)
+  const animationDuration = 100
+  const sizeStyle: Record<SelectSize, CSSProperties> = {
+    sm: {
+      width: 40,
+      height: 20,
+    },
+    md: {
+      width: 60,
+      height: 30,
+    },
+    lg: {
+      width: 100,
+      height: 40,
+    },
+    xl: {
+      width: 140,
+      height: 60,
+    },
+  }
+  const [itemStyle, setItemStyle] = useState<CSSProperties>({})
 
   useEffect(() => {
     const maxHeight = window.innerHeight
     setValue(defaultValue)
+    setItemStyle(sizeStyle[size])
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
@@ -36,7 +61,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         setWrapperHeight(h)
       }
     }
-  }, [children, defaultValue])
+  }, [children, defaultValue, size])
 
   const handleItemClick = (newValue: string | number) => {
     setValue(newValue)
@@ -61,71 +86,91 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
     setOpenSelect(!openSelect)
   }
 
-  return <SelectContext.Provider value={{value, itemClick: handleItemClick}}>
-    {/*<select tabIndex={0}
-            defaultValue={defaultValue}
-            onClick={(e) => {
-              console.log(9)
-              handleOpen()
-              e.preventDefault()
-              e.stopPropagation()
-            }}>
-      {
-        children.map((item, index) => {
-          return <option key={index} value="">item</option>
-        })
-      }
-    </select>*/}
+  return <SelectContext.Provider value={{itemStyle, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           width: 100,
-           height: 40,
+           width: itemStyle.width,
+           height: itemStyle.height,
            border: '1px solid #dfdfdf',
            cursor: 'pointer',
            ...style,
-           position: 'relative',
+           // position: 'relative',
          }}
          {...props}>
 
-      <Row tabIndex={0} center jc fh
-           onClick={() => {
-             handleOpen()
-           }}
-           onKeyDown={(e) => {
-             if (e.code.toLowerCase() === 'space') {
-               e.preventDefault()
-               handleOpen()
-             }
+      <MenuItemBase
+        role={'placeholder'}
+        style={{height: itemStyle.height}}
+        onClick={() => {
+          handleOpen()
+        }}
+        onKeyDown={(e) => {
+          if (e.code.toLowerCase() === 'space') {
+            e.preventDefault()
+            handleOpen()
+          }
 
-             onKeyDown && onKeyDown(e)
-           }}
-      >{value}</Row>
+          onKeyDown && onKeyDown(e)
+        }}>
+        <Row fh
+             justifyContent={'space-between'}
+             p={10}
+             alignItems={'center'}>
+          <span>{value}</span>
+          <Transition visible={openSelect}
+                      duration={animationDuration}
+                      from={{
+                        rotate: '0deg',
+                      }}
+                      to={{
+                        rotate: '180deg',
+                      }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="black" strokeWidth="2" fill="none" strokeLinecap="round"
+                    strokeLinejoin="round"/>
+            </svg>
+          </Transition>
+        </Row>
+      </MenuItemBase>
 
-      <div tabIndex={2}
-           autoFocus={true}
-           style={{
-             position: 'absolute',
-             overflow: openSelect ? 'auto' : 'hidden',
-             width: '100%',
-             height: openSelect ? wrapperHeight : 0,
-             // top: position.top,
-             backgroundColor: '#fff',
-             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
-             ...position,
-           }}>
-        <div tabIndex={3} ref={containerRef}
-             style={{
-               width: '100%',
-               backgroundColor: '#fff',
-               position: 'absolute',
-               height: 'auto',
-               top: 0,
-               left: 0,
-             }} {...props}>
-          {children}
+      <Transition visible={openSelect}
+                  duration={animationDuration}
+                  from={{
+                    height: 0,
+                  }}
+                  to={{
+                    height: wrapperHeight,
+                  }}
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    overflow: 'hidden',
+                    width: '100%',
+                    height: wrapperHeight,
+                    backgroundColor: '#fff',
+                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
+                    ...position,
+                  }}>
+        <div role={'select-wrapper'} style={{
+          overflow: openSelect ? 'auto' : 'hidden',
+          width: '100%',
+          height: wrapperHeight,
+          backgroundColor: '#fff',
+          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+        }}>
+          <div ref={containerRef}
+               style={{
+                 width: '100%',
+                 backgroundColor: '#fff',
+                 height: 'auto',
+               }}
+               {...props}>
+            {children}
+          </div>
         </div>
-      </div>
+      </Transition>
     </div>
   </SelectContext.Provider>
 

@@ -1,4 +1,4 @@
-import {Col, MenuItem, Row, Select, SelectItem, Title} from '@ui/index.tsx'
+import {Col, Row, Select, SelectItem, Title} from '@ui/index.tsx'
 
 const SelectSamples: React.FC = () => {
   return <Col>
@@ -10,17 +10,17 @@ const SelectSamples: React.FC = () => {
           console.log(v)
         }}
                 defaultValue={'2'}
-                style={{position: 'relative', width: '100px', zIndex: 100}}>
-          <SelectItem value={'1'}><MenuItem>hello 1</MenuItem></SelectItem>
-          <SelectItem value={'2'}><MenuItem>hello 2</MenuItem></SelectItem>
-          <SelectItem value={'3'}><MenuItem>hello 3</MenuItem></SelectItem>
+                style={{position: 'relative', zIndex: 100}}>
+          <SelectItem value={'1'}>hello 1</SelectItem>
+          <SelectItem value={'2'}>hello 2</SelectItem>
+          <SelectItem value={'3'}>hello 3</SelectItem>
         </Select>
 
-        <Select defaultValue={'12'} style={{position: 'relative', width: '100px', zIndex: 100}}>
+        <Select defaultValue={'12'} style={{position: 'relative', zIndex: 100}}>
           {
             Array.from({length: 100}).fill(undefined).map((_, index) => {
               return <SelectItem key={index} value={(index + 1) + ''}>
-                <MenuItem>hello {index + 1}</MenuItem>
+                <span>hello {index + 1}</span>
               </SelectItem>
             })
           }
