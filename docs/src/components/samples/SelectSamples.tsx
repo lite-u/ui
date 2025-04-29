@@ -2,7 +2,7 @@ import {Col, Row, Select, SelectItem, Title} from '@ui/index.tsx'
 
 const SelectSamples: React.FC = () => {
   return <Col>
-    <Col between style={{}}>
+    <Col between>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
       <Row style={{zIndex: 60}} space={10}>

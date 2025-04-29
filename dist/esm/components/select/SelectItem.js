@@ -8,11 +8,13 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         return null;
     const { itemClick, selectValue, itemStyle } = context;
     const styles = {
+        padding: itemStyle.padding,
         height: itemStyle.height,
-        // padding: '4px 6px',
+        boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        whiteSpace: 'nowrap',
         ...style,
     };
     if (selectValue === value) {

@@ -21,11 +21,13 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   const {itemClick, selectValue, itemStyle} = context
 
   const styles = {
+    padding: itemStyle.padding,
     height: itemStyle.height,
-    // padding: '4px 6px',
+    boxSizing: 'border-box',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    whiteSpace: 'nowrap',
     ...style,
   }
 
@@ -46,7 +48,6 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
                   onClick={(e) => {
                     itemClick(value)
                     onClick && onClick(e)
-
                   }} {...props}>
       {children}
     </MenuItemBase>

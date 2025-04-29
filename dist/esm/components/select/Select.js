@@ -15,18 +15,22 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
         sm: {
             width: 40,
             height: 20,
+            padding: 10,
         },
         md: {
             width: 60,
             height: 30,
+            padding: 10,
         },
         lg: {
             width: 100,
             height: 40,
+            padding: 10,
         },
         xl: {
             width: 140,
             height: 60,
+            padding: 10,
         },
     };
     const [itemStyle, setItemStyle] = useState({});
@@ -79,7 +83,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, justifyContent: 'space-between', p: 10, alignItems: 'center', children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
+                    }, children: _jsxs(Row, { fh: true, justifyContent: 'space-between', p: itemStyle.padding, alignItems: 'center', children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
@@ -98,13 +102,14 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                         boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
                         ...position,
                     }, children: _jsx("div", { role: 'select-wrapper', style: {
-                            overflow: openSelect ? 'auto' : 'hidden',
+                            overflowY: openSelect ? 'auto' : 'hidden',
+                            overflowX: 'hidden',
                             width: '100%',
                             height: wrapperHeight,
                             backgroundColor: '#fff',
                             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
                         }, children: _jsx("div", { ref: containerRef, style: {
-                                width: '100%',
+                                width: 'auto',
                                 backgroundColor: '#fff',
                                 height: 'auto',
                             }, ...props, children: children }) }) })] }) });

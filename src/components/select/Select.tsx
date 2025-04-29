@@ -32,18 +32,22 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
     sm: {
       width: 40,
       height: 20,
+      padding: 10,
     },
     md: {
       width: 60,
       height: 30,
+      padding: 10,
     },
     lg: {
       width: 100,
       height: 40,
+      padding: 10,
     },
     xl: {
       width: 140,
       height: 60,
+      padding: 10,
     },
   }
   const [itemStyle, setItemStyle] = useState<CSSProperties>({})
@@ -115,7 +119,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         }}>
         <Row fh
              justifyContent={'space-between'}
-             p={10}
+             p={itemStyle.padding}
              alignItems={'center'}>
           <span>{value}</span>
           <Transition visible={openSelect}
@@ -154,7 +158,8 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                     ...position,
                   }}>
         <div role={'select-wrapper'} style={{
-          overflow: openSelect ? 'auto' : 'hidden',
+          overflowY: openSelect ? 'auto' : 'hidden',
+          overflowX: 'hidden',
           width: '100%',
           height: wrapperHeight,
           backgroundColor: '#fff',
@@ -162,7 +167,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         }}>
           <div ref={containerRef}
                style={{
-                 width: '100%',
+                 width: 'auto',
                  backgroundColor: '#fff',
                  height: 'auto',
                }}
