@@ -6,6 +6,6 @@ const SelectItem = ({ label, value, children, ...props }) => {
     if (!context)
         return null;
     const { itemClick } = context;
-    return (_jsx("div", { onClick: () => itemClick(value), ...props, children: children }));
+    return (_jsx("div", { tabIndex: 0, onClick: () => itemClick(value), ...props, children: children }));
 };
 export default SelectItem;

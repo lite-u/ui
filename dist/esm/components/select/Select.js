@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row } from '../../index';
-const Select = ({ label, style, defaultValue = '', onChange, children, ...props }) => {
+const Select = ({ label, style, defaultValue = '', onChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -42,16 +42,22 @@ const Select = ({ label, style, defaultValue = '', onChange, children, ...props 
         setPosition(newPosition);
         setOpenSelect(!openSelect);
     };
-    return _jsx(SelectContext.Provider, { value: { value, itemClick: handleItemClick }, children: _jsxs("div", { ref: wrapperRef, style: {
+    return _jsx(SelectContext.Provider, { value: { value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
                 width: 100,
                 height: 40,
                 border: '1px solid #dfdfdf',
                 cursor: 'pointer',
                 ...style,
                 position: 'relative',
-            }, ...props, children: [_jsx(Row, { center: true, jc: true, fh: true, onClick: () => {
+            }, ...props, children: [_jsx(Row, { tabIndex: 0, center: true, jc: true, fh: true, onClick: () => {
                         handleOpen();
-                    }, children: value }), _jsx("div", { style: {
+                    }, onKeyDown: (e) => {
+                        if (e.code.toLowerCase() === 'space') {
+                            e.preventDefault();
+                            handleOpen();
+                        }
+                        onKeyDown && onKeyDown(e);
+                    }, children: value }), _jsx("div", { tabIndex: 2, autoFocus: true, style: {
                         position: 'absolute',
                         overflow: openSelect ? 'auto' : 'hidden',
                         width: '100%',
@@ -60,9 +66,7 @@ const Select = ({ label, style, defaultValue = '', onChange, children, ...props 
                         backgroundColor: '#fff',
                         boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
                         ...position,
-                        // bottom: '100%',
-                        // top: '100%',
-                    }, children: _jsx("div", { ref: containerRef, style: {
+                    }, children: _jsx("div", { tabIndex: 3, ref: containerRef, style: {
                             width: '100%',
                             backgroundColor: '#fff',
                             position: 'absolute',

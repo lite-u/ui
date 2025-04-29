@@ -1,8 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {HTMLProps, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row} from '../../index'
 
-const Select: React.FC<{
+const Select: React.FC<HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
   defaultValue?: string | number
@@ -14,6 +14,7 @@ const Select: React.FC<{
         defaultValue = '',
         onChange,
         children,
+        onKeyDown,
         ...props
       }) => {
   const [openSelect, setOpenSelect] = useState(false)
@@ -61,7 +62,22 @@ const Select: React.FC<{
   }
 
   return <SelectContext.Provider value={{value, itemClick: handleItemClick}}>
-    <div ref={wrapperRef}
+    {/*<select tabIndex={0}
+            defaultValue={defaultValue}
+            onClick={(e) => {
+              console.log(9)
+              handleOpen()
+              e.preventDefault()
+              e.stopPropagation()
+            }}>
+      {
+        children.map((item, index) => {
+          return <option key={index} value="">item</option>
+        })
+      }
+    </select>*/}
+    <div role={'select'}
+         ref={wrapperRef}
          style={{
            width: 100,
            height: 40,
@@ -72,23 +88,33 @@ const Select: React.FC<{
          }}
          {...props}>
 
-      <Row center jc fh onClick={() => {
-        handleOpen()
-      }}>{value}</Row>
+      <Row tabIndex={0} center jc fh
+           onClick={() => {
+             handleOpen()
+           }}
+           onKeyDown={(e) => {
+             if (e.code.toLowerCase() === 'space') {
+               e.preventDefault()
+               handleOpen()
+             }
 
-      <div style={{
-        position: 'absolute',
-        overflow: openSelect ? 'auto' : 'hidden',
-        width: '100%',
-        height: openSelect ? wrapperHeight : 0,
-        // top: position.top,
-        backgroundColor: '#fff',
-        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
-        ...position,
-        // bottom: '100%',
-        // top: '100%',
-      }}>
-        <div ref={containerRef}
+             onKeyDown && onKeyDown(e)
+           }}
+      >{value}</Row>
+
+      <div tabIndex={2}
+           autoFocus={true}
+           style={{
+             position: 'absolute',
+             overflow: openSelect ? 'auto' : 'hidden',
+             width: '100%',
+             height: openSelect ? wrapperHeight : 0,
+             // top: position.top,
+             backgroundColor: '#fff',
+             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
+             ...position,
+           }}>
+        <div tabIndex={3} ref={containerRef}
              style={{
                width: '100%',
                backgroundColor: '#fff',

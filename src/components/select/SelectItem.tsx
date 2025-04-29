@@ -18,7 +18,7 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   const {itemClick} = context
 
   return (
-    <div onClick={() => itemClick(value)} {...props}>
+    <div tabIndex={0} onClick={() => itemClick(value)} {...props}>
       {children}
     </div>
   )
