@@ -1,5 +1,5 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {useState} from 'react'
+import ButtonBase from './ButtonBase'
 
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
 type Variant = 'primary' | 'error' | 'warn' | 'neutral';
@@ -14,6 +14,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   warn?: boolean;
   error?: boolean;
   style?: React.CSSProperties;
+  children: React.ReactNode;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -26,16 +27,11 @@ export const Button: React.FC<ButtonProps> = ({
                                                 error,
                                                 neutral = true,
                                                 style = {},
+                                                children,
                                                 type = 'button',
-                                                onMouseEnter,
-                                                onMouseOver,
-                                                onMouseLeave,
-                                                onMouseDown,
-                                                onMouseUp,
                                                 ...props
                                               }) => {
   const {theme} = useLiteUIContext()
-  const [opacity, setOpacity] = useState(1)
   const {
     fontSizes,
     padding,
@@ -77,28 +73,7 @@ export const Button: React.FC<ButtonProps> = ({
     },
   }
 
-  const handleMouseEnter = () => {
-    setOpacity(.8)
-  }
-
-  const handleMouseOver = () => {
-    setOpacity(.8)
-  }
-
-  const handleMouseLeave = () => {
-    setOpacity(1)
-  }
-
-  const handleMouseDown = () => {
-    setOpacity(1)
-  }
-
-  const handleMouseUp = () => {
-    setOpacity(.8)
-  }
-
   const styles: React.CSSProperties = {
-    opacity,
     cursor: 'pointer',
     fontSize: fontSizes[size],
     padding: `0 ${padding[size].x}px`,
@@ -110,33 +85,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button
-      type={type}
-      style={styles}
-      // onMouseOver={() => setOpacity(0.8)}
-      // onMouseOut={() => setOpacity(1)}
-      onMouseEnter={(e) => {
-        handleMouseEnter()
-        onMouseEnter && onMouseEnter(e)
-      }}
-      onMouseOver={(e) => {
-        handleMouseOver()
-        onMouseOver && onMouseOver(e)
-      }}
-      onMouseLeave={(e) => {
-        handleMouseLeave()
-        onMouseLeave && onMouseLeave(e)
-      }}
-      onMouseDown={(e) => {
-        handleMouseDown()
-        onMouseDown && onMouseDown(e)
-      }}
-      onMouseUp={(e) => {
-        handleMouseUp()
-        onMouseUp && onMouseUp(e)
-      }}
-      {...props}
-    />
+    <ButtonBase type={type} style={styles} {...props}>{children}</ButtonBase>
   )
 }
 

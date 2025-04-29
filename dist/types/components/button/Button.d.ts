@@ -9,6 +9,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     warn?: boolean;
     error?: boolean;
     style?: React.CSSProperties;
+    children: React.ReactNode;
 };
 export declare const Button: React.FC<ButtonProps>;
 export default Button;
