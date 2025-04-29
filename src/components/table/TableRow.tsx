@@ -1,4 +1,5 @@
 import {CSSProperties, ReactNode, useState} from 'react'
+import {useTableContext} from './Table'
 
 const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
   children: ReactNode[],
@@ -13,6 +14,7 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
         ...props
       }) => {
   const [extraRowStyle, setExtraRowStyle] = useState<CSSProperties>({})
+  const {storedRowStyle, storedCellStyle} = useTableContext()
 
   const handleMouseEnter = () => {
     if (!head) {
@@ -35,14 +37,16 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
   }
 
   const rowStyle = {
-    // borderBottom: '1px solid #b5b5b5',
+    borderBottom: '1px solid #b5b5b5',
     color: '#292929',
+    ...storedRowStyle,
     ...extraRowStyle,
   }
 
   const cellStyle = {
     padding: '10px 0',
-    border: '1px solid #b5b5b5',
+    // border: '1px solid #b5b5b5',
+    ...storedCellStyle,
   }
 
   const cellDivStyle = {

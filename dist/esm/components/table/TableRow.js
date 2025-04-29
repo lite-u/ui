@@ -1,7 +1,9 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from 'react';
+import { useTableContext } from './Table';
 const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLeave, ...props }) => {
     const [extraRowStyle, setExtraRowStyle] = useState({});
+    const { storedRowStyle, storedCellStyle } = useTableContext();
     const handleMouseEnter = () => {
         if (!head) {
             setExtraRowStyle({
@@ -21,13 +23,15 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
         nodes.push(children);
     }
     const rowStyle = {
-        // borderBottom: '1px solid #b5b5b5',
+        borderBottom: '1px solid #b5b5b5',
         color: '#292929',
+        ...storedRowStyle,
         ...extraRowStyle,
     };
     const cellStyle = {
         padding: '10px 0',
-        border: '1px solid #b5b5b5',
+        // border: '1px solid #b5b5b5',
+        ...storedCellStyle,
     };
     const cellDivStyle = {
         display: 'flex',
