@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import useElementMoveDetect from '../../hooks/useElementMoveDetect';
 import { createPortal } from 'react-dom';
 import { Transition } from '../../index';
-export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, children, }) => {
+export const Tooltip = ({ title, color, bgColor, position = 't', delay = 100, children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
     const tooltipRef = useRef(null);
@@ -13,7 +13,7 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
     const [realTimeStyle, setRealTimeStyle] = useState({});
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);
-    const animationEnterDuration = 300;
+    const animationEnterDuration = 200;
     const animationExitDuration = 100;
     useElementMoveDetect(targetRef, () => {
         calcPosition();
@@ -60,7 +60,7 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
     }, [isVisible, targetRef.current, position]);
     const calcPosition = () => {
         const firstChild = targetRef.current?.firstElementChild;
-        const maxWidth = window.innerWidth;
+        // const maxWidth = window.innerWidth
         const maxHeight = window.innerHeight;
         if (firstChild) {
             const { width, height, top, left, right, bottom } = firstChild.getBoundingClientRect();
@@ -221,13 +221,15 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
         setAnimationVisible(false);
         clearTimeout(leavingTimerRef.current);
         leavingTimerRef.current = 0;
-        console.log(delay);
         leavingTimerRef.current = setTimeout(() => {
             setIsVisible(false);
             leavingTimerRef.current = 0;
-        }, animationExitDuration);
+        }, delay || animationExitDuration);
     };
-    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
+    // const positionStyle = getPositionStyles()
+    // console.log(positionStyle)
+    // const transformOrigin = '6px 0px'
+    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
                     scale: {
                         value: 0,
                         duration: animationExitDuration,

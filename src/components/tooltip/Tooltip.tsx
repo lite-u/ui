@@ -18,7 +18,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   color,
                                                   bgColor,
                                                   position = 't',
-                                                  delay = 0,
+                                                  delay = 100,
                                                   children,
                                                 }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -30,7 +30,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   const [realTimeStyle, setRealTimeStyle] = useState<CSSProperties>({})
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)
-  const animationEnterDuration = 300
+  const animationEnterDuration = 200
   const animationExitDuration = 100
 
   useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
@@ -82,7 +82,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
 
   const calcPosition = () => {
     const firstChild = targetRef.current?.firstElementChild
-    const maxWidth = window.innerWidth
+    // const maxWidth = window.innerWidth
     const maxHeight = window.innerHeight
 
     if (firstChild) {
@@ -257,12 +257,15 @@ export const Tooltip: React.FC<ToolTipProps> = ({
     clearTimeout(leavingTimerRef.current)
     leavingTimerRef.current = 0
 
-    console.log(delay)
     leavingTimerRef.current = setTimeout(() => {
       setIsVisible(false)
       leavingTimerRef.current = 0
-    }, animationExitDuration)
+    }, delay || animationExitDuration)
   }
+
+  // const positionStyle = getPositionStyles()
+  // console.log(positionStyle)
+  // const transformOrigin = '6px 0px'
 
   return (
     <div
@@ -270,7 +273,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
       ref={targetRef}
       style={{display: 'inline-block'}}
       onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
+      onMouseLeave={handleMouseLeave}
     >
       {children}
 
