@@ -23,7 +23,8 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         ...style,
     };
     return (_jsx(MenuItemBase, { tabIndex: 0, style: styles, onKeyDown: (e) => {
-            if (e.code.toLowerCase() === 'space') {
+            const key = e.code.toLowerCase();
+            if (key === 'space' || key === 'enter') {
                 e.preventDefault();
                 itemClick(value);
             }

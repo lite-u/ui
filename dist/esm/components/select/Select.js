@@ -15,17 +15,20 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
         sm: {
             width: 40,
             height: 20,
-            padding: 10,
+            padding: 6,
+            borderRadius: 2,
         },
         md: {
             width: 60,
             height: 30,
             padding: 10,
+            borderRadius: 3,
         },
         lg: {
             width: 100,
             height: 40,
-            padding: 10,
+            padding: 12,
+            borderRadius: 4,
         },
     };
     const itemStyle = sizeStyle[size];
@@ -36,7 +39,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
         // console.log(containerRef.current)
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
-            console.log(h);
+            // console.log(h)
             if (h > maxHeight) {
                 setWrapperHeight(300);
             }
@@ -65,16 +68,18 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
         setPosition(newPosition);
         setOpenSelect(!openSelect);
     };
-    console.log(position);
     return _jsx(SelectContext.Provider, { value: { itemStyle, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
                 width: itemStyle.width,
                 height: itemStyle.height,
+                borderRadius: itemStyle.borderRadius,
                 boxShadow: '0 0 1px 0 #000',
                 cursor: 'pointer',
                 boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
-            }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', style: { height: '100%' }, onClick: () => {
+            }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', tabIndex: 0, style: {
+                        height: '100%', borderRadius: itemStyle.borderRadius, userSelect: 'none',
+                    }, onClick: () => {
                         handleOpen();
                     }, onKeyDown: (e) => {
                         if (e.code.toLowerCase() === 'space') {
