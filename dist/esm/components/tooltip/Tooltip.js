@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import useElementMoveDetect from '../../hooks/useElementMoveDetect';
 import { createPortal } from 'react-dom';
 import { Transition } from '../../index';
-export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, }) => {
+export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
     const tooltipRef = useRef(null);

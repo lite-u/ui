@@ -17,7 +17,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   title,
                                                   color,
                                                   bgColor,
-                                                  position,
+                                                  position = 't',
                                                   delay = 0,
                                                   children,
                                                 }) => {
