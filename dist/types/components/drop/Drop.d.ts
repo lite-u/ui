@@ -3,7 +3,7 @@ type DropProps = {
     accepts?: string[];
     onDragIsOver?: (isFileTypeValid: boolean) => void;
     onDragIsLeave?: () => void;
-    onDrop?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void;
+    onDropped?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void;
     children?: React.ReactNode;
     style?: React.CSSProperties;
 };

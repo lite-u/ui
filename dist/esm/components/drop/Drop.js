@@ -1,9 +1,9 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useCallback, useRef } from 'react';
 import Con from '../con/Con';
-export const Drop = ({ accepts = [], onDragIsOver, onDragIsLeave, children, onDrop, style = {}, 
+export const Drop = ({ accepts = [], onDragIsOver, onDragIsLeave, children, onDropped, style = {}, 
 // native events
-onDragEnter, onDragLeave, onDragOver, ...props }) => {
+onDrop, onDragEnter, onDragLeave, onDragOver, ...props }) => {
     const dragCounter = useRef(0);
     const handleDragEnter = useCallback((e) => {
         onDragEnter && onDragEnter(e);
@@ -32,6 +32,7 @@ onDragEnter, onDragLeave, onDragOver, ...props }) => {
         dragCounter.current = 0;
         if (f) {
             onDrop && onDrop(e);
+            onDropped && onDropped(e, f);
         }
         else {
             onDragIsLeave && onDragIsLeave();
@@ -40,12 +41,10 @@ onDragEnter, onDragLeave, onDragOver, ...props }) => {
     const handleFileType = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(e);
-        console.log(e.dataTransfer.files.length);
-        console.log(e.dataTransfer.files[0]);
         const firstFile = e.dataTransfer.items[0];
-        console.log(firstFile);
-        if (!firstFile) {
+        // console.log(e)
+        // Safari can't read file list while dragging
+        if (!firstFile && e.type !== 'drop') {
             return true;
         }
         const fileType = firstFile.type;

@@ -26,8 +26,8 @@ const DropSamples: React.FC = () => {
     <Row w={620} h={200} stretch space={10}>
 
       <Drop accepts={['image/png']}
-            onDrop={(e) => {
-              setSampleAData({
+            onDropped={(e, f) => {
+              f && setSampleAData({
                 ...sampleAData,
                 bg: 'green',
                 msg: e.dataTransfer.files[0].name,
@@ -56,8 +56,8 @@ const DropSamples: React.FC = () => {
       </Drop>
 
       <Drop accepts={['image/*']}
-            onDrop={(e) => {
-              setSampleBData({
+            onDropped={(e, f) => {
+              f && setSampleBData({
                 ...sampleBData,
                 bg: 'green',
                 msg: e.dataTransfer.files[0].name,
@@ -84,8 +84,8 @@ const DropSamples: React.FC = () => {
         </Con>
       </Drop>
 
-      <Drop onDrop={(e) => {
-        setSampleCData({
+      <Drop onDropped={(e, f) => {
+        f && setSampleCData({
           ...sampleCData,
           bg: 'green',
           msg: e.dataTransfer.files[0].name,
@@ -125,7 +125,7 @@ const DropSamples: React.FC = () => {
               setSampleAData({
                 ...sampleAData,
                 bg: 'green',
-                msg: e.dataTransfer.files[0].name,
+                msg: e.dataTransfer.files[0].name
               })
             }}
             onDragIsOver={(f) => {

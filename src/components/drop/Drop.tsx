@@ -5,7 +5,7 @@ type DropProps = {
   accepts?: string[]
   onDragIsOver?: (isFileTypeValid: boolean) => void
   onDragIsLeave?: () => void
-  onDrop?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void
+  onDropped?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void
   children?: React.ReactNode
   style?: React.CSSProperties
 };
@@ -15,9 +15,10 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
                                                                         onDragIsOver,
                                                                         onDragIsLeave,
                                                                         children,
-                                                                        onDrop,
+                                                                        onDropped,
                                                                         style = {},
                                                                         // native events
+                                                                        onDrop,
                                                                         onDragEnter,
                                                                         onDragLeave,
                                                                         onDragOver,
@@ -61,21 +62,19 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
 
     if (f) {
       onDrop && onDrop(e)
+      onDropped && onDropped(e, f)
     } else {
       onDragIsLeave && onDragIsLeave()
     }
-
   }, [])
 
   const handleFileType = (e: React.DragEvent<HTMLDivElement>): boolean => {
     e.preventDefault()
     e.stopPropagation()
-    console.log(e)
-    console.log(e.dataTransfer.files.length)
-    console.log(e.dataTransfer.files[0])
     const firstFile = e.dataTransfer.items[0]
-    console.log(firstFile)
-    if (!firstFile) {
+    // console.log(e)
+    // Safari can't read file list while dragging
+    if (!firstFile && e.type !== 'drop') {
       return true
     }
 
