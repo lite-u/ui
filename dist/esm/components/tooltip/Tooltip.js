@@ -13,7 +13,8 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
     const [realTimeStyle, setRealTimeStyle] = useState({});
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);
-    // const animationDuration = 300
+    const animationEnterDuration = 300;
+    const animationExitDuration = 100;
     useElementMoveDetect(targetRef, () => {
         calcPosition();
     });
@@ -90,7 +91,7 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
                     break;
                 case 'tr':
                     styles.bottom = maxHeight - top;
-                    styles.right = innerWidth - left;
+                    styles.right = innerWidth - right;
                     break;
                 case 'bl':
                     styles.top = bottom;
@@ -98,7 +99,7 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
                     break;
                 case 'br':
                     styles.top = bottom;
-                    styles.right = innerWidth - left;
+                    styles.left = left + width;
                     break;
             }
             setRealTimeStyle(styles);
@@ -115,13 +116,13 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
             case 'r':
                 return { left: 6, transform: 'translateY(-50%)' };
             case 'tl':
-                return { bottom: 6 };
+                return { bottom: 6, left: 0 };
             case 'tr':
-                return { bottom: 6 };
+                return { bottom: 6, right: 0 };
             case 'bl':
-                return { top: 6 };
+                return { top: 6, left: 0 };
             case 'br':
-                return { top: 6 };
+                return { top: 6, right: 0 };
             default:
                 return { bottom: 6, transform: 'translateX(-50%)' };
         }
@@ -220,16 +221,20 @@ export const Tooltip = ({ title, color, bgColor, position = 't', delay = 0, chil
         setAnimationVisible(false);
         clearTimeout(leavingTimerRef.current);
         leavingTimerRef.current = 0;
+        console.log(delay);
         leavingTimerRef.current = setTimeout(() => {
             setIsVisible(false);
             leavingTimerRef.current = 0;
-        }, delay * 2);
+        }, animationExitDuration);
     };
-    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
-                    scale: 0,
+    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
+                    scale: {
+                        value: 0,
+                        duration: animationExitDuration,
+                    },
                 }, to: {
                     scale: 1,
-                }, duration: 200, style: {
+                }, duration: animationEnterDuration, style: {
                     position: 'fixed',
                     // width: 'auto',
                     // height: 'auto',

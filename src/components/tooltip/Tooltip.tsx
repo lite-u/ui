@@ -30,7 +30,8 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   const [realTimeStyle, setRealTimeStyle] = useState<CSSProperties>({})
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)
-  // const animationDuration = 300
+  const animationEnterDuration = 300
+  const animationExitDuration = 100
 
   useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
     calcPosition()
@@ -118,7 +119,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
 
         case 'tr':
           styles.bottom = maxHeight - top
-          styles.right = innerWidth - left
+          styles.right = innerWidth - right
           break
 
         case 'bl':
@@ -128,7 +129,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
 
         case 'br':
           styles.top = bottom
-          styles.right = innerWidth - left
+          styles.left = left + width
           break
 
       }
@@ -148,13 +149,13 @@ export const Tooltip: React.FC<ToolTipProps> = ({
       case 'r':
         return {left: 6, transform: 'translateY(-50%)'}
       case 'tl':
-        return {bottom: 6}
+        return {bottom: 6, left: 0}
       case 'tr':
-        return {bottom: 6}
+        return {bottom: 6, right: 0}
       case 'bl':
-        return {top: 6}
+        return {top: 6, left: 0}
       case 'br':
-        return {top: 6}
+        return {top: 6, right: 0}
       default:
         return {bottom: 6, transform: 'translateX(-50%)'}
     }
@@ -256,10 +257,11 @@ export const Tooltip: React.FC<ToolTipProps> = ({
     clearTimeout(leavingTimerRef.current)
     leavingTimerRef.current = 0
 
+    console.log(delay)
     leavingTimerRef.current = setTimeout(() => {
       setIsVisible(false)
       leavingTimerRef.current = 0
-    }, delay * 2)
+    }, animationExitDuration)
   }
 
   return (
@@ -268,7 +270,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
       ref={targetRef}
       style={{display: 'inline-block'}}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // onMouseLeave={handleMouseLeave}
     >
       {children}
 
@@ -277,12 +279,15 @@ export const Tooltip: React.FC<ToolTipProps> = ({
           visible={animationVisible}
           transformOrigin={'center'}
           from={{
-            scale: 0,
+            scale: {
+              value: 0,
+              duration: animationExitDuration,
+            },
           }}
           to={{
             scale: 1,
           }}
-          duration={200}
+          duration={animationEnterDuration}
           style={{
             position: 'fixed',
             // width: 'auto',
