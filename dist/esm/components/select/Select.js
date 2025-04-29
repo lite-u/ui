@@ -17,18 +17,21 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
             height: 20,
             padding: 6,
             borderRadius: 2,
+            fontSize: 12,
         },
         md: {
             width: 60,
             height: 30,
             padding: 10,
             borderRadius: 3,
+            fontSize: 14,
         },
         lg: {
             width: 100,
             height: 40,
             padding: 12,
             borderRadius: 4,
+            fontSize: 16,
         },
     };
     if (md) {
@@ -87,7 +90,10 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
                 ...style,
                 position: 'relative',
             }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', tabIndex: 0, style: {
-                        height: '100%', borderRadius: itemStyle.borderRadius, userSelect: 'none',
+                        height: '100%',
+                        borderRadius: itemStyle.borderRadius,
+                        fontSize: itemStyle.fontSize,
+                        userSelect: 'none',
                     }, onClick: () => {
                         handleOpen();
                     }, onKeyDown: (e) => {

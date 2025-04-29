@@ -40,19 +40,21 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
       height: 20,
       padding: 6,
       borderRadius: 2,
+      fontSize: 12,
     },
     md: {
       width: 60,
       height: 30,
       padding: 10,
       borderRadius: 3,
-
+      fontSize: 14,
     },
     lg: {
       width: 100,
       height: 40,
       padding: 12,
       borderRadius: 4,
+      fontSize: 16,
     },
   }
 
@@ -130,7 +132,10 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         role={'placeholder'}
         tabIndex={0}
         style={{
-          height: '100%', borderRadius: itemStyle.borderRadius, userSelect: 'none',
+          height: '100%',
+          borderRadius: itemStyle.borderRadius,
+          fontSize: itemStyle.fontSize,
+          userSelect: 'none',
         }}
         onClick={() => {
           handleOpen()

@@ -14,6 +14,7 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
     const styles = {
         padding: itemStyle.padding,
         height: itemStyle.height,
+        fontSize: itemStyle.fontSize,
         boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
