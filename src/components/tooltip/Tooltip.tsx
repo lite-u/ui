@@ -8,7 +8,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
   title: string
   bgColor?: string
   color?: string
-  delay?: number
+  // delay?: number
   position?: TooltipPosition
   children: React.ReactElement;
 };
@@ -18,7 +18,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   color,
                                                   bgColor,
                                                   position = 't',
-                                                  delay = 100,
+                                                  // delay = 100,
                                                   children,
                                                 }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -260,7 +260,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
     leavingTimerRef.current = setTimeout(() => {
       setIsVisible(false)
       leavingTimerRef.current = 0
-    }, delay || animationExitDuration)
+    }, animationExitDuration)
   }
 
   // const positionStyle = getPositionStyles()
