@@ -1,7 +1,7 @@
-import {useLiteUIContext} from '../../LiteUIProvider'
+// import {useLiteUIContext} from '../../LiteUIProvider'
 
 const InputNumber: React.FC<{ style: React.CSSProperties }> = ({style, ...props}) => {
-  const theme = useLiteUIContext()
+  // const theme = useLiteUIContext()
 
   return <input
     type={'text'}

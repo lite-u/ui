@@ -1,7 +1,7 @@
 import {useEffect, useRef} from 'react'
 
 const useElementMoveDetect = (ref: React.RefObject<HTMLElement>, onMove: () => void) => {
-  const lastRect = useRef<DOMRect>()
+  const lastRect = useRef<DOMRect>(null)
 
   useEffect(() => {
     const checkMove = () => {

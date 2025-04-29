@@ -4,23 +4,23 @@ import {Row, Transition} from '../../index'
 import MenuItemBase from '../menu/MenuItemBase'
 
 export type SelectSize = 'sm' | 'md' | 'lg'
-const Select: React.FC<HTMLProps<HTMLDivElement> & {
+const Select: React.FC<{
   label?: string
   children?: React.ReactNode
   defaultValue?: string | number
   onChange?: (value: string | number) => void
-  size?: SelectSize
+  size?: 'sm' | 'md' | 'lg'
   style?: {}
-}> = ({
-        label,
-        style,
-        size = 'md' as SelectSize,
-        defaultValue = '',
-        onChange,
-        children,
-        onKeyDown,
-        ...props
-      }) => {
+} & HTMLProps<HTMLDivElement>> = ({
+                                    label,
+                                    style,
+                                    size = 'md' as SelectSize,
+                                    defaultValue = '',
+                                    onChange,
+                                    children,
+                                    onKeyDown,
+                                    ...props
+                                  }) => {
   const [openSelect, setOpenSelect] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)

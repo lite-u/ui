@@ -1,6 +1,6 @@
 import {ReactNode} from 'react'
 
-const Link: React.FC<React.HTMLProps<HTMLDivElement> & {
+const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
   children: ReactNode,
   fw?: boolean,
   fh?: boolean,
