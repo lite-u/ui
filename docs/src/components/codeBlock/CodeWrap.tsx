@@ -61,10 +61,9 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
           overflow: 'auto',
           // position: 'relative',
         }}>
-
-
         <CodeBlock code={dedent(code)}
                    style={{
+                     fontSize: 14,
                      backgroundColor: 'transparent',
                      margin: 0,
                      padding: 0,
