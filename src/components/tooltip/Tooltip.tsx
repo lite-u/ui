@@ -1,4 +1,4 @@
-import {RefObject, useEffect, useRef, useState} from 'react'
+import {CSSProperties, RefObject, useEffect, useRef, useState} from 'react'
 import useElementMoveDetect from '../../hooks/useElementMoveDetect'
 import {createPortal} from 'react-dom'
 import {Transition} from '../../index'
@@ -27,12 +27,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   const targetRef = useRef<HTMLDivElement>(null)
   const backgroundColor = bgColor || '#333'
   const textColor = color || '#fff'
-  const [realTimePosition, setRealTimePosition] = useState({
-    width: 0,
-    height: 0,
-    top: 0,
-    left: 0,
-  })
+  const [realTimeStyle, setRealTimeStyle] = useState<CSSProperties>({})
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)
   // const animationDuration = 300
@@ -42,12 +37,14 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   })
 
   useEffect(() => {
+    calcPosition()
+
     if (position) {
       setLocalPosition(position)
       return
     }
 
-    if (isVisible && targetRef.current && tooltipRef.current) {
+    /*if (isVisible && targetRef.current && tooltipRef.current) {
       const targetRect = targetRef.current.getBoundingClientRect()
       const tooltipRect = tooltipRef.current.getBoundingClientRect()
 
@@ -79,43 +76,87 @@ export const Tooltip: React.FC<ToolTipProps> = ({
           setLocalPosition('b')
         }
       }
-    }
-  }, [isVisible, position])
+    }*/
+  }, [isVisible, targetRef.current, position])
 
   const calcPosition = () => {
     const firstChild = targetRef.current?.firstElementChild
+    const maxWidth = window.innerWidth
+    const maxHeight = window.innerHeight
 
     if (firstChild) {
-      const {width, height, top, left} = firstChild.getBoundingClientRect()
-      setRealTimePosition({
-        width,
-        height,
-        top,
-        left,
-      })
+      const {width, height, top, left, right, bottom} = firstChild.getBoundingClientRect()
+      // console.log(width, height)
+      const styles: CSSProperties = {}
+      // let newLeft = left
+      // let newTop = top
+      switch (localPosition) {
+        case 't':
+          styles.bottom = maxHeight - top
+          styles.left = left + width / 2
+          break
+
+        case 'b':
+          styles.top = bottom
+          styles.left = left + width / 2
+          break
+
+        case 'l':
+          styles.right = innerWidth - left
+          styles.top = top + height / 2
+          break
+
+        case 'r':
+          styles.left = right
+          styles.top = top + height / 2
+          break
+
+        case 'tl':
+          styles.bottom = maxHeight - top
+          styles.right = innerWidth - left
+          break
+
+        case 'tr':
+          styles.bottom = maxHeight - top
+          styles.right = innerWidth - left
+          break
+
+        case 'bl':
+          styles.top = bottom
+          styles.right = innerWidth - left
+          break
+
+        case 'br':
+          styles.top = bottom
+          styles.right = innerWidth - left
+          break
+
+      }
+
+      setRealTimeStyle(styles)
     }
   }
 
   const getPositionStyles = () => {
     switch (localPosition) {
       case 't':
-        return {bottom: '120%', left: '50%', transform: 'translateX(-50%)'}
+        return {bottom: 6, transform: 'translateX(-50%)'}
       case 'b':
-        return {top: '120%', left: '50%', transform: 'translateX(-50%)'}
+        return {top: 6, transform: 'translateX(-50%)'}
       case 'l':
-        return {right: '120%', top: '50%', transform: 'translateY(-50%)'}
+        return {right: 6, transform: 'translateY(-50%)'}
       case 'r':
-        return {left: '120%', top: '50%', transform: 'translateY(-50%)'}
+        return {left: 6, transform: 'translateY(-50%)'}
       case 'tl':
-        return {bottom: '120%', left: '0', transform: 'translateX(0)'}
+        return {bottom: 6}
       case 'tr':
-        return {bottom: '120%', right: '0', transform: 'translateX(0)'}
+        return {bottom: 6}
       case 'bl':
-        return {top: '120%', left: '0', transform: 'translateX(0)'}
+        return {top: 6}
       case 'br':
-        return {top: '120%', right: '0', transform: 'translateX(0)'}
+        return {top: 6}
       default:
-        return {bottom: '120%', left: '50%', transform: 'translateX(-50%)'}
+        return {bottom: 6, transform: 'translateX(-50%)'}
     }
   }
 
@@ -211,16 +252,14 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   }
 
   const handleMouseLeave = () => {
-    console.log('leaving')
     setAnimationVisible(false)
     clearTimeout(leavingTimerRef.current)
     leavingTimerRef.current = 0
+
     leavingTimerRef.current = setTimeout(() => {
       setIsVisible(false)
       leavingTimerRef.current = 0
     }, delay * 2)
-
-    console.log(leavingTimerRef.current)
   }
 
   return (
@@ -233,56 +272,51 @@ export const Tooltip: React.FC<ToolTipProps> = ({
     >
       {children}
 
-      {isVisible && realTimePosition && createPortal(
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+      {isVisible && createPortal(
+        <Transition
+          visible={animationVisible}
+          transformOrigin={'center'}
+          from={{
+            scale: 0,
+          }}
+          to={{
+            scale: 1,
+          }}
+          duration={200}
           style={{
             position: 'fixed',
-            // pointerEvents: 'none',
-            zIndex: 1000,
-            ...realTimePosition,
+            // width: 'auto',
+            // height: 'auto',
+            ...realTimeStyle,
           }}>
-          <Transition
-            visible={animationVisible}
-            transformOrigin={'top'}
-            from={{
-              scale: 0,
-            }}
-            to={{
-              scale: 1,
-            }}
+          <div
+            ref={tooltipRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{
-              position: 'relative',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-            }}>
-            <div
-              ref={tooltipRef}
-              style={{
-                position: 'absolute',
-                backgroundColor: backgroundColor,
-                padding: '5px 10px',
-                borderRadius: '4px',
-                // whiteSpace: 'nowrap',
-                fontSize: '12px',
-                color: textColor,
-                ...getPositionStyles(),
-              }}
-            >
-              {title}
-              <div style={{
-                content: '',
-                position: 'absolute',
-                borderStyle: 'solid',
-                color: textColor,
-                ...getArrowStyles(),
-              }}/>
-            </div>
-          </Transition>
-        </div>,
+              position: 'absolute',
+              zIndex: 1000,
+              // ...realTimePosition,
+              // position: 'absolute',
+              backgroundColor: backgroundColor,
+              padding: '5px 10px',
+              borderRadius: 4,
+              fontSize: 12,
+              color: textColor,
+              ...getPositionStyles(),
+            }}
+          >
+            {title}
+            <div style={{
+              content: '',
+              position: 'absolute',
+              borderStyle: 'solid',
+              color: textColor,
+              ...getArrowStyles(),
+            }}/>
+          </div>
+        </Transition>
+        ,
         document.body,
       )}
     </div>

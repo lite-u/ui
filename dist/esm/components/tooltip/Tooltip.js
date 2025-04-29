@@ -10,12 +10,7 @@ export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, 
     const targetRef = useRef(null);
     const backgroundColor = bgColor || '#333';
     const textColor = color || '#fff';
-    const [realTimePosition, setRealTimePosition] = useState({
-        width: 0,
-        height: 0,
-        top: 0,
-        left: 0,
-    });
+    const [realTimeStyle, setRealTimeStyle] = useState({});
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);
     // const animationDuration = 300
@@ -23,82 +18,112 @@ export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, 
         calcPosition();
     });
     useEffect(() => {
+        calcPosition();
         if (position) {
             setLocalPosition(position);
             return;
         }
-        if (isVisible && targetRef.current && tooltipRef.current) {
-            const targetRect = targetRef.current.getBoundingClientRect();
-            const tooltipRect = tooltipRef.current.getBoundingClientRect();
-            // Calculate available space
-            const spaceAbove = targetRect.top;
-            const spaceBelow = window.innerHeight - targetRect.bottom;
-            const spaceLeft = targetRect.left;
-            const spaceRight = window.innerWidth - targetRect.right;
-            // Auto position tooltip in various directions
-            if (spaceAbove > tooltipRect.height) {
-                setLocalPosition('t');
+        /*if (isVisible && targetRef.current && tooltipRef.current) {
+          const targetRect = targetRef.current.getBoundingClientRect()
+          const tooltipRect = tooltipRef.current.getBoundingClientRect()
+    
+          // Calculate available space
+          const spaceAbove = targetRect.top
+          const spaceBelow = window.innerHeight - targetRect.bottom
+          const spaceLeft = targetRect.left
+          const spaceRight = window.innerWidth - targetRect.right
+    
+          // Auto position tooltip in various directions
+          if (spaceAbove > tooltipRect.height) {
+            setLocalPosition('t')
+          } else if (spaceBelow > tooltipRect.height) {
+            setLocalPosition('b')
+          } else if (spaceLeft > tooltipRect.width) {
+            setLocalPosition('l')
+          } else if (spaceRight > tooltipRect.width) {
+            setLocalPosition('r')
+          } else {
+            if (spaceAbove > tooltipRect.height / 2 && spaceLeft > tooltipRect.width / 2) {
+              setLocalPosition('tl')
+            } else if (spaceAbove > tooltipRect.height / 2 && spaceRight > tooltipRect.width / 2) {
+              setLocalPosition('tr')
+            } else if (spaceBelow > tooltipRect.height / 2 && spaceLeft > tooltipRect.width / 2) {
+              setLocalPosition('bl')
+            } else if (spaceBelow > tooltipRect.height / 2 && spaceRight > tooltipRect.width / 2) {
+              setLocalPosition('br')
+            } else {
+              setLocalPosition('b')
             }
-            else if (spaceBelow > tooltipRect.height) {
-                setLocalPosition('b');
-            }
-            else if (spaceLeft > tooltipRect.width) {
-                setLocalPosition('l');
-            }
-            else if (spaceRight > tooltipRect.width) {
-                setLocalPosition('r');
-            }
-            else {
-                if (spaceAbove > tooltipRect.height / 2 && spaceLeft > tooltipRect.width / 2) {
-                    setLocalPosition('tl');
-                }
-                else if (spaceAbove > tooltipRect.height / 2 && spaceRight > tooltipRect.width / 2) {
-                    setLocalPosition('tr');
-                }
-                else if (spaceBelow > tooltipRect.height / 2 && spaceLeft > tooltipRect.width / 2) {
-                    setLocalPosition('bl');
-                }
-                else if (spaceBelow > tooltipRect.height / 2 && spaceRight > tooltipRect.width / 2) {
-                    setLocalPosition('br');
-                }
-                else {
-                    setLocalPosition('b');
-                }
-            }
-        }
-    }, [isVisible, position]);
+          }
+        }*/
+    }, [isVisible, targetRef.current, position]);
     const calcPosition = () => {
         const firstChild = targetRef.current?.firstElementChild;
+        const maxWidth = window.innerWidth;
+        const maxHeight = window.innerHeight;
         if (firstChild) {
-            const { width, height, top, left } = firstChild.getBoundingClientRect();
-            setRealTimePosition({
-                width,
-                height,
-                top,
-                left,
-            });
+            const { width, height, top, left, right, bottom } = firstChild.getBoundingClientRect();
+            // console.log(width, height)
+            const styles = {};
+            // let newLeft = left
+            // let newTop = top
+            switch (localPosition) {
+                case 't':
+                    styles.bottom = maxHeight - top;
+                    styles.left = left + width / 2;
+                    break;
+                case 'b':
+                    styles.top = bottom;
+                    styles.left = left + width / 2;
+                    break;
+                case 'l':
+                    styles.right = innerWidth - left;
+                    styles.top = top + height / 2;
+                    break;
+                case 'r':
+                    styles.left = right;
+                    styles.top = top + height / 2;
+                    break;
+                case 'tl':
+                    styles.bottom = maxHeight - top;
+                    styles.right = innerWidth - left;
+                    break;
+                case 'tr':
+                    styles.bottom = maxHeight - top;
+                    styles.right = innerWidth - left;
+                    break;
+                case 'bl':
+                    styles.top = bottom;
+                    styles.right = innerWidth - left;
+                    break;
+                case 'br':
+                    styles.top = bottom;
+                    styles.right = innerWidth - left;
+                    break;
+            }
+            setRealTimeStyle(styles);
         }
     };
     const getPositionStyles = () => {
         switch (localPosition) {
             case 't':
-                return { bottom: '120%', left: '50%', transform: 'translateX(-50%)' };
+                return { bottom: 6, transform: 'translateX(-50%)' };
             case 'b':
-                return { top: '120%', left: '50%', transform: 'translateX(-50%)' };
+                return { top: 6, transform: 'translateX(-50%)' };
             case 'l':
-                return { right: '120%', top: '50%', transform: 'translateY(-50%)' };
+                return { right: 6, transform: 'translateY(-50%)' };
             case 'r':
-                return { left: '120%', top: '50%', transform: 'translateY(-50%)' };
+                return { left: 6, transform: 'translateY(-50%)' };
             case 'tl':
-                return { bottom: '120%', left: '0', transform: 'translateX(0)' };
+                return { bottom: 6 };
             case 'tr':
-                return { bottom: '120%', right: '0', transform: 'translateX(0)' };
+                return { bottom: 6 };
             case 'bl':
-                return { top: '120%', left: '0', transform: 'translateX(0)' };
+                return { top: 6 };
             case 'br':
-                return { top: '120%', right: '0', transform: 'translateX(0)' };
+                return { top: 6 };
             default:
-                return { bottom: '120%', left: '50%', transform: 'translateX(-50%)' };
+                return { bottom: 6, transform: 'translateX(-50%)' };
         }
     };
     const getArrowStyles = () => {
@@ -192,7 +217,6 @@ export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, 
         }
     };
     const handleMouseLeave = () => {
-        console.log('leaving');
         setAnimationVisible(false);
         clearTimeout(leavingTimerRef.current);
         leavingTimerRef.current = 0;
@@ -200,38 +224,33 @@ export const Tooltip = ({ title, color, bgColor, position, delay = 0, children, 
             setIsVisible(false);
             leavingTimerRef.current = 0;
         }, delay * 2);
-        console.log(leavingTimerRef.current);
     };
-    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && realTimePosition && createPortal(_jsx("div", { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, style: {
+    return (_jsxs("div", { role: 'tooltip', ref: targetRef, style: { display: 'inline-block' }, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, children: [children, isVisible && createPortal(_jsx(Transition, { visible: animationVisible, transformOrigin: 'center', from: {
+                    scale: 0,
+                }, to: {
+                    scale: 1,
+                }, duration: 200, style: {
                     position: 'fixed',
-                    // pointerEvents: 'none',
-                    zIndex: 1000,
-                    ...realTimePosition,
-                }, children: _jsx(Transition, { visible: animationVisible, transformOrigin: 'top', from: {
-                        scale: 0,
-                    }, to: {
-                        scale: 1,
-                    }, style: {
-                        position: 'relative',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                    }, children: _jsxs("div", { ref: tooltipRef, style: {
-                            position: 'absolute',
-                            backgroundColor: backgroundColor,
-                            padding: '5px 10px',
-                            borderRadius: '4px',
-                            // whiteSpace: 'nowrap',
-                            fontSize: '12px',
-                            color: textColor,
-                            ...getPositionStyles(),
-                        }, children: [title, _jsx("div", { style: {
-                                    content: '',
-                                    position: 'absolute',
-                                    borderStyle: 'solid',
-                                    color: textColor,
-                                    ...getArrowStyles(),
-                                } })] }) }) }), document.body)] }));
+                    // width: 'auto',
+                    // height: 'auto',
+                    ...realTimeStyle,
+                }, children: _jsxs("div", { ref: tooltipRef, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, style: {
+                        position: 'absolute',
+                        zIndex: 1000,
+                        // ...realTimePosition,
+                        // position: 'absolute',
+                        backgroundColor: backgroundColor,
+                        padding: '5px 10px',
+                        borderRadius: 4,
+                        fontSize: 12,
+                        color: textColor,
+                        ...getPositionStyles(),
+                    }, children: [title, _jsx("div", { style: {
+                                content: '',
+                                position: 'absolute',
+                                borderStyle: 'solid',
+                                color: textColor,
+                                ...getArrowStyles(),
+                            } })] }) }), document.body)] }));
 };
 export default Tooltip;
