@@ -34,6 +34,7 @@ function App() {
             <MenuItem><Link href={`#Accessibility`}>Accessibility</Link></MenuItem>
             <MenuItem><Link href={`#Accessibility`}>I18n</Link></MenuItem>
             <MenuItem><Link href={`#Accessibility`}>Responsible Design</Link></MenuItem>
+            <MenuItem><Link href={`#Accessibility`}>Tree Shaking</Link></MenuItem>
           </Menu>
         </Flex>
 
