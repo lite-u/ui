@@ -4,6 +4,7 @@ import { Transition } from '../../index';
 import { NotificationContext } from './NotificationContext';
 import { Con } from '../con/Con';
 import { useLiteUIContext } from '../../LiteUIProvider';
+import { createPortal } from 'react-dom';
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
@@ -63,7 +64,7 @@ const NotificationProvider = ({ children }) => {
             notifications,
             add: addNotification,
             remove: removeNotification,
-        }, children: [children, notifications.map(({ id, text, type, anim }, index) => {
+        }, children: [children, createPortal(notifications.map(({ id, text, type, anim }, index) => {
                 let color = '#000';
                 if (type === 'error') {
                     color = theme.colors.error;
@@ -84,14 +85,12 @@ const NotificationProvider = ({ children }) => {
                         }, style: { overflow: 'visible' }, children: _jsx(Con, { style: {
                                 background: '#fff',
                                 padding: 10,
-                                // border: '1px solid #000',
-                                // borderColor: color,
                                 textAlign: 'center',
                                 borderRadius: 5,
                                 fontSize: theme.fontSizes.sm,
                                 boxShadow: color + ' 0 0 3px 0',
                                 color,
                             }, children: text }) }) }, id);
-            })] }));
+            }), document.body)] }));
 };
 export default NotificationProvider;

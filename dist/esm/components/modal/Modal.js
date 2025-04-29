@@ -1,6 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { createPortal } from 'react-dom';
 const Modal = ({ children, style, onBackdropClick, backdropBg = 'rgba(0,0,0,.5)' }) => {
-    return _jsxs("div", { "data-name": 'modal-root', style: {
+    return createPortal(_jsxs("div", { "data-name": 'modal-root', style: {
             'display': 'flex',
             'position': 'fixed',
             'top': '0',
@@ -26,6 +27,6 @@ const Modal = ({ children, style, onBackdropClick, backdropBg = 'rgba(0,0,0,.5)'
                     if (onBackdropClick) {
                         onBackdropClick();
                     }
-                } }), children] });
+                } }), children] }), document.body);
 };
 export default Modal;
