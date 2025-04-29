@@ -161,7 +161,7 @@ const DropSamples: React.FC = () => {
               setSampleBData({
                 ...sampleBData,
                 bg: f ? 'blue' : 'red',
-                msg: f ? 'I Love IMAGE !' : 'I Love IMAGE ONLY',
+                msg: f ? 'I Love IMAGE !' : 'I Love IMAGE ONLY'
               })
             }}
             onDragIsLeave={() => {
