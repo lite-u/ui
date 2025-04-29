@@ -1,5 +1,5 @@
 import React, { HTMLProps } from 'react';
-type SelectSize = 'sm' | 'md' | 'lg' | 'xl';
+export type SelectSize = 'sm' | 'md' | 'lg' | 'xl';
 declare const Select: React.FC<HTMLProps<HTMLDivElement> & {
     label?: string;
     children?: React.ReactNode;

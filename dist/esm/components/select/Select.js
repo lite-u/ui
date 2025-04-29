@@ -33,11 +33,13 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
             padding: 10,
         },
     };
-    const [itemStyle, setItemStyle] = useState({});
+    // const [itemStyle, setItemStyle] = useState<CSSProperties>(sizeStyle[size])
+    const itemStyle = sizeStyle[size];
     useEffect(() => {
         const maxHeight = window.innerHeight;
         setValue(defaultValue);
-        setItemStyle(sizeStyle[size]);
+        // setItemStyle(sizeStyle[size])
+        console.log(containerRef.current);
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
             console.log(containerRef.current, h);
@@ -75,6 +77,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                 border: '1px solid #dfdfdf',
                 cursor: 'pointer',
                 ...style,
+                position: 'relative',
             }, ...props, children: [_jsx(MenuItemBase, { role: 'placeholder', style: { height: '100%' }, onClick: () => {
                         handleOpen();
                     }, onKeyDown: (e) => {
@@ -83,7 +86,7 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, justifyContent: 'space-between', p: itemStyle.padding, alignItems: 'center', children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
+                    }, children: _jsxs(Row, { fh: true, justifyContent: 'space-between', pl: itemStyle.padding, pr: itemStyle.padding, alignItems: 'center', children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
@@ -103,17 +106,16 @@ const Select = ({ label, style, size = 'md', defaultValue = '', onChange, childr
                         ...position,
                     }, children: _jsx("div", { role: 'select-wrapper', style: {
                             overflowY: openSelect ? 'auto' : 'hidden',
-                            // overflowY: 'auto',
                             overflowX: 'hidden',
-                            width: '100%',
+                            // width: '100%',
                             height: wrapperHeight,
                             backgroundColor: '#fff',
                             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
                         }, children: _jsx("div", { ref: containerRef, style: {
-                                position: 'absolute',
+                                // position: 'absolute',
                                 width: '100%',
                                 backgroundColor: '#fff',
                                 height: 'auto',
-                            }, ...props, children: children }) }) })] }) });
+                            }, children: children }) }) })] }) });
 };
 export default Select;

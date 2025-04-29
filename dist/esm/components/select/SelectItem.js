@@ -22,9 +22,6 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         ...bgStyle,
         ...style,
     };
-    // if (selectValue === value) {
-    //   styles.backgroundColor = '#dfdfdf'
-    // }
     return (_jsx(MenuItemBase, { tabIndex: 0, style: styles, onKeyDown: (e) => {
             if (e.code.toLowerCase() === 'space') {
                 e.preventDefault();

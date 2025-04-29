@@ -36,10 +36,6 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     ...style,
   }
 
-  // if (selectValue === value) {
-  //   styles.backgroundColor = '#dfdfdf'
-  // }
-
   return (
     <MenuItemBase tabIndex={0}
                   style={styles}

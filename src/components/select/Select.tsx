@@ -3,7 +3,7 @@ import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import MenuItemBase from '../menu/MenuItemBase'
 
-type SelectSize = 'sm' | 'md' | 'lg' | 'xl'
+export type SelectSize = 'sm' | 'md' | 'lg' | 'xl'
 const Select: React.FC<HTMLProps<HTMLDivElement> & {
   label?: string
   children?: React.ReactNode
@@ -50,14 +50,15 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
       padding: 10,
     },
   }
-  const [itemStyle, setItemStyle] = useState<CSSProperties>({})
+  // const [itemStyle, setItemStyle] = useState<CSSProperties>(sizeStyle[size])
+  const itemStyle = sizeStyle[size]
 
   useEffect(() => {
     const maxHeight = window.innerHeight
 
     setValue(defaultValue)
-    setItemStyle(sizeStyle[size])
-
+    // setItemStyle(sizeStyle[size])
+    console.log(containerRef.current)
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
@@ -102,6 +103,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
            border: '1px solid #dfdfdf',
            cursor: 'pointer',
            ...style,
+           position: 'relative',
          }}
          {...props}>
 
@@ -121,7 +123,8 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         }}>
         <Row fh
              justifyContent={'space-between'}
-             p={itemStyle.padding}
+             pl={itemStyle.padding}
+             pr={itemStyle.padding}
              alignItems={'center'}>
           <span>{value}</span>
           <Transition visible={openSelect}
@@ -159,23 +162,22 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
                     ...position,
                   }}>
-        <div role={'select-wrapper'} style={{
-          overflowY: openSelect ? 'auto' : 'hidden',
-          // overflowY: 'auto',
-          overflowX: 'hidden',
-          width: '100%',
-          height: wrapperHeight,
-          backgroundColor: '#fff',
-          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
-        }}>
+        <div role={'select-wrapper'}
+             style={{
+               overflowY: openSelect ? 'auto' : 'hidden',
+               overflowX: 'hidden',
+               // width: '100%',
+               height: wrapperHeight,
+               backgroundColor: '#fff',
+               boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+             }}>
           <div ref={containerRef}
                style={{
-                 position: 'absolute',
+                 // position: 'absolute',
                  width: '100%',
                  backgroundColor: '#fff',
                  height: 'auto',
-               }}
-               {...props}>
+               }}>
             {children}
           </div>
         </div>
