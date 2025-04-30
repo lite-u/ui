@@ -3,6 +3,7 @@ import {Col, Link, Menu, MenuItem} from '@ui/index.tsx'
 import Installation from '@samples/Installation.tsx'
 import SAMPLES from '@samples/index.tsx'
 import SampleBase from '@samples/SampleBase.tsx'
+import Collapse from '@ui/components/collapse/Collapse.tsx'
 
 function App() {
   return <LiteUIProvider>
@@ -43,6 +44,18 @@ function App() {
 
         <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
           <Col style={{padding: '0 50px'}}>
+            <Collapse head={
+              <MenuItem sm>Collapse Title</MenuItem>
+            }>
+              {
+                SAMPLES.map((item, index) => {
+                  return (
+                    <MenuItem sm style={{padding: 0}} key={index}>
+                      <Link style={{padding: '0px 20px'}} href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
+                    </MenuItem>)
+                })
+              }
+            </Collapse>
 
             <Installation/>
 

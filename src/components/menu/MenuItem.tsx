@@ -1,24 +1,28 @@
-import {CSSProperties, ReactNode} from 'react'
+import {ReactNode, useState} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import Interactable from '../interactive/Interactable'
 import {Transition} from '../../index'
+import {FromType} from '../transition/Transition'
 
 const MenuItem: React.FC<
   React.HTMLProps<HTMLDivElement> &
   {
     children: ReactNode,
     sm?: boolean,
-    activeStyle?: CSSProperties
+    hoverStyle?: FromType
+    hoverEnterDuration?: number
+    hoverLeaveDuration?: number
   }> = ({
           children,
           style = {},
           sm = false,
-          activeStyle = {
+          hoverStyle = {
             backgroundColor: '#dfdfdf',
-            // color: '#dfdfdf',
           },
+          hoverEnterDuration = 300,
+          hoverLeaveDuration = 500,
           ...props
         }) => {
+  const [visible, setVisible] = useState(false)
   const {theme} = useLiteUIContext()
   const styles: React.CSSProperties = {
     height: 40,
@@ -37,25 +41,29 @@ const MenuItem: React.FC<
 
   // console.log(styles)
 
-  return <Transition visible={true}
-                     from={{
-                       opacity: 0.5,
-                     }}
-                     to={{
-                       opacity: 1,
-                     }}>
-    <Interactable
-      tag={'div'}
-      role={'menu-item'}
-      hover={activeStyle}
-      style={{
-        ...styles,
-        ...style,
-      }}
-      {...props}>
+  return <div
+    role={'menu-item'}
+    onMouseOver={() => {
+      setVisible(true)
+    }}
+    onMouseLeave={() => {
+      setVisible(false)
+    }}
+    {...props}>
+    <Transition visible={visible}
+                style={{
+                  ...styles,
+                  ...style,
+                }}
+                leaveDuration={hoverLeaveDuration}
+                duration={hoverEnterDuration}
+                from={{
+                  backgroundColor: '#fff',
+                }}
+                to={hoverStyle}>
       {children}
-    </Interactable>
-  </Transition>
+    </Transition>
+  </div>
 }
 
 export default MenuItem

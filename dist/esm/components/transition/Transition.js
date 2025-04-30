@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
-const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, delay = 0, style = {}, }) => {
+const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, style = {}, }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     // const [waiting, setWaiting] = useState()
     useEffect(() => {
@@ -24,7 +24,6 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
         effect,
         delay,
     ]);
-    // Get the scaling style
     const getStyle = () => {
         const styles = {};
         let showing = state === 'entered' || state === 'entering';
@@ -35,7 +34,7 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
             const item = handlingObj[key];
             let itemTransitionDeclaration = '';
             let itemDelay = delay;
-            let itemDuration = duration;
+            let itemDuration = showing ? duration : leaveDuration;
             let itemEffect = effect;
             let itemStyleValue;
             if (typeof item === 'object') {

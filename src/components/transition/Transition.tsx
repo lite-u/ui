@@ -8,7 +8,7 @@ type TimingFunction =
   | 'ease-in-out'
   | `cubic-bezier(${number}, ${number}, ${number}, ${number})`;
 
-type FromType = {
+export type FromType = {
   [key in keyof CSSProperties]: CSSProperties[key] |
   {
     value: CSSProperties[key]
@@ -20,11 +20,12 @@ type FromType = {
 
 const Transition: FC<{
   visible: boolean,
-  from: FromType
+  from?: FromType
   to: FromType
   transformOrigin?: string
   effect?: TimingFunction
   duration?: number,
+  leaveDuration?: number
   delay?: number,
   children: ReactNode
   style?: CSSProperties
@@ -36,6 +37,7 @@ const Transition: FC<{
         visible = true,
         effect = 'ease',
         duration = 300,
+        leaveDuration = 300,
         delay = 0,
         style = {},
       }) => {
@@ -62,7 +64,6 @@ const Transition: FC<{
     delay,
   ])
 
-  // Get the scaling style
   const getStyle = () => {
     const styles: CSSProperties = {}
     let showing = state === 'entered' || state === 'entering'
@@ -71,37 +72,36 @@ const Transition: FC<{
     const keys = Object.keys(handlingObj) as unknown as (keyof CSSProperties)[]
 
     keys.forEach((key) => {
-        const item = handlingObj[key]
-        let itemTransitionDeclaration = ''
-        let itemDelay = delay
-        let itemDuration = duration
-        let itemEffect = effect
-        let itemStyleValue: CSSProperties[typeof key]
+      const item = handlingObj[key]
+      let itemTransitionDeclaration = ''
+      let itemDelay = delay
+      let itemDuration = showing ? duration : leaveDuration
+      let itemEffect = effect
+      let itemStyleValue: CSSProperties[typeof key]
 
-        if (typeof item === 'object') {
-          itemStyleValue = item.value
+      if (typeof item === 'object') {
+        itemStyleValue = item.value
 
-          if (item.delay) {
-            itemDelay = item.delay
-          }
-
-          if (item.duration) {
-            itemDuration = item.duration
-          }
-
-          if (item.effect) {
-            itemEffect = item.effect
-          }
-        } else {
-          itemStyleValue = item
+        if (item.delay) {
+          itemDelay = item.delay
         }
 
-        itemTransitionDeclaration = `${handleCamelPropsName(key)} ${itemDuration}ms ${itemEffect} ${itemDelay}ms`
-        // @ts-ignore
-        styles[key] = itemStyleValue as CSSProperties[typeof key]
-        transitionDeclarations.add(itemTransitionDeclaration)
-      },
-    )
+        if (item.duration) {
+          itemDuration = item.duration
+        }
+
+        if (item.effect) {
+          itemEffect = item.effect
+        }
+      } else {
+        itemStyleValue = item
+      }
+
+      itemTransitionDeclaration = `${handleCamelPropsName(key)} ${itemDuration}ms ${itemEffect} ${itemDelay}ms`
+      // @ts-ignore
+      styles[key] = itemStyleValue as CSSProperties[typeof key]
+      transitionDeclarations.add(itemTransitionDeclaration)
+    })
 
     if (transitionDeclarations.size > 0) {
       styles.transition = [...transitionDeclarations.values()].join(', ')

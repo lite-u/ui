@@ -1,7 +1,10 @@
-import { CSSProperties, ReactNode } from 'react';
+import { ReactNode } from 'react';
+import { FromType } from '../transition/Transition';
 declare const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     children: ReactNode;
     sm?: boolean;
-    activeStyle?: CSSProperties;
+    hoverStyle?: FromType;
+    hoverEnterDuration?: number;
+    hoverLeaveDuration?: number;
 }>;
 export default MenuItem;
