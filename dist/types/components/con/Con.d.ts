@@ -3,6 +3,7 @@ export interface ContainerProps {
     children?: ReactNode;
     box?: boolean;
     ovh?: boolean;
+    ova?: boolean;
     fw?: boolean;
     fh?: boolean;
     bg?: CSSProperties['backgroundColor'];

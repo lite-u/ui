@@ -49,6 +49,10 @@ const MenuItem: React.FC<
     onMouseLeave={() => {
       setVisible(false)
     }}
+    style={{
+      // ...styles,
+      ...style,
+    }}
     {...props}>
     <Transition visible={visible}
                 style={{

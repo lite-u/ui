@@ -25,6 +25,9 @@ const MenuItem = ({ children, style = {}, sm = false, hoverStyle = {
             setVisible(true);
         }, onMouseLeave: () => {
             setVisible(false);
+        }, style: {
+            // ...styles,
+            ...style,
         }, ...props, children: _jsx(Transition, { visible: visible, style: {
                 ...styles,
                 ...style,

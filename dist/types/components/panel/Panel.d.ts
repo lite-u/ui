@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ContainerProps } from '../con/Con';
+import { ContainerProps } from '../container/Container';
 declare const Panel: React.FC<{
     xs?: boolean;
     sm?: boolean;

@@ -1,7 +1,7 @@
 import {FC, ReactNode, useRef, useState} from 'react'
 import {Transition} from '../../index'
 import {NotificationContext, NotificationProps} from './NotificationContext'
-import {Con} from '../con/Con'
+import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
 
@@ -112,7 +112,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
                 }}
                 style={{overflow: 'visible'}}
               >
-                <Con style={{
+                <Container style={{
                   background: '#fff',
                   padding: 10,
                   textAlign: 'center',
@@ -120,7 +120,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
                   fontSize: theme.fontSizes.sm,
                   boxShadow: color + ' 0 0 3px 0',
                   color,
-                }}>{text}</Con>
+                }}>{text}</Container>
               </Transition>
             </div>
           }), document.body,

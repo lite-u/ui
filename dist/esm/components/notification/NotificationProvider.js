@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useState } from 'react';
 import { Transition } from '../../index';
 import { NotificationContext } from './NotificationContext';
-import { Con } from '../con/Con';
+import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
 const NotificationProvider = ({ children }) => {
@@ -82,7 +82,7 @@ const NotificationProvider = ({ children }) => {
                             scale: 0,
                         }, to: {
                             scale: 1,
-                        }, style: { overflow: 'visible' }, children: _jsx(Con, { style: {
+                        }, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
                                 background: '#fff',
                                 padding: 10,
                                 textAlign: 'center',

@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useCallback, useRef } from 'react';
-import Con from '../con/Con';
+import Con from '../container/Container';
 export const Drop = ({ accepts = [], onDragIsOver, onDragIsLeave, children, onDropped, style = {}, 
 // native events
 onDrop, onDragEnter, onDragLeave, onDragOver, ...props }) => {

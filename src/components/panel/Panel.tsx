@@ -2,7 +2,7 @@ import {useLiteUIContext} from '../../LiteUIProvider'
 import {ReactNode} from 'react'
 import {Col} from '../../index'
 import Paragraph from '../paragraph/Paragraph'
-import {Con, ContainerProps} from '../con/Con'
+import Container, {ContainerProps} from '../container/Container'
 
 const Panel: React.FC<{
   xs?: boolean
@@ -53,32 +53,36 @@ const Panel: React.FC<{
   const boxFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
   const boxPadding = theme.padding[size as keyof typeof theme['padding']].x
 
-  return <Con fw fh role={'panel'} {...props}>
+  return <Container fw fh role={'panel'} {...props}>
     <Col fw fh stretch>
-      <Con role={'panel-head'}
-           fw
-           style={{background: theme.panel.primaryColor, borderRadius: '3px 3px 0 0', color: '#fff', ...titleStyle}}
-           className={titleClass}>
+      <Container role={'panel-head'}
+                 fw
+                 style={{
+                   background: theme.panel.primaryColor,
+                   borderRadius: '3px 3px 0 0',
+                   color: '#fff', ...titleStyle,
+                 }}
+                 className={titleClass}>
         <Paragraph center size={headFontSize} style={{padding: headPadding}}>{title}</Paragraph>
-      </Con>
+      </Container>
 
-      <Con role={'panel-box'}
-           fw
-           bg={'#fff'}
-           style={{
-             overflow: 'auto',
-             border: `1px solid ${theme.panel.primaryColor}`,
-             borderTop: 'none',
-             flex: '100%',
-             fontSize: boxFontSize,
-             padding: boxPadding,
-             ...boxStyle,
-           }}
-           className={boxClass}>
+      <Container role={'panel-box'}
+                 fw
+                 bg={'#fff'}
+                 style={{
+                   overflow: 'auto',
+                   border: `1px solid ${theme.panel.primaryColor}`,
+                   borderTop: 'none',
+                   flex: '100%',
+                   fontSize: boxFontSize,
+                   padding: boxPadding,
+                   ...boxStyle,
+                 }}
+                 className={boxClass}>
         {children}
-      </Con>
+      </Container>
     </Col>
-  </Con>
+  </Container>
 }
 
 export default Panel

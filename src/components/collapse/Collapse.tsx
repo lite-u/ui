@@ -1,17 +1,19 @@
 import {ReactNode, useEffect, useRef, useState} from 'react'
-import {Transition} from '../../index'
+import {Row, Transition} from '../../index'
 
 const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
   head: ReactNode,
+  open?: boolean,
   onToggle?: (isOpen: boolean) => void,
 }> = ({
+        open = true,
         head,
         children,
         onToggle,
         ...props
       }) => {
   const [containerHeight, setContainerHeight] = useState(0)
-  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(open)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -23,13 +25,17 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
   }, [containerRef.current, children])
 
   return <div role={'collapse'}>
-    <div style={{userSelect: 'none'}}
+    <Row fw
+         style={{userSelect: 'none'}}
          onClick={() => {
-           setOpen(!open)
-           onToggle?.(!open)
-         }}>{head}</div>
+           setIsOpen(!isOpen)
+           onToggle?.(!isOpen)
+         }}>
+      {head}
+    </Row>
+
     <Transition
-      visible={open}
+      visible={isOpen}
       from={{
         height: 0,
       }}

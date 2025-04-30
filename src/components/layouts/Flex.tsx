@@ -1,5 +1,5 @@
 import {CSSProperties} from 'react'
-import Container, {ContainerProps} from '../con/Con'
+import Container, {ContainerProps} from '../container/Container'
 
 export interface FlexProps extends ContainerProps {
   col?: boolean,

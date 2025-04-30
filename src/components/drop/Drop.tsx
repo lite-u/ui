@@ -1,5 +1,5 @@
 import {HTMLProps, useCallback, useRef} from 'react'
-import Con from '../con/Con'
+import Con from '../container/Container'
 
 type DropProps = {
   accepts?: string[]

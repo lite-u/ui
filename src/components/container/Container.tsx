@@ -4,6 +4,7 @@ export interface ContainerProps {
   children?: ReactNode,
   box?: boolean,
   ovh?: boolean,
+  ova?: boolean,
   fw?: boolean,
   fh?: boolean,
   bg?: CSSProperties['backgroundColor'],
@@ -31,6 +32,7 @@ export interface ContainerProps {
 const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  children,
                                                                                  ovh = false,
+                                                                                 ova = false,
                                                                                  box = true,
                                                                                  fw = true,
                                                                                  fh = false,
@@ -149,6 +151,9 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
 
   if (ovh) {
     styles.overflow = 'hidden'
+  }
+  if (ova) {
+    styles.overflow = 'auto'
   }
 
   return <div

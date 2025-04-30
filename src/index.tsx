@@ -13,7 +13,7 @@ import Link from './components/link/Link'
 import {ThemeType} from './themes/type'
 import Select from './components/select/Select'
 import SelectItem from './components/select/SelectItem'
-import Con from './components/con/Con'
+import Container, {Con} from './components/container/Container'
 import Drop from './components/drop/Drop'
 import {useNotification} from './components/notification/NotificationContext'
 import Flex from './components/layouts/Flex'
@@ -23,6 +23,7 @@ import IconButton from './components/iconButton/IconButton'
 import Table from './components/table/Table'
 import TableRow from './components/table/TableRow'
 import Interactable from './components/interactive/Interactable'
+import Collapse from './components/collapse/Collapse'
 
 export {
   Input,
@@ -45,6 +46,8 @@ export {
   MenuItem,
   Tooltip,
   Con,
+  Container,
+  Collapse,
   Drop,
   useNotification,
   Interactable,

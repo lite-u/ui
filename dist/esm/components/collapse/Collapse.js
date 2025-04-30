@@ -1,9 +1,9 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
-import { Transition } from '../../index';
-const Collapse = ({ head, children, onToggle, ...props }) => {
+import { Row, Transition } from '../../index';
+const Collapse = ({ open = true, head, children, onToggle, ...props }) => {
     const [containerHeight, setContainerHeight] = useState(0);
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(open);
     const containerRef = useRef(null);
     useEffect(() => {
         if (!containerRef.current)
@@ -11,10 +11,10 @@ const Collapse = ({ head, children, onToggle, ...props }) => {
         const r = containerRef.current.getBoundingClientRect();
         setContainerHeight(r.height);
     }, [containerRef.current, children]);
-    return _jsxs("div", { role: 'collapse', children: [_jsx("div", { style: { userSelect: 'none' }, onClick: () => {
-                    setOpen(!open);
-                    onToggle?.(!open);
-                }, children: head }), _jsx(Transition, { visible: open, from: {
+    return _jsxs("div", { role: 'collapse', children: [_jsx(Row, { fw: true, style: { userSelect: 'none' }, onClick: () => {
+                    setIsOpen(!isOpen);
+                    onToggle?.(!isOpen);
+                }, children: head }), _jsx(Transition, { visible: isOpen, from: {
                     height: 0,
                 }, to: {
                     height: containerHeight,

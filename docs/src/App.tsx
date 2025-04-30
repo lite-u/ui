@@ -23,7 +23,7 @@ function App() {
             </MenuItem>
 
             <Collapse head={
-              <MenuItem>Components</MenuItem>
+              <MenuItem style={{flex: 1}}>Components</MenuItem>
             }>
               {
                 SAMPLES.map((item, index) => {
@@ -42,7 +42,7 @@ function App() {
           </Menu>
         </Flex>
 
-        <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
+        <Col fw fh ova maxH={'100%'}>
           <Col style={{padding: '0 50px'}}>
             <Installation/>
 

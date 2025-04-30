@@ -1,4 +1,4 @@
-import { ContainerProps } from '../con/Con';
+import { ContainerProps } from '../container/Container';
 import { CSSProperties } from 'react';
 export interface ColumnProps extends ContainerProps {
     start?: boolean;

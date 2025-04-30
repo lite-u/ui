@@ -1,5 +1,5 @@
 import Flex, {FlexProps} from './Flex'
-import {ContainerProps} from '../con/Con'
+import {ContainerProps} from '../container/Container'
 import {CSSProperties} from 'react'
 
 interface RowProps extends ContainerProps {
