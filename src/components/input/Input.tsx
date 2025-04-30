@@ -1,4 +1,4 @@
-import InputNumber from './InputNumber'
+import InputNumber, {InputNumberProps} from './InputNumber'
 import InputText from './InputText'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
@@ -93,7 +93,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
     {label && <label>{label}</label>}
 
     {
-      type === 'number' && <InputNumber style={styles} {...props}/>
+      type === 'number' && <InputNumber style={styles} {...props as InputNumberProps}/>
     }
 
     {

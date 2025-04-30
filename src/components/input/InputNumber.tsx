@@ -5,21 +5,21 @@ import {SpinnerControl} from './Spinner'
 
 const scientificBelow = 1e-6
 const scientificAbove = 1e+6
-
-const InputNumber: React.FC<HTMLProps<HTMLInputElement> & {
-  style: React.CSSProperties,
+export   type InputNumberProps = HTMLProps<HTMLInputElement> & {
+  // style: React.CSSProperties,
   value: number,
   step: number
   intervalTime?: number
-}> = ({
-        style,
-        step = 1,
-        value,
-        onKeyDown,
-        onChange,
-        intervalTime = 100,
-        ...props
-      }) => {
+}
+const InputNumber: React.FC<InputNumberProps> = ({
+                                                   style = {},
+                                                   step = 1,
+                                                   value,
+                                                   onKeyDown,
+                                                   onChange,
+                                                   intervalTime = 100,
+                                                   ...props
+                                                 }) => {
   // const theme = useTheme()
   const [localValue, setLocalValue] = useState<number>(0)
   const inputRef = useRef(null)
