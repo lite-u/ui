@@ -7,7 +7,7 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
   style?: {}
 }> = ({
         children,
-        fw = false,
+        fw = true,
         fh = true,
         style = {},
         ...props
