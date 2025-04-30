@@ -10,18 +10,21 @@ const Input = ({ type = 'text', number, label, s, m = true, l, style = {}, prima
             height: 25,
             padding: '2px 6px',
             fontSize: 12,
+            borderRadius: theme.borderRadius.sm,
         },
         m: {
             width: 120,
             height: 30,
             padding: '4px 8px',
             fontSize: 14,
+            borderRadius: theme.borderRadius.md,
         },
         l: {
             width: 150,
             height: 40,
             padding: '6px 10px',
             fontSize: 16,
+            borderRadius: theme.borderRadius.lg,
         },
     };
     let styles = {

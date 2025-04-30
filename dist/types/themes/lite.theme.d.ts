@@ -5,16 +5,6 @@ export declare const liteTheme: {
         success: string;
         warn: string;
         error: string;
-        neutralLight: string;
-        neutralDark: string;
-        neutralGray: string;
-        neutralBorder: string;
-        backgroundLight: string;
-        backgroundDark: string;
-        textPrimary: string;
-        textSecondary: string;
-        textError: string;
-        textSuccess: string;
     };
     fontSizes: {
         xs: number;
@@ -46,6 +36,20 @@ export declare const liteTheme: {
         md: number;
         lg: number;
     };
+    formElements: {
+        xs: {
+            height: number;
+        };
+        sm: {
+            height: number;
+        };
+        md: {
+            height: number;
+        };
+        lg: {
+            height: number;
+        };
+    };
     button: {
         primary: {
             backgroundColor: string;
@@ -73,28 +77,24 @@ export declare const liteTheme: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
             outline: string;
         };
         warn: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
             outline: string;
         };
         error: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
             outline: string;
         };
         neutral: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
             outline: string;
         };
     };
