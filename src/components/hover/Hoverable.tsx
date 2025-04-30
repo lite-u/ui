@@ -7,7 +7,7 @@ type HoverableProps<T extends ElementType> = {
 } & PolymorphicProps<T>
 
 const Hoverable = <T extends ElementType>({
-                                            tag,
+                                            tag = 'div' as T,
                                             children,
                                             onMouseEnter,
                                             onMouseOver,
@@ -40,7 +40,7 @@ const Hoverable = <T extends ElementType>({
   }
 
   return Polymorphic({
-    tag: tag || 'div',
+    tag,
     children,
     style: {
       ...(isActive ? activeStyle : {}),

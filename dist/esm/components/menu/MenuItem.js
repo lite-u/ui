@@ -22,7 +22,8 @@ const MenuItem = ({ children, style = {}, sm = false, activeStyle = {
         // styles.padding = '8px 16px'
         styles.fontSize = theme.fontSizes.sm;
     }
-    return _jsx(Hoverable, { activeStyle: activeStyle, style: {
+    console.log(styles);
+    return _jsx(Hoverable, { role: 'menu-item', activeStyle: activeStyle, style: {
             ...styles,
             ...style,
         }, ...props, children: children });

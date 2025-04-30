@@ -26,7 +26,8 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
       flexDirection: 'column',
       justifyContent: 'space-around',
     }}
-    {...props}  >
+    {...props}
+  >
     {children}
   </Hoverable>
 }

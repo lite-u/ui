@@ -17,17 +17,17 @@ function App() {
           boxShadow: '0px 0 4px 0px #b0b0b0',
         }}>
           <Menu space={0}>
-            <MenuItem sm>
+            <MenuItem>
               <Link href={`#installation`}>Installation</Link>
             </MenuItem>
-            <MenuItem sm>
+            <MenuItem>
               <Link href={`#components`}>Components</Link>
             </MenuItem>
 
             {
               SAMPLES.map((item, index) => {
                 return (
-                  <MenuItem style={{padding: 0}} sm key={index}>
+                  <MenuItem sm style={{padding: 0}} key={index}>
                     <Link style={{padding: '4px 20px'}} href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
                   </MenuItem>)
               })

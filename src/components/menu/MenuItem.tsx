@@ -5,7 +5,9 @@ import Hoverable from '../hover/Hoverable'
 const MenuItem: React.FC<
   React.HTMLProps<HTMLDivElement> &
   {
-    children: ReactNode, sm?: boolean, activeStyle: CSSProperties
+    children: ReactNode,
+    sm?: boolean,
+    activeStyle?: CSSProperties
   }> = ({
           children,
           style = {},
@@ -35,7 +37,9 @@ const MenuItem: React.FC<
     styles.fontSize = theme.fontSizes.sm
   }
 
+  console.log(styles)
   return <Hoverable
+    role={'menu-item'}
     activeStyle={activeStyle}
     style={{
       ...styles,
