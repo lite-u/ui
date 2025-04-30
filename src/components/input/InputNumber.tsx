@@ -67,6 +67,10 @@ const InputNumber: React.FC<HTMLProps<HTMLInputElement> & {
   return <div style={{
     display: 'inline-flex',
     position: 'relative',
+    overflow: 'hidden',
+    ...style,
+    padding: 0,
+
   }} {...props}>
     <input
       ref={inputRef}
@@ -75,7 +79,11 @@ const InputNumber: React.FC<HTMLProps<HTMLInputElement> & {
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       style={{
-        ...style,
+        padding: style.padding,
+        outline: 'none',
+        backgroundColor: 'transparent',
+        border: 'none',
+        // ...style,
       }} {...props}/>
 
     <SpinnerControl onStep={(dir) => {

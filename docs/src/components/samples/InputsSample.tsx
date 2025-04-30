@@ -30,6 +30,8 @@ const InputsSample: React.FC = () => {
     </Con>
 
     <Con>
+      <P>Number</P>
+
       <Row space={6}>
         <Input step={0.1} placeholder={'hello'} number/>
         <Input step={0.1} number warn/>

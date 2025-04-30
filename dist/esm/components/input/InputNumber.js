@@ -46,8 +46,15 @@ const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, ...props }) 
     return _jsxs("div", { style: {
             display: 'inline-flex',
             position: 'relative',
+            overflow: 'hidden',
+            ...style,
+            padding: 0,
         }, ...props, children: [_jsx("input", { ref: inputRef, type: 'number', value: localValue, onChange: handleChange, onKeyDown: handleKeyDown, style: {
-                    ...style,
+                    padding: style.padding,
+                    outline: 'none',
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    // ...style,
                 }, ...props }), _jsx(SpinnerControl, { onStep: (dir) => {
                     if (dir === 'up') {
                         increment();

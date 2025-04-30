@@ -24,10 +24,14 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
 
   return (
     <div style={{
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      width: 30,
+      height: '100%',
+      overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
-      border: '1px solid #ccc',
-      borderRadius: 4,
     }}>
       <Button
         xs
@@ -35,7 +39,9 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
         onMouseUp={stopHold}
         onMouseLeave={stopHold}
         style={{
+          width: '100%',
           height: '50%',
+          padding: 0,
           // borderBottom: '1px solid #ccc',
           // cursor: 'pointer',
         }}
@@ -46,12 +52,14 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
         </svg>
       </Button>
       <Button
+        xs
         onMouseDown={() => startHold('down')}
         onMouseUp={stopHold}
         onMouseLeave={stopHold}
         style={{
+          width: '100%',
           height: '50%',
-          background: 'white',
+          padding: 0,
         }}
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
