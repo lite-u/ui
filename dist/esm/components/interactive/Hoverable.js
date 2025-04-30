@@ -2,12 +2,12 @@ export {};
 /*
 import {CSSProperties, ElementType, useEffect, useState} from 'react'
 
-type InteratableProps<T extends ElementType> = {
+type InteractableProps<T extends ElementType> = {
   active?: boolean;
   activeStyle?: CSSProperties;
 } & PolymorphicProps<T>
 
-const Interatable = <T extends ElementType>({
+const Interactable = <T extends ElementType>({
                                             tag = 'div' as T,
                                             children,
                                             onMouseEnter,
@@ -21,7 +21,7 @@ const Interatable = <T extends ElementType>({
                                             },
                                             style = {},
                                             ...rest
-                                          }: InteratableProps<T>) => {
+                                          }: InteractableProps<T>) => {
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -63,4 +63,4 @@ const Interatable = <T extends ElementType>({
   })
 }
 
-export default Interatable*/
+export default Interactable*/

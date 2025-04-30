@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
-import Interatable from '../interactive/Interatable';
+import Interactable from '../interactive/Interactable';
 import { Transition } from '../../index';
 const MenuItem = ({ children, style = {}, sm = false, activeStyle = {
     backgroundColor: '#dfdfdf',
@@ -25,7 +25,7 @@ const MenuItem = ({ children, style = {}, sm = false, activeStyle = {
             opacity: 0.5,
         }, to: {
             opacity: 1,
-        }, children: _jsx(Interatable, { role: 'menu-item', activeStyle: activeStyle, style: {
+        }, children: _jsx(Interactable, { tag: 'div', role: 'menu-item', hover: activeStyle, style: {
                 ...styles,
                 ...style,
             }, ...props, children: children }) });

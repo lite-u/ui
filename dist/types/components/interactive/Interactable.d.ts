@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, FocusEventHandler, MouseEventHandler } from 'react';
 import { JSX } from 'react/jsx-runtime';
 import IntrinsicElements = JSX.IntrinsicElements;
 type PolymorphicTag = keyof HTMLElementTagNameMap;
@@ -9,15 +9,15 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
     active?: CSSProperties;
     style?: CSSProperties;
     children?: React.ReactNode;
-    onMouseEnter?: (e: React.MouseEvent<HTMLElementTagNameMap[T]>) => void;
-    onMouseLeave?: (e: React.MouseEvent<HTMLElementTagNameMap[T]>) => void;
-    onFocus?: (e: React.MouseEvent<HTMLElementTagNameMap[T]>) => void;
-    onBlur?: (e: React.MouseEvent<HTMLElementTagNameMap[T]>) => void;
-    onMouseDown?: (e: React.MouseEvent<HTMLElementTagNameMap[T]>) => void;
-    onMouseUp?: (e: React.MouseEvent<HTMLElementTagNameMap[T]>) => void;
+    onMouseEnter?: MouseEventHandler<HTMLElementTagNameMap[T]>;
+    onMouseLeave?: MouseEventHandler<HTMLElementTagNameMap[T]>;
+    onFocus?: FocusEventHandler<HTMLElementTagNameMap[T]>;
+    onBlur?: FocusEventHandler<HTMLElementTagNameMap[T]>;
+    onMouseDown?: MouseEventHandler<HTMLElementTagNameMap[T]>;
+    onMouseUp?: MouseEventHandler<HTMLElementTagNameMap[T]>;
 } & IntrinsicElements[T];
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
-declare function Interactable<T extends PolymorphicTag = 'div'>({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, ...rest }: InteractableBaseProps<T>): JSX.Element;
+declare function Interactable<T extends PolymorphicTag>({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, onKeyDown, ...rest }: InteractableBaseProps<T>): JSX.Element;
 export default Interactable;

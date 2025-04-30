@@ -1,9 +1,9 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import Interatable from '../interactive/Interatable';
+import Interactable from '../interactive/Interactable';
 import { useLiteUIContext } from '../../LiteUIProvider';
 const Link = ({ children, fw = true, fh = true, style = {}, ...props }) => {
     const { theme } = useLiteUIContext();
-    return _jsx(Interatable, { tag: 'a', activeStyle: {
+    return _jsx(Interactable, { tag: 'a', hover: {
             color: theme.colors.secondary,
         }, style: {
             color: '#000',

@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useContext } from 'react';
 import SelectContext from './SelectContext';
-import Interatable from '../interactive/Interatable';
+import Interactable from '../interactive/Interactable';
 const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ...props }) => {
     const context = useContext(SelectContext);
     if (!context)
@@ -23,7 +23,7 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         ...bgStyle,
         ...style,
     };
-    return (_jsx(Interatable, { tabIndex: 0, style: styles, onKeyDown: (e) => {
+    return (_jsx(Interactable, { tag: 'div', tabIndex: 0, style: styles, onKeyDown: (e) => {
             const key = e.code.toLowerCase();
             if (key === 'space' || key === 'enter') {
                 e.preventDefault();

@@ -1,16 +1,9 @@
-import React, {
-  CSSProperties,
-  ElementType,
-  FocusEventHandler,
-  // KeyboardEvent,
-  // KeyboardEventHandler,
-  MouseEventHandler,
-  useState,
-} from 'react'
+import React, {CSSProperties, ElementType, FocusEventHandler, MouseEventHandler, useState} from 'react'
 import {JSX} from 'react/jsx-runtime'
 import IntrinsicElements = JSX.IntrinsicElements
 
 type PolymorphicTag = keyof HTMLElementTagNameMap;
+// type ElementTypeFor<T extends PolymorphicTag> = HTMLElementTagNameMap[T];
 
 type InteractableBaseProps<T extends PolymorphicTag> = {
   tag?: PolymorphicTag;
@@ -19,6 +12,8 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
   active?: CSSProperties;
   style?: CSSProperties;
   children?: React.ReactNode;
+  // onMouseEnter?: (e: React.MouseEvent<ElementTypeFor<T>>) => void;
+
   onMouseEnter?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onMouseLeave?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onFocus?: FocusEventHandler<HTMLElementTagNameMap[T]>
@@ -62,10 +57,10 @@ function Interactable<T extends PolymorphicTag>({
   return (
     <Tag
       {...rest}
-/*      onKeyDown={(e: KeyboardEvent<HTMLElementTagNameMap[T]>) => {
-        setHovered(true)
-        onKeyDown?.(e)
-      }}*/
+      /*      onKeyDown={(e: KeyboardEvent<HTMLElementTagNameMap[T]>) => {
+              setHovered(true)
+              onKeyDown?.(e)
+            }}*/
       onMouseEnter={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
         setHovered(true)
         onMouseEnter?.(e)
