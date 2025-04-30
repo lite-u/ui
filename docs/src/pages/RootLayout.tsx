@@ -21,9 +21,9 @@ const RootLayout = () => <Flex col fw fh ovh>
         {
           COMPONENT_ROUTES.map((comp, index) =>
             <MenuItem sm style={{padding: 0}} key={index}>
-              <Link style={{width: '100%', height: '100%'}}
+              <Link style={{width: '100%', height: '100%', paddingLeft: 30}}
                     to={`components/${comp.to}`}>
-                <Col tl fh jc center>
+                <Col tl fh jc>
                   {comp.name}
                 </Col>
 
