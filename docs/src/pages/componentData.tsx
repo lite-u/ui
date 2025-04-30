@@ -1,11 +1,22 @@
-import Installation from './pages/routes/Installation.tsx'
-import LiteUIProvider from '@lite-u/ui'
-import {BrowserRouter, Route, Routes} from 'react-router'
-import RootLayout from './pages/RootLayout.tsx'
-import ComponentLayout from './pages/layouts/ComponentLayout.tsx'
-import COMPONENT_ROUTES from './pages/componentData.tsx'
+import TableSamples from './routes/TableSamples.tsx'
+import ButtonsSamples from './routes/ButtonsSamples.tsx'
+import IconButtonsSamples from './routes/IconButtonsSamples.tsx'
+import InputSample from './routes/InputSample.tsx'
+import SelectSamples from './routes/SelectSamples.tsx'
+import LinkSamples from './routes/LinkSamples.tsx'
+import ModalSamples from './routes/ModalSamples.tsx'
+import PanelSamples from './routes/PanelSamples.tsx'
+import ConSamples from './routes/ConSamples.tsx'
+import RowSamples from './routes/RowSamples.tsx'
+import TitleSamples from './routes/TitleSamples.tsx'
+import MenuSamples from './routes/MenuSamples.tsx'
+import MenuItemSamples from './routes/MenuItemSamples.tsx'
+import DropSamples from './routes/DropSamples.tsx'
+import NotificationSamples from './routes/NotificationSamples.tsx'
+import TransitionSamples from './routes/TransitionSamples.tsx'
+import TooltipSamples from './routes/TooltipSamples.tsx'
 
-/*const COMPONENT_ROUTES = [
+const COMPONENT_ROUTES = [
   {
     to: 'table',
     name: 'Table',
@@ -101,28 +112,6 @@ import COMPONENT_ROUTES from './pages/componentData.tsx'
     name: 'Tooltip',
     comp: <TooltipSamples/>,
   },
-]*/
+]
 
-function App() {
-  return <LiteUIProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path={'/'} element={<RootLayout/>}>
-          <Route path={'installation'} element={<Installation/>}/>
-
-          <Route path={'components'}>
-            <Route index element={<ComponentLayout/>}/>
-            {
-              COMPONENT_ROUTES.map((COMP, index) => {
-                return <Route key={index} path={COMP.to} element={COMP.comp}/>
-              })
-            }
-          </Route>
-        </Route>
-      </Routes>
-      {/*<App/>,*/}
-    </BrowserRouter>
-  </LiteUIProvider>
-}
-
-export default App
+export default COMPONENT_ROUTES

@@ -1,5 +1,5 @@
-import {Button, Col, Interactable, Row, Select, SelectItem, Title, Tooltip} from '@ui/index.tsx'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import {Button, Col, Interactable, Row, Select, SelectItem, Title, Tooltip} from '@lite-u/ui'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
 const Installation: React.FC = () => {
   const code1 = `npm install @lite-u/ui`

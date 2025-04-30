@@ -1,4 +1,4 @@
-import {Col, Con, Table, TableRow} from '@ui/index.tsx'
+import {Col, Con, Table, TableRow} from '@lite-u/ui'
 
 const TableSamples: React.FC = () => {
   return <Col id={'col'}>

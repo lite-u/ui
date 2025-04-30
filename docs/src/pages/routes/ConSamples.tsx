@@ -1,5 +1,5 @@
-import {Col, Con, Panel, Row,  } from '@ui/index.tsx'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import {Col, Con, Panel, Row,  } from '@lite-u/ui'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
 const ConSamples: React.FC = () => {
   return <Col  >

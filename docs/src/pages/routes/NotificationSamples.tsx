@@ -1,5 +1,4 @@
-import {Button, Col, Row} from '@ui/index.tsx'
-import {useNotification} from '@ui/components/notification/NotificationContext.tsx'
+import {Button, Col, Row, useNotification} from '@lite-u/ui'
 
 const NotificationSamples: React.FC = () => {
   const {add} = useNotification()

@@ -1,4 +1,4 @@
-import {Col} from '@ui/index.tsx'
+import {Col} from '@lite-u/ui'
 
 const MenuSamples: React.FC = () => {
   return <Col>

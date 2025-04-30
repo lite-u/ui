@@ -1,4 +1,4 @@
-import {Con, IconButton, Row} from '@ui/index.tsx'
+import {Con, IconButton, Row} from '@lite-u/ui'
 
 const IconButtonsSamples: React.FC = () => {
 

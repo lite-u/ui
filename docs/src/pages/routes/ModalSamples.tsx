@@ -1,6 +1,6 @@
-import {Button, Col, Con, Modal, Row} from '@ui/index.tsx'
+import {Button, Col, Con, Modal, Row} from '@lite-u/ui'
 import {useState} from 'react'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
 const ModalSamples: React.FC = () => {
   const [showModal, setShowModal] = useState(false)

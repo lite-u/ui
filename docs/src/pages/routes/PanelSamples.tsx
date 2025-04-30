@@ -1,4 +1,4 @@
-import {Col, Con, Panel} from '@ui/index.tsx'
+import {Col, Con, Panel} from '@lite-u/ui'
 
 const PanelSamples: React.FC = () => {
   return <Col>

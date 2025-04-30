@@ -1,4 +1,4 @@
-import {Col, Link} from '@ui/index.tsx'
+import {Col, Link} from '@lite-u/ui'
 
 const LinkSamples: React.FC = () => {
   return <Col>

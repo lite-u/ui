@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Con, IconButton, Tooltip, Transition} from '@ui/index.tsx'
+import {Con, IconButton, Tooltip, Transition} from '@lite-u/ui'
 import dedent from 'dedent'
 import CodeBlock from './codeBlock.tsx'
 

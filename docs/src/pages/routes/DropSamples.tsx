@@ -1,6 +1,6 @@
-import {Col, Con, Drop, P, Row} from '@ui/index.tsx'
+import {Col, Con, Drop, P, Row} from '@lite-u/ui'
 import {useState} from 'react'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
 const DropSamples: React.FC = () => {
   const [sampleAData, setSampleAData] = useState({

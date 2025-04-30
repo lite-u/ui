@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, bg, color, w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, bg, color, w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -73,6 +73,15 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     }
     if (ova) {
         styles.overflow = 'auto';
+    }
+    if (tl) {
+        styles.textAlign = 'left';
+    }
+    if (tc) {
+        styles.textAlign = 'center';
+    }
+    if (tr) {
+        styles.textAlign = 'right';
     }
     return _jsx("div", { role: role, style: styles, ...props, children: children });
 };

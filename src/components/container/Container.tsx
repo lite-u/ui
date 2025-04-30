@@ -7,6 +7,9 @@ export interface ContainerProps {
   ova?: boolean,
   fw?: boolean,
   fh?: boolean,
+  tl?: boolean,
+  tc?: boolean,
+  tr?: boolean,
   bg?: CSSProperties['backgroundColor'],
   color?: CSSProperties['color'],
   p?: CSSProperties['padding']
@@ -36,6 +39,9 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  box = true,
                                                                                  fw = true,
                                                                                  fh = false,
+                                                                                 tl = true,
+                                                                                 tc = false,
+                                                                                 tr = false,
                                                                                  bg,
                                                                                  color,
                                                                                  w,
@@ -152,8 +158,21 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
   if (ovh) {
     styles.overflow = 'hidden'
   }
+
   if (ova) {
     styles.overflow = 'auto'
+  }
+
+  if (tl) {
+    styles.textAlign = 'left'
+  }
+
+  if (tc) {
+    styles.textAlign = 'center'
+  }
+
+  if (tr) {
+    styles.textAlign = 'right'
   }
 
   return <div

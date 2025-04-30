@@ -6,6 +6,9 @@ export interface ContainerProps {
     ova?: boolean;
     fw?: boolean;
     fh?: boolean;
+    tl?: boolean;
+    tc?: boolean;
+    tr?: boolean;
     bg?: CSSProperties['backgroundColor'];
     color?: CSSProperties['color'];
     p?: CSSProperties['padding'];

@@ -1,4 +1,4 @@
-import {Col, Row, Select, SelectItem, Title} from '@ui/index.tsx'
+import {Col, Row, Select, SelectItem, Title} from '@lite-u/ui'
 
 const SelectSamples: React.FC = () => {
   return <Col>

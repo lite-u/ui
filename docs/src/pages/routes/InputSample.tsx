@@ -1,6 +1,6 @@
-import {Col, Con, Input, P, Row, Title} from '@ui/index.tsx'
+import {Col, Con, Input, P, Row, Title} from '@lite-u/ui'
 
-const InputsSample: React.FC = () => {
+const InputSample: React.FC = () => {
   return <Col>
     <Title h4>Primary</Title>
 
@@ -42,4 +42,4 @@ const InputsSample: React.FC = () => {
   </Col>
 }
 
-export default InputsSample
+export default InputSample

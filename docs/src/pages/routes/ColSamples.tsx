@@ -1,5 +1,5 @@
-import {Button, Col, Con, P, Row, Title} from '@ui/index.tsx'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import {Button, Col, Con, P, Row, Title} from '@lite-u/ui'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
 const ColSamples: React.FC = () => {
   return <Col id={'col'}>

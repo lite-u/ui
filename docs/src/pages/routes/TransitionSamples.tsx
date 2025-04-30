@@ -1,5 +1,4 @@
-import {Button, Con, Flex} from '@ui/index.tsx'
-import Transition from '@ui/components/transition/Transition.tsx'
+import {Button, Con, Flex, Transition} from '@lite-u/ui'
 import {useState} from 'react'
 // import TransitionB from '@ui/components/transition/TransitionB.tsx'
 

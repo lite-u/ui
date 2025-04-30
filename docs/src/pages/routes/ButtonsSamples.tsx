@@ -1,7 +1,5 @@
-import Col from '@ui/components/layouts/Col.tsx'
-import Title from '@ui/components/title/Title.tsx'
-import {Button, Row} from '@ui/index.tsx'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import {Button, Col, Row, Title} from '@lite-u/ui'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
 const ButtonsSamples: React.FC = () => {
   const wrapperWidth = 'auto'
@@ -9,7 +7,7 @@ const ButtonsSamples: React.FC = () => {
   const buttonSizes = ['default', 'xs', 's', 'm', 'l']
   const buttonVars = ['default', 'primary', 'error', 'warn']
 
-  return <Col style={{marginTop: 50}}>
+  return <Col mt={50}>
     {
       buttonVars.map(buttonVar => {
           let sampleCode = ''

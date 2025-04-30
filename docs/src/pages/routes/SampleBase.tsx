@@ -1,5 +1,5 @@
-import {Col, Con, Title} from '@ui/index.tsx'
-import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
+import {Col, Con, Title} from '@lite-u/ui'
+import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 import {ReactNode} from 'react'
 
 const SampleBase: React.FC<{ name: string, children: ReactNode }> = ({name, children}) => {

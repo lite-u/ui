@@ -1,4 +1,4 @@
-import {Button, Con, Flex, Row, Tooltip} from '@ui/index.tsx'
+import {Button, Con, Flex, Row, Tooltip} from '@lite-u/ui'
 
 const TooltipSamples: React.FC = () => {
   return <Con ml={100}>
