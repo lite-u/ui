@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import Hoverable from '../hover/Hoverable';
+import Hoverable from '../interactive/Hoverable';
 import { useLiteUIContext } from '../../LiteUIProvider';
 const Link = ({ children, fw = true, fh = true, style = {}, ...props }) => {
     const { theme } = useLiteUIContext();

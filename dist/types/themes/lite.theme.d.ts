@@ -74,24 +74,28 @@ export declare const liteTheme: {
             border: string;
             color: string;
             borderRadius: string;
+            outline: string;
         };
         warn: {
             backgroundColor: string;
             border: string;
             color: string;
             borderRadius: string;
+            outline: string;
         };
         error: {
             backgroundColor: string;
             border: string;
             color: string;
             borderRadius: string;
+            outline: string;
         };
         neutral: {
             backgroundColor: string;
             border: string;
             color: string;
             borderRadius: string;
+            outline: string;
         };
     };
     menu: {

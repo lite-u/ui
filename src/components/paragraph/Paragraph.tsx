@@ -1,4 +1,5 @@
 import React, {CSSProperties, ReactNode} from 'react'
+import {useLiteUIContext} from '../../LiteUIProvider'
 
 const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   size?: number,
@@ -15,8 +16,12 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
         wb = 'break-word',
         ...props
       }) => {
-  // const theme = useTheme()
-  const styles: CSSProperties = {}
+  const {theme} = useLiteUIContext()
+  const styles: CSSProperties = {
+    fontSize: theme.title.h6,
+    paddingTop: theme.padding.md.x,
+    paddingBottom: theme.padding.md.x,
+  }
 
   if (center) {
     styles.textAlign = 'center'

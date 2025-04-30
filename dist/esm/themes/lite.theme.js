@@ -1,4 +1,5 @@
 const primaryColor = '#0a2e71';
+const errorColor = '#dc3545';
 export const liteTheme = {
     colors: {
         primary: primaryColor,
@@ -63,24 +64,28 @@ export const liteTheme = {
             border: '1px solid #007bff',
             color: '#007bff',
             borderRadius: '6px',
+            outline: 'none',
         },
         warn: {
             backgroundColor: '#fff8e1',
             border: '1px solid #ffc107',
             color: '#ffc107',
             borderRadius: '6px',
+            outline: 'none',
         },
         error: {
             backgroundColor: '#fff0f0',
             border: '1px solid #dc3545',
-            color: '#dc3545',
+            color: errorColor,
             borderRadius: '6px',
+            outline: 'none',
         },
         neutral: {
             backgroundColor: '#f8f9fa',
             border: '1px solid #ccc',
             color: '#212529',
             borderRadius: '6px',
+            outline: 'none',
         },
     },
     menu: {

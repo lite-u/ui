@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useContext } from 'react';
 import SelectContext from './SelectContext';
-import Hoverable from '../hover/Hoverable';
+import Hoverable from '../interactive/Hoverable';
 const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ...props }) => {
     const context = useContext(SelectContext);
     if (!context)

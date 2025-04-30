@@ -1,7 +1,12 @@
 import { jsx as _jsx } from "react/jsx-runtime";
+import { useLiteUIContext } from '../../LiteUIProvider';
 const Paragraph = ({ children, size = 16, style = {}, color, center = false, wb = 'break-word', ...props }) => {
-    // const theme = useTheme()
-    const styles = {};
+    const { theme } = useLiteUIContext();
+    const styles = {
+        fontSize: theme.title.h6,
+        paddingTop: theme.padding.md.x,
+        paddingBottom: theme.padding.md.x,
+    };
     if (center) {
         styles.textAlign = 'center';
     }

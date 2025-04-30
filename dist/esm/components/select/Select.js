@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row, Transition } from '../../index';
-import Hoverable from '../hover/Hoverable';
+import Hoverable from '../interactive/Hoverable';
 const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);

@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
-import Hoverable from '../hover/Hoverable';
+import Hoverable from '../interactive/Hoverable';
 import { Transition } from '../../index';
 const MenuItem = ({ children, style = {}, sm = false, activeStyle = {
     backgroundColor: '#dfdfdf',

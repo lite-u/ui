@@ -33,40 +33,43 @@ const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
     width: 'auto',
     height: 'auto', ...style,
   }
+  const flexProps = {
+    ...props,
+  }
 
   if (around) {
-    styles.justifyContent = 'space-around'
+    flexProps.justifyContent = 'space-around'
   }
 
   if (between) {
-    styles.justifyContent = 'space-between'
+    flexProps.justifyContent = 'space-between'
   }
 
   if (jc) {
-    styles.justifyContent = 'center'
+    flexProps.justifyContent = 'center'
   }
 
   if (start) {
-    styles.alignItems = 'start'
+    flexProps.alignItems = 'start'
   }
 
   if (center) {
-    styles.alignItems = 'center'
+    flexProps.alignItems = 'center'
   }
 
   if (end) {
-    styles.alignItems = 'end'
+    flexProps.alignItems = 'end'
   }
 
   if (stretch) {
-    styles.alignItems = 'stretch'
+    flexProps.alignItems = 'stretch'
   }
 
   return <Flex
     col
     role={role}
     style={styles}
-    {...props}
+    {...flexProps}
   >
     {children}
   </Flex>

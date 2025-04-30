@@ -34,39 +34,42 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
     width: 'auto', height: 'auto', ...style,
     gap: space,
   }
+  const flexProps = {
+    ...props,
+  }
 
   if (around) {
-    styles.justifyContent = 'space-around'
+    flexProps.justifyContent = 'space-around'
   }
 
   if (jc) {
-    styles.justifyContent = 'center'
+    flexProps.justifyContent = 'center'
   }
 
   if (between) {
-    styles.justifyContent = 'space-between'
+    flexProps.justifyContent = 'space-between'
   }
 
   if (start) {
-    styles.alignItems = 'start'
+    flexProps.alignItems = 'start'
   }
 
   if (center) {
-    styles.alignItems = 'center'
+    flexProps.alignItems = 'center'
   }
 
   if (end) {
-    styles.alignItems = 'end'
+    flexProps.alignItems = 'end'
   }
 
   if (stretch) {
-    styles.alignItems = 'stretch'
+    flexProps.alignItems = 'stretch'
   }
 
   return <Flex
     role={role}
     style={styles}
-    {...props}
+    {...flexProps}
   >
     {children}
   </Flex>

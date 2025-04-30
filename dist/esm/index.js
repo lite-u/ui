@@ -22,6 +22,6 @@ import IconButton from './components/iconButton/IconButton';
 import Table from './components/table/Table';
 import TableRow from './components/table/TableRow';
 import Polymorphic from './components/polymorphic/Polymorphic';
-import Hoverable from './components/hover/Hoverable';
+import Hoverable from './components/interactive/Hoverable';
 export { Input, Select, SelectItem, Link, Button, IconButton, LiteUIProvider, Transition, Modal, Panel, Row, Col, Flex, Title, Paragraph, P, Menu, MenuItem, Tooltip, Con, Drop, useNotification, Polymorphic, Hoverable, Table, TableRow, };
 export default LiteUIProvider;

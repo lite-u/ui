@@ -9,27 +9,30 @@ const Col = ({ children, around = false, jc = false, between = false, space = 0,
         width: 'auto',
         height: 'auto', ...style,
     };
+    const flexProps = {
+        ...props,
+    };
     if (around) {
-        styles.justifyContent = 'space-around';
+        flexProps.justifyContent = 'space-around';
     }
     if (between) {
-        styles.justifyContent = 'space-between';
+        flexProps.justifyContent = 'space-between';
     }
     if (jc) {
-        styles.justifyContent = 'center';
+        flexProps.justifyContent = 'center';
     }
     if (start) {
-        styles.alignItems = 'start';
+        flexProps.alignItems = 'start';
     }
     if (center) {
-        styles.alignItems = 'center';
+        flexProps.alignItems = 'center';
     }
     if (end) {
-        styles.alignItems = 'end';
+        flexProps.alignItems = 'end';
     }
     if (stretch) {
-        styles.alignItems = 'stretch';
+        flexProps.alignItems = 'stretch';
     }
-    return _jsx(Flex, { col: true, role: role, style: styles, ...props, children: children });
+    return _jsx(Flex, { col: true, role: role, style: styles, ...flexProps, children: children });
 };
 export default Col;
