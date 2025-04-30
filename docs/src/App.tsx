@@ -12,7 +12,10 @@ function App() {
       </Flex>
 
       <Flex h={'auto'} ovh>
-        <Flex col fh w={300} style={{overflowY: 'auto'}}>
+        <Flex col fh w={300} style={{
+          overflowY: 'auto',
+          boxShadow: '0px 0 4px 0px #b0b0b0',
+        }}>
           <Menu space={0}>
             <MenuItem sm>
               <Link href={`#installation`}>Installation</Link>
@@ -24,8 +27,8 @@ function App() {
             {
               SAMPLES.map((item, index) => {
                 return (
-                  <MenuItem sm key={index}>
-                    <Link href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
+                  <MenuItem style={{padding: 0}} sm key={index}>
+                    <Link style={{padding: '4px 20px'}} href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
                   </MenuItem>)
               })
             }

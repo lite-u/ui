@@ -1,13 +1,16 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
-import MenuItemBase from './MenuItemBase';
-const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
+import Hoverable from '../hover/Hoverable';
+const MenuItem = ({ children, style = {}, sm = false, activeStyle = {
+    backgroundColor: '#dfdfdf',
+    // color: '#dfdfdf',
+}, ...props }) => {
     const { theme } = useLiteUIContext();
     const styles = {
-        ...style,
-        height: 30,
+        height: 40,
         padding: theme.padding.md.y,
         fontSize: theme.fontSizes.md,
+        boxSizing: 'border-box',
         // borderRadius: theme.borderRadius.lg,
         // background: theme.menuItem.backgroundColor,
         cursor: 'pointer',
@@ -15,10 +18,13 @@ const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
         alignItems: 'center',
     };
     if (sm) {
-        styles.height = 20;
-        styles.padding = '8px 16px';
+        styles.height = 30;
+        // styles.padding = '8px 16px'
         styles.fontSize = theme.fontSizes.sm;
     }
-    return _jsx(MenuItemBase, { style: styles, ...props, children: children });
+    return _jsx(Hoverable, { activeStyle: activeStyle, style: {
+            ...styles,
+            ...style,
+        }, ...props, children: children });
 };
 export default MenuItem;

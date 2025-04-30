@@ -1,11 +1,10 @@
 import { ReactNode } from 'react';
 import { JSX } from 'react/jsx-runtime';
-import { PolymorphicProps } from '../polymorphic/Polymorphic';
 import IntrinsicElements = JSX.IntrinsicElements;
-declare const MenuItemBase: React.FC<PolymorphicProps<'div'> & {
+declare const Polymorphic: React.FC<React.HTMLProps<HTMLDivElement> & {
     children: ReactNode;
     tag: keyof IntrinsicElements;
     active?: boolean;
     activeStyle?: React.CSSProperties;
 }>;
-export default MenuItemBase;
+export default Polymorphic;

@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useContext } from 'react';
 import SelectContext from './SelectContext';
-import MenuItemBase from '../menu/MenuItemBase';
+import Hoverable from '../hover/Hoverable';
 const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ...props }) => {
     const context = useContext(SelectContext);
     if (!context)
@@ -23,7 +23,7 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         ...bgStyle,
         ...style,
     };
-    return (_jsx(MenuItemBase, { tabIndex: 0, style: styles, onKeyDown: (e) => {
+    return (_jsx(Hoverable, { tabIndex: 0, style: styles, onKeyDown: (e) => {
             const key = e.code.toLowerCase();
             if (key === 'space' || key === 'enter') {
                 e.preventDefault();

@@ -1,21 +1,27 @@
-import {ReactNode} from 'react'
+import {CSSProperties, ReactNode} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import MenuItemBase from './MenuItemBase'
+import Hoverable from '../hover/Hoverable'
 
 const MenuItem: React.FC<
   React.HTMLProps<HTMLDivElement> &
-  { children: ReactNode, sm?: boolean }> = ({
-                                              children,
-                                              style = {},
-                                              sm = false,
-                                              ...props
-                                            }) => {
+  {
+    children: ReactNode, sm?: boolean, activeStyle: CSSProperties
+  }> = ({
+          children,
+          style = {},
+          sm = false,
+          activeStyle = {
+            backgroundColor: '#dfdfdf',
+            // color: '#dfdfdf',
+          },
+          ...props
+        }) => {
   const {theme} = useLiteUIContext()
   const styles: React.CSSProperties = {
-    ...style,
-    height: 30,
+    height: 40,
     padding: theme.padding.md.y,
     fontSize: theme.fontSizes.md,
+    boxSizing: 'border-box',
     // borderRadius: theme.borderRadius.lg,
     // background: theme.menuItem.backgroundColor,
     cursor: 'pointer',
@@ -24,16 +30,20 @@ const MenuItem: React.FC<
   }
 
   if (sm) {
-    styles.height = 20
-    styles.padding = '8px 16px'
+    styles.height = 30
+    // styles.padding = '8px 16px'
     styles.fontSize = theme.fontSizes.sm
   }
 
-  return <MenuItemBase
-    style={styles}
+  return <Hoverable
+    activeStyle={activeStyle}
+    style={{
+      ...styles,
+      ...style,
+    }}
     {...props}>
     {children}
-  </MenuItemBase>
+  </Hoverable>
 }
 
 export default MenuItem

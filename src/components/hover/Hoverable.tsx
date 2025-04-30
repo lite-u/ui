@@ -1,13 +1,18 @@
 import {ReactNode, useEffect, useState} from 'react'
+import {JSX} from 'react/jsx-runtime'
+import Polymorphic, {PolymorphicProps} from '../polymorphic/Polymorphic'
+import IntrinsicElements = JSX.IntrinsicElements
 
-const MenuItemBase: React.FC<
-  React.HTMLProps<HTMLDivElement> &
+const Hoverable: React.FC<
+  PolymorphicProps<'div'> &
   {
     children: ReactNode,
+    tag?: keyof IntrinsicElements;
     active?: boolean,
     activeStyle?: React.CSSProperties
   }
 > = ({
+       tag = 'div',
        children,
        onMouseEnter,
        onMouseOver,
@@ -21,44 +26,45 @@ const MenuItemBase: React.FC<
        style = {},
        ...props
      }) => {
-  const [localActive, setLocalActive] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
-    setLocalActive(active)
+    setIsActive(active)
   }, [active])
 
   const handleMouseEnter = () => {
-    setLocalActive(true)
+    setIsActive(true)
   }
 
   const handleMouseOver = () => {
-    setLocalActive(true)
+    setIsActive(true)
   }
 
   const handleMouseLeave = () => {
-    setLocalActive(false)
+    setIsActive(false)
   }
 
-  return <div
-    style={{
-      ...(localActive ? activeStyle : {}),
+  return Polymorphic({
+    tag,
+    children,
+    style: {
+      ...(isActive ? activeStyle : {}),
       ...style,
-    }}
-    onMouseEnter={(e) => {
+    },
+    onMouseEnter: (e) => {
       handleMouseEnter()
       onMouseEnter && onMouseEnter(e)
-    }}
-    onMouseOver={(e) => {
+    },
+    onMouseOver: (e) => {
       handleMouseOver()
       onMouseOver && onMouseOver(e)
-    }}
-    onMouseLeave={(e) => {
+    },
+    onMouseLeave: (e) => {
       handleMouseLeave()
       onMouseLeave && onMouseLeave(e)
-    }}
-    {...props}>
-    {children}
-  </div>
+    },
+    ...props,
+  })
 }
 
-export default MenuItemBase
+export default Hoverable

@@ -22,6 +22,8 @@ import Tooltip from './components/tooltip/Tooltip'
 import IconButton from './components/iconButton/IconButton'
 import Table from './components/table/Table'
 import TableRow from './components/table/TableRow'
+import Polymorphic from './components/polymorphic/Polymorphic'
+import Hoverable from './components/hover/Hoverable'
 
 export {
   Input,
@@ -46,8 +48,10 @@ export {
   Con,
   Drop,
   useNotification,
+  Polymorphic,
+  Hoverable,
   Table,
-  TableRow
+  TableRow,
 }
 export default LiteUIProvider
 export type {ThemeType}

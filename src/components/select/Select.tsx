@@ -1,7 +1,7 @@
 import React, {CSSProperties, HTMLProps, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
-import MenuItemBase from '../menu/MenuItemBase'
+import Hoverable from '../hover/Hoverable'
 
 export type SelectSize = 'sm' | 'md' | 'lg'
 const Select: React.FC<HTMLProps<HTMLDivElement> & {
@@ -128,7 +128,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
          }}
          {...props}>
 
-      <MenuItemBase
+      <Hoverable
         role={'placeholder'}
         tabIndex={0}
         style={{
@@ -168,7 +168,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
             </svg>
           </Transition>
         </Row>
-      </MenuItemBase>
+      </Hoverable>
 
       <Transition visible={openSelect}
                   duration={animationDuration}

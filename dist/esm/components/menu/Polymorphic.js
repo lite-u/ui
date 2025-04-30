@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import Polymorphic from '../polymorphic/Polymorphic';
-const MenuItemBase = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, active = false, activeStyle = {
+import { createElement, useEffect, useState } from 'react';
+const Polymorphic = ({ children, onMouseEnter, onMouseOver, tag = 'div', onMouseLeave, onMouseDown, onMouseUp, active = false, activeStyle = {
     backgroundColor: '#dfdfdf',
 }, style = {}, ...props }) => {
     const [isActive, setIsActive] = useState(false);
@@ -16,9 +15,7 @@ const MenuItemBase = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMous
     const handleMouseLeave = () => {
         setIsActive(false);
     };
-    return Polymorphic({
-        tag,
-        children,
+    const nodeProps = {
         style: {
             ...(isActive ? activeStyle : {}),
             ...style,
@@ -36,6 +33,7 @@ const MenuItemBase = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMous
             onMouseLeave && onMouseLeave(e);
         },
         ...props,
-    });
+    };
+    return createElement(tag, nodeProps, children);
 };
-export default MenuItemBase;
+export default Polymorphic;

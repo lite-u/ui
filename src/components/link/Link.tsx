@@ -15,6 +15,8 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
 
   return <a
     style={{
+      color: '#000',
+      cursor: 'pointer',
       width: fw ? '100%' : 'auto',
       height: fh ? '100%' : 'auto',
       ...style,
@@ -22,8 +24,7 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
       flexDirection: 'column',
       justifyContent: 'space-around',
     }}
-    {...props}
-  >
+    {...props}  >
     {children}
   </a>
 }

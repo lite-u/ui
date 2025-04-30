@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
-import MenuItemBase from '../menu/MenuItemBase'
+import Hoverable from '../hover/Hoverable'
 
 const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string,
@@ -38,7 +38,7 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   return (
-    <MenuItemBase tabIndex={0}
+    <Hoverable tabIndex={0}
                   style={styles}
                   onKeyDown={(e) => {
                     const key = e.code.toLowerCase()
@@ -53,7 +53,7 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
                     onClick && onClick(e)
                   }} {...props}>
       {children}
-    </MenuItemBase>
+    </Hoverable>
   )
 }
 
