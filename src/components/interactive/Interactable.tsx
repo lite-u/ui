@@ -1,4 +1,11 @@
-import React, {CSSProperties, ElementType, FocusEventHandler, MouseEventHandler, useState} from 'react'
+import React, {
+  CSSProperties,
+  ElementType,
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  useState,
+} from 'react'
 import {JSX} from 'react/jsx-runtime'
 import IntrinsicElements = JSX.IntrinsicElements
 
@@ -20,7 +27,8 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
   onBlur?: FocusEventHandler<HTMLElementTagNameMap[T]>
   onMouseDown?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onMouseUp?: MouseEventHandler<HTMLElementTagNameMap[T]>
-  // onKeyDown?: KeyboardEventHandler<HTMLElementTagNameMap[T]>
+  onClick?: MouseEventHandler<HTMLElementTagNameMap[T]>
+  onKeyDown?: KeyboardEventHandler<HTMLElementTagNameMap[T]>
 } & IntrinsicElements[T];
 
 /**
@@ -40,6 +48,7 @@ function Interactable<T extends PolymorphicTag>({
                                                   onMouseDown,
                                                   onMouseUp,
                                                   onKeyDown,
+                                                  // onClick,
                                                   ...rest
                                                 }: InteractableBaseProps<T>) {
   const Tag = tag as ElementType

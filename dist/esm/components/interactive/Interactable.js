@@ -1,9 +1,11 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useState } from 'react';
+import { useState, } from 'react';
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
-function Interactable({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, onKeyDown, ...rest }) {
+function Interactable({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, onKeyDown, 
+// onClick,
+...rest }) {
     const Tag = tag;
     const [hovered, setHovered] = useState(false);
     const [focused, setFocused] = useState(false);

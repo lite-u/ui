@@ -1,4 +1,4 @@
-import React, { CSSProperties, FocusEventHandler, MouseEventHandler } from 'react';
+import React, { CSSProperties, FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react';
 import { JSX } from 'react/jsx-runtime';
 import IntrinsicElements = JSX.IntrinsicElements;
 type PolymorphicTag = keyof HTMLElementTagNameMap;
@@ -15,6 +15,8 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
     onBlur?: FocusEventHandler<HTMLElementTagNameMap[T]>;
     onMouseDown?: MouseEventHandler<HTMLElementTagNameMap[T]>;
     onMouseUp?: MouseEventHandler<HTMLElementTagNameMap[T]>;
+    onClick?: MouseEventHandler<HTMLElementTagNameMap[T]>;
+    onKeyDown?: KeyboardEventHandler<HTMLElementTagNameMap[T]>;
 } & IntrinsicElements[T];
 /**
  * A polymorphic component that adapts to the given `tag`.

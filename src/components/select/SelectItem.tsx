@@ -1,4 +1,4 @@
-import {CSSProperties, ReactNode, useContext} from 'react'
+import {CSSProperties, KeyboardEvent, MouseEvent, ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
 import Interactable from '../interactive/Interactable'
 
@@ -46,7 +46,7 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
       hover={{
         backgroundColor: '#dfdfdf',
       }}
-      onKeyDown={(e) => {
+      onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => {
         const key = e.code.toLowerCase()
         if (key === 'space' || key === 'enter') {
           e.preventDefault()
@@ -54,7 +54,7 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         }
         onKeyDown && onKeyDown(e)
       }}
-      onClick={(e) => {
+      onClick={(e: MouseEvent<HTMLDivElement>) => {
         itemClick(value)
         onClick && onClick(e)
       }} {...props}>

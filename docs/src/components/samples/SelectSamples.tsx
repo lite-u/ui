@@ -5,7 +5,7 @@ const SelectSamples: React.FC = () => {
     <Col between>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
-      <Row style={{zIndex: 60}} space={10} alignItems={'end'}>
+      <Row style={{zIndex: 60}} space={10} end>
         <Select sm
                 defaultValue={'2'}
                 onChange={(v) => {
