@@ -1,107 +1,9 @@
 import Installation from './pages/routes/Installation.tsx'
 import LiteUIProvider from '@lite-u/ui'
 import {BrowserRouter, Route, Routes} from 'react-router'
-import RootLayout from './pages/RootLayout.tsx'
+import RootLayout from './pages/layouts/RootLayout.tsx'
 import ComponentLayout from './pages/layouts/ComponentLayout.tsx'
-import COMPONENT_ROUTES from './pages/componentData.tsx'
-
-/*const COMPONENT_ROUTES = [
-  {
-    to: 'table',
-    name: 'Table',
-    comp: <TableSamples/>,
-  },
-  {
-    to: 'button',
-    name: 'Button',
-    comp: <ButtonsSamples/>,
-  },
-  {
-    to: 'iconbutton',
-    name: 'Icon Buttons',
-    comp: <IconButtonsSamples/>,
-  },
-  {
-    to: 'input',
-    name: 'Input',
-    comp: <InputSample/>,
-  },
-  {
-    to: 'select',
-    name: 'Select',
-    comp: <SelectSamples/>,
-  },
-  {
-    to: 'link',
-    name: 'Link',
-    comp: <LinkSamples/>,
-  },
-  {
-    to: 'modal',
-    name: 'Modal',
-    comp: <ModalSamples/>,
-  },
-  {
-    to: 'panel',
-    name: 'Panel',
-    comp: <PanelSamples/>,
-  },
-  {
-    to: 'container',
-    name: 'Container',
-    comp: <ConSamples/>,
-  },
-  {
-    to: 'row',
-    name: 'Row',
-    comp: <RowSamples/>,
-  },
-  {
-    to: 'column',
-    name: 'Column',
-    comp: <ConSamples/>,
-  },
-  {
-    to: 'title',
-    name: 'Title',
-    comp: <TitleSamples/>,
-  },
-  {
-    to: 'paragraph',
-    name: 'Paragraph',
-    comp: <PanelSamples/>,
-  },
-  {
-    to: 'menu',
-    name: 'Menu',
-    comp: <MenuSamples/>,
-  },
-  {
-    to: 'menuitem',
-    name: 'MenuItem',
-    comp: <MenuItemSamples/>,
-  },
-  {
-    to: 'drop',
-    name: 'Drop',
-    comp: <DropSamples/>,
-  },
-  {
-    to: 'notification',
-    name: 'Notification',
-    comp: <NotificationSamples/>,
-  },
-  {
-    to: 'transition',
-    name: 'Transition',
-    comp: <TransitionSamples/>,
-  },
-  {
-    to: 'tooltip',
-    name: 'Tooltip',
-    comp: <TooltipSamples/>,
-  },
-]*/
+import COMPONENT_ROUTE_MAP from './pages/componentData.tsx'
 
 function App() {
   return <LiteUIProvider>
@@ -110,10 +12,10 @@ function App() {
         <Route path={'/'} element={<RootLayout/>}>
           <Route path={'installation'} element={<Installation/>}/>
 
-          <Route path={'components'}>
-            <Route index element={<ComponentLayout/>}/>
+          <Route path={'components'} element={<ComponentLayout/>}>
+            {/*<Route index element={<ComponentLayout/>}/>*/}
             {
-              COMPONENT_ROUTES.map((COMP, index) => {
+              Object.values(COMPONENT_ROUTE_MAP).map((COMP, index) => {
                 return <Route key={index} path={COMP.to} element={COMP.comp}/>
               })
             }
