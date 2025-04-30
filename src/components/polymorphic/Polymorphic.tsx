@@ -1,20 +1,21 @@
 import {JSX} from 'react/jsx-runtime'
-import {createElement} from 'react'
+import {createElement, ElementType, HTMLAttributes} from 'react'
 
-type ElementTag = keyof JSX.IntrinsicElements;
+export type ElementTag = keyof JSX.IntrinsicElements;
 
-type PropsOf<T extends ElementTag> = JSX.IntrinsicElements[T];
+type PropsOf<T extends ElementType> = HTMLAttributes<T>
+
 export type PolymorphicProps<T extends ElementTag> = {
-  tag?: T;
-  children?: React.ReactNode;
+  tag: T;
+  // children?: React.ReactNode;
 } & PropsOf<T>;
 
-const Polymorphic = <T extends ElementTag = 'div'>(
+const Polymorphic = <T extends ElementTag>(
   props: PolymorphicProps<T>,
 ) => {
-  const {tag: Tag = 'div', children, ...rest} = props
+  const {tag, children, ...rest} = props
 
-  return createElement(Tag, rest, children)
+  return createElement(tag as ElementTag, rest, children)
 }
 
 export default Polymorphic

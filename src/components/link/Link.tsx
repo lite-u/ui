@@ -1,4 +1,5 @@
 import {ReactNode} from 'react'
+import Hoverable from '../hover/Hoverable'
 
 const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
   children: ReactNode,
@@ -13,7 +14,8 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
         ...props
       }) => {
 
-  return <a
+  return <Hoverable
+    tag={'a'}
     style={{
       color: '#000',
       cursor: 'pointer',
@@ -26,7 +28,7 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
     }}
     {...props}  >
     {children}
-  </a>
+  </Hoverable>
 }
 
 export default Link

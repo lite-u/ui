@@ -1,31 +1,30 @@
-import {ReactNode, useEffect, useState} from 'react'
-import {JSX} from 'react/jsx-runtime'
-import Polymorphic, {PolymorphicProps} from '../polymorphic/Polymorphic'
-import IntrinsicElements = JSX.IntrinsicElements
+import {CSSProperties, ReactNode, useEffect, useState} from 'react'
+import Polymorphic, {ElementTag, PolymorphicProps} from '../polymorphic/Polymorphic'
 
-const Hoverable: React.FC<
-  PolymorphicProps<'div'> &
-  {
-    children: ReactNode,
-    tag?: keyof IntrinsicElements;
-    active?: boolean,
-    activeStyle?: React.CSSProperties
-  }
-> = ({
-       tag = 'div',
-       children,
-       onMouseEnter,
-       onMouseOver,
-       onMouseLeave,
-       onMouseDown,
-       onMouseUp,
-       active = false,
-       activeStyle = {
-         backgroundColor: '#dfdfdf',
-       },
-       style = {},
-       ...props
-     }) => {
+type HoverableProps<T extends ElementTag> = {
+  // tag: T;
+  // children?: ReactNode;
+  active?: boolean;
+  activeStyle?: CSSProperties;
+} & PolymorphicProps<T>
+
+/* & PolymorphicProps<T>;*/
+
+const Hoverable = <T extends ElementTag>({
+                                           tag = 'div',
+                                           children,
+                                           onMouseEnter,
+                                           onMouseOver,
+                                           onMouseLeave,
+                                           onMouseDown,
+                                           onMouseUp,
+                                           active = false,
+                                           activeStyle = {
+                                             backgroundColor: '#dfdfdf',
+                                           },
+                                           style = {},
+                                           ...rest
+                                         }: HoverableProps<T>) => {
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -63,7 +62,7 @@ const Hoverable: React.FC<
       handleMouseLeave()
       onMouseLeave && onMouseLeave(e)
     },
-    ...props,
+    ...rest,
   })
 }
 
