@@ -21,31 +21,9 @@ function App() {
             <MenuItem>
               <Link href={`#installation`}>Installation</Link>
             </MenuItem>
-            <MenuItem>
-              <Link href={`#components`}>Components</Link>
-            </MenuItem>
 
-            {
-              SAMPLES.map((item, index) => {
-                return (
-                  <MenuItem sm style={{padding: 0}} key={index}>
-                    <Link style={{padding: '0px 20px'}} href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
-                  </MenuItem>)
-              })
-            }
-
-            <MenuItem sm><Link href={`#Accessibility`}>Compatibility</Link></MenuItem>
-            <MenuItem><Link href={`#Accessibility`}>Accessibility</Link></MenuItem>
-            <MenuItem><Link href={`#Accessibility`}>I18n</Link></MenuItem>
-            <MenuItem><Link href={`#Accessibility`}>Responsible Design</Link></MenuItem>
-            <MenuItem><Link href={`#Accessibility`}>Tree Shaking</Link></MenuItem>
-          </Menu>
-        </Flex>
-
-        <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
-          <Col style={{padding: '0 50px'}}>
             <Collapse head={
-              <MenuItem sm>Collapse Title</MenuItem>
+              <MenuItem>Components</MenuItem>
             }>
               {
                 SAMPLES.map((item, index) => {
@@ -56,7 +34,16 @@ function App() {
                 })
               }
             </Collapse>
+            <MenuItem sm><Link href={`#Accessibility`}>Compatibility</Link></MenuItem>
+            <MenuItem sm><Link href={`#Accessibility`}>Accessibility</Link></MenuItem>
+            <MenuItem sm><Link href={`#Accessibility`}>I18n</Link></MenuItem>
+            <MenuItem sm><Link href={`#Accessibility`}>Responsible Design</Link></MenuItem>
+            <MenuItem sm><Link href={`#Accessibility`}>Tree Shaking</Link></MenuItem>
+          </Menu>
+        </Flex>
 
+        <Col fw fh style={{maxHeight: '100%', overflow: 'auto'}}>
+          <Col style={{padding: '0 50px'}}>
             <Installation/>
 
             <div id={'components'} style={{marginTop: 50}}>

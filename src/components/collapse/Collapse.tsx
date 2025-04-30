@@ -1,9 +1,9 @@
 import {ReactNode, useEffect, useRef, useState} from 'react'
-import {Interactable, Transition} from '../../index'
+import {Transition} from '../../index'
 
 const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
   head: ReactNode,
-  onToggle: (isOpen: boolean) => void,
+  onToggle?: (isOpen: boolean) => void,
 }> = ({
         head,
         children,
@@ -20,17 +20,14 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
     const r = containerRef.current.getBoundingClientRect()
 
     setContainerHeight(r.height)
-  }, [containerRef.current])
+  }, [containerRef.current, children])
 
   return <div role={'collapse'}>
-    <Interactable tag={'div'}
-                  style={{userSelect: 'none'}}
-                  hover={{background: 'red'}}
-                  onClick={() => {
-                    setOpen(!open)
-                    onToggle?.(!open)
-                  }}>{head}</Interactable>
-
+    <div style={{userSelect: 'none'}}
+         onClick={() => {
+           setOpen(!open)
+           onToggle?.(!open)
+         }}>{head}</div>
     <Transition
       visible={open}
       from={{

@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
-import { Interactable, Transition } from '../../index';
+import { Transition } from '../../index';
 const Collapse = ({ head, children, onToggle, ...props }) => {
     const [containerHeight, setContainerHeight] = useState(0);
     const [open, setOpen] = useState(false);
@@ -10,8 +10,8 @@ const Collapse = ({ head, children, onToggle, ...props }) => {
             return;
         const r = containerRef.current.getBoundingClientRect();
         setContainerHeight(r.height);
-    }, [containerRef.current]);
-    return _jsxs("div", { role: 'collapse', children: [_jsx(Interactable, { tag: 'div', style: { userSelect: 'none' }, hover: { background: 'red' }, onClick: () => {
+    }, [containerRef.current, children]);
+    return _jsxs("div", { role: 'collapse', children: [_jsx("div", { style: { userSelect: 'none' }, onClick: () => {
                     setOpen(!open);
                     onToggle?.(!open);
                 }, children: head }), _jsx(Transition, { visible: open, from: {
