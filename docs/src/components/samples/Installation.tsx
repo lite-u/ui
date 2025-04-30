@@ -13,7 +13,24 @@ export const App() {
 }`
 
   return <Col id={'installation'} style={{marginTop: 100}}>
-    <Interactable tabIndex={0}
+    <Interactable tag={'button'}
+                  type={'reset'}
+                  tabIndex={0}
+                  onFocus={() => {
+                    console.log('end')
+                  }}
+                  hover={{
+                    backgroundColor: 'red',
+                  }}
+                  focus={{
+                    backgroundColor: 'blue',
+                  }}
+                  down={{
+                    backgroundColor: 'green',
+                  }}
+    >AAAA</Interactable>
+
+    <Interactable tag={'div'} tabIndex={0}
                   onFocus={() => {
                     console.log('end')
                   }}

@@ -1,8 +1,8 @@
-import {createElement, ElementType, HTMLAttributes} from 'react'
+import {createElement, ElementType, HTMLProps} from 'react'
 
 export type PolymorphicProps<T extends ElementType> = {
   tag?: T;
-} & HTMLAttributes<HTMLElement>;
+} & HTMLProps<T>;
 
 const Polymorphic = <T extends ElementType>(
   props: PolymorphicProps<T>,

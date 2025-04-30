@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Polymorphic from '../polymorphic/Polymorphic';
-const Interactable = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur, 
+const Interactable = ({ tag, children, onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur, 
 // onHoverEnd,
 // active = {},
 hover = {}, down = {}, focus = {}, style = {}, ...rest }) => {

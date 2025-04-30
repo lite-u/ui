@@ -1,6 +1,7 @@
 import { CSSProperties, ElementType } from 'react';
 import { PolymorphicProps } from '../polymorphic/Polymorphic';
 type InteractableProps<T extends ElementType> = {
+    tag: T;
     hover?: CSSProperties;
     focus?: CSSProperties;
     down?: CSSProperties;

@@ -2,13 +2,14 @@ import {CSSProperties, ElementType, useState} from 'react'
 import Polymorphic, {PolymorphicProps} from '../polymorphic/Polymorphic'
 
 type InteractableProps<T extends ElementType> = {
+  tag: T,
   hover?: CSSProperties;
   focus?: CSSProperties;
   down?: CSSProperties;
 } & PolymorphicProps<T>
 
 const Interactable = <T extends ElementType>({
-                                               tag = 'div' as T,
+                                               tag,
                                                children,
                                                onMouseEnter,
                                                onMouseOver,
