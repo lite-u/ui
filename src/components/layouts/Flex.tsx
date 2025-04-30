@@ -6,7 +6,7 @@ export interface FlexProps extends ContainerProps {
   row?: boolean,
   alignItems?: CSSProperties['alignItems'],
   justifyContent?: CSSProperties['justifyContent'],
-  space?: number
+  space?: CSSProperties['gap']
 }
 
 const Flex: React.FC<FlexProps & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({

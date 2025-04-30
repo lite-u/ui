@@ -1,10 +1,11 @@
-/// <reference types="react" />
-import { FlexProps } from './Flex';
-export interface ColumnProps extends FlexProps {
+import { ContainerProps } from '../con/Con';
+import { CSSProperties } from 'react';
+export interface ColumnProps extends ContainerProps {
     start?: boolean;
     center?: boolean;
     stretch?: boolean;
     end?: boolean;
+    space?: CSSProperties['gap'];
     around?: boolean;
     jc?: boolean;
     between?: boolean;

@@ -150,10 +150,10 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
           onKeyDown && onKeyDown(e)
         }}>
         <Row fh
-             justifyContent={'space-between'}
+             between
+             center
              pl={itemStyle.padding}
-             pr={itemStyle.padding}
-             alignItems={'center'}>
+             pr={itemStyle.padding}>
           <span>{value}</span>
           <Transition visible={openSelect}
                       duration={animationDuration}

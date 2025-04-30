@@ -5,7 +5,7 @@ export interface FlexProps extends ContainerProps {
     row?: boolean;
     alignItems?: CSSProperties['alignItems'];
     justifyContent?: CSSProperties['justifyContent'];
-    space?: number;
+    space?: CSSProperties['gap'];
 }
 declare const Flex: React.FC<FlexProps & ContainerProps & React.HTMLProps<HTMLDivElement>>;
 export default Flex;

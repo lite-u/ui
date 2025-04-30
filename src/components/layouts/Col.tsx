@@ -1,10 +1,13 @@
 import Flex, {FlexProps} from './Flex'
+import {ContainerProps} from '../con/Con'
+import {CSSProperties} from 'react'
 
-export interface ColumnProps extends FlexProps {
+export interface ColumnProps extends ContainerProps {
   start?: boolean,
   center?: boolean,
   stretch?: boolean,
   end?: boolean,
+  space?: CSSProperties['gap']
   // justify-content
   around?: boolean,
   jc?: boolean,
@@ -33,7 +36,7 @@ const Col: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
     width: 'auto',
     height: 'auto', ...style,
   }
-  const flexProps = {
+  const flexProps: FlexProps = {
     ...props,
   }
 

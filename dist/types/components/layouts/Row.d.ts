@@ -1,6 +1,6 @@
-/// <reference types="react" />
-import { FlexProps } from './Flex';
-interface RowProps extends FlexProps {
+import { ContainerProps } from '../con/Con';
+import { CSSProperties } from 'react';
+interface RowProps extends ContainerProps {
     start?: boolean;
     center?: boolean;
     stretch?: boolean;
@@ -8,6 +8,7 @@ interface RowProps extends FlexProps {
     around?: boolean;
     jc?: boolean;
     between?: boolean;
+    space?: CSSProperties['gap'];
 }
 declare const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps>;
 export default Row;

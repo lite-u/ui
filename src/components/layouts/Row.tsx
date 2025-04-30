@@ -1,6 +1,8 @@
 import Flex, {FlexProps} from './Flex'
+import {ContainerProps} from '../con/Con'
+import {CSSProperties} from 'react'
 
-interface RowProps extends FlexProps {
+interface RowProps extends ContainerProps {
   // align items
   start?: boolean,
   center?: boolean,
@@ -10,6 +12,7 @@ interface RowProps extends FlexProps {
   around?: boolean,
   jc?: boolean,
   between?: boolean,
+  space?: CSSProperties['gap']
 }
 
 const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
@@ -34,7 +37,8 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
     width: 'auto', height: 'auto', ...style,
     gap: space,
   }
-  const flexProps = {
+
+  const flexProps:FlexProps = {
     ...props,
   }
 

@@ -102,7 +102,7 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, justifyContent: 'space-between', pl: itemStyle.padding, pr: itemStyle.padding, alignItems: 'center', children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
+                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: itemStyle.padding, pr: itemStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
