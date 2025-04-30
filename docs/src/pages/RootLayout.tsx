@@ -23,7 +23,7 @@ const RootLayout = () => <Flex col fw fh ovh>
             <MenuItem sm style={{padding: 0}} key={index}>
               <Link style={{width: '100%', height: '100%'}}
                     to={`components/${comp.to}`}>
-                <Col fh jc center tl>
+                <Col tl fh jc center>
                   {comp.name}
                 </Col>
 
