@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react'
+import {ReactNode, useEffect, useRef, useState} from 'react'
 import {Interactable, Transition} from '../../index'
 
 const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
@@ -14,13 +14,23 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
       }) => {
   const [containerHeight, setContainerHeight] = useState(0)
   const [open, setOpen] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    // console.log(containerRef.current)
+
+    const r = containerRef.current.getBoundingClientRect()
+    // console.log(r.height)
+    setContainerHeight(r.height)
+  }, [containerRef.current])
 
   return <div role={'collapse'}>
     <Interactable tag={'div'}
                   style={{userSelect: 'none'}}
                   hover={{background: 'red'}}
                   onClick={() => {
-                    console.log(9)
+                    setOpen(!open)
                   }}>{head}</Interactable>
 
     <Transition
@@ -35,7 +45,9 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
         overflow: 'hidden',
       }}
       {...props}>
-      {children}
+      <div ref={containerRef}>
+        {children}
+      </div>
     </Transition>
   </div>
 }
