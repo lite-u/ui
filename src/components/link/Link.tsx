@@ -1,5 +1,6 @@
 import {ReactNode} from 'react'
 import Hoverable from '../hover/Hoverable'
+import {useLiteUIContext} from '../../LiteUIProvider'
 
 const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
   children: ReactNode,
@@ -13,11 +14,12 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
         style = {},
         ...props
       }) => {
+  const {theme} = useLiteUIContext()
 
   return <Hoverable
     tag={'a'}
     activeStyle={{
-      color: 'blue',
+      color: theme.colors.secondary,
     }}
     style={{
       color: '#000',

@@ -1,8 +1,10 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import Hoverable from '../hover/Hoverable';
+import { useLiteUIContext } from '../../LiteUIProvider';
 const Link = ({ children, fw = true, fh = true, style = {}, ...props }) => {
+    const { theme } = useLiteUIContext();
     return _jsx(Hoverable, { tag: 'a', activeStyle: {
-            color: 'blue',
+            color: theme.colors.secondary,
         }, style: {
             color: '#000',
             cursor: 'pointer',
