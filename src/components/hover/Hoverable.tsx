@@ -1,30 +1,26 @@
-import {CSSProperties, ReactNode, useEffect, useState} from 'react'
-import Polymorphic, {ElementTag, PolymorphicProps} from '../polymorphic/Polymorphic'
+import {CSSProperties, ElementType, useEffect, useState} from 'react'
+import Polymorphic, {PolymorphicProps} from '../polymorphic/Polymorphic'
 
-type HoverableProps<T extends ElementTag> = {
-  // tag: T;
-  // children?: ReactNode;
+type HoverableProps<T extends ElementType> = {
   active?: boolean;
   activeStyle?: CSSProperties;
 } & PolymorphicProps<T>
 
-/* & PolymorphicProps<T>;*/
-
-const Hoverable = <T extends ElementTag>({
-                                           tag = 'div',
-                                           children,
-                                           onMouseEnter,
-                                           onMouseOver,
-                                           onMouseLeave,
-                                           onMouseDown,
-                                           onMouseUp,
-                                           active = false,
-                                           activeStyle = {
-                                             backgroundColor: '#dfdfdf',
-                                           },
-                                           style = {},
-                                           ...rest
-                                         }: HoverableProps<T>) => {
+const Hoverable = <T extends ElementType>({
+                                            tag,
+                                            children,
+                                            onMouseEnter,
+                                            onMouseOver,
+                                            onMouseLeave,
+                                            onMouseDown,
+                                            onMouseUp,
+                                            active = false,
+                                            activeStyle = {
+                                              backgroundColor: '#dfdfdf',
+                                            },
+                                            style = {},
+                                            ...rest
+                                          }: HoverableProps<T>) => {
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -44,7 +40,7 @@ const Hoverable = <T extends ElementTag>({
   }
 
   return Polymorphic({
-    tag,
+    tag: tag || 'div',
     children,
     style: {
       ...(isActive ? activeStyle : {}),

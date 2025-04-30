@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Polymorphic from '../polymorphic/Polymorphic';
-/* & PolymorphicProps<T>;*/
-const Hoverable = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, active = false, activeStyle = {
+const Hoverable = ({ tag, children, onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, active = false, activeStyle = {
     backgroundColor: '#dfdfdf',
 }, style = {}, ...rest }) => {
     const [isActive, setIsActive] = useState(false);
@@ -18,7 +17,7 @@ const Hoverable = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMouseLe
         setIsActive(false);
     };
     return Polymorphic({
-        tag,
+        tag: tag || 'div',
         children,
         style: {
             ...(isActive ? activeStyle : {}),
