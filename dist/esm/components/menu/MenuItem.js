@@ -1,5 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
+import MenuItemBase from './MenuItemBase';
 const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
     const { theme } = useLiteUIContext();
     const styles = {
@@ -8,7 +9,7 @@ const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
         padding: theme.padding.md.y,
         fontSize: theme.fontSizes.md,
         // borderRadius: theme.borderRadius.lg,
-        background: theme.menuItem.backgroundColor,
+        // background: theme.menuItem.backgroundColor,
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
@@ -18,6 +19,6 @@ const MenuItem = ({ children, style = {}, sm = false, ...props }) => {
         styles.padding = '8px 16px';
         styles.fontSize = theme.fontSizes.sm;
     }
-    return _jsx("div", { style: styles, ...props, children: children });
+    return _jsx(MenuItemBase, { style: styles, ...props, children: children });
 };
 export default MenuItem;

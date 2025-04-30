@@ -12,7 +12,7 @@ function App() {
       </Flex>
 
       <Flex h={'auto'} ovh>
-        <Flex col fh w={200} style={{overflowY: 'auto'}}>
+        <Flex col fh w={300} style={{overflowY: 'auto'}}>
           <Menu space={0}>
             <MenuItem sm>
               <Link href={`#installation`}>Installation</Link>

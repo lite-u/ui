@@ -48,7 +48,7 @@ const TooltipSamples: React.FC = () => {
 
     </Flex>
 
-    <Con mb={1000}></Con>
+    {/*<Con mb={1000}></Con>*/}
   </Con>
 }
 
