@@ -67,15 +67,18 @@ const InputNumber: React.FC<InputNumberProps> = ({
     onChange && onChange(e)
   }
 
-  return <div style={{
-    display: 'inline-flex',
-    position: 'relative',
-    overflow: 'hidden',
-    ...style,
-    padding: 0,
+  return <div
+    role={'input-number-wrapper'}
+    style={{
+      display: 'inline-flex',
+      position: 'relative',
+      overflow: 'hidden',
+      ...style,
+      padding: 0,
 
-  }} {...props}>
+    }} {...props}>
     <input
+      role={'input-number'}
       ref={inputRef}
       type={'number'}
       value={localValue}

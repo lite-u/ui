@@ -24,7 +24,7 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalT
   }
 
   return (
-    <div style={{
+    <div role={'input-number-spinner-wrapper'} style={{
       position: 'absolute',
       right: 0,
       top: 0,
@@ -37,6 +37,7 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalT
 
     }}>
       <Button
+        role={'input-number-spinner-up'}
         xs
         onMouseDown={() => startHold('up')}
         onMouseUp={stopHold}
@@ -59,6 +60,7 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalT
         </svg>
       </Button>
       <Button
+        role={'input-number-spinner-down'}
         xs
         onMouseDown={() => startHold('down')}
         onMouseUp={stopHold}
