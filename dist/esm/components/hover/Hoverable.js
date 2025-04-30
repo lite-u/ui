@@ -20,8 +20,8 @@ const Hoverable = ({ tag = 'div', children, onMouseEnter, onMouseOver, onMouseLe
         tag,
         children,
         style: {
-            ...(isActive ? activeStyle : {}),
             ...style,
+            ...(isActive ? activeStyle : {}),
         },
         onMouseEnter: (e) => {
             handleMouseEnter();

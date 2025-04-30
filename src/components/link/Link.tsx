@@ -16,6 +16,9 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
 
   return <Hoverable
     tag={'a'}
+    activeStyle={{
+      color: 'blue',
+    }}
     style={{
       color: '#000',
       cursor: 'pointer',

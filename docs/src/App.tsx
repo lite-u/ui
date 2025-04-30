@@ -28,7 +28,7 @@ function App() {
               SAMPLES.map((item, index) => {
                 return (
                   <MenuItem sm style={{padding: 0}} key={index}>
-                    <Link style={{padding: '4px 20px'}} href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
+                    <Link style={{padding: '0px 20px'}} href={`#${item.name.toLowerCase()}`}>{item.name}</Link>
                   </MenuItem>)
               })
             }

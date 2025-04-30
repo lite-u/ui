@@ -43,8 +43,8 @@ const Hoverable = <T extends ElementType>({
     tag,
     children,
     style: {
-      ...(isActive ? activeStyle : {}),
       ...style,
+      ...(isActive ? activeStyle : {}),
     },
     onMouseEnter: (e) => {
       handleMouseEnter()

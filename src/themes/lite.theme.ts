@@ -1,43 +1,9 @@
-/*
-
-export const liteTheme: ThemeType = {
-  bg: '#ffffff',
-  text: '#111111',
-  primary: '#0750a8',
-  secondary: '#4f46e5',
-  neutral: '#575757',
-  warning: '#ffc107',
-  error: '#ffc107',
-  /!*
-    form: {
-      input: string
-      button: string
-    }*!/
-  padding: {
-    xs: {x: 1, y: 2},
-    sm: {x: 2, y: 4},
-    md: {x: 4, y: 8},
-    lg: {x: 8, y: 16},
-  },
-  borderRadius: {
-    xs: 0,
-    sm: 0,
-    md: 0,
-    lg: 0,
-  },
-  fontSizes: {
-    xs: 10,
-    sm: 12,
-    md: 14,
-    lg: 16,
-  },
-}*/
 const primaryColor = '#0a2e71'
 
 export const liteTheme = {
   colors: {
-    primary: '#007bff',
-    secondary: '#6c757d',
+    primary: primaryColor,
+    secondary: '#007bff',
     success: '#28a745',
     warn: '#ffc107',
     error: '#dc3545',
