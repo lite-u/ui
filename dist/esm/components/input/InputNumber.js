@@ -1,6 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // import {useTheme} from '../../themes/ThemeContext'
 import { useEffect, useRef, useState } from 'react';
+import { SpinnerControl } from './Spinner';
 const scientificBelow = 1e-6;
 const scientificAbove = 1e+6;
 const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, ...props }) => {
@@ -46,26 +47,14 @@ const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, ...props }) 
             display: 'inline-flex',
             position: 'relative',
         }, ...props, children: [_jsx("input", { ref: inputRef, type: 'number', value: localValue, onChange: handleChange, onKeyDown: handleKeyDown, style: {
-                    // borderColor: theme.theme.bg,
                     ...style,
-                }, ...props }), _jsx("span", { onClick: () => {
-                    increment();
-                }, style: {
-                    width: 30,
-                    height: 10,
-                    overflow: 'hidden',
-                    position: 'absolute',
-                    right: 0,
-                    top: 0,
-                }, children: "SpinUP" }), _jsx("span", { onClick: () => {
-                    decrement();
-                }, style: {
-                    width: 30,
-                    height: 10,
-                    overflow: 'hidden',
-                    position: 'absolute',
-                    right: 0,
-                    bottom: 0,
-                }, children: "SpinDown" })] });
+                }, ...props }), _jsx(SpinnerControl, { onStep: (dir) => {
+                    if (dir === 'up') {
+                        increment();
+                    }
+                    else if (dir === 'down') {
+                        decrement();
+                    }
+                } })] });
 };
 export default InputNumber;

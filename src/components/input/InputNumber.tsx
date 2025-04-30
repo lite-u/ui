@@ -1,6 +1,7 @@
 // import {useTheme} from '../../themes/ThemeContext'
 
 import {HTMLProps, useEffect, useRef, useState} from 'react'
+import {SpinnerControl} from './Spinner'
 
 const scientificBelow = 1e-6
 const scientificAbove = 1e+6
@@ -74,31 +75,16 @@ const InputNumber: React.FC<HTMLProps<HTMLInputElement> & {
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       style={{
-        // borderColor: theme.theme.bg,
         ...style,
       }} {...props}/>
-    <span
-      onClick={() => {
+
+    <SpinnerControl onStep={(dir) => {
+      if (dir === 'up') {
         increment()
-      }} style={{
-      width: 30,
-      height: 10,
-      overflow: 'hidden',
-      position: 'absolute',
-      right: 0,
-      top: 0,
-    }}>SpinUP</span>
-    <span onClick={() => {
-      decrement()
-    }}
-          style={{
-            width: 30,
-            height: 10,
-            overflow: 'hidden',
-            position: 'absolute',
-            right: 0,
-            bottom: 0,
-          }}>SpinDown</span>
+      } else if (dir === 'down') {
+        decrement()
+      }
+    }}/>
   </div>
 }
 
