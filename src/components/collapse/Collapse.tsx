@@ -2,14 +2,12 @@ import {ReactNode, useEffect, useRef, useState} from 'react'
 import {Interactable, Transition} from '../../index'
 
 const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
-  children: ReactNode,
   head: ReactNode,
+  onToggle: (isOpen: boolean) => void,
 }> = ({
         head,
         children,
-        onClick,
-        onKeyDown,
-        style = {},
+        onToggle,
         ...props
       }) => {
   const [containerHeight, setContainerHeight] = useState(0)
@@ -18,10 +16,9 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   useEffect(() => {
     if (!containerRef.current) return
-    // console.log(containerRef.current)
 
     const r = containerRef.current.getBoundingClientRect()
-    // console.log(r.height)
+
     setContainerHeight(r.height)
   }, [containerRef.current])
 
@@ -31,6 +28,7 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
                   hover={{background: 'red'}}
                   onClick={() => {
                     setOpen(!open)
+                    onToggle?.(!open)
                   }}>{head}</Interactable>
 
     <Transition

@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 declare const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
-    children: ReactNode;
     head: ReactNode;
+    onToggle: (isOpen: boolean) => void;
 }>;
 export declare const Open: import("react").FC<import("react").HTMLProps<HTMLDivElement> & {
-    children: ReactNode;
     head: ReactNode;
+    onToggle: (isOpen: boolean) => void;
 }>;
 export default Collapse;
