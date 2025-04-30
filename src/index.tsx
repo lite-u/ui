@@ -24,6 +24,7 @@ import Table from './components/table/Table'
 import TableRow from './components/table/TableRow'
 import Polymorphic from './components/polymorphic/Polymorphic'
 import Hoverable from './components/interactive/Hoverable'
+import Interactable from './components/interactive/Interactable'
 
 export {
   Input,
@@ -50,6 +51,7 @@ export {
   useNotification,
   Polymorphic,
   Hoverable,
+  Interactable,
   Table,
   TableRow,
 }

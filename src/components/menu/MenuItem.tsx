@@ -35,7 +35,7 @@ const MenuItem: React.FC<
     styles.fontSize = theme.fontSizes.sm
   }
 
-  console.log(styles)
+  // console.log(styles)
 
   return <Transition visible={true}
                      from={{

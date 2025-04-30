@@ -1,4 +1,4 @@
-import {Col, Row, Title} from '@ui/index.tsx'
+import {Button, Col, Interactable, Row, Select, SelectItem, Title, Tooltip} from '@ui/index.tsx'
 import CodeWrap from '../codeBlock/CodeWrap.tsx'
 
 const Installation: React.FC = () => {
@@ -13,16 +13,38 @@ export const App() {
 }`
 
   return <Col id={'installation'} style={{marginTop: 100}}>
-    <Title h2 sticky>Installation</Title>
+    <Interactable tabIndex={0}
+                  onFocus={() => {
+                    console.log('end')
+                  }}
+                  hover={{
+                    backgroundColor: 'red',
+                  }}
+                  focus={{
+                    backgroundColor: 'blue',
+                  }}
+                  down={{
+                    backgroundColor: 'green',
+                  }}
+    >
+      <Title h2 sticky>Installation</Title>
+      <Select>
+        <SelectItem value={1}>1</SelectItem>
+        <SelectItem value={2}>2</SelectItem>
+        <SelectItem value={3}>3</SelectItem>
+      </Select>
+      <Tooltip title="Installation">
+        <Button>Hello</Button>
+      </Tooltip>
+      <Row>
+        <CodeWrap code={code1}/>
+      </Row>
 
-    <Row>
-      <CodeWrap code={code1}/>
-    </Row>
-
-    <Title h4>Import</Title>
-    <Row>
-      <CodeWrap code={code2}/>
-    </Row>
+      <Title h4>Import</Title>
+      <Row>
+        <CodeWrap code={code2}/>
+      </Row>
+    </Interactable>
   </Col>
 }
 

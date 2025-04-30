@@ -20,7 +20,7 @@ const MenuItem = ({ children, style = {}, sm = false, activeStyle = {
         styles.height = 30;
         styles.fontSize = theme.fontSizes.sm;
     }
-    console.log(styles);
+    // console.log(styles)
     return _jsx(Transition, { visible: true, from: {
             opacity: 0.5,
         }, to: {
