@@ -1,6 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from 'react';
-export const ButtonBase = ({ type = 'button', onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, style = {}, ...props }) => {
+import { Interactable } from '../../index';
+export const ButtonBase = ({ type = 'button', onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, children, style = {}, ...props }) => {
     const [opacity, setOpacity] = useState(1);
     const handleMouseEnter = () => {
         setOpacity(.8);
@@ -17,7 +18,7 @@ export const ButtonBase = ({ type = 'button', onMouseEnter, onMouseOver, onMouse
     const handleMouseUp = () => {
         setOpacity(.8);
     };
-    return (_jsx("button", { type: type, style: {
+    return (_jsx(Interactable, { tag: 'button', type: 'button', style: {
             opacity,
             ...style,
         }, onMouseEnter: (e) => {
@@ -26,15 +27,6 @@ export const ButtonBase = ({ type = 'button', onMouseEnter, onMouseOver, onMouse
         }, onMouseOver: (e) => {
             handleMouseOver();
             onMouseOver && onMouseOver(e);
-        }, onMouseLeave: (e) => {
-            handleMouseLeave();
-            onMouseLeave && onMouseLeave(e);
-        }, onMouseDown: (e) => {
-            handleMouseDown();
-            onMouseDown && onMouseDown(e);
-        }, onMouseUp: (e) => {
-            handleMouseUp();
-            onMouseUp && onMouseUp(e);
-        }, ...props }));
+        }, children: children }));
 };
 export default ButtonBase;

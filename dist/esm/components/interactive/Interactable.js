@@ -1,50 +1,37 @@
+import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from 'react';
-import Polymorphic from '../polymorphic/Polymorphic';
-const Interactable = ({ tag, children, onMouseEnter, onMouseOver, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur, 
-// onHoverEnd,
-// active = {},
-hover = {}, down = {}, focus = {}, style = {}, ...rest }) => {
-    const [isHover, setIsHover] = useState(false);
-    const [isFocus, setIsFocus] = useState(false);
-    const [isDown, setIsDown] = useState(false);
-    return Polymorphic({
-        tag,
-        children,
-        style: {
-            ...style,
-            ...(isHover ? hover : {}),
-            ...(isFocus ? focus : {}),
-            ...(isDown ? down : {}),
-        },
-        onMouseEnter: (e) => {
-            setIsHover(true);
-            onMouseEnter && onMouseEnter(e);
-        },
-        onMouseOver: (e) => {
-            setIsHover(true);
-            onMouseOver && onMouseOver(e);
-        },
-        onMouseLeave: (e) => {
-            setIsHover(false);
-            onMouseLeave && onMouseLeave(e);
-        },
-        onMouseDown: (e) => {
-            setIsDown(true);
-            onMouseDown && onMouseDown(e);
-        },
-        onMouseUp: (e) => {
-            setIsDown(false);
-            onMouseUp && onMouseUp(e);
-        },
-        onFocus: (e) => {
-            setIsFocus(true);
-            onFocus && onFocus(e);
-        },
-        onBlur: (e) => {
-            setIsFocus(false);
-            onBlur && onBlur(e);
-        },
-        ...rest,
-    });
-};
+/**
+ * A polymorphic component that adapts to the given `tag`.
+ */
+function Interactable({ tag = 'div', hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, ...rest }) {
+    const Tag = tag;
+    const [hovered, setHovered] = useState(false);
+    const [focused, setFocused] = useState(false);
+    const [pressed, setPressed] = useState(false);
+    const computedStyle = {
+        ...style,
+        ...(hovered ? hover : {}),
+        ...(focused ? focus : {}),
+        ...(pressed ? active : {}),
+    };
+    return (_jsx(Tag, { ...rest, onMouseEnter: (e) => {
+            setHovered(true);
+            onMouseEnter?.(e);
+        }, onMouseLeave: (e) => {
+            setHovered(false);
+            onMouseLeave?.(e);
+        }, onFocus: (e) => {
+            setFocused(true);
+            onFocus?.(e);
+        }, onBlur: (e) => {
+            setFocused(false);
+            onBlur?.(e);
+        }, onMouseDown: (e) => {
+            setPressed(true);
+            onMouseDown?.(e);
+        }, onMouseUp: (e) => {
+            setPressed(false);
+            onMouseUp?.(e);
+        }, style: computedStyle, children: children }));
+}
 export default Interactable;

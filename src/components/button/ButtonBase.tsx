@@ -1,18 +1,21 @@
 import {useState} from 'react'
+import {Interactable} from '../../index'
 
 export const ButtonBase: React.FC<
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  style?: React.CSSProperties;
-}> = ({
-        type = 'button',
-        onMouseEnter,
-        onMouseOver,
-        onMouseLeave,
-        onMouseDown,
-        onMouseUp,
-        style = {},
-        ...props
-      }) => {
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  {
+    style?: React.CSSProperties;
+  }> = ({
+          type = 'button',
+          onMouseEnter,
+          onMouseOver,
+          onMouseLeave,
+          onMouseDown,
+          onMouseUp,
+          children,
+          style = {},
+          ...props
+        }) => {
   const [opacity, setOpacity] = useState(1)
 
   const handleMouseEnter = () => {
@@ -36,8 +39,9 @@ export const ButtonBase: React.FC<
   }
 
   return (
-    <button
-      type={type}
+    <Interactable
+      tag={'button'}
+      type={'button'}
       style={{
         opacity,
         ...style,
@@ -50,20 +54,33 @@ export const ButtonBase: React.FC<
         handleMouseOver()
         onMouseOver && onMouseOver(e)
       }}
-      onMouseLeave={(e) => {
-        handleMouseLeave()
-        onMouseLeave && onMouseLeave(e)
-      }}
-      onMouseDown={(e) => {
-        handleMouseDown()
-        onMouseDown && onMouseDown(e)
-      }}
-      onMouseUp={(e) => {
-        handleMouseUp()
-        onMouseUp && onMouseUp(e)
-      }}
-      {...props}
-    />
+      /* type={type}
+       style={{
+         opacity,
+         ...style,
+       }}
+       onMouseEnter={(e) => {
+         handleMouseEnter()
+         onMouseEnter && onMouseEnter(e)
+       }}
+       onMouseOver={(e) => {
+         handleMouseOver()
+         onMouseOver && onMouseOver(e)
+       }}
+       onMouseLeave={(e) => {
+         handleMouseLeave()
+         onMouseLeave && onMouseLeave(e)
+       }}
+       onMouseDown={(e) => {
+         handleMouseDown()
+         onMouseDown && onMouseDown(e)
+       }}
+       onMouseUp={(e) => {
+         handleMouseUp()
+         onMouseUp && onMouseUp(e)
+       }}
+       {...props}*/
+    >{children}</Interactable>
   )
 }
 

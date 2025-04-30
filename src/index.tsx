@@ -22,8 +22,6 @@ import Tooltip from './components/tooltip/Tooltip'
 import IconButton from './components/iconButton/IconButton'
 import Table from './components/table/Table'
 import TableRow from './components/table/TableRow'
-import Polymorphic from './components/polymorphic/Polymorphic'
-import Hoverable from './components/interactive/Hoverable'
 import Interactable from './components/interactive/Interactable'
 
 export {
@@ -49,8 +47,6 @@ export {
   Con,
   Drop,
   useNotification,
-  Polymorphic,
-  Hoverable,
   Interactable,
   Table,
   TableRow,

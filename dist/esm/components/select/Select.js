@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row, Transition } from '../../index';
-import Hoverable from '../interactive/Hoverable';
+import Interatable from '../interactive/Interatable';
 const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
@@ -89,7 +89,7 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
                 boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
-            }, ...props, children: [_jsx(Hoverable, { role: 'placeholder', tabIndex: 0, style: {
+            }, ...props, children: [_jsx(Interatable, { role: 'placeholder', tabIndex: 0, style: {
                         height: '100%',
                         borderRadius: itemStyle.borderRadius,
                         fontSize: itemStyle.fontSize,

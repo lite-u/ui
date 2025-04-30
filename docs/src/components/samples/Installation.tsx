@@ -17,7 +17,7 @@ export const App() {
                   type={'reset'}
                   tabIndex={0}
                   onFocus={() => {
-                    console.log('end')
+                    console.log('focus')
                   }}
                   hover={{
                     backgroundColor: 'red',
@@ -25,14 +25,14 @@ export const App() {
                   focus={{
                     backgroundColor: 'blue',
                   }}
-                  down={{
+                  active={{
                     backgroundColor: 'green',
                   }}
     >AAAA</Interactable>
 
     <Interactable tag={'div'} tabIndex={0}
                   onFocus={() => {
-                    console.log('end')
+                    console.log('focus')
                   }}
                   hover={{
                     backgroundColor: 'red',
@@ -40,7 +40,7 @@ export const App() {
                   focus={{
                     backgroundColor: 'blue',
                   }}
-                  down={{
+                  active={{
                     backgroundColor: 'green',
                   }}
     >

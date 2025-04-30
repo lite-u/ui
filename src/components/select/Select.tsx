@@ -1,7 +1,7 @@
 import React, {CSSProperties, HTMLProps, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
-import Hoverable from '../interactive/Hoverable'
+import Interactable from '../interactive/Interactable'
 
 export type SelectSize = 'sm' | 'md' | 'lg'
 const Select: React.FC<HTMLProps<HTMLDivElement> & {
@@ -129,7 +129,8 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
          }}
          {...props}>
 
-      <Hoverable
+      <Interactable
+        tag={'div'}
         role={'placeholder'}
         tabIndex={0}
         style={{
@@ -141,7 +142,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         onClick={() => {
           handleOpen()
         }}
-        onKeyDown={(e) => {
+        onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
           if (e.code.toLowerCase() === 'space') {
             e.preventDefault()
             handleOpen()
@@ -169,7 +170,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
             </svg>
           </Transition>
         </Row>
-      </Hoverable>
+      </Interactable>
 
       <Transition visible={openSelect}
                   duration={animationDuration}

@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
-import Hoverable from '../interactive/Hoverable'
+import Interactable from '../interactive/Interactable'
 
 const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string,
@@ -38,22 +38,24 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   return (
-    <Hoverable tabIndex={0}
-                  style={styles}
-                  onKeyDown={(e) => {
-                    const key = e.code.toLowerCase()
-                    if (key === 'space' || key === 'enter') {
-                      e.preventDefault()
-                      itemClick(value)
-                    }
-                    onKeyDown && onKeyDown(e)
-                  }}
-                  onClick={(e) => {
-                    itemClick(value)
-                    onClick && onClick(e)
-                  }} {...props}>
+    <Interactable
+      tag={'div'}
+      tabIndex={0}
+      style={styles}
+      onKeyDown={(e) => {
+        const key = e.code.toLowerCase()
+        if (key === 'space' || key === 'enter') {
+          e.preventDefault()
+          itemClick(value)
+        }
+        onKeyDown && onKeyDown(e)
+      }}
+      onClick={(e) => {
+        itemClick(value)
+        onClick && onClick(e)
+      }} {...props}>
       {children}
-    </Hoverable>
+    </Interactable>
   )
 }
 

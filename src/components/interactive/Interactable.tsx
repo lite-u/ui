@@ -1,74 +1,100 @@
-import {CSSProperties, ElementType, useState} from 'react'
-import Polymorphic, {PolymorphicProps} from '../polymorphic/Polymorphic'
+import React, {
+  CSSProperties,
+  ElementType,
+  FocusEventHandler,
+  // KeyboardEvent,
+  // KeyboardEventHandler,
+  MouseEventHandler,
+  useState,
+} from 'react'
+import {JSX} from 'react/jsx-runtime'
+import IntrinsicElements = JSX.IntrinsicElements
 
-type InteractableProps<T extends ElementType> = {
-  tag: T,
+type PolymorphicTag = keyof HTMLElementTagNameMap;
+
+type InteractableBaseProps<T extends PolymorphicTag> = {
+  tag?: PolymorphicTag;
   hover?: CSSProperties;
   focus?: CSSProperties;
-  down?: CSSProperties;
-} & PolymorphicProps<T>
+  active?: CSSProperties;
+  style?: CSSProperties;
+  children?: React.ReactNode;
+  onMouseEnter?: MouseEventHandler<HTMLElementTagNameMap[T]>
+  onMouseLeave?: MouseEventHandler<HTMLElementTagNameMap[T]>
+  onFocus?: FocusEventHandler<HTMLElementTagNameMap[T]>
+  onBlur?: FocusEventHandler<HTMLElementTagNameMap[T]>
+  onMouseDown?: MouseEventHandler<HTMLElementTagNameMap[T]>
+  onMouseUp?: MouseEventHandler<HTMLElementTagNameMap[T]>
+  // onKeyDown?: KeyboardEventHandler<HTMLElementTagNameMap[T]>
+} & IntrinsicElements[T];
 
-const Interactable = <T extends ElementType>({
-                                               tag,
-                                               children,
-                                               onMouseEnter,
-                                               onMouseOver,
-                                               onMouseLeave,
-                                               onMouseDown,
-                                               onMouseUp,
-                                               onFocus,
-                                               onBlur,
-                                               // onHoverEnd,
-                                               // active = {},
-                                               hover = {},
-                                               down = {},
-                                               focus = {},
-                                               style = {},
-                                               ...rest
-                                             }: InteractableProps<T>) => {
-  const [isHover, setIsHover] = useState(false)
-  const [isFocus, setIsFocus] = useState(false)
-  const [isDown, setIsDown] = useState(false)
+/**
+ * A polymorphic component that adapts to the given `tag`.
+ */
+function Interactable<T extends PolymorphicTag>({
+                                                  tag,
+                                                  hover,
+                                                  focus,
+                                                  active,
+                                                  style,
+                                                  children,
+                                                  onMouseEnter,
+                                                  onMouseLeave,
+                                                  onFocus,
+                                                  onBlur,
+                                                  onMouseDown,
+                                                  onMouseUp,
+                                                  onKeyDown,
+                                                  ...rest
+                                                }: InteractableBaseProps<T>) {
+  const Tag = tag as ElementType
+  const [hovered, setHovered] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [pressed, setPressed] = useState(false)
 
-  return Polymorphic({
-    tag,
-    children,
-    style: {
-      ...style,
-      ...(isHover ? hover : {}),
-      ...(isFocus ? focus : {}),
-      ...(isDown ? down : {}),
-    },
-    onMouseEnter: (e) => {
-      setIsHover(true)
-      onMouseEnter && onMouseEnter(e)
-    },
-    onMouseOver: (e) => {
-      setIsHover(true)
-      onMouseOver && onMouseOver(e)
-    },
-    onMouseLeave: (e) => {
-      setIsHover(false)
-      onMouseLeave && onMouseLeave(e)
-    },
-    onMouseDown: (e) => {
-      setIsDown(true)
-      onMouseDown && onMouseDown(e)
-    },
-    onMouseUp: (e) => {
-      setIsDown(false)
-      onMouseUp && onMouseUp(e)
-    },
-    onFocus: (e) => {
-      setIsFocus(true)
-      onFocus && onFocus(e)
-    },
-    onBlur: (e) => {
-      setIsFocus(false)
-      onBlur && onBlur(e)
-    },
-    ...rest,
-  })
+  const computedStyle: CSSProperties = {
+    ...style,
+    ...(hovered ? hover : {}),
+    ...(focused ? focus : {}),
+    ...(pressed ? active : {}),
+  }
+
+  return (
+    <Tag
+      {...rest}
+/*      onKeyDown={(e: KeyboardEvent<HTMLElementTagNameMap[T]>) => {
+        setHovered(true)
+        onKeyDown?.(e)
+      }}*/
+      onMouseEnter={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        setHovered(true)
+        onMouseEnter?.(e)
+      }}
+      onMouseLeave={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        setHovered(false)
+        onMouseLeave?.(e)
+      }}
+      onFocus={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
+        setFocused(true)
+        onFocus?.(e)
+      }}
+      onBlur={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
+        setFocused(false)
+        onBlur?.(e)
+      }}
+      onMouseDown={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        setPressed(true)
+        onMouseDown?.(e)
+      }}
+      onMouseUp={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        setPressed(false)
+        onMouseUp?.(e)
+      }}
+      style={computedStyle}
+    >
+      {children}
+    </Tag>
+  )
 }
 
 export default Interactable

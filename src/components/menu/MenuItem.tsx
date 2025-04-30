@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import Hoverable from '../interactive/Hoverable'
+import Interactable from '../interactive/Interactable'
 import {Transition} from '../../index'
 
 const MenuItem: React.FC<
@@ -44,16 +44,17 @@ const MenuItem: React.FC<
                      to={{
                        opacity: 1,
                      }}>
-    <Hoverable
+    <Interactable
+      tag={'div'}
       role={'menu-item'}
-      activeStyle={activeStyle}
+      hover={activeStyle}
       style={{
         ...styles,
         ...style,
       }}
       {...props}>
       {children}
-    </Hoverable>
+    </Interactable>
   </Transition>
 }
 
