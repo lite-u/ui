@@ -43,17 +43,18 @@ const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, interva
         setLocalValue(Number(e.target.value));
         onChange && onChange(e);
     };
-    return _jsxs("div", { style: {
+    return _jsxs("div", { role: 'input-number-wrapper', style: {
             display: 'inline-flex',
             position: 'relative',
             overflow: 'hidden',
             ...style,
             padding: 0,
-        }, ...props, children: [_jsx("input", { ref: inputRef, type: 'number', value: localValue, onChange: handleChange, onKeyDown: handleKeyDown, style: {
+        }, ...props, children: [_jsx("input", { role: 'input-number', ref: inputRef, type: 'number', value: localValue, onChange: handleChange, onKeyDown: handleKeyDown, style: {
                     padding: style.padding,
                     outline: 'none',
                     backgroundColor: 'transparent',
                     border: 'none',
+                    color: style.color,
                     // ...style,
                 }, ...props }), _jsx(SpinnerControl, { intervalTime: intervalTime, onStep: (dir) => {
                     if (dir === 'up') {

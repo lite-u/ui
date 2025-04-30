@@ -89,16 +89,18 @@ const InputNumber: React.FC<InputNumberProps> = ({
         outline: 'none',
         backgroundColor: 'transparent',
         border: 'none',
+        color: style.color,
         // ...style,
       }} {...props}/>
 
-    <SpinnerControl intervalTime={intervalTime} onStep={(dir) => {
-      if (dir === 'up') {
-        increment()
-      } else if (dir === 'down') {
-        decrement()
-      }
-    }}/>
+    <SpinnerControl intervalTime={intervalTime}
+                    onStep={(dir) => {
+                      if (dir === 'up') {
+                        increment()
+                      } else if (dir === 'down') {
+                        decrement()
+                      }
+                    }}/>
   </div>
 }
 

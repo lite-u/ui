@@ -15,7 +15,7 @@ export const SpinnerControl = ({ onStep, intervalTime = 100 }) => {
             intervalRef.current = null;
         }
     };
-    return (_jsxs("div", { style: {
+    return (_jsxs("div", { role: 'input-number-spinner-wrapper', style: {
             position: 'absolute',
             right: 0,
             top: 0,
@@ -25,7 +25,7 @@ export const SpinnerControl = ({ onStep, intervalTime = 100 }) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'stretch',
-        }, children: [_jsx(Button, { xs: true, onMouseDown: () => startHold('up'), onMouseUp: stopHold, onMouseLeave: stopHold, style: {
+        }, children: [_jsx(Button, { role: 'input-number-spinner-up', xs: true, onMouseDown: () => startHold('up'), onMouseUp: stopHold, onMouseLeave: stopHold, style: {
                     // width: '100%',
                     // height: '50%',
                     flex: 1,
@@ -35,7 +35,7 @@ export const SpinnerControl = ({ onStep, intervalTime = 100 }) => {
                     background: '#dfdfdf',
                     boxShadow: '0 0 1px 0 #fff',
                     // cursor: 'pointer',
-                }, children: _jsx("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "18 15 12 9 6 15" }) }) }), _jsx(Button, { xs: true, onMouseDown: () => startHold('down'), onMouseUp: stopHold, onMouseLeave: stopHold, style: {
+                }, children: _jsx("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "18 15 12 9 6 15" }) }) }), _jsx(Button, { role: 'input-number-spinner-down', xs: true, onMouseDown: () => startHold('down'), onMouseUp: stopHold, onMouseLeave: stopHold, style: {
                     // width: '100%',
                     // height: '50%',
                     flex: 1,
