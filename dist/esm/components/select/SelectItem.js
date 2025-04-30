@@ -23,7 +23,9 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         ...bgStyle,
         ...style,
     };
-    return (_jsx(Interactable, { tag: 'div', tabIndex: 0, style: styles, onKeyDown: (e) => {
+    return (_jsx(Interactable, { role: 'select-item', tag: 'div', tabIndex: 0, style: styles, hover: {
+            backgroundColor: '#dfdfdf',
+        }, onKeyDown: (e) => {
             const key = e.code.toLowerCase();
             if (key === 'space' || key === 'enter') {
                 e.preventDefault();

@@ -39,9 +39,13 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
 
   return (
     <Interactable
+      role={'select-item'}
       tag={'div'}
       tabIndex={0}
       style={styles}
+      hover={{
+        backgroundColor: '#dfdfdf',
+      }}
       onKeyDown={(e) => {
         const key = e.code.toLowerCase()
         if (key === 'space' || key === 'enter') {
