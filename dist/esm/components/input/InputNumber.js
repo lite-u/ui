@@ -4,17 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import { SpinnerControl } from './Spinner';
 const scientificBelow = 1e-6;
 const scientificAbove = 1e+6;
-const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, ...props }) => {
+const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, intervalTime = 100, ...props }) => {
     // const theme = useTheme()
     const [localValue, setLocalValue] = useState(0);
     const inputRef = useRef(null);
-    const presicion = 6;
+    const precision = 6;
     const [localStep, setLocalStep] = useState(step);
     const increment = () => setLocalValue(prev => {
-        return parseFloat((prev + localStep).toFixed(presicion));
+        return parseFloat((prev + localStep).toFixed(precision));
     });
     const decrement = () => setLocalValue(prev => {
-        return parseFloat((prev - localStep).toFixed(presicion));
+        return parseFloat((prev - localStep).toFixed(precision));
     });
     useEffect(() => {
         if (!isNaN(value)) {
@@ -55,7 +55,7 @@ const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, ...props }) 
                     backgroundColor: 'transparent',
                     border: 'none',
                     // ...style,
-                }, ...props }), _jsx(SpinnerControl, { onStep: (dir) => {
+                }, ...props }), _jsx(SpinnerControl, { intervalTime: intervalTime, onStep: (dir) => {
                     if (dir === 'up') {
                         increment();
                     }

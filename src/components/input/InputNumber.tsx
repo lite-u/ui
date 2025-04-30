@@ -5,30 +5,33 @@ import {SpinnerControl} from './Spinner'
 
 const scientificBelow = 1e-6
 const scientificAbove = 1e+6
+
 const InputNumber: React.FC<HTMLProps<HTMLInputElement> & {
   style: React.CSSProperties,
   value: number,
   step: number
+  intervalTime?: number
 }> = ({
         style,
         step = 1,
         value,
         onKeyDown,
         onChange,
+        intervalTime = 100,
         ...props
       }) => {
   // const theme = useTheme()
   const [localValue, setLocalValue] = useState<number>(0)
   const inputRef = useRef(null)
-  const presicion = 6
+  const precision = 6
   const [localStep, setLocalStep] = useState(step)
 
   const increment = () => setLocalValue(prev => {
-    return parseFloat((prev + localStep).toFixed(presicion))
+    return parseFloat((prev + localStep).toFixed(precision))
   })
 
   const decrement = () => setLocalValue(prev => {
-    return parseFloat((prev - localStep).toFixed(presicion))
+    return parseFloat((prev - localStep).toFixed(precision))
   })
 
   useEffect(() => {
@@ -86,7 +89,7 @@ const InputNumber: React.FC<HTMLProps<HTMLInputElement> & {
         // ...style,
       }} {...props}/>
 
-    <SpinnerControl onStep={(dir) => {
+    <SpinnerControl intervalTime={intervalTime} onStep={(dir) => {
       if (dir === 'up') {
         increment()
       } else if (dir === 'down') {

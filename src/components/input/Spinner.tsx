@@ -2,17 +2,18 @@ import React, {useRef} from 'react'
 import {Button} from '../../index'
 
 type SpinnerControlProps = {
+  intervalTime?: number
   onStep: (dir: 'up' | 'down') => void;
 };
 
-export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
+export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalTime = 100}) => {
   const intervalRef = useRef<number | null>(null)
 
   const startHold = (dir: 'up' | 'down') => {
     onStep(dir) // fire immediately
     intervalRef.current = window.setInterval(() => {
       onStep(dir)
-    }, 100)
+    }, intervalTime)
   }
 
   const stopHold = () => {
@@ -32,6 +33,8 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
       overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
+      justifyContent: 'stretch',
+
     }}>
       <Button
         xs
@@ -39,10 +42,14 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
         onMouseUp={stopHold}
         onMouseLeave={stopHold}
         style={{
-          width: '100%',
-          height: '50%',
+          // width: '100%',
+          // height: '50%',
+          flex: 1,
           padding: 0,
-          // borderBottom: '1px solid #ccc',
+          borderRadius: 0,
+          color: 'white',
+          background: '#dfdfdf',
+          boxShadow: '0 0 1px 0 #fff',
           // cursor: 'pointer',
         }}
       >
@@ -57,9 +64,13 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep}) => {
         onMouseUp={stopHold}
         onMouseLeave={stopHold}
         style={{
-          width: '100%',
-          height: '50%',
+          // width: '100%',
+          // height: '50%',
+          flex: 1,
           padding: 0,
+          borderRadius: 0,
+          color: 'white',
+          background: '#dfdfdf',
         }}
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
