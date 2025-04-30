@@ -1,8 +1,8 @@
 import LiteUIProvider, {Flex} from '@ui/index'
 import {Col, Link, Menu, MenuItem} from '@ui/index.tsx'
-import Installation from '@samples/Installation.tsx'
-import SAMPLES from '@samples/index.tsx'
-import SampleBase from '@samples/SampleBase.tsx'
+import Installation from './pages/Installation.tsx'
+import SAMPLES from './pages'
+import SampleBase from './pages/SampleBase.tsx'
 import Collapse from '@ui/components/collapse/Collapse.tsx'
 
 function App() {

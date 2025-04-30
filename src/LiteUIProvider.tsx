@@ -3,7 +3,7 @@ import {liteTheme} from './themes/lite.theme'
 import {darkTheme} from './themes/dark'
 import {ThemeType} from './themes/type'
 import NotificationProvider from './components/notification/NotificationProvider'
-
+/* eslint disable */
 export const LiteUIContext = createContext<{
   theme: ThemeType
   setTheme: (mode: 'lite' | 'dark') => void
