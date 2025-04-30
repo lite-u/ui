@@ -1,5 +1,5 @@
 import {ReactNode} from 'react'
-import Hoverable from '../hover/Hoverable'
+import Hoverable from '../interactive/Hoverable'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
 const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {

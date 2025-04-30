@@ -10,5 +10,6 @@ declare const Select: React.FC<HTMLProps<HTMLDivElement> & {
     lg?: boolean;
     size?: SelectSize;
     style?: {};
+    onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
 }>;
 export default Select;

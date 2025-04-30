@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import Hoverable from '../hover/Hoverable'
+import Hoverable from '../interactive/Hoverable'
 import {Transition} from '../../index'
 
 const MenuItem: React.FC<
@@ -41,7 +41,6 @@ const MenuItem: React.FC<
                      from={{
                        opacity: 0.5,
                      }}
-
                      to={{
                        opacity: 1,
                      }}>

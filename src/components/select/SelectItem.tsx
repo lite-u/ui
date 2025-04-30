@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
-import Hoverable from '../hover/Hoverable'
+import Hoverable from '../interactive/Hoverable'
 
 const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   label?: string,
