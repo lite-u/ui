@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { SpinnerControl } from './Spinner';
 const scientificBelow = 1e-6;
 const scientificAbove = 1e+6;
-const InputNumber = ({ style, step = 1, value, onKeyDown, onChange, intervalTime = 100, ...props }) => {
+const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, intervalTime = 100, ...props }) => {
     // const theme = useTheme()
     const [localValue, setLocalValue] = useState(0);
     const inputRef = useRef(null);
