@@ -16,8 +16,8 @@ const ButtonsSamples: React.FC = () => {
 
           return <div key={buttonVar}>
             <Title h5 style={{marginTop: blockMT, fontWeight: 'normal'}}>{buttonVar}</Title>
-            <Row justifyContent={'between'}
-                 alignItems={'end'}
+            <Row between
+                 end
                  space={10}
                  w={wrapperWidth}
                  style={{
