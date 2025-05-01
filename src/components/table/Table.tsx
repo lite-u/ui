@@ -30,7 +30,7 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
   fh?: boolean,
 
   /**
-   * Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to fixed
+   * Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to **fixed**
    * @default false
    */
   fixed?: boolean,

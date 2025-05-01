@@ -540,7 +540,7 @@
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be fixed"
+        "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to **fixed**"
       },
       "rowStyle": {
         "type": "CSSProperties",
