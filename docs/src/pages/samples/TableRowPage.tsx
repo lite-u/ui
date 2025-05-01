@@ -2,9 +2,8 @@ import {Col, Con, Flex, Row, Table, TableRow} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock'
 import {NavLink} from 'react-router'
 
-const TableRowPage: React.FC = () => {
+const TablePage: React.FC = () => {
   return <Col id={'col'}>
-
     <Row space={10} mt={10} wrap>
       <Flex col minH={260} w={200}>
         <UsageBlock title={'XS Size'} style={{flex: 1}}>
@@ -26,11 +25,11 @@ const TableRowPage: React.FC = () => {
       </Flex>
     </Row>
 
-    <Con>
-      See also <NavLink to={'components/table'}>refer Table Component</NavLink>
+    <Con mt={50} fz={16}>
+      See also <NavLink to={'/components/tablerow'}>tablerow</NavLink>
     </Con>
 
   </Col>
 }
 
-export default TableRowPage
+export default TablePage

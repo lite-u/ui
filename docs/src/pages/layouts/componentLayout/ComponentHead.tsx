@@ -38,7 +38,6 @@ const ComponentHead = () => {
       <Title h4 id="description"><Link href={'#description'}># Description</Link></Title>
 
       <Con mt={10}></Con>
-
       <Con pl={20} fz={16} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{intro}</MDBlock>
       </Con>
@@ -46,6 +45,8 @@ const ComponentHead = () => {
       <Con mt={space}></Con>
       <Title h4 id="usage"><Link href={'#usage'}># Usage</Link></Title>
 
+
+      <Con mt={10}></Con>
       <CodeWrap style={{maxWidth: 400}} code={`
       import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' 
       \n ${example}

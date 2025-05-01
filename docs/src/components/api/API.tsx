@@ -20,7 +20,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
   return <Con mb={20}>
     <Table fw fh
-           l
+           m
            style={{
              fontSize: 14,
            }}
