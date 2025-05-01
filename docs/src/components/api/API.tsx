@@ -46,15 +46,15 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
           return <TableRow key={index}>
             <span style={firstColStyle}>{key}</span>
-            <span>{type}</span>
+            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type}/>
             <div>
-
               {defaultValue ?
                 <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={defaultValue.toString()}/> : '-'}
             </div>
             {/* <span
               style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>*/}
-            <span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
+            {/*<span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>*/}
+            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={required.toString()}/>
 
             <p style={lastColStyle}>{description}</p>
           </TableRow>
