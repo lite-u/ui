@@ -1,4 +1,5 @@
 import {Table, TableRow} from '@lite-u/ui'
+import {CSSProperties} from 'react'
 
 type APIType = {
   defaultValue: null | boolean | string
@@ -6,37 +7,51 @@ type APIType = {
   required: false
   type: 'boolean'
 }
+
 const API = ({data}: { data: Record<string, APIType> }) => {
   if (!data) return null
+  // const headCellStyle = {minWidth: 100}
+  const firstColStyle: CSSProperties = {width: '100%', textAlign: 'left', paddingLeft: 10}
+  const lastColStyle: CSSProperties = {
+    width: '100%', textAlign: 'left', paddingLeft: 10, whiteSpace: 'wrap',
+  }
+
   return <div>
-    <Table fw fh fixed
+    <Table fw fh
            style={{
              fontSize: 14,
            }}
+      // headCellStyle={headCellStyle}
            cellStyle={{
              whiteSpace: 'pre-wrap',
              wordWrap: 'break-word',
              wordBreak: 'break-word',
+             minWidth: 100,
            }}
     >
       <TableRow head>
-        <span>name</span>
+        <p style={firstColStyle}>Property</p>
         <span>type</span>
+        <span>Default Value</span>
         <span>required</span>
-        <span>defaultValue</span>
-        <span>description</span>
+        <p style={lastColStyle}>description</p>
       </TableRow>
+
       {
         Object.keys(data).map((key, index) => {
-          return <TableRow key={index}>
-            <span>{key}</span>
-            <span>{data[key].type}</span>
-            <span>{data[key].required.toString()}</span>
-            <span>{data[key].defaultValue ? data[key].defaultValue.toString() : '-'}</span>
-            <span style={{
-              whiteSpace: 'wrap',
-            }}>{data[key].description}</span>
-          </TableRow>
+          const {type, required, defaultValue, description} = data[key]
+
+          return (
+            <TableRow key={index}>
+              <span style={firstColStyle}>{key}</span>
+              <span>{type}</span>
+              <span
+                style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>
+              <span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
+
+              <p style={lastColStyle}>{description}</p>
+            </TableRow>
+          )
         })
       }
     </Table>

@@ -15,7 +15,7 @@ const ComponentAPI = () => {
   // console.log(OUTPUT_JSON[COMP_ROUTE.apiNameKey])
 
   return <Con>
-    <Col w={500}>
+    <Col w={'auto'}>
       <Title id={COMP_ROUTE.to} sticky>API</Title>
 
       <API data={OUTPUT_JSON[COMP_ROUTE.apiNameKey]}/>

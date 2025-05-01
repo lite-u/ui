@@ -50,8 +50,11 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
   }
 
   const cellDivStyle = {
+    width: '100%',
+    height: '100%',
     display: 'inline-flex',
     justifyContent: 'center',
+    alignItems: 'center',
   }
 
   return <tr
