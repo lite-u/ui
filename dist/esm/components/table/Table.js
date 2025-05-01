@@ -6,6 +6,7 @@ import { useLiteUIContext } from '../../LiteUIProvider';
 const TableContext = createContext({
     storedRowStyle: {},
     storedCellStyle: {},
+    storedRowHoveredStyle: {},
 });
 /**
  * Table
@@ -35,7 +36,7 @@ const TableContext = createContext({
  *   </TableRow>
  * </Table>
  */
-const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {}, cellStyle = {}, ...props }) => {
+const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {}, rowHoverStyle = {}, cellStyle = {}, ...props }) => {
     const { theme } = useLiteUIContext();
     // console.log(theme.)
     const filteredChildren = [];
@@ -76,6 +77,10 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
         sizedRowStyle.height = theme.table.row.lg.height;
         sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`;
     }
+    const storedRowHoveredStyle = {
+        backgroundColor: '#dfdfdf',
+        ...rowHoverStyle,
+    };
     const storedRowStyle = {
         borderBottom: '1px solid #b5b5b5',
         color: '#292929',
@@ -89,6 +94,7 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
     return _jsx(TableContext.Provider, { value: {
             storedRowStyle,
             storedCellStyle,
+            storedRowHoveredStyle,
         }, children: _jsx(TableBase, { style: { ...tableStyle, ...style }, ...props, children: filteredChildren }) });
 };
 export const useTableContext = () => useContext(TableContext);

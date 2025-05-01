@@ -21,22 +21,27 @@ import { useTableContext } from './Table';
  * </Table>
  */
 const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLeave, ...props }) => {
-    const [bodyRowStyle, setBodyRowStyle] = useState({});
-    const { storedRowStyle, storedCellStyle } = useTableContext();
+    const [bodyRowHoverStyle, setBodyRowHoverStyle] = useState({});
+    const { storedRowHoveredStyle, storedRowStyle, storedCellStyle } = useTableContext();
     const handleMouseEnter = () => {
         if (!head) {
-            setBodyRowStyle({
-                backgroundColor: '#dfdfdf',
-            });
+            setBodyRowHoverStyle(storedRowHoveredStyle);
         }
     };
     const handleMouseLeave = () => {
-        setBodyRowStyle({});
+        setBodyRowHoverStyle({});
     };
-    let nodes = Children.toArray(children);
+    // console.log(theme.)
+    // const filteredChildren: ReactNode[] = []
+    let filteredChildren = [];
+    Children.forEach(children, (child) => {
+        // @ts-ignore
+        if (child.type) {
+            filteredChildren.push(child);
+        }
+    });
     const rowStyle = {
         ...storedRowStyle,
-        ...bodyRowStyle,
     };
     const cellStyle = {
         // padding: '6px 10px',
@@ -58,10 +63,11 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
             onMouseLeave && onMouseLeave(e);
         }, style: {
             textAlign: 'center',
-            height: 40,
+            // height: 40,
             ...rowStyle,
             ...style,
-        }, ...props, children: nodes?.map((child, index) => {
+            ...bodyRowHoverStyle,
+        }, ...props, children: filteredChildren?.map((child, index) => {
             return head ?
                 _jsx("th", { style: cellStyle, children: _jsx("div", { style: cellDivStyle, children: child }) }, index) :
                 _jsx("td", { style: cellStyle, children: _jsx("div", { style: cellDivStyle, children: child }) }, index);

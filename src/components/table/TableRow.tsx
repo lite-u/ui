@@ -38,26 +38,31 @@ const TableRow: TableRowProps = ({
                                    onMouseLeave,
                                    ...props
                                  }) => {
-  const [bodyRowStyle, setBodyRowStyle] = useState<CSSProperties>({})
-  const {storedRowStyle, storedCellStyle} = useTableContext()
+  const [bodyRowHoverStyle, setBodyRowHoverStyle] = useState<CSSProperties>({})
+  const {storedRowHoveredStyle, storedRowStyle, storedCellStyle} = useTableContext()
 
   const handleMouseEnter = () => {
     if (!head) {
-      setBodyRowStyle({
-        backgroundColor: '#dfdfdf',
-      })
+      setBodyRowHoverStyle(storedRowHoveredStyle)
     }
   }
 
   const handleMouseLeave = () => {
-    setBodyRowStyle({})
+    setBodyRowHoverStyle({})
   }
+  // console.log(theme.)
+  // const filteredChildren: ReactNode[] = []
+  let filteredChildren: ReactNode[] = []
 
-  let nodes: ReactNode[] = Children.toArray(children)
+  Children.forEach(children, (child) => {
+    // @ts-ignore
+    if (child.type) {
+      filteredChildren.push(child)
+    }
+  })
 
   const rowStyle = {
     ...storedRowStyle,
-    ...bodyRowStyle,
   }
 
   const cellStyle = {
@@ -85,12 +90,13 @@ const TableRow: TableRowProps = ({
     }}
     style={{
       textAlign: 'center',
-      height: 40,
+      // height: 40,
       ...rowStyle,
       ...style,
+      ...bodyRowHoverStyle,
     }} {...props}>
     {
-      nodes?.map((child, index) => {
+      filteredChildren?.map((child, index) => {
         return head ?
           <th style={cellStyle} key={index}>
             <div style={cellDivStyle}>{child}</div>

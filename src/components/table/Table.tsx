@@ -6,9 +6,11 @@ import {useLiteUIContext} from '../../LiteUIProvider'
 const TableContext = createContext<{
   storedRowStyle: CSSProperties,
   storedCellStyle: CSSProperties,
+  storedRowHoveredStyle: CSSProperties,
 }>({
   storedRowStyle: {},
   storedCellStyle: {},
+  storedRowHoveredStyle: {},
 })
 
 export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
@@ -39,6 +41,10 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
    * Style object for table rows
    */
   rowStyle?: CSSProperties,
+  /**
+   * Style object for table body rows hovered
+   */
+  rowHoverStyle?: CSSProperties,
 
   /**
    * Style object for table cells
@@ -87,6 +93,7 @@ const Table: TableProps = ({
                              fixed = false,
                              style = {},
                              rowStyle = {},
+                             rowHoverStyle = {},
                              cellStyle = {},
                              ...props
                            }) => {
@@ -139,6 +146,11 @@ const Table: TableProps = ({
     sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`
   }
 
+  const storedRowHoveredStyle: CSSProperties = {
+    backgroundColor: '#dfdfdf',
+    ...rowHoverStyle,
+  }
+
   const storedRowStyle: CSSProperties = {
     borderBottom: '1px solid #b5b5b5',
     color: '#292929',
@@ -154,6 +166,7 @@ const Table: TableProps = ({
   return <TableContext.Provider value={{
     storedRowStyle,
     storedCellStyle,
+    storedRowHoveredStyle,
   }}>
     <TableBase
       style={{...tableStyle, ...style}}

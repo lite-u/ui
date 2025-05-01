@@ -24,6 +24,10 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
      */
     rowStyle?: CSSProperties;
     /**
+     * Style object for table body rows hovered
+     */
+    rowHoverStyle?: CSSProperties;
+    /**
      * Style object for table cells
      */
     cellStyle?: CSSProperties;
@@ -61,5 +65,6 @@ declare const Table: TableProps;
 export declare const useTableContext: () => {
     storedRowStyle: CSSProperties;
     storedCellStyle: CSSProperties;
+    storedRowHoveredStyle: CSSProperties;
 };
 export default Table;
