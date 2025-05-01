@@ -1,11 +1,12 @@
 import {CSSProperties, ReactNode, useState} from 'react'
 import {useTableContext} from './Table'
 
-const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
-  children: ReactNode[],
+export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
+  children: ReactNode,
   head?: boolean,
   style?: {}
-}> = ({
+}>
+const TableRow: TableRowProps = ({
         children,
         head = false,
         style = {},

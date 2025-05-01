@@ -1,5 +1,6 @@
 import TableBase from './TableBase'
-import {createContext, CSSProperties, useContext} from 'react'
+import {Children, createContext, CSSProperties, ReactElement, ReactNode, useContext} from 'react'
+import TableRow, {TableRowProps} from './TableRow'
 
 const TableContext = createContext<{
   storedRowStyle: CSSProperties,
@@ -9,29 +10,63 @@ const TableContext = createContext<{
   storedCellStyle: {},
 })
 
-const Table: React.FC<React.HTMLProps<HTMLTableElement> & {
-  fw?: boolean,
-  fh?: boolean,
+export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
   /**
-   * CSSProperties['tableLayout']
+   * Whether the table should take up the full width of its parent
+   * @default false
+   */
+  fw?: boolean,
+
+  /**
+   * Whether the table should take up the full height of its parent
+   * @default false
+   */
+  fh?: boolean,
+
+  /**
+   * Whether the table layout should be fixed
+   * @default false
    */
   fixed?: boolean,
-  // style?: CSSProperties
-  rowStyle?: CSSProperties
-  cellStyle?: CSSProperties
-}> = ({
-        children,
-        fw = false,
-        fh = true,
-        fixed = false,
-        style = {},
-        rowStyle = {},
-        cellStyle = {},
-        ...props
-      }) => {
 
-  // const [storedRowStyle, setStoredRowStyle] = useState(rowStyle)
-  // const [storedCellStyle, setStoredCellStyle] = useState(cellStyle)
+  /**
+   * Style object for table rows
+   */
+  rowStyle?: CSSProperties,
+
+  /**
+   * Style object for table cells
+   */
+  cellStyle?: CSSProperties
+  children: ReactElement<TableRowProps>[]
+}>
+
+/**
+ * Table Component
+ * Accept
+ * @default false
+ */
+
+const Table: TableProps = ({
+                             children = [],
+                             fw = false,
+                             fh = true,
+                             fixed = false,
+                             style = {},
+                             rowStyle = {},
+                             cellStyle = {},
+                             ...props
+                           }) => {
+  const filteredChildren: ReactNode[] = []
+
+  Children.forEach(children, (child) => {
+    if (child.type !== TableRow) {
+      console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`)
+      return
+    }
+
+    filteredChildren.push(child)
+  })
 
   return <TableContext.Provider value={{
     // borderStyle,
@@ -48,7 +83,7 @@ const Table: React.FC<React.HTMLProps<HTMLTableElement> & {
       }}
       {...props}
     >
-      {children}
+      {filteredChildren}
     </TableBase>
   </TableContext.Provider>
 }

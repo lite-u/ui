@@ -443,31 +443,31 @@
       "type": "boolean",
       "required": false,
       "defaultValue": null,
-      "description": ""
+      "description": "Whether the table should take up the full width of its parent"
     },
     "fh": {
       "type": "boolean",
       "required": false,
       "defaultValue": true,
-      "description": ""
+      "description": "Whether the table should take up the full height of its parent"
     },
     "fixed": {
       "type": "boolean",
       "required": false,
       "defaultValue": null,
-      "description": "CSSProperties['tableLayout']"
+      "description": "Whether the table layout should be fixed"
     },
     "rowStyle": {
       "type": "CSSProperties",
       "required": false,
       "defaultValue": "{}",
-      "description": ""
+      "description": "Style object for table rows\n@see https://reactjs.org/docs/dom-elements.html#style for more information"
     },
     "cellStyle": {
       "type": "CSSProperties",
       "required": false,
       "defaultValue": "{}",
-      "description": ""
+      "description": "Style object for table cells\n@see https://reactjs.org/docs/dom-elements.html#style for more information"
     }
   },
   "TableRow": {
