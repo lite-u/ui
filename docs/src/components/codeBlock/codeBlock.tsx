@@ -1,23 +1,28 @@
 import React, {useEffect, useRef} from 'react'
-import Prism from 'prismjs'
-import 'prismjs/themes/prism.min.css'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-tsx'
+import hljs from 'highlight.js'
+import typescript from 'highlight.js/lib/languages/typescript'
+import 'highlight.js/styles/github.css'
+
+hljs.registerLanguage('typescript', typescript)
 
 const CodeBlock: React.FC<React.HTMLProps<HTMLDivElement> & {
   code: string
   language?: 'tsx' | 'jsx' | 'js' | 'ts'
-}> = ({code, style, language = 'tsx'}) => {
+}> = ({code, style, language = 'language-typescript'}) => {
   const ref = useRef<HTMLElement>(null)
 
+  console.log(9)
   useEffect(() => {
+    console.log(ref.current)
     if (ref.current) {
-      Prism.highlightElement(ref.current)
+      hljs.highlightBlock(ref.current)
     }
-  }, [code])
+  }, [code, language, ref.current])
 
-  return <pre style={style}>
-      <code ref={ref} className={`language-${language}`}>{code}</code>
+  return <pre /*style={style}*/>
+      <code ref={ref} className={language}>
+        {code}
+      </code>
     </pre>
 }
 

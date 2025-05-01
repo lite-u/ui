@@ -1,7 +1,7 @@
 import {Col, Collapse, Con, Flex, MenuItem} from '@lite-u/ui'
-import {Link, Outlet, useLocation} from 'react-router'
+import {Link, NavLink, Outlet, useLocation} from 'react-router'
 import COMPONENT_ROUTE_MAP from '../componentData.tsx'
-import {useEffect} from 'react'
+import {CSSProperties, useEffect} from 'react'
 
 const RootLayout = () => {
   const location = useLocation()
@@ -36,12 +36,20 @@ const RootLayout = () => {
           {
             Object.values(COMPONENT_ROUTE_MAP).map((comp, index) =>
               <MenuItem sm style={{padding: 0}} key={index}>
-                <Link style={{width: '100%', height: '100%', paddingLeft: 30}}
-                      to={`components/${comp.to}`}>
+                <NavLink style={({isActive}) => {
+                  return {
+                    backgroundColor: isActive ? '#0a2e71' : 'transparent',
+                    color: isActive ? '#fff' : '#000',
+                    width: '100%',
+                    height: '100%',
+                    paddingLeft: 30,
+                  } as CSSProperties
+                }}
+                         to={`components/${comp.to}`}>
                   <Col tl fh jc>
                     {comp.name}
                   </Col>
-                </Link>
+                </NavLink>
               </MenuItem>)
           }
         </Collapse>

@@ -12,7 +12,7 @@ export default defineConfig(({mode}) => {
     plugins: [
       react(), /*tailwindcss(),*/
     ],
-    optimizeDeps: ['@lite-u/ui'],
+    optimizeDeps: ['highlight.js','@lite-u/ui'],
     resolve: {
       preserveSymlinks: true,
       alias: {
