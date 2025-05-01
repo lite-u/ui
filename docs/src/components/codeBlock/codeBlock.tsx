@@ -7,7 +7,7 @@ hljs.registerLanguage('typescript', typescript)
 
 const CodeBlock: React.FC<React.HTMLProps<HTMLDivElement> & {
   code: string
-  language?: 'tsx' | 'jsx' | 'js' | 'ts'
+  language?: 'language-typescript'
 }> = ({code, style, language = 'language-typescript'}) => {
   const ref = useRef<HTMLElement>(null)
 

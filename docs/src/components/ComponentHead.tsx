@@ -2,6 +2,7 @@ import {Col, Con, Title} from '@lite-u/ui'
 import CodeWrap from './codeBlock/CodeWrap.tsx'
 import {Link, useLocation} from 'react-router'
 import COMPONENT_ROUTE_MAP from '../pages/componentData.tsx'
+import MDBlock from './codeBlock/MDBlock.tsx'
 
 const ComponentHead = () => {
   const location = useLocation()
@@ -18,6 +19,14 @@ const ComponentHead = () => {
       <Title h4>Import</Title>
       <CodeWrap code={`import { ${COMP_ROUTE.name} } from '@lite-u/ui'`}/>
       <Con m={'0 0 20px 0'}></Con>
+      <MDBlock>
+        ```tsx
+          #HEAD1
+          ##HEAD 2
+          ###HEAD 3
+        ```
+      </MDBlock>
+
     </Col>
   </Con>
 }

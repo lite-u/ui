@@ -14,7 +14,7 @@ const RootLayout = () => {
   }
 
   useEffect(() => {
-    document.title = pageTitles[path] || '@Lite-u/ui Library'
+    // document.title = pageTitles[path] || '@Lite-u/ui Library'
   }, [path])
 
   return <Flex col fw fh ovh>
