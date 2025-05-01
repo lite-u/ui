@@ -44,12 +44,13 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
    * Style object for table cells
    */
   cellStyle?: CSSProperties
-  children: ReactElement<TableRowProps>[]
+  children: ReactNode
 }>
 
 /**
  * Table
  *
+ * @intro
  * A simple and easy-to-use table component with a minimal design.
  *
  * @usage
@@ -96,7 +97,9 @@ const Table: TableProps = ({
   const filteredChildren: ReactNode[] = []
 
   Children.forEach(children, (child) => {
+    // @ts-ignore
     if (child.type !== TableRow) {
+      // @ts-ignore
       console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`)
       return
     }

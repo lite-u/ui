@@ -18,7 +18,7 @@ const ComponentAPI = () => {
     <Col w={'auto'}>
       <Title id={COMP_ROUTE.to} sticky>API</Title>
 
-      <API data={OUTPUT_JSON[COMP_ROUTE.apiNameKey]}/>
+      <API data={OUTPUT_JSON[COMP_ROUTE.apiNameKey].props}/>
     </Col>
   </Con>
 }

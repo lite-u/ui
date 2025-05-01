@@ -1,5 +1,6 @@
 import {Table, TableRow} from '@lite-u/ui'
 import {CSSProperties} from 'react'
+import {Con} from '../../../../src'
 
 type APIType = {
   defaultValue: null | boolean | string
@@ -16,8 +17,9 @@ const API = ({data}: { data: Record<string, APIType> }) => {
     width: '100%', textAlign: 'left', paddingLeft: 10, whiteSpace: 'wrap',
   }
 
-  return <div>
+  return <Con mb={20}>
     <Table fw fh
+           s
            style={{
              fontSize: 14,
            }}
@@ -36,26 +38,23 @@ const API = ({data}: { data: Record<string, APIType> }) => {
         <span>required</span>
         <p style={lastColStyle}>description</p>
       </TableRow>
-
       {
         Object.keys(data).map((key, index) => {
           const {type, required, defaultValue, description} = data[key]
 
-          return (
-            <TableRow key={index}>
-              <span style={firstColStyle}>{key}</span>
-              <span>{type}</span>
-              <span
-                style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>
-              <span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
+          return <TableRow key={index}>
+            <span style={firstColStyle}>{key}</span>
+            <span>{type}</span>
+            <span
+              style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>
+            <span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
 
-              <p style={lastColStyle}>{description}</p>
-            </TableRow>
-          )
+            <p style={lastColStyle}>{description}</p>
+          </TableRow>
         })
       }
     </Table>
-  </div>
+  </Con>
 }
 
 export default API

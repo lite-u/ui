@@ -10,6 +10,7 @@ const TableContext = createContext({
 /**
  * Table
  *
+ * @intro
  * A simple and easy-to-use table component with a minimal design.
  *
  * @usage
@@ -41,7 +42,9 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
     // console.log(theme.)
     const filteredChildren = [];
     Children.forEach(children, (child) => {
+        // @ts-ignore
         if (child.type !== TableRow) {
+            // @ts-ignore
             console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`);
             return;
         }

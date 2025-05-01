@@ -5,21 +5,24 @@ const docs = parser.parse('src/index.tsx');
 const result = {};
 
 docs.forEach((component) => {
-    const props = component.props || {};
+  const props = component.props || {};
 
-    const filteredProps = Object.entries(props)
-        .filter(([_, prop]) => !prop.parent) // Exclude HTML native props
-        .reduce((acc, [name, prop]) => {
-            acc[name] = {
-                type: prop.type.name,
-                required: prop.required,
-                defaultValue: prop.defaultValue?.value || null,
-                description: prop.description || ''
-            };
-            return acc;
-        }, {});
+  const filteredProps = Object.entries(props)
+    .filter(([_, prop]) => !prop.parent) // Exclude HTML native props
+    .reduce((acc, [name, prop]) => {
+      acc[name] = {
+        type: prop.type.name,
+        required: prop.required,
+        defaultValue: prop.defaultValue?.value || null,
+        description: prop.description || ''
+      };
+      return acc;
+    }, {});
 
-    result[component.displayName] = filteredProps;
+  result[component.displayName] = {
+    tags: component.tags || {},
+    props: filteredProps
+  };
 });
 
 fs.mkdirSync('docs/json', { recursive: true });

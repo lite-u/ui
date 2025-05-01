@@ -16,6 +16,7 @@ import NotificationSamples from './samples/NotificationSamples.tsx'
 import TransitionSamples from './samples/TransitionSamples.tsx'
 import TooltipSamples from './samples/TooltipSamples.tsx'
 import {ReactElement} from 'react'
+import TableRowPage from './samples/TableRowPage.tsx'
 
 export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
@@ -24,6 +25,12 @@ const COMPONENT_ROUTE_MAP = {
     name: 'Table',
     apiNameKey: 'Table',
     comp: <TablePage/>,
+  },
+  tablerow: {
+    to: 'tablerow',
+    name: 'Table Row',
+    apiNameKey: 'TableRow',
+    comp: <TableRowPage/>,
   },
   button: {
     to: 'button',

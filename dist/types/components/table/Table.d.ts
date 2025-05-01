@@ -1,5 +1,4 @@
-import { CSSProperties, ReactElement } from 'react';
-import { TableRowProps } from './TableRow';
+import { CSSProperties, ReactNode } from 'react';
 export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
     xs?: boolean;
     s?: boolean;
@@ -28,11 +27,12 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
      * Style object for table cells
      */
     cellStyle?: CSSProperties;
-    children: ReactElement<TableRowProps>[];
+    children: ReactNode;
 }>;
 /**
  * Table
  *
+ * @intro
  * A simple and easy-to-use table component with a minimal design.
  *
  * @usage
