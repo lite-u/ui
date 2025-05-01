@@ -92,10 +92,11 @@ const TablePage: React.FC = () => {
                  }}>
             <TableRow head
                       style={{
-                        color: '#ff0000',
-                        backgroundColor: '#000',
+                        fontSize: 16,
+                        color: '#fff',
+                        backgroundColor: '#1c285a',
                       }}>
-              <span>brand</span>
+              <span style={{padding: 10}}>brand</span>
               <span>price</span>
             </TableRow>
 
