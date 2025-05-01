@@ -1,6 +1,5 @@
-import {Button, Col, Con, Row, Title} from '@lite-u/ui'
+import {Button, Col, Con, Row} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock'
-import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 import {ButtonProps} from '../../../../src'
 
 const ButtonPage: React.FC = () => {
@@ -11,11 +10,11 @@ const ButtonPage: React.FC = () => {
 
   // neutral
   return <Col id={'col'}>
-    <Row space={10} mt={10} wrap>
+    <Row space={10} mt={10} maxW={800} wrap>
 
-      <Con minH={200} w={'auto'}>
-        <UsageBlock title={'Neutral'} style={{flex: 1}}>
-          <Row between end space={6}>
+      <Con w={'auto'}>
+        <UsageBlock title={'Neutral'}>
+          <Row between end space={2}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -29,9 +28,9 @@ const ButtonPage: React.FC = () => {
         </UsageBlock>
       </Con>
 
-      <Con minH={200} w={'auto'}>
-        <UsageBlock title={'Primary'} style={{flex: 1}}>
-          <Row between end space={6}>
+      <Con w={'auto'}>
+        <UsageBlock title={'Primary'}>
+          <Row between end space={2}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -45,9 +44,9 @@ const ButtonPage: React.FC = () => {
         </UsageBlock>
       </Con>
 
-      <Con minH={200} w={'auto'}>
-        <UsageBlock title={'Warn'} style={{flex: 1}}>
-          <Row between end space={6}>
+      <Con w={'auto'}>
+        <UsageBlock title={'Warn'}>
+          <Row between end space={2}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -61,9 +60,9 @@ const ButtonPage: React.FC = () => {
         </UsageBlock>
       </Con>
 
-      <Con minH={200} w={'auto'}>
-        <UsageBlock title={'Error'} style={{flex: 1}}>
-          <Row between end space={6}>
+      <Con w={'auto'}>
+        <UsageBlock title={'Error'}>
+          <Row between end space={2}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -79,7 +78,7 @@ const ButtonPage: React.FC = () => {
 
     </Row>
 
-
+    {/*
     <Col mt={50}>
       {
         buttonVars.map(buttonVar => {
@@ -121,7 +120,7 @@ const ButtonPage: React.FC = () => {
           },
         )
       }
-    </Col>
+    </Col>*/}
     {/*    <Con mt={50} fz={16}>
       See also <NavLink to={'/components/table#description'}>table</NavLink>
     </Con>*/}
