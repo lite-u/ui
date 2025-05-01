@@ -15,12 +15,13 @@ const TableContext = createContext({
  *
  * @intro
  *
- * - Table accepts [TableRow](./tablerow) Component as children only
+ * Table accepts [TableRow](./tablerow) Component as children only
  *
- * - TableRow with head prop: recognized as a thead row
+ * TableRow with head prop: recognized as a thead row
  *
- * - TableRow without head prop: recognized as a tbody row
+ * TableRow without head prop: recognized as a tbody row
  *
+ * TableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.
  *
  * @example
  * <Table>

@@ -1,21 +1,27 @@
 import {Col, Collapse, Con, Flex, MenuItem} from '@lite-u/ui'
 import {Link, NavLink, Outlet, useLocation} from 'react-router'
 import COMPONENT_ROUTE_MAP from './componentLayout/componentData.tsx'
-import {CSSProperties, useEffect} from 'react'
+import {CSSProperties, useEffect, useRef} from 'react'
 
 const RootLayout = () => {
-  const location = useLocation()
-  const path = location.pathname
-
-  const pageTitles = {
-    '/': 'Home | @Lite-u/ui Library',
-    '/about': 'About | @Lite-u/ui Library',
-    '/components/button': 'Button | @Lite-u/ui Library',
-  }
+  const {pathname} = useLocation()
+  const mainRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // document.title = pageTitles[path] || '@Lite-u/ui Library'
-  }, [path])
+    if (mainRef.current) {
+      const paths = pathname.split('/')
+      const pathLen = paths.length
+
+      if (pathLen === 2) {
+        mainRef.current.scroll(0, 0)
+      }
+
+      // console.log(title)
+
+      document.title = '@lite-u/ui Library'
+    }
+
+  }, [pathname])
 
   return <Flex col fw fh ovh>
     <Flex justifyContent={'between'} style={{borderBottom: '1px solid gray'}}>
@@ -62,7 +68,7 @@ const RootLayout = () => {
         <MenuItem sm><Link to={`tree`}>Tree Shaking</Link></MenuItem>
       </Con>
 
-      <Col fw fh ova maxH={'100%'}>
+      <Col ref={mainRef} role={'app-main'} fw fh ova maxH={'100%'}>
         <Col style={{padding: '0 50px'}}>
           <Outlet/>
         </Col>

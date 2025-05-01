@@ -2,6 +2,7 @@ import {Table, TableRow} from '@lite-u/ui'
 import {CSSProperties} from 'react'
 import {Con} from '../../../../src'
 import CodeBlock from '../codeBlock/codeBlock.tsx'
+import MDBlock from '../codeBlock/MDBlock.tsx'
 
 type APIType = {
   defaultValue: null | boolean | string
@@ -13,9 +14,9 @@ type APIType = {
 const API = ({data}: { data: Record<string, APIType> }) => {
   if (!data) return null
   // const headCellStyle = {minWidth: 100}
-  const firstColStyle: CSSProperties = {width: '100%', textAlign: 'left', paddingLeft: 10}
+  const firstColStyle: CSSProperties = {width: '100%', textAlign: 'center', paddingLeft: 10}
   const lastColStyle: CSSProperties = {
-    width: '100%', textAlign: 'left', paddingLeft: 10, whiteSpace: 'wrap',
+    width: '100%', textAlign: 'center', paddingLeft: 10, whiteSpace: 'wrap',
   }
 
   return <Con mb={20}>
@@ -45,7 +46,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
           return <TableRow key={index}>
             <span style={firstColStyle}>{key}</span>
-            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type}/>
+            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type.toString()}/>
             <div>
               {defaultValue ?
                 <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={defaultValue.toString()}/> : '-'}
@@ -55,7 +56,10 @@ const API = ({data}: { data: Record<string, APIType> }) => {
             {/*<span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>*/}
             <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={required.toString()}/>
 
-            <p style={lastColStyle}>{description}</p>
+            <Con fz={14} pl={4} style={{...lastColStyle,lineHeight: '1.5rem'}}>
+              <MDBlock>{description}</MDBlock>
+            </Con>
+            {/*<p style={lastColStyle}>{description}</p>*/}
           </TableRow>
         })
       }

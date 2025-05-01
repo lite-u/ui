@@ -83,7 +83,7 @@
     "tags": {
       "brief": "A customizable button component that supports size and color variants.",
       "intro": "Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).",
-      "example": "<Button primary xs>Confirm</Button>\n<Button error l>Delete</Button>"
+      "example": "<Button>Default</Button>\n<Button primary xs>Confirm</Button>\n<Button error l>Delete</Button>"
     },
     "props": {
       "xs": {
@@ -158,12 +158,6 @@
         "description": ""
       },
       "l": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": null,
-        "description": ""
-      },
-      "neutral": {
         "type": "boolean",
         "required": false,
         "defaultValue": null,
@@ -502,7 +496,7 @@
   "Table": {
     "tags": {
       "brief": "A simple and easy-to-use table component with a minimal design.",
-      "intro": "- Table accepts [TableRow](./tablerow) Component as children only\n\n- TableRow with head prop: recognized as a thead row\n\n- TableRow without head prop: recognized as a tbody row",
+      "intro": "Table accepts [TableRow](./tablerow) Component as children only\n\nTableRow with head prop: recognized as a thead row\n\nTableRow without head prop: recognized as a tbody row\n\nTableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.",
       "example": "<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
     },
     "props": {
@@ -546,7 +540,7 @@
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "Whether the table layout should be fixed"
+        "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be fixed"
       },
       "rowStyle": {
         "type": "CSSProperties",

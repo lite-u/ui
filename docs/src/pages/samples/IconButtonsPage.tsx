@@ -5,7 +5,7 @@ const IconButtonsPage: React.FC = () => {
 
   return <Con>
     <Row center between>
-      <Con w={450}>
+      <Con w={250}>
         <UsageBlock title={'Neutral'}>
           <Row between center space={2}>
             <IconButton>D</IconButton>

@@ -30,7 +30,7 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
   fh?: boolean,
 
   /**
-   * Whether the table layout should be fixed
+   * Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to fixed
    * @default false
    */
   fixed?: boolean,
@@ -55,12 +55,13 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
  *
  * @intro
  *
- * - Table accepts [TableRow](./tablerow) Component as children only
+ * Table accepts [TableRow](./tablerow) Component as children only
  *
- * - TableRow with head prop: recognized as a thead row
+ * TableRow with head prop: recognized as a thead row
  *
- * - TableRow without head prop: recognized as a tbody row
+ * TableRow without head prop: recognized as a tbody row
  *
+ * TableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.
  *
  * @example
  * <Table>

@@ -7,7 +7,7 @@ const TablePage: React.FC = () => {
     <Row space={10} mt={10} wrap>
       <Flex col minH={260} w={200}>
         <UsageBlock title={'XS Size'} style={{flex: 1}}>
-          <Table xs>
+          <Table xs fixed>
             <TableRow head>
               <span>name</span>
               <span>age</span>

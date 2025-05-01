@@ -49,7 +49,7 @@ const ComponentHead = () => {
       <Con mt={10}></Con>
       <CodeWrap style={{maxWidth: 400}} code={`
       import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' 
-      \n ${example}
+      
       `}/>
       <Con m={'0 0 20px 0'}></Con>
 
