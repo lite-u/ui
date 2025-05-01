@@ -1,4 +1,3 @@
-
 import {useLiteUIContext} from '../../LiteUIProvider'
 import ButtonBase from './ButtonBase'
 
@@ -56,6 +55,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
  * @intro Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
  *
  * @example
+ * <Button>Default</Button>
  * <Button primary xs>Confirm</Button>
  * <Button error l>Delete</Button>
  */
@@ -96,24 +96,6 @@ export const Button: React.FC<ButtonProps> = ({
   }
   const size = getSize()
   const variant = getVariant()
-  const sizeStyles: Record<SizeVariant, React.CSSProperties> = {
-    xs: {
-      minWidth: 30,
-      height: 20,
-    },
-    sm: {
-      minWidth: 40,
-      height: 25,
-    },
-    md: {
-      minWidth: 50,
-      height: 30,
-    },
-    lg: {
-      minWidth: 60,
-      height: 40,
-    },
-  }
 
   const styles: React.CSSProperties = {
     cursor: 'pointer',
@@ -122,7 +104,7 @@ export const Button: React.FC<ButtonProps> = ({
     borderRadius: `${borderRadius[size]}px`,
     borderWidth: 0,
     ...button[variant],
-    ...sizeStyles[size],
+    ...theme.formElements[size],
     ...style,
   }
 

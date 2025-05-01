@@ -9,6 +9,7 @@ import ButtonBase from './ButtonBase';
  * @intro Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
  *
  * @example
+ * <Button>Default</Button>
  * <Button primary xs>Confirm</Button>
  * <Button error l>Delete</Button>
  */
@@ -35,24 +36,6 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
     };
     const size = getSize();
     const variant = getVariant();
-    const sizeStyles = {
-        xs: {
-            minWidth: 30,
-            height: 20,
-        },
-        sm: {
-            minWidth: 40,
-            height: 25,
-        },
-        md: {
-            minWidth: 50,
-            height: 30,
-        },
-        lg: {
-            minWidth: 60,
-            height: 40,
-        },
-    };
     const styles = {
         cursor: 'pointer',
         fontSize: fontSizes[size],
@@ -60,7 +43,7 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
         borderRadius: `${borderRadius[size]}px`,
         borderWidth: 0,
         ...button[variant],
-        ...sizeStyles[size],
+        ...theme.formElements[size],
         ...style,
     };
     return (_jsx(ButtonBase, { type: type, style: styles, ...props, children: children }));

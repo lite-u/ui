@@ -48,6 +48,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
  * @intro Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
  *
  * @example
+ * <Button>Default</Button>
  * <Button primary xs>Confirm</Button>
  * <Button error l>Delete</Button>
  */
