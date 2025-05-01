@@ -29,7 +29,7 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
         ...extraRowStyle,
     };
     const cellStyle = {
-        padding: '10px 0',
+        padding: '6px 10px',
         // border: '1px solid #b5b5b5',
         ...storedCellStyle,
     };
