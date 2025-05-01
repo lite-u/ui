@@ -1,4 +1,3 @@
-/// <reference types="react" />
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     xs?: boolean;
     s?: boolean;
