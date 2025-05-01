@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "output-md-doc": "npx typedoc",
+    "DEPRECATED - output-md-doc": "npx typedoc",
     "output-json-doc": "node ./docgen.cjs"
   },
   "author": "",
