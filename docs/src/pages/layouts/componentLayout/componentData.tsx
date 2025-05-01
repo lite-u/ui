@@ -1,5 +1,5 @@
 import TablePage from '../../samples/TablePage.tsx'
-import IconButtonsSamples from '../../samples/IconButtonsSamples.tsx'
+import IconButtonsPage from '../../samples/IconButtonsPage.tsx'
 import InputSample from '../../samples/InputSample.tsx'
 import SelectSamples from '../../samples/SelectSamples.tsx'
 import LinkSamples from '../../samples/LinkSamples.tsx'
@@ -42,7 +42,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'iconbutton',
     name: 'IconButton',
     apiNameKey: 'IconButton',
-    comp: <IconButtonsSamples/>,
+    comp: <IconButtonsPage/>,
   },
   input: {
     to: 'input',
