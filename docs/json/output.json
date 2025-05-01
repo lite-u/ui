@@ -548,6 +548,12 @@
         "defaultValue": "{}",
         "description": "Style object for table rows"
       },
+      "rowHoverStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Style object for table body rows hovered"
+      },
       "cellStyle": {
         "type": "CSSProperties",
         "required": false,

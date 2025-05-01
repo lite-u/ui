@@ -41,6 +41,7 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
    * Style object for table rows
    */
   rowStyle?: CSSProperties,
+
   /**
    * Style object for table body rows hovered
    */

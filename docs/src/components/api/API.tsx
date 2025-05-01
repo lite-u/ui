@@ -21,7 +21,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
   return <Con mb={20}>
     <Table fw fh
-           m
+           s
            style={{
              fontSize: 14,
            }}
@@ -45,7 +45,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
           const {type, required, defaultValue, description} = data[key]
 
           return <TableRow key={index}>
-            <span style={firstColStyle}>{key}</span>
+            <span style={{...firstColStyle, fontFamily: 'monospace'}}>{key}</span>
             <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type}/>
             <div>
               {defaultValue ?
@@ -56,7 +56,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
             {/*<span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>*/}
             <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={required.toString()}/>
 
-            <Con fz={14} pl={4} style={{...lastColStyle,lineHeight: '1.5rem'}}>
+            <Con fz={14} pl={4} style={{...lastColStyle, lineHeight: '1.5rem'}}>
               <MDBlock>{description}</MDBlock>
             </Con>
             {/*<p style={lastColStyle}>{description}</p>*/}
