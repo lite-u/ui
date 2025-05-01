@@ -104,7 +104,6 @@ const TablePage: React.FC = () => {
               <span style={{padding: 10}}>brand</span>
               <span>price</span>
             </TableRow>
-
             {
               Array.from({length: 10}).map((_, i) => {
                 return <TableRow key={i}
