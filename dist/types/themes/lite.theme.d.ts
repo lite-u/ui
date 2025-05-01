@@ -38,15 +38,19 @@ export declare const liteTheme: {
     };
     formElements: {
         xs: {
+            minWidth: number;
             height: number;
         };
         sm: {
+            minWidth: number;
             height: number;
         };
         md: {
+            minWidth: number;
             height: number;
         };
         lg: {
+            minWidth: number;
             height: number;
         };
     };
@@ -54,22 +58,22 @@ export declare const liteTheme: {
         primary: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
         warn: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
         error: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
         neutral: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
     };
     input: {
@@ -99,7 +103,7 @@ export declare const liteTheme: {
         };
     };
     menu: {
-        gat: number;
+        gap: number;
     };
     menuItem: {
         backgroundColor: string;

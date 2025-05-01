@@ -1,8 +1,8 @@
 import {Col, Con, Title} from '@lite-u/ui'
-import CodeWrap from './codeBlock/CodeWrap.tsx'
+import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
 import {Link, useLocation} from 'react-router'
-import COMPONENT_ROUTE_MAP from '../pages/componentData.tsx'
-import MDBlock from './codeBlock/MDBlock.tsx'
+import COMPONENT_ROUTE_MAP from '../../componentData.tsx'
+import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
 
 const ComponentHead = () => {
   const location = useLocation()

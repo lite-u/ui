@@ -1,9 +1,10 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import * as path from 'path'
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import {fileURLToPath} from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // https://vite.dev/config/
 export default defineConfig(({mode}) => {
@@ -12,12 +13,12 @@ export default defineConfig(({mode}) => {
     plugins: [
       react(), /*tailwindcss(),*/
     ],
-    optimizeDeps: ['highlight.js','@lite-u/ui'],
+    optimizeDeps: ['highlight.js', '@lite-u/ui'],
     resolve: {
       preserveSymlinks: true,
       alias: {
         react: path.resolve(__dirname, './node_modules/react'),
-        // '@ui': path.resolve(__dirname, './node_modules/@lite-u/ui'),
+        '@lite-u/ui': path.resolve(__dirname, '../'),
         '@samples': './components/samples',
 
         // /esm/icons/index.mjs only exports the icons statically, so no separate chunks are created
@@ -40,9 +41,9 @@ export default defineConfig(({mode}) => {
       },
     },
     server: {
-    fs: {
-      allow: ['..'],
+      fs: {
+        allow: ['..'],
+      },
     },
-  },
   }
 })

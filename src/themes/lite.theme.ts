@@ -1,13 +1,16 @@
 const primaryColor = '#0a2e71'
+const secondaryColor = '#007bff'
+const successColor = '#28a745'
 const errorColor = '#dc3545'
+const warningColor = '#ffc107'
 
 export const liteTheme = {
   colors: {
     primary: primaryColor,
-    secondary: '#007bff',
-    success: '#28a745',
-    warn: '#ffc107',
-    error: '#dc3545',
+    secondary: secondaryColor,
+    success: successColor,
+    warn: warningColor,
+    error: errorColor,
     /*    neutralLight: '#f8f9fa',
         neutralDark: '#343a40',
         neutralGray: '#6c757d',
@@ -39,38 +42,42 @@ export const liteTheme = {
   },
   formElements: {
     xs: {
+      minWidth: 30,
       height: 20,
     },
     sm: {
+      minWidth: 40,
       height: 25,
     },
     md: {
+      minWidth: 50,
       height: 30,
     },
     lg: {
+      minWidth: 60,
       height: 40,
     },
   },
   button: {
     primary: {
-      backgroundColor: '#0a2e71',
+      backgroundColor: primaryColor,
       color: 'white',
-      borderColor: '#007bff',
+      border: 'none',
     },
     warn: {
-      backgroundColor: '#e4c738',
+      backgroundColor: warningColor,
       color: 'white',
-      borderColor: '#ffc107',
+      border: 'none',
     },
     error: {
-      backgroundColor: '#cf3333',
+      backgroundColor: errorColor,
       color: 'white',
-      borderColor: '#dc3545',
+      border: 'none',
     },
     neutral: {
       backgroundColor: '#cfcfcf',
       color: '#000000',
-      borderColor: '#ccc',
+      border: primaryColor,
     },
   },
   input: {
@@ -78,7 +85,6 @@ export const liteTheme = {
       backgroundColor: '#ffffff',
       border: '1px solid #007bff',
       color: '#007bff',
-      // borderRadius: 6,
       outline: 'none',
     },
     warn: {
@@ -104,7 +110,7 @@ export const liteTheme = {
     },
   },
   menu: {
-    gat: 8,
+    gap: 8,
   },
   menuItem: {
     backgroundColor: '#e4e4e4',

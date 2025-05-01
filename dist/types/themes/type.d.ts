@@ -1,20 +1,10 @@
-export interface ThemeType {
+export type ThemeType = {
     colors: {
         primary: string;
         secondary: string;
         success: string;
         warn: string;
         error: string;
-        neutralLight: string;
-        neutralDark: string;
-        neutralGray: string;
-        neutralBorder: string;
-        backgroundLight: string;
-        backgroundDark: string;
-        textPrimary: string;
-        textSecondary: string;
-        textError: string;
-        textSuccess: string;
     };
     fontSizes: {
         xs: number;
@@ -46,26 +36,44 @@ export interface ThemeType {
         md: number;
         lg: number;
     };
+    formElements: {
+        xs: {
+            minWidth: number;
+            height: number;
+        };
+        sm: {
+            minWidth: number;
+            height: number;
+        };
+        md: {
+            minWidth: number;
+            height: number;
+        };
+        lg: {
+            minWidth: number;
+            height: number;
+        };
+    };
     button: {
         primary: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
         warn: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
         error: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
         neutral: {
             backgroundColor: string;
             color: string;
-            borderColor: string;
+            border: string;
         };
     };
     input: {
@@ -73,26 +81,29 @@ export interface ThemeType {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
+            outline: string;
         };
         warn: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
+            outline: string;
         };
         error: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
+            outline: string;
         };
         neutral: {
             backgroundColor: string;
             border: string;
             color: string;
-            borderRadius: string;
+            outline: string;
         };
+    };
+    menu: {
+        gap: number;
     };
     menuItem: {
         backgroundColor: string;
@@ -109,4 +120,4 @@ export interface ThemeType {
     panel: {
         primaryColor: string;
     };
-}
+};

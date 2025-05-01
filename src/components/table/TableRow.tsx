@@ -50,7 +50,7 @@ const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
   }
 
   const cellDivStyle = {
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
   }
 

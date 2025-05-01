@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "output-md-doc": "npx typedoc"
+    "output-md-doc": "npx typedoc",
+    "output-json-doc": "node ./docgen.cjs"
   },
   "author": "",
   "main": "./dist/esm/index.js",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "react-docgen-typescript": "^2.2.2",
     "typedoc": "^0.28.3",
     "typedoc-plugin-markdown": "^4.6.3"
   }

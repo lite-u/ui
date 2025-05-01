@@ -1,101 +1,99 @@
-export interface ThemeType {
+export type ThemeType = {
   colors: {
     primary: string;
     secondary: string;
     success: string;
     warn: string;
     error: string;
-    neutralLight: string;
-    neutralDark: string;
-    neutralGray: string;
-    neutralBorder: string;
-    backgroundLight: string;
-    backgroundDark: string;
-    textPrimary: string;
-    textSecondary: string;
-    textError: string;
-    textSuccess: string;
   };
   fontSizes: {
-    xs: number
-    sm: number
-    md: number
-    lg: number
-  }
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+  };
   padding: {
     xs: { x: number; y: number };
     sm: { x: number; y: number };
     md: { x: number; y: number };
     lg: { x: number; y: number };
-  }
+  };
   borderRadius: {
-    xs: number
-    sm: number
-    md: number
-    lg: number
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+  };
+  formElements: {
+    xs: { minWidth: number; height: number };
+    sm: { minWidth: number; height: number };
+    md: { minWidth: number; height: number };
+    lg: { minWidth: number; height: number };
   };
   button: {
     primary: {
-      backgroundColor: string
-      color: string
-      borderColor: string
+      backgroundColor: string;
+      color: string;
+      border: string;
     };
     warn: {
-      backgroundColor: string
-      color: string
-      borderColor: string
+      backgroundColor: string;
+      color: string;
+      border: string;
     };
     error: {
-      backgroundColor: string
-      color: string
-      borderColor: string
+      backgroundColor: string;
+      color: string;
+      border: string;
     };
     neutral: {
-      backgroundColor: string
-      color: string
-      borderColor: string
+      backgroundColor: string;
+      color: string;
+      border: string;
     };
-  }
+  };
   input: {
     primary: {
       backgroundColor: string;
       border: string;
       color: string;
-      borderRadius: string;
+      outline: string;
     };
     warn: {
       backgroundColor: string;
       border: string;
       color: string;
-      borderRadius: string;
+      outline: string;
     };
     error: {
       backgroundColor: string;
       border: string;
       color: string;
-      borderRadius: string;
+      outline: string;
     };
     neutral: {
       backgroundColor: string;
       border: string;
       color: string;
-      borderRadius: string;
+      outline: string;
     };
-  }
-  menuItem: { backgroundColor: string }
+  };
+  menu: {
+    gap: number;
+  };
+  menuItem: {
+    backgroundColor: string;
+  };
   title: {
-    h1: number
-    h2: number
-    h3: number
-    h4: number
-    h5: number
-    h6: number
-    backgroundColor: string
-  }
+    h1: number;
+    h2: number;
+    h3: number;
+    h4: number;
+    h5: number;
+    h6: number;
+    backgroundColor: string;
+  };
   panel: {
-    primaryColor: string
-    /*    head?: {
-          backgroundColor: string
-        }*/
-  }
-}
+    primaryColor: string;
+  };
+};

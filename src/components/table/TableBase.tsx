@@ -11,7 +11,7 @@ const TableBase: React.FC<React.HTMLProps<HTMLTableElement> & {
 
   if (Array.isArray(children)) {
     children.forEach(child => {
-      if (child.props.head) {
+      if (child.props && child.props.head) {
         tHead = child
       } else {
         tBody.push(child)

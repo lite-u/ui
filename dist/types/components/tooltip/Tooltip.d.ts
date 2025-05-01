@@ -1,4 +1,3 @@
-/// <reference types="react" />
 type TooltipPosition = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br';
 type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
     title: string;

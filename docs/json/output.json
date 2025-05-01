@@ -1,0 +1,482 @@
+{
+  "Input": {
+    "label": {
+      "type": "string",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "s": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "m": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    },
+    "l": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "number": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "primary": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "warn": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "error": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "neutral": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    }
+  },
+  "SelectItem": {},
+  "Link": {
+    "fw": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    },
+    "fh": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    }
+  },
+  "Button": {
+    "xs": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "If true, renders the button in extra small size (height: 20px, min-width: 30px)."
+    },
+    "s": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "If true, renders the button in small size (height: 25px, min-width: 40px)."
+    },
+    "m": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": "If true, renders the button in medium size. Exact dimensions depend on the theme. Default is true."
+    },
+    "l": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "If true, renders the button in large size (height: 40px, min-width: 60px)."
+    },
+    "primary": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "If true, applies the primary color style."
+    },
+    "neutral": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": "If true, applies the neutral color style. Default is true."
+    },
+    "warn": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "If true, applies the warning color style."
+    },
+    "error": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "If true, applies the error color style."
+    }
+  },
+  "IconButton": {
+    "xs": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "s": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "m": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    },
+    "l": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "neutral": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    }
+  },
+  "LiteUIProvider": {},
+  "Transition": {
+    "visible": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    },
+    "from": {
+      "type": "FromType",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    },
+    "to": {
+      "type": "FromType",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    },
+    "transformOrigin": {
+      "type": "string",
+      "required": false,
+      "defaultValue": "center",
+      "description": ""
+    },
+    "effect": {
+      "type": "TimingFunction",
+      "required": false,
+      "defaultValue": "ease",
+      "description": ""
+    },
+    "duration": {
+      "type": "number",
+      "required": false,
+      "defaultValue": 300,
+      "description": ""
+    },
+    "leaveDuration": {
+      "type": "number",
+      "required": false,
+      "defaultValue": 300,
+      "description": ""
+    },
+    "delay": {
+      "type": "number",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "style": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    }
+  },
+  "Panel": {
+    "xs": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "sm": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "md": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "lg": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "size": {
+      "type": "never",
+      "required": false,
+      "defaultValue": "md",
+      "description": ""
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "titleStyle": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    },
+    "titleClass": {
+      "type": "string",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "boxStyle": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    },
+    "boxClass": {
+      "type": "string",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    }
+  },
+  "Row": {},
+  "Col": {},
+  "Flex": {},
+  "Menu": {
+    "space": {
+      "type": "number",
+      "required": false,
+      "defaultValue": 8,
+      "description": ""
+    }
+  },
+  "MenuItem": {
+    "sm": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "hoverStyle": {
+      "type": "FromType",
+      "required": false,
+      "defaultValue": "{\n            backgroundColor: '#dfdfdf',\n          }",
+      "description": ""
+    },
+    "hoverEnterDuration": {
+      "type": "number",
+      "required": false,
+      "defaultValue": 300,
+      "description": ""
+    },
+    "hoverLeaveDuration": {
+      "type": "number",
+      "required": false,
+      "defaultValue": 500,
+      "description": ""
+    }
+  },
+  "Tooltip": {
+    "bgColor": {
+      "type": "string",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "position": {
+      "type": "TooltipPosition",
+      "required": false,
+      "defaultValue": "t",
+      "description": ""
+    }
+  },
+  "Con": {},
+  "Container": {},
+  "Collapse": {
+    "head": {
+      "type": "ReactNode",
+      "required": true,
+      "defaultValue": null,
+      "description": ""
+    }
+  },
+  "Drop": {
+    "accepts": {
+      "type": "string[]",
+      "required": false,
+      "defaultValue": "[]",
+      "description": ""
+    },
+    "onDragIsOver": {
+      "type": "(isFileTypeValid: boolean) => void",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onDragIsLeave": {
+      "type": "() => void",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onDropped": {
+      "type": "(e: DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    }
+  },
+  "Interactable": {
+    "tag": {
+      "type": "keyof HTMLElementTagNameMap",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "hover": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "focus": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "active": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "style": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onMouseEnter": {
+      "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onMouseLeave": {
+      "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onFocus": {
+      "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onBlur": {
+      "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onMouseDown": {
+      "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onMouseUp": {
+      "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onClick": {
+      "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "onKeyDown": {
+      "type": "(KeyboardEventHandler<HTMLElementTagNameMap[T]> & KeyboardEventHandler<HTMLObjectElement>) | ... 59 more ... | (KeyboardEventHandler<...> & KeyboardEventHandler<...>)",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    }
+  },
+  "Table": {
+    "fw": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    },
+    "fh": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": ""
+    },
+    "fixed": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": "CSSProperties['tableLayout']"
+    },
+    "rowStyle": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    },
+    "cellStyle": {
+      "type": "CSSProperties",
+      "required": false,
+      "defaultValue": "{}",
+      "description": ""
+    }
+  },
+  "TableRow": {
+    "head": {
+      "type": "boolean",
+      "required": false,
+      "defaultValue": null,
+      "description": ""
+    }
+  },
+  "src": {}
+}

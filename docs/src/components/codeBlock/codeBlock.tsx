@@ -14,7 +14,7 @@ const CodeBlock: React.FC<React.HTMLProps<HTMLDivElement> & {
   useEffect(() => {
     if (ref.current) {
       delete ref.current.dataset.highlighted
-      hljs.highlightBlock(ref.current)
+      hljs.highlightElement(ref.current)
     }
   }, [code, language, ref.current])
 
