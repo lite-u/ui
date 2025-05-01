@@ -42,7 +42,8 @@
   "dependencies": {
     "dedent": "^1.5.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-element-to-jsx-string": "^17.0.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.2",

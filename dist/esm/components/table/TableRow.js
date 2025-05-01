@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import { useTableContext } from './Table';
 const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLeave, ...props }) => {
     const [extraRowStyle, setExtraRowStyle] = useState({});
@@ -15,13 +15,7 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
     const handleMouseLeave = () => {
         setExtraRowStyle({});
     };
-    let nodes = [];
-    if (Array.isArray(children)) {
-        nodes = children;
-    }
-    else {
-        nodes.push(children);
-    }
+    let nodes = Children.toArray(children);
     const rowStyle = {
         borderBottom: '1px solid #b5b5b5',
         color: '#292929',

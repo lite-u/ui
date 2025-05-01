@@ -12,6 +12,10 @@ export interface ContainerProps {
   tr?: boolean,
   bg?: CSSProperties['backgroundColor'],
   color?: CSSProperties['color'],
+  rounded?: boolean,
+  border?: boolean,
+  ib?: boolean,
+  borderColor?: CSSProperties['borderColor'],
   p?: CSSProperties['padding']
   pt?: CSSProperties['paddingTop']
   pr?: CSSProperties['paddingRight']
@@ -44,6 +48,10 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  tr = false,
                                                                                  bg,
                                                                                  color,
+                                                                                 border,
+                                                                                 rounded,
+                                                                                 ib,
+                                                                                 borderColor = '#dfdfdf',
                                                                                  w,
                                                                                  h,
                                                                                  maxW,
@@ -173,6 +181,18 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
 
   if (tr) {
     styles.textAlign = 'right'
+  }
+
+  if (border) {
+    styles.border = '1px solid ' + borderColor
+  }
+
+  if (rounded) {
+    styles.borderRadius = 5
+  }
+
+  if (ib) {
+    styles.display = 'inline-block'
   }
 
   return <div

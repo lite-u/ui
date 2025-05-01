@@ -11,6 +11,10 @@ export interface ContainerProps {
     tr?: boolean;
     bg?: CSSProperties['backgroundColor'];
     color?: CSSProperties['color'];
+    rounded?: boolean;
+    border?: boolean;
+    ib?: boolean;
+    borderColor?: CSSProperties['borderColor'];
     p?: CSSProperties['padding'];
     pt?: CSSProperties['paddingTop'];
     pr?: CSSProperties['paddingRight'];

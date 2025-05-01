@@ -1,4 +1,4 @@
-import {CSSProperties, ReactNode, useState} from 'react'
+import {Children, CSSProperties, ReactNode, useState} from 'react'
 import {useTableContext} from './Table'
 
 export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
@@ -7,13 +7,13 @@ export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
   style?: {}
 }>
 const TableRow: TableRowProps = ({
-        children,
-        head = false,
-        style = {},
-        onMouseEnter,
-        onMouseLeave,
-        ...props
-      }) => {
+                                   children,
+                                   head = false,
+                                   style = {},
+                                   onMouseEnter,
+                                   onMouseLeave,
+                                   ...props
+                                 }) => {
   const [extraRowStyle, setExtraRowStyle] = useState<CSSProperties>({})
   const {storedRowStyle, storedCellStyle} = useTableContext()
 
@@ -29,13 +29,7 @@ const TableRow: TableRowProps = ({
     setExtraRowStyle({})
   }
 
-  let nodes: ReactNode[] = []
-
-  if (Array.isArray(children)) {
-    nodes = children
-  } else {
-    nodes.push(children)
-  }
+  let nodes: ReactNode[] = Children.toArray(children)
 
   const rowStyle = {
     borderBottom: '1px solid #b5b5b5',
