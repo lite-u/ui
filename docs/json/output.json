@@ -559,13 +559,17 @@
     }
   },
   "TableRow": {
-    "tags": {},
+    "tags": {
+      "brief": "Represents a table row for use within the Table component.",
+      "intro": "Renders a styled < tr > element with automatically applied context-based row and cell styling. Can optionally render as a header row using the `head` prop.",
+      "example": "<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
+    },
     "props": {
       "head": {
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": ""
+        "description": "If true, renders the row using <th> elements instead of <td>."
       }
     }
   },

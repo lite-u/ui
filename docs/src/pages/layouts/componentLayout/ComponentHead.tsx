@@ -38,7 +38,7 @@ const ComponentHead = () => {
       <Title h4 id="description"><Link href={'#description'}># Description</Link></Title>
 
       <Con mt={10}></Con>
-      <Con pl={20} fz={16} style={{lineHeight: '1.5rem'}}>
+      <Con pl={0} fz={16} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{intro}</MDBlock>
       </Con>
 
