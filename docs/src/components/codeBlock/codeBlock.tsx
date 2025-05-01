@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react'
 import hljs from 'highlight.js'
 import typescript from 'highlight.js/lib/languages/typescript'
 import 'highlight.js/styles/github.css'
+// import 'highlight.js/styles/atom-one-light.min.css'
 
 hljs.registerLanguage('typescript', typescript)
 
@@ -14,7 +15,7 @@ const CodeBlock: React.FC<React.HTMLProps<HTMLDivElement> & {
   useEffect(() => {
     if (ref.current) {
       delete ref.current.dataset.highlighted
-      hljs.highlightBlock(ref.current)
+      hljs.highlightElement(ref.current)
     }
   }, [code, language, ref.current])
 

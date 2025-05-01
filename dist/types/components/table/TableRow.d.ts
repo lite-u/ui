@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
-declare const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
-    children: ReactNode[];
+export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
+    children: ReactNode;
     head?: boolean;
     style?: {};
 }>;
+declare const TableRow: TableRowProps;
 export default TableRow;

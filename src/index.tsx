@@ -54,5 +54,6 @@ export {
   Table,
   TableRow,
 }
+export type { ButtonProps } from './components/button/Button';
 export default LiteUIProvider
 export type {ThemeType}

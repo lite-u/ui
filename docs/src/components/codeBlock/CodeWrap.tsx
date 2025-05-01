@@ -5,7 +5,7 @@ import CodeBlock from './codeBlock.tsx'
 
 const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   code: string;
-}> = ({code}) => {
+}> = ({code, style}) => {
   const [copied, setCopied] = useState(false)
   const [visible, setVisible] = useState(false)
   const handleCopy = async () => {
@@ -19,27 +19,30 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   return (
-    <Con ovh w={460}
-         onMouseEnter={() => {
-           setVisible(true)
-         }}
-         onMouseLeave={() => {
-           setVisible(false)
-         }}
-         style={{
-           position: 'relative',
-           boxShadow: '0 0 1px 0px #000',
-           width: '100%',
-           padding: '15px 0 15px 20px',
-         }}>
+    <Con
+      role={'code-wrap'}
+      ovh
+      onMouseEnter={() => {
+        setVisible(true)
+      }}
+      onMouseLeave={() => {
+        setVisible(false)
+      }}
+      style={{
+        position: 'relative',
+        border: '1px solid #dfdfdf',
+        width: '100%',
+        padding: '15px 0 15px 20px',
+        ...style,
+      }}>
       <Transition visible={visible}
                   from={{scale: 0}}
                   to={{scale: 1}}
                   duration={200}
                   style={{
                     position: 'absolute',
-                    right: 0,
-                    top: 0,
+                    right: 10,
+                    top: 10,
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -49,12 +52,10 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
                       title={copied ? 'Copied' : 'Copy'}
                       onClick={handleCopy}
                       style={{
-                        // position: 'absolute',
-                        right: 0,
-                        top: 0,
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        backgroundColor: '#393939',
                       }}>
             {
               copied ?
@@ -82,6 +83,7 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
         }}>
         <CodeBlock code={dedent(code)}
                    style={{
+                     border: 'none',
                      fontSize: 14,
                      backgroundColor: 'transparent',
                      margin: 0,

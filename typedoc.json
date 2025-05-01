@@ -1,6 +1,7 @@
 {
   "entryPoints": ["src/index.tsx"],
   "out": "docs/md",
+  "json": "docs/json/output.json",
   "plugin": ["typedoc-plugin-markdown"],
   "excludePrivate": true,
   "excludeInternal": true,

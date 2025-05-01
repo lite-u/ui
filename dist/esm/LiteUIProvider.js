@@ -1,7 +1,8 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useContext, useEffect, useState } from 'react';
 import { liteTheme } from './themes/lite.theme';
-import { darkTheme } from './themes/dark';
+// import {darkTheme} from './themes/dark'
+// import {ThemeType} from './themes/type'
 import NotificationProvider from './components/notification/NotificationProvider';
 /* eslint disable */
 export const LiteUIContext = createContext({
@@ -16,8 +17,7 @@ const LiteUIProvider = ({ children }) => {
     const setTheme = (mode) => {
         setThemeMode(mode);
     };
-    // @ts-ignore
-    const currentTheme = themeMode === 'lite' ? liteTheme : darkTheme;
+    const currentTheme = themeMode === 'lite' ? liteTheme : liteTheme;
     return (_jsx(LiteUIContext.Provider, { value: { theme: currentTheme, setTheme }, children: _jsx(NotificationProvider, { children: children }) }));
 };
 export const useLiteUIContext = () => useContext(LiteUIContext);

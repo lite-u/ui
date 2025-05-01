@@ -1,8 +1,60 @@
-const API = () => {
+import {Table, TableRow} from '@lite-u/ui'
+import {CSSProperties} from 'react'
+import {Con} from '../../../../src'
 
-  return <div>
+type APIType = {
+  defaultValue: null | boolean | string
+  description: 'If true, applies the error color style.'
+  required: false
+  type: 'boolean'
+}
 
-  </div>
+const API = ({data}: { data: Record<string, APIType> }) => {
+  if (!data) return null
+  // const headCellStyle = {minWidth: 100}
+  const firstColStyle: CSSProperties = {width: '100%', textAlign: 'left', paddingLeft: 10}
+  const lastColStyle: CSSProperties = {
+    width: '100%', textAlign: 'left', paddingLeft: 10, whiteSpace: 'wrap',
+  }
+
+  return <Con mb={20}>
+    <Table fw fh
+           s
+           style={{
+             fontSize: 14,
+           }}
+      // headCellStyle={headCellStyle}
+           cellStyle={{
+             whiteSpace: 'pre-wrap',
+             wordWrap: 'break-word',
+             wordBreak: 'break-word',
+             minWidth: 100,
+           }}
+    >
+      <TableRow head>
+        <p style={firstColStyle}>Property</p>
+        <span>type</span>
+        <span>Default Value</span>
+        <span>required</span>
+        <p style={lastColStyle}>description</p>
+      </TableRow>
+      {
+        Object.keys(data).map((key, index) => {
+          const {type, required, defaultValue, description} = data[key]
+
+          return <TableRow key={index}>
+            <span style={firstColStyle}>{key}</span>
+            <span>{type}</span>
+            <span
+              style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>
+            <span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
+
+            <p style={lastColStyle}>{description}</p>
+          </TableRow>
+        })
+      }
+    </Table>
+  </Con>
 }
 
 export default API

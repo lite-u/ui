@@ -1,57 +1,54 @@
-import {CSSProperties, ReactNode, useState} from 'react'
+import {Children, CSSProperties, ReactNode, useState} from 'react'
 import {useTableContext} from './Table'
 
-const TableRow: React.FC<React.HTMLProps<HTMLTableRowElement> & {
-  children: ReactNode[],
+export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
+  children: ReactNode,
   head?: boolean,
   style?: {}
-}> = ({
-        children,
-        head = false,
-        style = {},
-        onMouseEnter,
-        onMouseLeave,
-        ...props
-      }) => {
-  const [extraRowStyle, setExtraRowStyle] = useState<CSSProperties>({})
+}>
+
+const TableRow: TableRowProps = ({
+                                   children,
+                                   head = false,
+                                   style = {},
+                                   onMouseEnter,
+                                   onMouseLeave,
+                                   ...props
+                                 }) => {
+  const [bodyRowStyle, setBodyRowStyle] = useState<CSSProperties>({})
   const {storedRowStyle, storedCellStyle} = useTableContext()
 
   const handleMouseEnter = () => {
     if (!head) {
-      setExtraRowStyle({
+      setBodyRowStyle({
         backgroundColor: '#dfdfdf',
-        // color: '#fff',
       })
     }
   }
+
   const handleMouseLeave = () => {
-    setExtraRowStyle({})
+    setBodyRowStyle({})
   }
 
-  let nodes: ReactNode[] = []
-
-  if (Array.isArray(children)) {
-    nodes = children
-  } else {
-    nodes.push(children)
-  }
+  let nodes: ReactNode[] = Children.toArray(children)
 
   const rowStyle = {
-    borderBottom: '1px solid #b5b5b5',
-    color: '#292929',
     ...storedRowStyle,
-    ...extraRowStyle,
+    ...bodyRowStyle,
   }
 
   const cellStyle = {
-    padding: '10px 0',
+    // padding: '6px 10px',
     // border: '1px solid #b5b5b5',
     ...storedCellStyle,
   }
 
   const cellDivStyle = {
-    display: 'flex',
+    width: '100%',
+    height: '100%',
+    display: 'inline-flex',
     justifyContent: 'center',
+    alignItems: 'center',
   }
 
   return <tr

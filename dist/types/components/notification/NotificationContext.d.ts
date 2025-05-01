@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface NotificationProps {
     id: string;
     text: string;

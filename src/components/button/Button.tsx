@@ -4,7 +4,7 @@ import ButtonBase from './ButtonBase'
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
 type Variant = 'primary' | 'error' | 'warn' | 'neutral';
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   /**
    * If true, renders the button in extra small size (height: 20px, min-width: 30px).
    */

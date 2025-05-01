@@ -4,6 +4,7 @@ import Container, {ContainerProps} from '../container/Container'
 export interface FlexProps extends ContainerProps {
   col?: boolean,
   row?: boolean,
+  flexWrap?: CSSProperties['flexWrap'],
   alignItems?: CSSProperties['alignItems'],
   justifyContent?: CSSProperties['justifyContent'],
   space?: CSSProperties['gap']
@@ -14,6 +15,7 @@ const Flex: React.FC<FlexProps & ContainerProps & React.HTMLProps<HTMLDivElement
                                                                                         row = true,
                                                                                         col,
                                                                                         space = 0,
+                                                                                        flexWrap = 'initial',
                                                                                         alignItems = 'start',
                                                                                         justifyContent = 'normal',
                                                                                         style = {},
@@ -29,6 +31,7 @@ const Flex: React.FC<FlexProps & ContainerProps & React.HTMLProps<HTMLDivElement
 
   styles.alignItems = alignItems
   styles.justifyContent = justifyContent
+  styles.flexWrap = flexWrap
 
   if (row) {
     styles.flexDirection = 'row'

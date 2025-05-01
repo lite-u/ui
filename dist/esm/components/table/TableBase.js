@@ -4,7 +4,7 @@ const TableBase = ({ children, ...props }) => {
     let tBody = [];
     if (Array.isArray(children)) {
         children.forEach(child => {
-            if (child.props.head) {
+            if (child.props && child.props.head) {
                 tHead = child;
             }
             else {

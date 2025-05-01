@@ -1,15 +1,17 @@
-import {ReactNode, useEffect, useRef, useState} from 'react'
-import {Row, Transition} from '../../index'
+import {CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
+import {Con, Transition} from '../../index'
 
 const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
   head: ReactNode,
   open?: boolean,
+  headStyle?: CSSProperties,
   onToggle?: (isOpen: boolean) => void,
 }> = ({
         open = true,
         head,
         children,
         onToggle,
+        headStyle,
         ...props
       }) => {
   const [containerHeight, setContainerHeight] = useState(0)
@@ -25,14 +27,19 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
   }, [containerRef.current, children])
 
   return <div role={'collapse'}>
-    <Row fw
-         style={{userSelect: 'none'}}
+    <Con role={'collapse-switch'}
+      // fw
+         w={'auto'}
+         style={{
+           display: 'inline-block', cursor: 'pointer', userSelect: 'none',
+           ...headStyle,
+         }}
          onClick={() => {
            setIsOpen(!isOpen)
            onToggle?.(!isOpen)
          }}>
       {head}
-    </Row>
+    </Con>
 
     <Transition
       visible={isOpen}
@@ -46,7 +53,7 @@ const Collapse: React.FC<React.HTMLProps<HTMLDivElement> & {
         overflow: 'hidden',
       }}
       {...props}>
-      <div ref={containerRef}>
+      <div ref={containerRef} role={'collapse-content'}>
         {children}
       </div>
     </Transition>

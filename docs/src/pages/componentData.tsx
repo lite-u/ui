@@ -1,118 +1,150 @@
-import TableSamples from './routes/TableSamples.tsx'
-import ButtonsSamples from './routes/ButtonsSamples.tsx'
-import IconButtonsSamples from './routes/IconButtonsSamples.tsx'
-import InputSample from './routes/InputSample.tsx'
-import SelectSamples from './routes/SelectSamples.tsx'
-import LinkSamples from './routes/LinkSamples.tsx'
-import ModalSamples from './routes/ModalSamples.tsx'
-import PanelSamples from './routes/PanelSamples.tsx'
-import ConSamples from './routes/ConSamples.tsx'
-import RowSamples from './routes/RowSamples.tsx'
-import TitleSamples from './routes/TitleSamples.tsx'
-import MenuSamples from './routes/MenuSamples.tsx'
-import MenuItemSamples from './routes/MenuItemSamples.tsx'
-import DropSamples from './routes/DropSamples.tsx'
-import NotificationSamples from './routes/NotificationSamples.tsx'
-import TransitionSamples from './routes/TransitionSamples.tsx'
-import TooltipSamples from './routes/TooltipSamples.tsx'
+import TablePage from './samples/TablePage.tsx'
+import ButtonsSamples from './samples/ButtonsSamples.tsx'
+import IconButtonsSamples from './samples/IconButtonsSamples.tsx'
+import InputSample from './samples/InputSample.tsx'
+import SelectSamples from './samples/SelectSamples.tsx'
+import LinkSamples from './samples/LinkSamples.tsx'
+import ModalSamples from './samples/ModalSamples.tsx'
+import PanelSamples from './samples/PanelSamples.tsx'
+import ConSamples from './samples/ConSamples.tsx'
+import RowSamples from './samples/RowSamples.tsx'
+import TitleSamples from './samples/TitleSamples.tsx'
+import MenuSamples from './samples/MenuSamples.tsx'
+import MenuItemSamples from './samples/MenuItemSamples.tsx'
+import DropSamples from './samples/DropSamples.tsx'
+import NotificationSamples from './samples/NotificationSamples.tsx'
+import TransitionSamples from './samples/TransitionSamples.tsx'
+import TooltipSamples from './samples/TooltipSamples.tsx'
 import {ReactElement} from 'react'
+import TableRowPage from './samples/TableRowPage.tsx'
 
 export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
   table: {
     to: 'table',
     name: 'Table',
-    comp: <TableSamples/>,
+    apiNameKey: 'Table',
+    comp: <TablePage/>,
+  },
+  tablerow: {
+    to: 'tablerow',
+    name: 'Table Row',
+    apiNameKey: 'TableRow',
+    comp: <TableRowPage/>,
   },
   button: {
     to: 'button',
     name: 'Button',
+    apiNameKey: 'Button',
     comp: <ButtonsSamples/>,
   },
   iconbutton: {
     to: 'iconbutton',
-    name: 'Icon Buttons',
+    name: 'IconButton',
+    apiNameKey: 'IconButton',
     comp: <IconButtonsSamples/>,
   },
   input: {
     to: 'input',
     name: 'Input',
+    apiNameKey: 'Input',
     comp: <InputSample/>,
   },
   select: {
     to: 'select',
     name: 'Select',
+    apiNameKey: 'Select',
     comp: <SelectSamples/>,
   },
   link: {
     to: 'link',
     name: 'Link',
+    apiNameKey: 'Link',
     comp: <LinkSamples/>,
   },
   modal: {
     to: 'modal',
     name: 'Modal',
+    apiNameKey: 'Modal',
     comp: <ModalSamples/>,
   },
   panel: {
     to: 'panel',
     name: 'Panel',
+    apiNameKey: 'Panel',
     comp: <PanelSamples/>,
   },
   container: {
     to: 'container',
     name: 'Container',
+    apiNameKey: 'Container',
     comp: <ConSamples/>,
   },
   row: {
     to: 'row',
     name: 'Row',
+    apiNameKey: 'Row',
     comp: <RowSamples/>,
   },
   column: {
     to: 'column',
     name: 'Column',
+    apiNameKey: 'Column',
     comp: <ConSamples/>,
   },
   title: {
     to: 'title',
     name: 'Title',
+    apiNameKey: 'Title',
     comp: <TitleSamples/>,
   },
   paragraph: {
     to: 'paragraph',
     name: 'Paragraph',
+    apiNameKey: 'Paragraph',
     comp: <PanelSamples/>,
   },
   menu: {
     to: 'menu',
     name: 'Menu',
+    apiNameKey: 'Menu',
     comp: <MenuSamples/>,
   },
   menuitem: {
     to: 'menuitem',
     name: 'MenuItem',
+    apiNameKey: 'MenuItem',
     comp: <MenuItemSamples/>,
   },
   drop: {
     to: 'drop',
     name: 'Drop',
+    apiNameKey: 'Drop',
     comp: <DropSamples/>,
   },
   notification: {
     to: 'notification',
     name: 'Notification',
+    apiNameKey: 'Notification',
     comp: <NotificationSamples/>,
   },
   transition: {
     to: 'transition',
     name: 'Transition',
+    apiNameKey: 'Transition',
     comp: <TransitionSamples/>,
   },
   tooltip: {
     to: 'tooltip',
     name: 'Tooltip',
+    apiNameKey: 'Tooltip',
     comp: <TooltipSamples/>,
+  },
+  collapse: {
+    to: 'collapse',
+    name: 'Collapse',
+    apiNameKey: 'Collapse',
+    // comp: <TooltipSamples/>,
   },
 }
 /*
@@ -120,11 +152,13 @@ const COMPONENT_ROUTES = [
   {
     to: 'table',
     name: 'Table',
+    apiNameKey: 'Table',
     comp: <TableSamples/>,
   },
   {
     to: 'button',
     name: 'Button',
+    apiNameKey: 'Button',
     comp: <ButtonsSamples/>,
   },
   {

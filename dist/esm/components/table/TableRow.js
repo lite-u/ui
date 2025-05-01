@@ -1,41 +1,35 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import { useTableContext } from './Table';
 const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLeave, ...props }) => {
-    const [extraRowStyle, setExtraRowStyle] = useState({});
+    const [bodyRowStyle, setBodyRowStyle] = useState({});
     const { storedRowStyle, storedCellStyle } = useTableContext();
     const handleMouseEnter = () => {
         if (!head) {
-            setExtraRowStyle({
+            setBodyRowStyle({
                 backgroundColor: '#dfdfdf',
-                // color: '#fff',
             });
         }
     };
     const handleMouseLeave = () => {
-        setExtraRowStyle({});
+        setBodyRowStyle({});
     };
-    let nodes = [];
-    if (Array.isArray(children)) {
-        nodes = children;
-    }
-    else {
-        nodes.push(children);
-    }
+    let nodes = Children.toArray(children);
     const rowStyle = {
-        borderBottom: '1px solid #b5b5b5',
-        color: '#292929',
         ...storedRowStyle,
-        ...extraRowStyle,
+        ...bodyRowStyle,
     };
     const cellStyle = {
-        padding: '10px 0',
+        // padding: '6px 10px',
         // border: '1px solid #b5b5b5',
         ...storedCellStyle,
     };
     const cellDivStyle = {
-        display: 'flex',
+        width: '100%',
+        height: '100%',
+        display: 'inline-flex',
         justifyContent: 'center',
+        alignItems: 'center',
     };
     return _jsx("tr", { onMouseEnter: (e) => {
             handleMouseEnter();

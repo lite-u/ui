@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, bg, color, w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, bg, color, border, rounded, ib, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -82,6 +82,15 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     }
     if (tr) {
         styles.textAlign = 'right';
+    }
+    if (border) {
+        styles.border = '1px solid ' + borderColor;
+    }
+    if (rounded) {
+        styles.borderRadius = 5;
+    }
+    if (ib) {
+        styles.display = 'inline-block';
     }
     return _jsx("div", { role: role, style: styles, ...props, children: children });
 };
