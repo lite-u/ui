@@ -46,7 +46,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
           return <TableRow key={index}>
             <span style={firstColStyle}>{key}</span>
-            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type.toString()}/>
+            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type}/>
             <div>
               {defaultValue ?
                 <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={defaultValue.toString()}/> : '-'}
