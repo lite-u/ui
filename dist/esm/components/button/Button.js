@@ -1,6 +1,17 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
 import ButtonBase from './ButtonBase';
+/**
+ * Button component
+ *
+ * @brief A customizable button component that supports size and color variants.
+ *
+ * @intro Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
+ *
+ * @example
+ * <Button primary xs>Confirm</Button>
+ * <Button error l>Delete</Button>
+ */
 export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, children, type = 'button', ...props }) => {
     const { theme } = useLiteUIContext();
     const { fontSizes, padding, button, borderRadius, } = theme;

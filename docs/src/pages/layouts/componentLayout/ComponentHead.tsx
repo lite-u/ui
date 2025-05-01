@@ -2,7 +2,7 @@ import {Col, Con, Link, Title} from '@lite-u/ui'
 import {useLocation} from 'react-router'
 import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
 import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
-import COMPONENT_ROUTE_MAP from '../../componentData.tsx'
+import COMPONENT_ROUTE_MAP from './componentData.tsx'
 import OUTPUT_JSON from '../../../../json/output.json'
 
 const ComponentHead = () => {

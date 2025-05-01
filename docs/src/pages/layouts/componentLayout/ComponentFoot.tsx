@@ -1,6 +1,6 @@
 import {Con, MenuItem, Row} from '@lite-u/ui'
 import {NavLink, useLocation} from 'react-router'
-import COMPONENT_ROUTE_MAP from '../../componentData.tsx'
+import COMPONENT_ROUTE_MAP from './componentData.tsx'
 
 const ComponentFoot = () => {
   const location = useLocation()

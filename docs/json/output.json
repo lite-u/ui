@@ -80,31 +80,35 @@
     }
   },
   "Button": {
-    "tags": {},
+    "tags": {
+      "brief": "A customizable button component that supports size and color variants.",
+      "intro": "Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).",
+      "example": "<Button primary xs>Confirm</Button>\n<Button error l>Delete</Button>"
+    },
     "props": {
       "xs": {
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "If true, renders the button in extra small size (height: 20px, min-width: 30px)."
+        "description": "Extra small button. Sizing depends on theme."
       },
       "s": {
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "If true, renders the button in small size (height: 25px, min-width: 40px)."
+        "description": "Small button. Sizing depends on theme."
       },
       "m": {
         "type": "boolean",
         "required": false,
         "defaultValue": true,
-        "description": "If true, renders the button in medium size. Exact dimensions depend on the theme. Default is true."
+        "description": "Medium button. Sizing depends on theme."
       },
       "l": {
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "If true, renders the button in large size (height: 40px, min-width: 60px)."
+        "description": "Large button. Sizing depends on theme."
       },
       "primary": {
         "type": "boolean",
@@ -116,7 +120,7 @@
         "type": "boolean",
         "required": false,
         "defaultValue": true,
-        "description": "If true, applies the neutral color style. Default is true."
+        "description": "If true, applies the neutral color style."
       },
       "warn": {
         "type": "boolean",

@@ -1,22 +1,22 @@
-import TablePage from './samples/TablePage.tsx'
-import ButtonsSamples from './samples/ButtonsSamples.tsx'
-import IconButtonsSamples from './samples/IconButtonsSamples.tsx'
-import InputSample from './samples/InputSample.tsx'
-import SelectSamples from './samples/SelectSamples.tsx'
-import LinkSamples from './samples/LinkSamples.tsx'
-import ModalSamples from './samples/ModalSamples.tsx'
-import PanelSamples from './samples/PanelSamples.tsx'
-import ConSamples from './samples/ConSamples.tsx'
-import RowSamples from './samples/RowSamples.tsx'
-import TitleSamples from './samples/TitleSamples.tsx'
-import MenuSamples from './samples/MenuSamples.tsx'
-import MenuItemSamples from './samples/MenuItemSamples.tsx'
-import DropSamples from './samples/DropSamples.tsx'
-import NotificationSamples from './samples/NotificationSamples.tsx'
-import TransitionSamples from './samples/TransitionSamples.tsx'
-import TooltipSamples from './samples/TooltipSamples.tsx'
+import TablePage from '../../samples/TablePage.tsx'
+import IconButtonsSamples from '../../samples/IconButtonsSamples.tsx'
+import InputSample from '../../samples/InputSample.tsx'
+import SelectSamples from '../../samples/SelectSamples.tsx'
+import LinkSamples from '../../samples/LinkSamples.tsx'
+import ModalSamples from '../../samples/ModalSamples.tsx'
+import PanelSamples from '../../samples/PanelSamples.tsx'
+import ConSamples from '../../samples/ConSamples.tsx'
+import RowSamples from '../../samples/RowSamples.tsx'
+import TitleSamples from '../../samples/TitleSamples.tsx'
+import MenuSamples from '../../samples/MenuSamples.tsx'
+import MenuItemSamples from '../../samples/MenuItemSamples.tsx'
+import DropSamples from '../../samples/DropSamples.tsx'
+import NotificationSamples from '../../samples/NotificationSamples.tsx'
+import TransitionSamples from '../../samples/TransitionSamples.tsx'
+import TooltipSamples from '../../samples/TooltipSamples.tsx'
 import {ReactElement} from 'react'
-import TableRowPage from './samples/TableRowPage.tsx'
+import TableRowPage from '../../samples/TableRowPage.tsx'
+import ButtonPage from '../../samples/ButtonPage.tsx'
 
 export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
@@ -36,7 +36,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'button',
     name: 'Button',
     apiNameKey: 'Button',
-    comp: <ButtonsSamples/>,
+    comp: <ButtonPage/>,
   },
   iconbutton: {
     to: 'iconbutton',

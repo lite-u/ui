@@ -1,3 +1,4 @@
+
 import {useLiteUIContext} from '../../LiteUIProvider'
 import ButtonBase from './ButtonBase'
 
@@ -6,19 +7,19 @@ type Variant = 'primary' | 'error' | 'warn' | 'neutral';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   /**
-   * If true, renders the button in extra small size (height: 20px, min-width: 30px).
+   * Extra small button. Sizing depends on theme.
    */
   xs?: boolean;
   /**
-   * If true, renders the button in small size (height: 25px, min-width: 40px).
+   * Small button. Sizing depends on theme.
    */
   s?: boolean;
   /**
-   * If true, renders the button in medium size. Exact dimensions depend on the theme. Default is true.
+   * Medium button. Sizing depends on theme.
    */
   m?: boolean;
   /**
-   * If true, renders the button in large size (height: 40px, min-width: 60px).
+   * Large button. Sizing depends on theme.
    */
   l?: boolean;
   /**
@@ -26,7 +27,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
    */
   primary?: boolean;
   /**
-   * If true, applies the neutral color style. Default is true.
+   * If true, applies the neutral color style.
    */
   neutral?: boolean;
   /**
@@ -47,6 +48,17 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
 };
 
+/**
+ * Button component
+ *
+ * @brief A customizable button component that supports size and color variants.
+ *
+ * @intro Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
+ *
+ * @example
+ * <Button primary xs>Confirm</Button>
+ * <Button error l>Delete</Button>
+ */
 export const Button: React.FC<ButtonProps> = ({
                                                 xs,
                                                 s,

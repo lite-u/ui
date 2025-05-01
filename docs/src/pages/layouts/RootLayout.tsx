@@ -1,6 +1,6 @@
 import {Col, Collapse, Con, Flex, MenuItem} from '@lite-u/ui'
 import {Link, NavLink, Outlet, useLocation} from 'react-router'
-import COMPONENT_ROUTE_MAP from '../componentData.tsx'
+import COMPONENT_ROUTE_MAP from './componentLayout/componentData.tsx'
 import {CSSProperties, useEffect} from 'react'
 
 const RootLayout = () => {
