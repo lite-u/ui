@@ -1,5 +1,5 @@
 // @ts-ignore
-import {Button, Table, TableRow} from '../../src/index.tsx'
+import {Button, Row, Table, TableRow} from '../../src/index.tsx'
 
 const Test = () => {
 
@@ -11,6 +11,8 @@ const Test = () => {
       <a href=""></a>
       <TableRow>1</TableRow>
     </Table>
+
+    <Row wrap></Row>
 
   </div>
 }
