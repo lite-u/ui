@@ -1,25 +1,76 @@
 import {Button, Col, Con, Row, Title} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock'
 import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
+import {ButtonProps} from '../../../../src'
 
 const ButtonPage: React.FC = () => {
   const wrapperWidth = 'auto'
   const blockMT = 50
-  const buttonSizes = ['default', 'xs', 's', 'm', 'l']
-  const buttonVars = ['default', 'primary', 'error', 'warn']
+  const buttonSizes = ['xs', 's', 'm', 'l']
+  const buttonVars = ['primary', 'error', 'warn']
 
   // neutral
   return <Col id={'col'}>
     <Row space={10} mt={10} wrap>
 
-      <Con minH={200} w={400}>
-        <UsageBlock title={'XS Size'} style={{flex: 1}}>
-          <Row between>
+      <Con minH={200} w={'auto'}>
+        <UsageBlock title={'Neutral'} style={{flex: 1}}>
+          <Row between end space={6}>
             {
               buttonSizes.map((size) => {
-                const text = size || 'default'
+                const prop: Partial<ButtonProps> = {
+                  [size]: true,
+                }
 
-                return <Button key={size}>{text}</Button>
+                return <Button key={size} {...prop}>{size}</Button>
+              })
+            }
+          </Row>
+        </UsageBlock>
+      </Con>
+
+      <Con minH={200} w={'auto'}>
+        <UsageBlock title={'Primary'} style={{flex: 1}}>
+          <Row between end space={6}>
+            {
+              buttonSizes.map((size) => {
+                const prop: Partial<ButtonProps> = {
+                  [size]: true,
+                }
+
+                return <Button primary key={size} {...prop}>{size}</Button>
+              })
+            }
+          </Row>
+        </UsageBlock>
+      </Con>
+
+      <Con minH={200} w={'auto'}>
+        <UsageBlock title={'Warn'} style={{flex: 1}}>
+          <Row between end space={6}>
+            {
+              buttonSizes.map((size) => {
+                const prop: Partial<ButtonProps> = {
+                  [size]: true,
+                }
+
+                return <Button warn key={size} {...prop}>{size}</Button>
+              })
+            }
+          </Row>
+        </UsageBlock>
+      </Con>
+
+      <Con minH={200} w={'auto'}>
+        <UsageBlock title={'Error'} style={{flex: 1}}>
+          <Row between end space={6}>
+            {
+              buttonSizes.map((size) => {
+                const prop: Partial<ButtonProps> = {
+                  [size]: true,
+                }
+
+                return <Button error key={size} {...prop}>{size}</Button>
               })
             }
           </Row>
