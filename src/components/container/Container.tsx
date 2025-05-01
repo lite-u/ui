@@ -12,6 +12,7 @@ export interface ContainerProps {
   tr?: boolean,
   bg?: CSSProperties['backgroundColor'],
   color?: CSSProperties['color'],
+  fz?: CSSProperties['fontSize'],
   rounded?: boolean,
   border?: boolean,
   ib?: boolean,
@@ -46,6 +47,7 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  tl = true,
                                                                                  tc = false,
                                                                                  tr = false,
+                                                                                 fz = 14,
                                                                                  bg,
                                                                                  color,
                                                                                  border,
@@ -76,6 +78,7 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
   let styles: React.CSSProperties = {
     width: 'auto',
     height: 'auto',
+    fontSize: fz,
     ...style,
   }
 

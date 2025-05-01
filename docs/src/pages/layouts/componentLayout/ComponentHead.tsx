@@ -1,5 +1,5 @@
 import {Col, Con, Title} from '@lite-u/ui'
-import {Link, useLocation} from 'react-router'
+import {useLocation} from 'react-router'
 import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
 import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
 import COMPONENT_ROUTE_MAP from '../../componentData.tsx'
@@ -22,17 +22,22 @@ const ComponentHead = () => {
 
   return <Con>
     <Col>
-      <Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>
+      <Con mt={10}></Con>
+      {/*<Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>*/}
+      <Title id={COMP_ROUTE.to}>{COMP_ROUTE.name}</Title>
 
-      <Con mt={20}></Con>
+      <Con mt={10}/>
 
-      <Con size={16} style={{lineHeight: '1.5rem'}}>
+      <Con fz={16} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{brief}</MDBlock>
 
-        <Con mt={100}></Con>
-        <Title h4>Description</Title>
-        <Con mt={30}></Con>
+      </Con>
 
+      <Con mt={100}></Con>
+      <Title h4>Description</Title>
+      <Con mt={30}></Con>
+
+      <Con fz={16} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{intro}</MDBlock>
       </Con>
 

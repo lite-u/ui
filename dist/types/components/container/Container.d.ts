@@ -11,6 +11,7 @@ export interface ContainerProps {
     tr?: boolean;
     bg?: CSSProperties['backgroundColor'];
     color?: CSSProperties['color'];
+    fz?: CSSProperties['fontSize'];
     rounded?: boolean;
     border?: boolean;
     ib?: boolean;
