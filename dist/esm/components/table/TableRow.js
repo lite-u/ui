@@ -34,7 +34,7 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
         ...storedCellStyle,
     };
     const cellDivStyle = {
-        display: 'flex',
+        display: 'inline-flex',
         justifyContent: 'center',
     };
     return _jsx("tr", { onMouseEnter: (e) => {
