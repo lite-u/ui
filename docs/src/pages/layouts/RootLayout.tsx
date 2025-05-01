@@ -12,7 +12,7 @@ const RootLayout = () => {
       const paths = pathname.split('/')
       const pathLen = paths.length
 
-      if (pathLen === 2) {
+      if (pathLen === 3) {
         mainRef.current.scroll(0, 0)
       }
 

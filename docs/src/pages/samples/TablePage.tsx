@@ -83,7 +83,7 @@ const TablePage: React.FC = () => {
     </Row>
 
     <Con mt={50} fz={16}>
-      See also <NavLink to={'/components/tablerow'}>tablerow</NavLink>
+      See also <NavLink to={'/components/tablerow'}>Table Row</NavLink>
     </Con>
 
   </Col>
