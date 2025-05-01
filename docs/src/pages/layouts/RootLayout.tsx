@@ -36,16 +36,17 @@ const RootLayout = () => {
           {
             Object.values(COMPONENT_ROUTE_MAP).map((comp, index) =>
               <MenuItem sm style={{padding: 0}} key={index}>
-                <NavLink style={({isActive}) => {
-                  return {
-                    backgroundColor: isActive ? '#0a2e71' : 'transparent',
-                    color: isActive ? '#fff' : '#000',
-                    width: '100%',
-                    height: '100%',
-                    paddingLeft: 30,
-                  } as CSSProperties
-                }}
-                         to={`components/${comp.to}`}>
+                <NavLink
+                  style={({isActive}) => {
+                    return {
+                      backgroundColor: isActive ? '#0a2e71' : 'transparent',
+                      color: isActive ? '#fff' : '#000',
+                      width: '100%',
+                      height: '100%',
+                      paddingLeft: 30,
+                    } as CSSProperties
+                  }}
+                  to={`components/${comp.to}`}>
                   <Col tl fh jc>
                     {comp.name}
                   </Col>

@@ -11,18 +11,15 @@ const CodeBlock: React.FC<React.HTMLProps<HTMLDivElement> & {
 }> = ({code, style, language = 'language-typescript'}) => {
   const ref = useRef<HTMLElement>(null)
 
-  console.log(9)
   useEffect(() => {
-    console.log(ref.current)
     if (ref.current) {
+      delete ref.current.dataset.highlighted
       hljs.highlightBlock(ref.current)
     }
   }, [code, language, ref.current])
 
-  return <pre /*style={style}*/>
-      <code ref={ref} className={language}>
-        {code}
-      </code>
+  return <pre style={style}>
+      <code ref={ref} style={{padding: 0}} className={language}>{code}</code>
     </pre>
 }
 
