@@ -37,7 +37,7 @@ const UsageBlock: FC<{ title: string, children: ReactNode, style?: CSSProperties
         <CodeWrap style={{
           padding: 0,
           border: 'none',
-        }} code={code}/>
+        }} code={`\n ${code}`}/>
       </Con>
     </Collapse>
   </Con>

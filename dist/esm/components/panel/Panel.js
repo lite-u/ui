@@ -3,11 +3,12 @@ import { useLiteUIContext } from '../../LiteUIProvider';
 import { Col } from '../../index';
 import Paragraph from '../paragraph/Paragraph';
 import Container from '../container/Container';
-const Panel = ({ xs, sm, md, lg, title, size = 'md', titleClass = '', titleStyle = {}, boxClass = '', boxStyle = {}, children, ...props }) => {
+const Panel = ({ xs, sm, md, lg, title, titleClass = '', titleStyle = {}, boxClass = '', boxStyle = {}, children, ...props }) => {
     const { theme } = useLiteUIContext();
-    if (md) {
-        size = 'md';
-    }
+    let size = 'md';
+    /*if (md) {
+      size = 'md'
+    }*/
     if (sm) {
         size = 'sm';
     }

@@ -82,7 +82,7 @@ const TablePage: React.FC = () => {
       </Flex>
     </Row>
 
-    <Con>
+    <Con mt={50} fz={16}>
       See also <NavLink to={'/components/tablerow'}>tablerow</NavLink>
     </Con>
 

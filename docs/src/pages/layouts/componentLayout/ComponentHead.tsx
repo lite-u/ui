@@ -19,38 +19,39 @@ const ComponentHead = () => {
   const intro = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.intro
   // @ts-ignore
   const example = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.example
-
+  const space = 100
   return <Con>
     <Col>
       <Con mt={10}></Con>
       {/*<Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>*/}
       <Title id={COMP_ROUTE.to}>{COMP_ROUTE.name}</Title>
 
-      <Con mt={10}/>
+      <Con mt={space}/>
 
+      <Title h4>Intro</Title>
       <Con fz={16} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{brief}</MDBlock>
-
       </Con>
 
-      <Con mt={100}></Con>
+      <Con mt={space}></Con>
       <Title h4>Description</Title>
-      <Con mt={30}></Con>
+      <Con mt={10}></Con>
 
-      <Con fz={16} style={{lineHeight: '1.5rem'}}>
+      <Con pl={20} fz={16} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{intro}</MDBlock>
       </Con>
 
-      <Con mt={100}></Con>
+      <Con mt={space}></Con>
 
       <Title h4>Usage</Title>
       <CodeWrap style={{maxWidth: 400}} code={`
-      import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui'
-      
-  ${example}
+      import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' 
+      \n ${example}
       `}/>
       <Con m={'0 0 20px 0'}></Con>
 
+      <Con mt={space}></Con>
+      <Title h4>Examples</Title>
     </Col>
   </Con>
 }

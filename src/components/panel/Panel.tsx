@@ -9,7 +9,7 @@ const Panel: React.FC<{
   sm?: boolean
   md?: boolean
   lg?: boolean
-  size?: 'md' | 'sm' | 'xs' | 'lg'
+  // size?: 'md' | 'sm' | 'xs' | 'lg'
   title: string,
   titleStyle?: React.CSSProperties,
   titleClass?: string,
@@ -22,7 +22,6 @@ const Panel: React.FC<{
                                                            md,
                                                            lg,
                                                            title,
-                                                           size = 'md',
                                                            titleClass = '',
                                                            titleStyle = {},
                                                            boxClass = '',
@@ -31,10 +30,10 @@ const Panel: React.FC<{
                                                            ...props
                                                          }) => {
   const {theme} = useLiteUIContext()
-
-  if (md) {
+  let size = 'md'
+  /*if (md) {
     size = 'md'
-  }
+  }*/
 
   if (sm) {
     size = 'sm'
