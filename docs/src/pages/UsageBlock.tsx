@@ -18,7 +18,7 @@ const UsageBlock: FC<{ title: string, children: ReactNode, style?: CSSProperties
     return `<${tag}>${content}</${tag}>`
   })
 
-  return <Con fw border rounded ib p={15} style={style}>
+  return <Con fh fw border rounded ib p={15} style={style}>
     {title && <Title h6 style={{marginBottom: 30}}>{title}</Title>}
 
     {children}

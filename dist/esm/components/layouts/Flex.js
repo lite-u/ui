@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import Container from '../container/Container';
-const Flex = ({ children, row = true, col, space = 0, alignItems = 'start', justifyContent = 'normal', style = {}, role = 'flex', ...props }) => {
+const Flex = ({ children, row = true, col, space = 0, flexWrap = 'initial', alignItems = 'start', justifyContent = 'normal', style = {}, role = 'flex', ...props }) => {
     let styles = {
         display: 'flex',
         boxSizing: 'border-box',
@@ -9,6 +9,7 @@ const Flex = ({ children, row = true, col, space = 0, alignItems = 'start', just
     };
     styles.alignItems = alignItems;
     styles.justifyContent = justifyContent;
+    styles.flexWrap = flexWrap;
     if (row) {
         styles.flexDirection = 'row';
     }

@@ -1,10 +1,12 @@
+import {ThemeType} from './type'
+
 const primaryColor = '#0a2e71'
 const secondaryColor = '#007bff'
 const successColor = '#28a745'
 const errorColor = '#dc3545'
 const warningColor = '#ffc107'
 
-export const liteTheme = {
+export const liteTheme: ThemeType = {
   colors: {
     primary: primaryColor,
     secondary: secondaryColor,
@@ -126,5 +128,13 @@ export const liteTheme = {
   },
   panel: {
     primaryColor,
+  },
+  table: {
+    row: {
+      xs: {height: 20},
+      sm: {height: 25},
+      md: {height: 30},
+      lg: {height: 40},
+    },
   },
 }

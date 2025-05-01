@@ -95,5 +95,13 @@ export type ThemeType = {
   };
   panel: {
     primaryColor: string;
-  };
+  }
+  table: {
+    row: {
+      xs: { height: number },
+      sm: { height: number },
+      md: { height: number },
+      lg: { height: number },
+    },
+  },
 };

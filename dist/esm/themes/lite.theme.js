@@ -126,4 +126,12 @@ export const liteTheme = {
     panel: {
         primaryColor,
     },
+    table: {
+        row: {
+            xs: { height: 20 },
+            sm: { height: 25 },
+            md: { height: 30 },
+            lg: { height: 40 },
+        },
+    },
 };

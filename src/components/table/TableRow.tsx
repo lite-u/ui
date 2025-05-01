@@ -6,6 +6,7 @@ export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
   head?: boolean,
   style?: {}
 }>
+
 const TableRow: TableRowProps = ({
                                    children,
                                    head = false,
@@ -14,32 +15,30 @@ const TableRow: TableRowProps = ({
                                    onMouseLeave,
                                    ...props
                                  }) => {
-  const [extraRowStyle, setExtraRowStyle] = useState<CSSProperties>({})
+  const [bodyRowStyle, setBodyRowStyle] = useState<CSSProperties>({})
   const {storedRowStyle, storedCellStyle} = useTableContext()
 
   const handleMouseEnter = () => {
     if (!head) {
-      setExtraRowStyle({
+      setBodyRowStyle({
         backgroundColor: '#dfdfdf',
-        // color: '#fff',
       })
     }
   }
+
   const handleMouseLeave = () => {
-    setExtraRowStyle({})
+    setBodyRowStyle({})
   }
 
   let nodes: ReactNode[] = Children.toArray(children)
 
   const rowStyle = {
-    borderBottom: '1px solid #b5b5b5',
-    color: '#292929',
     ...storedRowStyle,
-    ...extraRowStyle,
+    ...bodyRowStyle,
   }
 
   const cellStyle = {
-    padding: '6px 10px',
+    // padding: '6px 10px',
     // border: '1px solid #b5b5b5',
     ...storedCellStyle,
   }

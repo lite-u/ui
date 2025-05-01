@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import Flex from './Flex';
-const Row = ({ children, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
+const Row = ({ children, wrap = false, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'row',
@@ -31,6 +31,9 @@ const Row = ({ children, around = false, jc = false, between = false, start = tr
     }
     if (stretch) {
         flexProps.alignItems = 'stretch';
+    }
+    if (wrap) {
+        flexProps.flexWrap = 'wrap';
     }
     return _jsx(Flex, { role: role, style: styles, ...flexProps, children: children });
 };

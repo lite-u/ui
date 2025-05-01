@@ -8,6 +8,7 @@ interface RowProps extends ContainerProps {
   center?: boolean,
   stretch?: boolean,
   end?: boolean,
+  wrap?: boolean,
   // justify-content
   around?: boolean,
   jc?: boolean,
@@ -17,6 +18,7 @@ interface RowProps extends ContainerProps {
 
 const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
                                                                      children,
+                                                                     wrap = false,
                                                                      around = false,
                                                                      jc = false,
                                                                      between = false,
@@ -38,7 +40,7 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
     gap: space,
   }
 
-  const flexProps:FlexProps = {
+  const flexProps: FlexProps = {
     ...props,
   }
 
@@ -68,6 +70,10 @@ const Row: React.FC<React.HTMLProps<HTMLDivElement> & RowProps> = ({
 
   if (stretch) {
     flexProps.alignItems = 'stretch'
+  }
+
+  if (wrap) {
+    flexProps.flexWrap = 'wrap'
   }
 
   return <Flex

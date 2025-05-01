@@ -1,6 +1,7 @@
 import TableBase from './TableBase'
 import {Children, createContext, CSSProperties, ReactElement, ReactNode, useContext} from 'react'
 import TableRow, {TableRowProps} from './TableRow'
+import {useLiteUIContext} from '../../LiteUIProvider'
 
 const TableContext = createContext<{
   storedRowStyle: CSSProperties,
@@ -11,6 +12,11 @@ const TableContext = createContext<{
 })
 
 export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
+  xs?: boolean,
+  s?: boolean,
+  m?: boolean,
+  l?: boolean,
+
   /**
    * Whether the table should take up the full width of its parent
    * @default false
@@ -70,14 +76,23 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
 
 const Table: TableProps = ({
                              children = [],
+                             xs,
+                             s,
+                             m = true,
+                             l,
                              fw = true,
-                             fh = true,
+                             fh = false,
                              fixed = false,
                              style = {},
-                             rowStyle = {},
+                             rowStyle = {
+                               borderBottom: '1px solid #b5b5b5',
+                               color: '#292929',
+                             },
                              cellStyle = {},
                              ...props
                            }) => {
+  const {theme} = useLiteUIContext()
+  // console.log(theme.)
   const filteredChildren: ReactNode[] = []
 
   Children.forEach(children, (child) => {
@@ -89,19 +104,56 @@ const Table: TableProps = ({
     filteredChildren.push(child)
   })
 
+  const tableStyle: CSSProperties = {
+    width: fw ? '100%' : 'auto',
+    height: fh ? '100%' : 'auto',
+    borderCollapse: 'collapse',
+    tableLayout: fixed ? 'fixed' : 'auto',
+  }
+
+  const sizedCellStyle: CSSProperties = {}
+  const sizedRowStyle: CSSProperties = {}
+
+  if (m) {
+    tableStyle.fontSize = theme.fontSizes.md
+    sizedRowStyle.height = theme.table.row.md.height
+    sizedCellStyle.padding = `${theme.padding.md.y}px ${theme.padding.md.x}px`
+  }
+
+  if (xs) {
+    tableStyle.fontSize = theme.fontSizes.xs
+    sizedRowStyle.height = theme.table.row.xs.height
+    sizedCellStyle.padding = `${theme.padding.xs.y}px ${theme.padding.xs.x}px`
+  }
+
+  if (s) {
+    tableStyle.fontSize = theme.fontSizes.sm
+    sizedRowStyle.height = theme.table.row.sm.height
+    sizedCellStyle.padding = `${theme.padding.sm.y}px ${theme.padding.sm.x}px`
+  }
+
+  if (l) {
+    tableStyle.fontSize = theme.fontSizes.lg
+    sizedRowStyle.height = theme.table.row.lg.height
+    sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`
+  }
+
+  const storedRowStyle: CSSProperties = {
+    ...sizedRowStyle,
+    ...rowStyle,
+  }
+
+  const storedCellStyle: CSSProperties = {
+    ...sizedCellStyle,
+    ...cellStyle,
+  }
+
   return <TableContext.Provider value={{
-    // borderStyle,
-    storedRowStyle: rowStyle,
-    storedCellStyle: cellStyle,
+    storedRowStyle,
+    storedCellStyle,
   }}>
     <TableBase
-      style={{
-        width: fw ? '100%' : 'auto',
-        height: fh ? '100%' : 'auto',
-        borderCollapse: 'collapse',
-        tableLayout: fixed ? 'fixed' : 'auto',
-        ...style,
-      }}
+      style={{...tableStyle, ...style}}
       {...props}
     >
       {filteredChildren}

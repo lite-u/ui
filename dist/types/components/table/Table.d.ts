@@ -1,6 +1,10 @@
 import { CSSProperties, ReactElement } from 'react';
 import { TableRowProps } from './TableRow';
 export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
+    xs?: boolean;
+    s?: boolean;
+    m?: boolean;
+    l?: boolean;
     /**
      * Whether the table should take up the full width of its parent
      * @default false

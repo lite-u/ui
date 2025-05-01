@@ -3,6 +3,7 @@ import { ContainerProps } from '../container/Container';
 export interface FlexProps extends ContainerProps {
     col?: boolean;
     row?: boolean;
+    flexWrap?: CSSProperties['flexWrap'];
     alignItems?: CSSProperties['alignItems'];
     justifyContent?: CSSProperties['justifyContent'];
     space?: CSSProperties['gap'];

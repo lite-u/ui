@@ -2,6 +2,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import TableBase from './TableBase';
 import { Children, createContext, useContext } from 'react';
 import TableRow from './TableRow';
+import { useLiteUIContext } from '../../LiteUIProvider';
 const TableContext = createContext({
     storedRowStyle: {},
     storedCellStyle: {},
@@ -32,7 +33,12 @@ const TableContext = createContext({
  *   </TableRow>
  * </Table>
  */
-const Table = ({ children = [], fw = true, fh = true, fixed = false, style = {}, rowStyle = {}, cellStyle = {}, ...props }) => {
+const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {
+    borderBottom: '1px solid #b5b5b5',
+    color: '#292929',
+}, cellStyle = {}, ...props }) => {
+    const { theme } = useLiteUIContext();
+    // console.log(theme.)
     const filteredChildren = [];
     Children.forEach(children, (child) => {
         if (child.type !== TableRow) {
@@ -41,17 +47,46 @@ const Table = ({ children = [], fw = true, fh = true, fixed = false, style = {},
         }
         filteredChildren.push(child);
     });
+    const tableStyle = {
+        width: fw ? '100%' : 'auto',
+        height: fh ? '100%' : 'auto',
+        borderCollapse: 'collapse',
+        tableLayout: fixed ? 'fixed' : 'auto',
+    };
+    const sizedCellStyle = {};
+    const sizedRowStyle = {};
+    if (m) {
+        tableStyle.fontSize = theme.fontSizes.md;
+        sizedRowStyle.height = theme.table.row.md.height;
+        sizedCellStyle.padding = `${theme.padding.md.y}px ${theme.padding.md.x}px`;
+    }
+    if (xs) {
+        tableStyle.fontSize = theme.fontSizes.xs;
+        sizedRowStyle.height = theme.table.row.xs.height;
+        sizedCellStyle.padding = `${theme.padding.xs.y}px ${theme.padding.xs.x}px`;
+    }
+    if (s) {
+        tableStyle.fontSize = theme.fontSizes.sm;
+        sizedRowStyle.height = theme.table.row.sm.height;
+        sizedCellStyle.padding = `${theme.padding.sm.y}px ${theme.padding.sm.x}px`;
+    }
+    if (l) {
+        tableStyle.fontSize = theme.fontSizes.lg;
+        sizedRowStyle.height = theme.table.row.lg.height;
+        sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`;
+    }
+    const storedRowStyle = {
+        ...sizedRowStyle,
+        ...rowStyle,
+    };
+    const storedCellStyle = {
+        ...sizedCellStyle,
+        ...cellStyle,
+    };
     return _jsx(TableContext.Provider, { value: {
-            // borderStyle,
-            storedRowStyle: rowStyle,
-            storedCellStyle: cellStyle,
-        }, children: _jsx(TableBase, { style: {
-                width: fw ? '100%' : 'auto',
-                height: fh ? '100%' : 'auto',
-                borderCollapse: 'collapse',
-                tableLayout: fixed ? 'fixed' : 'auto',
-                ...style,
-            }, ...props, children: filteredChildren }) });
+            storedRowStyle,
+            storedCellStyle,
+        }, children: _jsx(TableBase, { style: { ...tableStyle, ...style }, ...props, children: filteredChildren }) });
 };
 export const useTableContext = () => useContext(TableContext);
 export default Table;
