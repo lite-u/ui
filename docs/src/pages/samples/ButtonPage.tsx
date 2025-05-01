@@ -3,10 +3,8 @@ import UsageBlock from '../UsageBlock'
 import {ButtonProps} from '../../../../src'
 
 const ButtonPage: React.FC = () => {
-  const wrapperWidth = 'auto'
-  const blockMT = 50
   const buttonSizes = ['xs', 's', 'm', 'l']
-  const buttonVars = ['primary', 'error', 'warn']
+  // const buttonVars = ['primary', 'error', 'warn']
 
   // neutral
   return <Col id={'col'}>
