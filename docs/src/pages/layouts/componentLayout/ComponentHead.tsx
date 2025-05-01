@@ -1,9 +1,9 @@
-import {Col, Con, P, Title} from '@lite-u/ui'
-import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
+import {Col, Con, Title} from '@lite-u/ui'
 import {Link, useLocation} from 'react-router'
+import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
+import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
 import COMPONENT_ROUTE_MAP from '../../componentData.tsx'
 import OUTPUT_JSON from '../../../../json/output.json'
-import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
 
 const ComponentHead = () => {
   const location = useLocation()
@@ -23,14 +23,20 @@ const ComponentHead = () => {
   return <Con>
     <Col>
       <Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>
+
       <Con mt={20}></Con>
-      <MDBlock>{brief}</MDBlock>
-      <MDBlock>{intro}</MDBlock>
-      {/*<P size={16}>{brief}</P>*/}
-      {/*<Con size={16}>
-        <pre style={{fontFamily: 'sans-serif'}}>{intro}</pre>
-      </Con>*/}
-      <Con mt={20}></Con>
+
+      <Con size={16} style={{lineHeight: '1.5rem'}}>
+        <MDBlock>{brief}</MDBlock>
+
+        <Con mt={100}></Con>
+        <Title h4>Description</Title>
+        <Con mt={30}></Con>
+
+        <MDBlock>{intro}</MDBlock>
+      </Con>
+
+      <Con mt={100}></Con>
 
       <Title h4>Usage</Title>
       <CodeWrap style={{maxWidth: 400}} code={`
