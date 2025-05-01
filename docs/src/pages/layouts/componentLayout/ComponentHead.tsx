@@ -13,10 +13,10 @@ const ComponentHead = () => {
 
   return <Con>
     <Col>
-      <Title id={COMP_ROUTE.to} sticky><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>
+      <Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>
       <Con m={20}></Con>
       <Title h4>Import</Title>
-      <CodeWrap code={`import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui'`}/>
+      <CodeWrap style={{maxWidth: 400}} code={`import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui'`}/>
       <Con m={'0 0 20px 0'}></Con>
 
     </Col>

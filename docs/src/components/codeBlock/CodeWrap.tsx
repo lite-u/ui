@@ -41,8 +41,8 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
                   duration={200}
                   style={{
                     position: 'absolute',
-                    right: 0,
-                    top: 0,
+                    right: 10,
+                    top: 10,
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -52,13 +52,10 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
                       title={copied ? 'Copied' : 'Copy'}
                       onClick={handleCopy}
                       style={{
-                        // position: 'absolute',
-                        right: 0,
-                        top: 0,
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundColor: '#aaaaaa',
+                        backgroundColor: '#393939',
                       }}>
             {
               copied ?
