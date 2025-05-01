@@ -20,7 +20,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
   return <Con mb={20}>
     <Table fw fh
-           s
+           l
            style={{
              fontSize: 14,
            }}
@@ -42,7 +42,6 @@ const API = ({data}: { data: Record<string, APIType> }) => {
       {
         Object.keys(data).map((key, index) => {
           const {type, required, defaultValue, description} = data[key]
-          console.log(defaultValue)
 
           return <TableRow key={index}>
             <span style={firstColStyle}>{key}</span>
