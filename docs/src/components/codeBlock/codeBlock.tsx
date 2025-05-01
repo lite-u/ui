@@ -1,5 +1,5 @@
 import React, {CSSProperties, useEffect, useRef} from 'react'
-import hljs from 'highlight.js'
+import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript'
 import 'highlight.js/styles/github.css'
 // import 'highlight.js/styles/atom-one-light.min.css'

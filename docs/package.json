@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev-doc": "vite",
-    "doc build": "../tsc -b && vite build",
+    "doc build": "vite build",
     "build-doc": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -21,7 +21,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
-    "react-router": "^7.5.3"
+    "react-router": "^7.5.3",
+    "vite-bundle-visualizer": "^1.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
