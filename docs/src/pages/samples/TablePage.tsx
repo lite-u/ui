@@ -1,27 +1,29 @@
-import {Col, Con, P, Table, TableRow} from '@lite-u/ui'
-import SampleBlock from '../SampleBlock.tsx'
+import {Col, Con, Table, TableRow} from '@lite-u/ui'
+import UsageBlock from '../UsageBlock'
 
-const TableSamples: React.FC = () => {
+const TablePage: React.FC = () => {
   return <Col id={'col'}>
     <Con>
-      <P>Minimal Usage</P>
-
-      <SampleBlock>
-        <Table>
-          <TableRow head>
-            <span>name</span>
-            <span>age</span>
-          </TableRow>
-          <TableRow>
-            <span>Puma</span>
-            <span>1970</span>
-          </TableRow>
-          <TableRow>
-            <span>Nike</span>
-            <span>1970</span>
-          </TableRow>
-        </Table>
-      </SampleBlock>
+      <Con w={300} style={{
+        // margin: '0 auto',
+      }}>
+        <UsageBlock title={'Minimal Usage'}>
+          <Table>
+            <TableRow head>
+              <span>name</span>
+              <span>age</span>
+            </TableRow>
+            <TableRow>
+              <span>Puma</span>
+              <span>1970</span>
+            </TableRow>
+            <TableRow>
+              <span>Nike</span>
+              <span>1970</span>
+            </TableRow>
+          </Table>
+        </UsageBlock>
+      </Con>
       <Table fw fh fixed>
         <TableRow head>
           <span>name</span>
@@ -69,4 +71,4 @@ const TableSamples: React.FC = () => {
   </Col>
 }
 
-export default TableSamples
+export default TablePage

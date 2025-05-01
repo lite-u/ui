@@ -32,7 +32,7 @@ const TableContext = createContext({
  *   </TableRow>
  * </Table>
  */
-const Table = ({ children = [], fw = false, fh = true, fixed = false, style = {}, rowStyle = {}, cellStyle = {}, ...props }) => {
+const Table = ({ children = [], fw = true, fh = true, fixed = false, style = {}, rowStyle = {}, cellStyle = {}, ...props }) => {
     const filteredChildren = [];
     Children.forEach(children, (child) => {
         if (child.type !== TableRow) {

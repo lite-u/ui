@@ -1,4 +1,4 @@
-import TableSamples from './samples/TableSamples.tsx'
+import TablePage from './samples/TablePage.tsx'
 import ButtonsSamples from './samples/ButtonsSamples.tsx'
 import IconButtonsSamples from './samples/IconButtonsSamples.tsx'
 import InputSample from './samples/InputSample.tsx'
@@ -23,7 +23,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'table',
     name: 'Table',
     apiNameKey: 'Table',
-    comp: <TableSamples/>,
+    comp: <TablePage/>,
   },
   button: {
     to: 'button',
@@ -132,6 +132,12 @@ const COMPONENT_ROUTE_MAP = {
     name: 'Tooltip',
     apiNameKey: 'Tooltip',
     comp: <TooltipSamples/>,
+  },
+  collapse: {
+    to: 'collapse',
+    name: 'Collapse',
+    apiNameKey: 'Collapse',
+    // comp: <TooltipSamples/>,
   },
 }
 /*

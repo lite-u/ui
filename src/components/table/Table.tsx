@@ -70,7 +70,7 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
 
 const Table: TableProps = ({
                              children = [],
-                             fw = false,
+                             fw = true,
                              fh = true,
                              fixed = false,
                              style = {},
