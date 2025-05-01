@@ -1,4 +1,4 @@
-import {Col, Con, Panel} from '@lite-u/ui'
+import {Col, Con, Link, Title} from '@lite-u/ui'
 import {useLocation} from 'react-router'
 import COMPONENT_ROUTE_MAP from '../../componentData.tsx'
 import OUTPUT_JSON from '../../../../json/output.json'
@@ -17,11 +17,11 @@ const ComponentAPI = () => {
 
   return <Con mt={100} mb={40}>
     <Col w={'auto'}>
-      {/*<Title h4 id={COMP_ROUTE.to} sticky>API</Title>*/}
+      <Title h4 id="api"><Link href={'#api'}># API</Link></Title>
 
-      <Panel md title={'API'}>
-        <API data={props}/>
-      </Panel>
+      <Con mb={30}></Con>
+      <API data={props}/>
+
     </Col>
   </Con>
 }

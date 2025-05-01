@@ -34,10 +34,7 @@ const TableContext = createContext({
  *   </TableRow>
  * </Table>
  */
-const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {
-    borderBottom: '1px solid #b5b5b5',
-    color: '#292929',
-}, cellStyle = {}, ...props }) => {
+const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {}, cellStyle = {}, ...props }) => {
     const { theme } = useLiteUIContext();
     // console.log(theme.)
     const filteredChildren = [];
@@ -79,6 +76,8 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
         sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`;
     }
     const storedRowStyle = {
+        borderBottom: '1px solid #b5b5b5',
+        color: '#292929',
         ...sizedRowStyle,
         ...rowStyle,
     };

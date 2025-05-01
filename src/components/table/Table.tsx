@@ -85,10 +85,7 @@ const Table: TableProps = ({
                              fh = false,
                              fixed = false,
                              style = {},
-                             rowStyle = {
-                               borderBottom: '1px solid #b5b5b5',
-                               color: '#292929',
-                             },
+                             rowStyle = {},
                              cellStyle = {},
                              ...props
                            }) => {
@@ -142,6 +139,8 @@ const Table: TableProps = ({
   }
 
   const storedRowStyle: CSSProperties = {
+    borderBottom: '1px solid #b5b5b5',
+    color: '#292929',
     ...sizedRowStyle,
     ...rowStyle,
   }

@@ -1,4 +1,4 @@
-import {Col, Con, Title} from '@lite-u/ui'
+import {Col, Con, Link, Title} from '@lite-u/ui'
 import {useLocation} from 'react-router'
 import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
 import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
@@ -20,21 +20,23 @@ const ComponentHead = () => {
   // @ts-ignore
   const example = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.example
   const space = 100
+
   return <Con>
     <Col>
       <Con mt={10}></Con>
       {/*<Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>*/}
       <Title id={COMP_ROUTE.to}>{COMP_ROUTE.name}</Title>
 
-      <Con mt={space}/>
+      {/*<Con mt={50}/>*/}
 
-      <Title h4>Intro</Title>
-      <Con fz={16} style={{lineHeight: '1.5rem'}}>
+      {/*<Title h4>Intro</Title>*/}
+      <Con fz={16} pl={4} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{brief}</MDBlock>
       </Con>
 
       <Con mt={space}></Con>
-      <Title h4>Description</Title>
+      <Title h4 id="description"><Link href={'#description'}># Description</Link></Title>
+
       <Con mt={10}></Con>
 
       <Con pl={20} fz={16} style={{lineHeight: '1.5rem'}}>
@@ -42,16 +44,18 @@ const ComponentHead = () => {
       </Con>
 
       <Con mt={space}></Con>
+      <Title h4 id="usage"><Link href={'#usage'}># Usage</Link></Title>
 
-      <Title h4>Usage</Title>
       <CodeWrap style={{maxWidth: 400}} code={`
       import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' 
       \n ${example}
       `}/>
       <Con m={'0 0 20px 0'}></Con>
 
+
       <Con mt={space}></Con>
-      <Title h4>Examples</Title>
+      <Title h4 id="examples"><Link href={'#examples'}># Examples</Link></Title>
+
     </Col>
   </Con>
 }

@@ -257,12 +257,6 @@
         "defaultValue": null,
         "description": ""
       },
-      "size": {
-        "type": "never",
-        "required": false,
-        "defaultValue": "md",
-        "description": ""
-      },
       "title": {
         "type": "string",
         "required": false,
@@ -553,7 +547,7 @@
       "rowStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "{\n                               borderBottom: '1px solid #b5b5b5',\n                               color: '#292929',\n                             }",
+        "defaultValue": "{}",
         "description": "Style object for table rows"
       },
       "cellStyle": {

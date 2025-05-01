@@ -1,6 +1,7 @@
 import {Table, TableRow} from '@lite-u/ui'
 import {CSSProperties} from 'react'
 import {Con} from '../../../../src'
+import CodeBlock from '../codeBlock/codeBlock.tsx'
 
 type APIType = {
   defaultValue: null | boolean | string
@@ -41,12 +42,18 @@ const API = ({data}: { data: Record<string, APIType> }) => {
       {
         Object.keys(data).map((key, index) => {
           const {type, required, defaultValue, description} = data[key]
+          console.log(defaultValue)
 
           return <TableRow key={index}>
             <span style={firstColStyle}>{key}</span>
             <span>{type}</span>
-            <span
-              style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>
+            <div>
+
+              {defaultValue ?
+                <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={defaultValue.toString()}/> : '-'}
+            </div>
+            {/* <span
+              style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>*/}
             <span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
 
             <p style={lastColStyle}>{description}</p>
