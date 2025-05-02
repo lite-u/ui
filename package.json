@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "output-json-doc": "node ./docgen.cjs"
+    "output-json-doc": "node ./docgen.cjs",
+    "watch-json-doc": "node ./docgen.watch.cjs"
   },
   "author": "",
   "main": "./dist/esm/index.js",
