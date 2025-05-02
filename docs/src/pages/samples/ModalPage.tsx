@@ -7,7 +7,7 @@ const ModalPage: React.FC = () => {
   return <Col>
     <Row end space={10}>
       <Con w={300}>
-        <UsageBlock title={'Link'} replacement={`
+        <UsageBlock title={'Open Modal'} replacement={`
           import {Button, Col, Con, Modal, Row} from '@lite-u/ui'
 
           const ModalSample: React.FC = () => {

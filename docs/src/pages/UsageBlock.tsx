@@ -29,17 +29,17 @@ const UsageBlock: FC<{ title: string, children: ReactNode, replacement?: string,
     <Collapse open={false}
               headStyle={{
                 marginBottom: 10,
-              }} head={
-      <Tooltip title={'Code'}>
-        <Button xs style={{backgroundColor: '#f3f3f3'}}>{'</>'}</Button>
-      </Tooltip>
-    }>
+              }}
+              head={
+                <Tooltip title={'Code'}>
+                  <Button xs style={{backgroundColor: '#f3f3f3'}}>{'</>'}</Button>
+                </Tooltip>
+              }>
       <Con fw border rounded p={'10px 0 10px 10px'}>
-        <CodeWrap style={{
+        <CodeWrap wrapStyle={{
           padding: 0,
           border: 'none',
           maxHeight: 200,
-          overflow: 'auto',
         }} code={`\n ${code}`}/>
       </Con>
     </Collapse>

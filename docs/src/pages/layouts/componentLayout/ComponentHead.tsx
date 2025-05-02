@@ -47,7 +47,7 @@ const ComponentHead = () => {
 
 
       <Con mt={10}></Con>
-      <CodeWrap style={{maxWidth: 600}} code={`\n ${codeExample}`}/>
+      <CodeWrap wrapStyle={{maxWidth: 600}} code={`\n ${codeExample}`}/>
       <Con m={'0 0 20px 0'}></Con>
 
 

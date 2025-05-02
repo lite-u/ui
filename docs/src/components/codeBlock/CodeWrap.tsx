@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, {CSSProperties, useState} from 'react'
 import {Con, IconButton, Tooltip, Transition} from '@lite-u/ui'
 import dedent from 'dedent'
 import CodeBlock from './codeBlock.tsx'
 
 const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   code: string;
-}> = ({code, style}) => {
+  wrapStyle?: CSSProperties;
+}> = ({code, style, wrapStyle}) => {
   const handledCode = dedent(code)
   const [copied, setCopied] = useState(false)
   const [visible, setVisible] = useState(false)
@@ -33,8 +34,10 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
         border: '1px solid #dfdfdf',
         width: '100%',
         padding: '15px 0 15px 20px',
-        ...style,
+        display: 'flex',
+        ...wrapStyle,
       }}>
+
       <Transition visible={visible}
                   from={{scale: 0}}
                   to={{scale: 1}}
@@ -70,17 +73,19 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
                 </svg>
             }
           </IconButton>
-        </Tooltip></Transition>
+        </Tooltip>
+      </Transition>
 
-      {/*<Con
+      <Con
         // maxH={200}
         style={{
           backgroundColor: '#fff',
           borderRadius: 2,
           overflow: 'auto',
+          ...style,
         }}>
-      </Con>*/}
         <CodeBlock code={handledCode}/>
+      </Con>
     </Con>
   )
 }
