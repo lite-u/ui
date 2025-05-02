@@ -9,7 +9,9 @@ const InputSample: React.FC = () => {
   return <Col>
     <Title h4>Primary</Title>
     {/*<Input xs ref={ref} label={'hello'}/>*/}
-    <Input xs number ref={ref} label={'hello'}/>
+    <Input xs number ref={ref} label={'hello'} labelStyle={{
+      fontSize: 200,
+    }}/>
 
     <Con w={600}>
       <P>xs</P>

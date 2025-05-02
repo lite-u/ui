@@ -70,6 +70,9 @@ declare const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
      * Inline styles to customize the input field.
      */
     style?: {};
+    /**
+     * Inline styles to customize the label.
+     */
     labelStyle?: {};
     ref?: React.Ref<HTMLInputElement>;
 }>;

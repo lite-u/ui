@@ -70,13 +70,7 @@
         "type": "{}",
         "required": false,
         "defaultValue": "{}",
-        "description": ""
-      },
-      "ref": {
-        "type": "Ref<HTMLInputElement>",
-        "required": false,
-        "defaultValue": "",
-        "description": ""
+        "description": "Inline styles to customize the label."
       }
     }
   },

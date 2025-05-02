@@ -9,14 +9,14 @@ docs.forEach((component) => {
 
     const filteredProps = Object.entries(props)
         .filter(([_, prop]) => {
-            if (props.name === 'ref') {
+            if (prop.parent) {
+                // Exclude HTML native props
                 return false
             }
 
-            if (!prop.parent) {
-                // Exclude HTML native props
-                return true
-            }
+            return prop.name !== 'ref';
+
+
         })
         .reduce((acc, [name, prop]) => {
             // console.log(props)
