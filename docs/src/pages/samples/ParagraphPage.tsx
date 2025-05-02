@@ -20,7 +20,7 @@ const TitlePage: React.FC = () => {
               <P size={60} color="gray"> Font size 60 </P>
 
               <P center color="gray">
-                This is a centered paragraph with custom styling.
+                Centered Paragraph
               </P>
             </Col>
           </Row>
