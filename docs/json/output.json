@@ -601,43 +601,43 @@
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Align items to the center vertically."
       },
       "stretch": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Stretch items to fill the container vertically."
       },
       "end": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Align items to the end vertically."
       },
       "around": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justify content with space around."
       },
       "jc": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justify content to the center."
       },
       "between": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justify content with space between items."
       },
       "space": {
         "type": "Gap<string | number>",
         "required": false,
         "defaultValue": "0",
-        "description": ""
+        "description": "Gap between child elements."
       },
       "box": {
         "type": "boolean",
