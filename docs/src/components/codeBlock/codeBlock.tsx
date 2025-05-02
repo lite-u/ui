@@ -1,5 +1,4 @@
 import React from 'react'
-// import typescript from 'highlight.js/lib/languages/typescript'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import {githubGist} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
