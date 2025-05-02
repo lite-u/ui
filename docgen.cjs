@@ -21,9 +21,15 @@ docs.forEach((component) => {
         .filter(([_, prop]) => {
             // Exclude HTML native props
             if (prop.parent) {
-                if (prop.name === 'defaultValue') {
-                    return prop.declarations.some(d => d.name === 'TypeLiteral')
-                }
+                /* prop.name === 'selectValue' && prop.declarations.some(d => {
+                     if(d.name === 'TypeLiteral'){
+                         debugger
+                     }
+                 })
+
+                 if (prop.name === 'selectValue') {
+                     return prop.declarations.some(d => d.name === 'TypeLiteral')
+                 }*/
 
                 return false
             }
@@ -38,13 +44,24 @@ docs.forEach((component) => {
             // console.log(props)
             let defaultValue = ''
 
+            console.log(typeof name, name)
+
+            if (name === 'selectValue') {
+                debugger
+            }
+
             if (prop.defaultValue) {
                 defaultValue = prop.defaultValue.value;
 
-                if (typeof defaultValue === 'boolean') {
+                if (defaultValue === '') {
+                    defaultValue = '\\-'
+                } else if (typeof defaultValue === 'boolean') {
                     defaultValue = defaultValue.toString();
                 }
+            } else {
+                defaultValue = '-'
             }
+
             acc[name] = {
                 type: prop.type.name,
                 required: prop.required,

@@ -29,11 +29,9 @@ type SelectProps = React.HTMLProps<HTMLDivElement> & {
     itemStyle?: React.CSSProperties;
     /**
      * The initial selected value of the select component.
-     * This value is used to set the internal state on mount.
-     * Does not update the value after initial render (uncontrolled).
      * @default ''
      */
-    defaultValue?: string | number;
+    selectValue?: string | number;
     /**
      * Callback fired when the selected value changes.
      * Receives the new value as a string or number.

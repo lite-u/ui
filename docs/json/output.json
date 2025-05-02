@@ -6,12 +6,6 @@
       "example": "import { Select } from '@lite-u/ui'\n\n<Select s defaultValue={'2'}>\n  <SelectItem value={'1'}>1</SelectItem>\n  <SelectItem value={'2'}>2</SelectItem>\n  <SelectItem value={'3'}>3</SelectItem>\n</Select>"
     },
     "props": {
-      "defaultValue": {
-        "type": "(string | number | readonly string[]) & (string | number)",
-        "required": false,
-        "defaultValue": "",
-        "description": "The initial selected value of the select component.\nThis value is used to set the internal state on mount.\nDoes not update the value after initial render (uncontrolled)."
-      },
       "xs": {
         "type": "boolean",
         "required": false,
@@ -41,6 +35,12 @@
         "required": false,
         "defaultValue": "{}",
         "description": "Custom styles applied to each `SelectItem` within the dropdown."
+      },
+      "selectValue": {
+        "type": "string | number",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "The initial selected value of the select component."
       }
     }
   },
@@ -244,7 +244,7 @@
       "children": {
         "type": "React.ReactNode",
         "required": true,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -303,7 +303,7 @@
       "children": {
         "type": "ReactNode",
         "required": true,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "style": {
@@ -320,31 +320,31 @@
       "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "sm": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "md": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "lg": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "title": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "titleStyle": {
@@ -356,7 +356,7 @@
       "titleClass": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "\\-",
         "description": ""
       },
       "boxStyle": {
@@ -368,13 +368,13 @@
       "boxClass": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "\\-",
         "description": ""
       },
       "children": {
         "type": "ReactNode",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -437,7 +437,7 @@
       "bgColor": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "position": {
@@ -462,13 +462,13 @@
       "head": {
         "type": "ReactNode",
         "required": true,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "headStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -485,19 +485,19 @@
       "onDragIsOver": {
         "type": "(isFileTypeValid: boolean) => void",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onDragIsLeave": {
         "type": "() => void",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onDropped": {
         "type": "(e: DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -508,85 +508,85 @@
       "tag": {
         "type": "keyof HTMLElementTagNameMap",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "hover": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "focus": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "active": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "style": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "children": {
         "type": "any",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseEnter": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseLeave": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onFocus": {
         "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onBlur": {
         "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseDown": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseUp": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onClick": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       },
       "onKeyDown": {
         "type": "(KeyboardEventHandler<HTMLElementTagNameMap[T]> & KeyboardEventHandler<HTMLObjectElement>) | ... 59 more ... | (KeyboardEventHandler<...> & KeyboardEventHandler<...>)",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -681,7 +681,7 @@
       "children": {
         "type": "React.ReactNode",
         "required": true,
-        "defaultValue": "",
+        "defaultValue": "-",
         "description": ""
       }
     }

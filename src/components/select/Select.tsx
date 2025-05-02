@@ -39,11 +39,9 @@ type SelectProps = React.HTMLProps<HTMLDivElement> & {
   itemStyle?: React.CSSProperties
   /**
    * The initial selected value of the select component.
-   * This value is used to set the internal state on mount.
-   * Does not update the value after initial render (uncontrolled).
    * @default ''
    */
-  defaultValue?: string | number
+  selectValue?: string | number
   /**
    * Callback fired when the selected value changes.
    * Receives the new value as a string or number.
@@ -72,25 +70,25 @@ type SelectProps = React.HTMLProps<HTMLDivElement> & {
  * </Select>
  */
 const Select: React.FC<SelectProps> = ({
-        label,
-        style,
-        itemStyle = {},
-        xs,
-        s,
-        m,
-        l,
-        defaultValue = '',
-        onChange,
-        children,
-        onKeyDown,
-        ...props
-      }) => {
+                                         label,
+                                         style,
+                                         itemStyle = {},
+                                         xs,
+                                         s,
+                                         m,
+                                         l,
+                                         selectValue = '',
+                                         onChange,
+                                         children,
+                                         onKeyDown,
+                                         ...props
+                                       }) => {
   const [openSelect, setOpenSelect] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState<{ top?: string, bottom?: string }>({})
   const [wrapperHeight, setWrapperHeight] = useState(0)
-  const [value, setValue] = useState(defaultValue)
+  const [value, setValue] = useState(selectValue)
   const animationDuration = 100
   const animationLeaveDuration = 100
   const getSize = () => {
@@ -135,7 +133,7 @@ const Select: React.FC<SelectProps> = ({
   useEffect(() => {
     const maxHeight = window.innerHeight
 
-    setValue(defaultValue)
+    setValue(selectValue)
 
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
@@ -152,7 +150,7 @@ const Select: React.FC<SelectProps> = ({
     return () => {
       window.removeEventListener('click', close)
     }
-  }, [children, defaultValue, size])
+  }, [children, selectValue, size])
 
   const handleItemClick = (newValue: string | number) => {
     setValue(newValue)
