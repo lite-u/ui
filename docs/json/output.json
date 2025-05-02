@@ -552,13 +552,13 @@
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": "Style object for table rows\n\nConvenience way to style all table rows"
+        "description": "Convenience way to style all table rows"
       },
       "rowHoverStyle": {
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": "Style object for table body rows hovered\n\nConvenience way to style Hovered body rows"
+        "description": "Convenience way to style Hovered body rows"
       },
       "cellStyle": {
         "type": "CSSProperties",

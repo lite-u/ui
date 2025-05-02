@@ -26,7 +26,7 @@ const TableRowPage: React.FC = () => {
     </Row>
 
     <Con mt={50} fz={16}>
-      See also <NavLink to={'/components/table#description'}>table</NavLink>
+      See also <NavLink to={'/components/table'}>Table</NavLink>
     </Con>
 
   </Col>

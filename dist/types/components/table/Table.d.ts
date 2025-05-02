@@ -36,17 +36,12 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
      */
     fixed?: boolean;
     /**
-     * Style object for table rows
-     *
      * Convenience way to style all table rows
      *
      */
     rowStyle?: CSSProperties;
     /**
-     * Style object for table body rows hovered
-     *
      * Convenience way to style Hovered body rows
-     *
      */
     rowHoverStyle?: CSSProperties;
     /**
