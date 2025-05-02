@@ -1,7 +1,7 @@
 import TablePage from '../../samples/TablePage.tsx'
 import IconButtonsPage from '../../samples/IconButtonsPage.tsx'
 import InputPage from '../../samples/InputPage.tsx'
-import SelectSamples from '../../samples/SelectSamples.tsx'
+import SelectPage from '../../samples/SelectPage.tsx'
 import LinkSamples from '../../samples/LinkSamples.tsx'
 import ModalSamples from '../../samples/ModalSamples.tsx'
 import PanelSamples from '../../samples/PanelSamples.tsx'
@@ -54,7 +54,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'select',
     name: 'Select',
     apiNameKey: 'Select',
-    comp: <SelectSamples/>,
+    comp: <SelectPage/>,
   },
   link: {
     to: 'link',

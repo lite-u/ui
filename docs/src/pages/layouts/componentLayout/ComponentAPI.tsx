@@ -11,6 +11,7 @@ const ComponentAPI = () => {
   const COMP_ROUTE = COMPONENT_ROUTE_MAP[currentPath as keyof typeof COMPONENT_ROUTE_MAP]
 
   if (!COMP_ROUTE) return
+  if (!OUTPUT_JSON[COMP_ROUTE.apiNameKey]) return
 
   // @ts-ignore
   const props = OUTPUT_JSON[COMP_ROUTE.apiNameKey].props

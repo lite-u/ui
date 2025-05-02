@@ -1,12 +1,12 @@
 import {Col, Row, Select, SelectItem, Title} from '@lite-u/ui'
 
-const SelectSamples: React.FC = () => {
+const SelectPage: React.FC = () => {
   return <Col>
     <Col between>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
       <Row style={{zIndex: 60}} space={10} end>
-        <Select sm
+        <Select s
                 defaultValue={'2'}
                 onChange={(v) => {
                   console.log(v)
@@ -16,7 +16,7 @@ const SelectSamples: React.FC = () => {
           <SelectItem value={'3'}>3</SelectItem>
         </Select>
 
-        <Select md defaultValue={'2'}
+        <Select m defaultValue={'2'}
                 onChange={(v) => {
                   console.log(v)
                 }}>
@@ -25,7 +25,7 @@ const SelectSamples: React.FC = () => {
           <SelectItem value={'3'}>hello 3</SelectItem>
         </Select>
 
-        <Select lg defaultValue={'12'}>
+        <Select l defaultValue={'12'}>
           {
             Array.from({length: 100}).fill(undefined).map((_, index) => {
               return <SelectItem key={index} value={(index + 1) + ''}>
@@ -41,4 +41,4 @@ const SelectSamples: React.FC = () => {
   </Col>
 }
 
-export default SelectSamples
+export default SelectPage

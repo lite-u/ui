@@ -2,6 +2,7 @@ import React, {CSSProperties, HTMLProps, useEffect, useRef, useState} from 'reac
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import Interactable from '../interactive/Interactable'
+import {useLiteUIContext} from '../../LiteUIProvider'
 
 export type SelectSize = 'sm' | 'md' | 'lg'
 const Select: React.FC<HTMLProps<HTMLDivElement> & {
@@ -9,19 +10,20 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
   children?: React.ReactNode
   defaultValue?: string | number
   onChange?: (value: string | number) => void
-  sm?: boolean
-  md?: boolean
-  lg?: boolean
+  xs?: boolean
+  s?: boolean
+  m?: boolean
+  l?: boolean
   size?: SelectSize
   style?: {},
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>
 }> = ({
         label,
         style,
-        sm,
-        md,
-        lg,
-        size = 'md' as SelectSize,
+        xs,
+        s,
+        m,
+        l,
         defaultValue = '',
         onChange,
         children,
@@ -35,6 +37,22 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
   const [wrapperHeight, setWrapperHeight] = useState(0)
   const [value, setValue] = useState(defaultValue)
   const animationDuration = 100
+  const getSize = () => {
+    if (xs) return 'xs'
+    if (s) return 'sm'
+    if (l) return 'lg'
+    return 'md'
+  }
+  const {theme} = useLiteUIContext()
+  const size = getSize()
+  const styles: CSSProperties = {
+    ...theme.formElements[size],
+    padding: `0 ${theme.padding[size].y}px`,
+    fontSize: theme.fontSizes[size],
+    borderRadius: theme.borderRadius[size],
+    boxSizing: 'border-box',
+  }
+  /*
   const sizeStyle: Record<SelectSize, CSSProperties> = {
     sm: {
       width: 40,
@@ -59,19 +77,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
     },
   }
 
-  if (md) {
-    size = 'md'
-  }
-
-  if (sm) {
-    size = 'sm'
-  }
-
-  if (lg) {
-    size = 'lg'
-  }
-
-  const itemStyle = sizeStyle[size]
+*/
 
   useEffect(() => {
     const maxHeight = window.innerHeight
@@ -114,13 +120,13 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
     setOpenSelect(!openSelect)
   }
 
-  return <SelectContext.Provider value={{itemStyle, selectValue: value, itemClick: handleItemClick}}>
+  return <SelectContext.Provider value={{itemStyle: styles, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           width: itemStyle.width,
-           height: itemStyle.height,
-           borderRadius: itemStyle.borderRadius,
+           width: styles.width,
+           height: styles.height,
+           borderRadius: styles.borderRadius,
            boxShadow: '0 0 1px 0 #000',
            cursor: 'pointer',
            boxSizing: 'border-box',
@@ -135,8 +141,8 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         tabIndex={0}
         style={{
           height: '100%',
-          borderRadius: itemStyle.borderRadius,
-          fontSize: itemStyle.fontSize,
+          borderRadius: styles.borderRadius,
+          fontSize: styles.fontSize,
           userSelect: 'none',
         }}
         onClick={() => {
@@ -153,8 +159,8 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         <Row fh
              between
              center
-             pl={itemStyle.padding}
-             pr={itemStyle.padding}>
+             pl={styles.padding}
+             pr={styles.padding}>
           <span>{value}</span>
           <Transition visible={openSelect}
                       duration={animationDuration}

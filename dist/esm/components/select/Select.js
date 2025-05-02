@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row, Transition } from '../../index';
 import Interactable from '../interactive/Interactable';
-const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onChange, children, onKeyDown, ...props }) => {
+import { useLiteUIContext } from '../../LiteUIProvider';
+const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -11,39 +12,50 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
     const [wrapperHeight, setWrapperHeight] = useState(0);
     const [value, setValue] = useState(defaultValue);
     const animationDuration = 100;
-    const sizeStyle = {
-        sm: {
-            width: 40,
-            height: 20,
-            padding: 6,
-            borderRadius: 2,
-            fontSize: 12,
-        },
-        md: {
-            width: 60,
-            height: 30,
-            padding: 10,
-            borderRadius: 3,
-            fontSize: 14,
-        },
-        lg: {
-            width: 100,
-            height: 40,
-            padding: 12,
-            borderRadius: 4,
-            fontSize: 16,
-        },
+    const getSize = () => {
+        if (xs)
+            return 'xs';
+        if (s)
+            return 'sm';
+        if (l)
+            return 'lg';
+        return 'md';
     };
-    if (md) {
-        size = 'md';
+    const { theme } = useLiteUIContext();
+    const size = getSize();
+    const styles = {
+        ...theme.formElements[size],
+        padding: `0 ${theme.padding[size].y}px`,
+        fontSize: theme.fontSizes[size],
+        borderRadius: theme.borderRadius[size],
+        boxSizing: 'border-box',
+    };
+    /*
+    const sizeStyle: Record<SelectSize, CSSProperties> = {
+      sm: {
+        width: 40,
+        height: 20,
+        padding: 6,
+        borderRadius: 2,
+        fontSize: 12,
+      },
+      md: {
+        width: 60,
+        height: 30,
+        padding: 10,
+        borderRadius: 3,
+        fontSize: 14,
+      },
+      lg: {
+        width: 100,
+        height: 40,
+        padding: 12,
+        borderRadius: 4,
+        fontSize: 16,
+      },
     }
-    if (sm) {
-        size = 'sm';
-    }
-    if (lg) {
-        size = 'lg';
-    }
-    const itemStyle = sizeStyle[size];
+  
+  */
     useEffect(() => {
         const maxHeight = window.innerHeight;
         setValue(defaultValue);
@@ -80,10 +92,10 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
         setPosition(newPosition);
         setOpenSelect(!openSelect);
     };
-    return _jsx(SelectContext.Provider, { value: { itemStyle, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
-                width: itemStyle.width,
-                height: itemStyle.height,
-                borderRadius: itemStyle.borderRadius,
+    return _jsx(SelectContext.Provider, { value: { itemStyle: styles, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
+                width: styles.width,
+                height: styles.height,
+                borderRadius: styles.borderRadius,
                 boxShadow: '0 0 1px 0 #000',
                 cursor: 'pointer',
                 boxSizing: 'border-box',
@@ -91,8 +103,8 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
                 position: 'relative',
             }, ...props, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: 0, style: {
                         height: '100%',
-                        borderRadius: itemStyle.borderRadius,
-                        fontSize: itemStyle.fontSize,
+                        borderRadius: styles.borderRadius,
+                        fontSize: styles.fontSize,
                         userSelect: 'none',
                     }, onClick: () => {
                         handleOpen();
@@ -102,7 +114,7 @@ const Select = ({ label, style, sm, md, lg, size = 'md', defaultValue = '', onCh
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: itemStyle.padding, pr: itemStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
+                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: styles.padding, pr: styles.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
