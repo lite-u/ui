@@ -4,7 +4,7 @@ import COMPONENT_ROUTE_MAP from './componentLayout/componentData.tsx'
 import {CSSProperties, useEffect, useRef} from 'react'
 
 const RootLayout = () => {
-  const {pathname} = useLocation()
+  const {pathname, hash} = useLocation()
   const mainRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -13,10 +13,14 @@ const RootLayout = () => {
       const pathLen = paths.length
 
       if (pathLen === 3) {
-        mainRef.current.scroll(0, 0)
-      }
+        if (hash) {
+          const ele = document.querySelector(hash)
 
-      // console.log(title)
+          ele?.scrollIntoView()
+        } else {
+          mainRef.current.scroll(0, 0)
+        }
+      }
 
       document.title = '@lite-u/ui Library'
     }
