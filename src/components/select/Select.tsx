@@ -1,4 +1,4 @@
-import React, {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
+import {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import Interactable from '../interactive/Interactable'
@@ -173,7 +173,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           flex:1,
+           flex: 1,
            // flex: 'none',
            ...defaultStyle,
            padding: 0,

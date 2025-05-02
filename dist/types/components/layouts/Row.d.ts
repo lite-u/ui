@@ -11,5 +11,5 @@ interface RowProps extends ContainerProps {
     between?: boolean;
     space?: CSSProperties['gap'];
 }
-declare const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap'> & RowProps>;
+declare const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap' & 'start'> & RowProps>;
 export default Row;

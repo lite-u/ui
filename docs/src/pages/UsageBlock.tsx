@@ -3,14 +3,15 @@ import {CSSProperties, FC, ReactNode} from 'react'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
 
-const UsageBlock: FC<{ title: string, children: ReactNode, style?: CSSProperties }> = ({title, children, style}) => {
-  let code = reactElementToJSXString(children, {
-    // useFragmentShortSyntax: true,
+const UsageBlock: FC<{ title: string, children: ReactNode, replacement?: string, style?: CSSProperties }> = ({
+                                                                                                               title,
+                                                                                                               children,
+                                                                                                               replacement,
+                                                                                                               style,
+                                                                                                             }) => {
+  let code = replacement || reactElementToJSXString(children, {
     tabStop: 2,
     maxInlineAttributesLineLength: 40,
-    // sortProps: false,
-    // showFunctions: true,
-    // functionValue: () => '[Function]',
   })
 
   // replace inline
@@ -18,7 +19,7 @@ const UsageBlock: FC<{ title: string, children: ReactNode, style?: CSSProperties
     return `<${tag}>${content}</${tag}>`
   })
 
-  return <Con fh fw border rounded ib p={15} style={style}>
+  return <Con role={'usage-block'} fh fw border rounded ib p={15} style={style}>
     {title && <Title h6 style={{marginBottom: 30}}>{title}</Title>}
 
     {children}

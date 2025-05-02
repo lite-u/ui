@@ -16,21 +16,21 @@ interface RowProps extends ContainerProps {
   space?: CSSProperties['gap']
 }
 
-const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap'> & RowProps> = ({
-                                                                                   children,
-                                                                                   wrap = false,
-                                                                                   around = false,
-                                                                                   jc = false,
-                                                                                   between = false,
-                                                                                   start = true,
-                                                                                   center = false,
-                                                                                   stretch = false,
-                                                                                   end = false,
-                                                                                   role = 'row',
-                                                                                   space = 0,
-                                                                                   style = {},
-                                                                                   ...props
-                                                                                 }) => {
+const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap' & 'start'> & RowProps> = ({
+                                                                                             children,
+                                                                                             wrap = false,
+                                                                                             around = false,
+                                                                                             jc = false,
+                                                                                             between = false,
+                                                                                             start = true,
+                                                                                             center = false,
+                                                                                             stretch = false,
+                                                                                             end = false,
+                                                                                             role = 'row',
+                                                                                             space = 0,
+                                                                                             style = {},
+                                                                                             ...props
+                                                                                           }) => {
 
   let styles: React.CSSProperties = {
     display: 'flex',

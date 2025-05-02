@@ -1,4 +1,43 @@
 {
+  "Select": {
+    "tags": {
+      "brief": "A styled dropdown (select) component.",
+      "intro": "Renders a `<select>` like element styled according to theme context. Supports multiple sizes\nand validation states.",
+      "example": "import { Select } from '@lite-u/ui'\n\n<Select>\n  <option value=\"1\">One</option>\n  <option value=\"2\">Two</option>\n</Select>"
+    },
+    "props": {
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Extra small size variant for the select."
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Small size variant for the select."
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Medium size variant for the select."
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Large size variant for the select."
+      },
+      "itemStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      }
+    }
+  },
   "SelectItem": {
     "tags": {
       "brief": "An individual selectable item used within the Select dropdown.",
