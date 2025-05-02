@@ -5,9 +5,9 @@ const SelectPage: React.FC = () => {
   return <Col>
 
     <Row start space={10} wrap>
-      <Con w={400}>
+      <Con w={'auto'}>
         <UsageBlock title={'xs'}>
-          <Row space={10} w={200} end>
+          <Row space={10} w={300} end>
             <Select s defaultValue={'2'}>
               <SelectItem value={'1'}>1</SelectItem>
               <SelectItem value={'2'}>2</SelectItem>
@@ -32,6 +32,8 @@ const SelectPage: React.FC = () => {
             </Select>
           </Row>
         </UsageBlock>
+      </Con>
+      <Con w={'auto'}>
 
         <UsageBlock title={'xs'}>
           <Col space={10} w={100}>

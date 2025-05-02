@@ -36,6 +36,7 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         justifyContent: 'center',
         alignItems: 'center',
         whiteSpace: 'nowrap',
+        borderRadius: 0,
         ...bgStyle,
         ...style,
     };

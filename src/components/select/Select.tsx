@@ -173,7 +173,8 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           flex: 'none',
+           flex:1,
+           // flex: 'none',
            ...defaultStyle,
            padding: 0,
            // minWidth: defaultStyle.minWidth,
