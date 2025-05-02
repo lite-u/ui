@@ -228,7 +228,11 @@
     }
   },
   "Link": {
-    "tags": {},
+    "tags": {
+      "brief": "Represents a hyperlink component with consistent styling and optional behavior controls.",
+      "intro": "Renders a styled `<a>` element for internal or external navigation, supporting accessibility and customization options.",
+      "example": "import { Link } from '@lite-u/ui'\n\n<Link href=\"https://example.com\" target=\"_blank\">\n    Visit Example\n</Link>"
+    },
     "props": {
       "fw": {
         "type": "boolean",
