@@ -2,25 +2,6 @@ import Flex, {FlexProps} from './Flex'
 import {ContainerProps} from '../container/Container'
 import {CSSProperties} from 'react'
 
-/**
- * Row component
- *
- * @brief
- * A horizontal flex container with shorthand alignment and spacing props.
- *
- * @intro
- * A layout component built on top of `Flex`, providing horizontal flow and useful alignment helpers like `start`, `center`, `stretch`, `wrap`, and `space`.
- * Supports extended `ContainerProps`.
- *
- * @example
- * import { Container } from '@lite-u/ui'
- *
- * <Row center space={10} wrap>
- *   <Box />
- *   <Box />
- * </Row>
- */
-
 interface RowProps extends ContainerProps {
   /**
    * Align items to the start vertically.
@@ -79,6 +60,25 @@ interface RowProps extends ContainerProps {
 
 type RowComponentProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap' | 'start'> & RowProps;
 
+/**
+ * Row component
+ *
+ * @brief
+ * A horizontal flex container with shorthand alignment and spacing props.
+ *
+ * @intro
+ * A layout component built on top of `Flex`, providing horizontal flow and useful alignment helpers like `start`, `center`, `stretch`, `wrap`, and `space`.
+ * Supports extended `ContainerProps`.
+ *
+ * @example
+ * import { Container } from '@lite-u/ui'
+ *
+ * <Row center space={10} wrap>
+ *   <span>1</span>
+ *   <span>2</span>
+ *   <span>3</span>
+ * </Row>
+ */
 const Row: React.FC<RowComponentProps> = ({
                                             children,
                                             wrap = false,

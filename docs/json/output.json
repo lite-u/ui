@@ -595,7 +595,11 @@
     }
   },
   "Row": {
-    "tags": {},
+    "tags": {
+      "brief": "A horizontal flex container with shorthand alignment and spacing props.",
+      "intro": "A layout component built on top of `Flex`, providing horizontal flow and useful alignment helpers like `start`, `center`, `stretch`, `wrap`, and `space`.\nSupports extended `ContainerProps`.",
+      "example": "import { Container } from '@lite-u/ui'\n\n<Row center space={10} wrap>\n  <span>1</span>\n  <span>2</span>\n  <span>3</span>\n</Row>"
+    },
     "props": {
       "start": {
         "type": "boolean",

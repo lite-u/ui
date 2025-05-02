@@ -1,29 +1,35 @@
 import {Button, Col, Con, Row, Title} from '@lite-u/ui'
 import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
+import UsageBlock from '../UsageBlock.tsx'
 
 const RowSamples: React.FC = () => {
-  return <Col  >
+  return <Col>
+    <Row start space={10}>
+      <Con w={'auto'}>
+        <UsageBlock title={'With Width'}>
+          <Row between center w={200}>
+            <Button s primary>1</Button>
+            <Button s primary>2</Button>
+            <Button s primary>3</Button>
+            <Button s primary>4</Button>
+          </Row>
+        </UsageBlock>
+      </Con>
+
+      <Con w={'auto'}>
+        <UsageBlock title={'With Space'}>
+          <Row space={20}>
+            <Button error>1</Button>
+            <Button error>2</Button>
+            <Button error>3</Button>
+            <Button error>4</Button>
+          </Row>
+        </UsageBlock>
+      </Con>
+    </Row>
+
     <Col between>
-      <Title h4>With width</Title>
-      <Con m={10}></Con>
-      <Row between center w={400}>
-        <Button primary>1</Button>
-        <Button primary>2</Button>
-        <Button primary>3</Button>
-        <Button primary>4</Button>
-      </Row>
-      <Con m={10}></Con>
-      <CodeWrap code={`
-      <Row between center w={400}>
-        <Button primary>1</Button>
-        <Button primary>2</Button>
-        <Button primary>3</Button>
-        <Button primary>4</Button>
-      </Row>
-          `}></CodeWrap>
 
-
-      <Con m={20}></Con>
       <Title h4>With space</Title>
       <Con m={10}></Con>
       <Row between center space={5}>
