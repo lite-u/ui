@@ -21,8 +21,15 @@ docs.forEach((component) => {
         .filter(([_, prop]) => {
             // Exclude HTML native props
             if (prop.parent) {
+                if (prop.parent.fileName && prop.parent.fileName.includes('ui/src')) {
+                    return true;
+                }
+
+                  /*if(prop.name === 'ovh'){
+                      debugger
+                  }*/
                 /* prop.name === 'selectValue' && prop.declarations.some(d => {
-                     if(d.name === 'TypeLiteral'){
+                     if(d.name === 'ovh'){
                          debugger
                      }
                  })
@@ -42,9 +49,9 @@ docs.forEach((component) => {
         })
         .reduce((acc, [name, prop]) => {
             let defaultValue = prop.defaultValue?.value || ''
-/*if(name ==='selectValue'){
-    debugger
-}*/
+            /*if(name ==='ovh'){
+                debugger
+            }*/
             acc[name] = {
                 type: prop.type.name,
                 required: prop.required,

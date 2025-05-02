@@ -367,7 +367,7 @@
       "m": {
         "type": "never",
         "required": false,
-        "defaultValue": "false",
+        "defaultValue": "false\n\\-",
         "description": "If true, sets the panel size to medium (`md`).\nMargin of the container."
       },
       "l": {
@@ -405,20 +405,899 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Optional class name for the panel content container."
+      },
+      "box": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies `box-sizing: border-box` to the container."
+      },
+      "ovh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: hidden`."
+      },
+      "ova": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: auto`."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "tl": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, aligns text to the left."
+      },
+      "tc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the center."
+      },
+      "tr": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the right."
+      },
+      "bg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Background color of the container."
+      },
+      "color": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
+      "fz": {
+        "type": "FontSize<string | number>",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Font size of the container text."
+      },
+      "rounded": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies border-radius of 5px."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "ib": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets display to inline-block."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "'#dfdfdf'",
+        "description": "Color of the border."
+      },
+      "p": {
+        "type": "Padding<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding of the container."
+      },
+      "pt": {
+        "type": "PaddingTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding top of the container."
+      },
+      "pr": {
+        "type": "PaddingRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding right of the container."
+      },
+      "pb": {
+        "type": "PaddingBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding bottom of the container."
+      },
+      "pl": {
+        "type": "PaddingLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding left of the container."
+      },
+      "mt": {
+        "type": "MarginTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin top of the container."
+      },
+      "mr": {
+        "type": "MarginRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin right of the container."
+      },
+      "mb": {
+        "type": "MarginBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin bottom of the container."
+      },
+      "ml": {
+        "type": "MarginLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin left of the container."
+      },
+      "maxW": {
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum width of the container."
+      },
+      "maxH": {
+        "type": "MaxHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum height of the container."
+      },
+      "minW": {
+        "type": "MinWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum width of the container."
+      },
+      "minH": {
+        "type": "MinHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum height of the container."
+      },
+      "w": {
+        "type": "Width<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Width of the container."
+      },
+      "h": {
+        "type": "Height<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Height of the container."
+      },
+      "role": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "'container'",
+        "description": "ARIA role attribute for the container."
       }
     }
   },
   "Row": {
     "tags": {},
-    "props": {}
+    "props": {
+      "center": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "stretch": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "end": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "around": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "jc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "between": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "space": {
+        "type": "Gap<string | number>",
+        "required": false,
+        "defaultValue": "0",
+        "description": ""
+      },
+      "box": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies `box-sizing: border-box` to the container."
+      },
+      "ovh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: hidden`."
+      },
+      "ova": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: auto`."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "tl": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, aligns text to the left."
+      },
+      "tc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the center."
+      },
+      "tr": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the right."
+      },
+      "bg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Background color of the container."
+      },
+      "fz": {
+        "type": "FontSize<string | number>",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Font size of the container text."
+      },
+      "rounded": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies border-radius of 5px."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "ib": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets display to inline-block."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "'#dfdfdf'",
+        "description": "Color of the border."
+      },
+      "p": {
+        "type": "Padding<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding of the container."
+      },
+      "pt": {
+        "type": "PaddingTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding top of the container."
+      },
+      "pr": {
+        "type": "PaddingRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding right of the container."
+      },
+      "pb": {
+        "type": "PaddingBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding bottom of the container."
+      },
+      "pl": {
+        "type": "PaddingLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding left of the container."
+      },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "mt": {
+        "type": "MarginTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin top of the container."
+      },
+      "mr": {
+        "type": "MarginRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin right of the container."
+      },
+      "mb": {
+        "type": "MarginBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin bottom of the container."
+      },
+      "ml": {
+        "type": "MarginLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin left of the container."
+      },
+      "maxW": {
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum width of the container."
+      },
+      "maxH": {
+        "type": "MaxHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum height of the container."
+      },
+      "minW": {
+        "type": "MinWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum width of the container."
+      },
+      "minH": {
+        "type": "MinHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum height of the container."
+      },
+      "w": {
+        "type": "Width<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Width of the container."
+      },
+      "h": {
+        "type": "Height<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Height of the container."
+      }
+    }
   },
   "Col": {
     "tags": {},
-    "props": {}
+    "props": {
+      "start": {
+        "type": "never",
+        "required": false,
+        "defaultValue": "true",
+        "description": ""
+      },
+      "center": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "stretch": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "end": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "space": {
+        "type": "Gap<string | number>",
+        "required": false,
+        "defaultValue": "0",
+        "description": ""
+      },
+      "around": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "jc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "between": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "box": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies `box-sizing: border-box` to the container."
+      },
+      "ovh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: hidden`."
+      },
+      "ova": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: auto`."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "tl": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, aligns text to the left."
+      },
+      "tc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the center."
+      },
+      "tr": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the right."
+      },
+      "bg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Background color of the container."
+      },
+      "color": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
+      "fz": {
+        "type": "FontSize<string | number>",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Font size of the container text."
+      },
+      "rounded": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies border-radius of 5px."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "ib": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets display to inline-block."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "'#dfdfdf'",
+        "description": "Color of the border."
+      },
+      "p": {
+        "type": "Padding<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding of the container."
+      },
+      "pt": {
+        "type": "PaddingTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding top of the container."
+      },
+      "pr": {
+        "type": "PaddingRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding right of the container."
+      },
+      "pb": {
+        "type": "PaddingBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding bottom of the container."
+      },
+      "pl": {
+        "type": "PaddingLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding left of the container."
+      },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "mt": {
+        "type": "MarginTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin top of the container."
+      },
+      "mr": {
+        "type": "MarginRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin right of the container."
+      },
+      "mb": {
+        "type": "MarginBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin bottom of the container."
+      },
+      "ml": {
+        "type": "MarginLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin left of the container."
+      },
+      "maxW": {
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum width of the container."
+      },
+      "maxH": {
+        "type": "MaxHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum height of the container."
+      },
+      "minW": {
+        "type": "MinWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum width of the container."
+      },
+      "minH": {
+        "type": "MinHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum height of the container."
+      },
+      "w": {
+        "type": "Width<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Width of the container."
+      },
+      "h": {
+        "type": "Height<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Height of the container."
+      },
+      "role": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "column",
+        "description": "ARIA role attribute for the container."
+      }
+    }
   },
   "Flex": {
     "tags": {},
-    "props": {}
+    "props": {
+      "col": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "row": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": ""
+      },
+      "flexWrap": {
+        "type": "FlexWrap",
+        "required": false,
+        "defaultValue": "initial",
+        "description": ""
+      },
+      "alignItems": {
+        "type": "AlignItems",
+        "required": false,
+        "defaultValue": "start",
+        "description": ""
+      },
+      "justifyContent": {
+        "type": "JustifyContent",
+        "required": false,
+        "defaultValue": "normal",
+        "description": ""
+      },
+      "space": {
+        "type": "Gap<string | number>",
+        "required": false,
+        "defaultValue": "0",
+        "description": ""
+      },
+      "box": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies `box-sizing: border-box` to the container."
+      },
+      "ovh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: hidden`."
+      },
+      "ova": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: auto`."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "tl": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, aligns text to the left."
+      },
+      "tc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the center."
+      },
+      "tr": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the right."
+      },
+      "bg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Background color of the container."
+      },
+      "color": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
+      "fz": {
+        "type": "FontSize<string | number>",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Font size of the container text."
+      },
+      "rounded": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies border-radius of 5px."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "ib": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets display to inline-block."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "'#dfdfdf'",
+        "description": "Color of the border."
+      },
+      "p": {
+        "type": "Padding<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding of the container."
+      },
+      "pt": {
+        "type": "PaddingTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding top of the container."
+      },
+      "pr": {
+        "type": "PaddingRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding right of the container."
+      },
+      "pb": {
+        "type": "PaddingBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding bottom of the container."
+      },
+      "pl": {
+        "type": "PaddingLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding left of the container."
+      },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "mt": {
+        "type": "MarginTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin top of the container."
+      },
+      "mr": {
+        "type": "MarginRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin right of the container."
+      },
+      "mb": {
+        "type": "MarginBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin bottom of the container."
+      },
+      "ml": {
+        "type": "MarginLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin left of the container."
+      },
+      "maxW": {
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum width of the container."
+      },
+      "maxH": {
+        "type": "MaxHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum height of the container."
+      },
+      "minW": {
+        "type": "MinWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum width of the container."
+      },
+      "minH": {
+        "type": "MinHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum height of the container."
+      },
+      "w": {
+        "type": "Width<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Width of the container."
+      },
+      "h": {
+        "type": "Height<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Height of the container."
+      },
+      "role": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "flex",
+        "description": "ARIA role attribute for the container."
+      }
+    }
   },
   "Menu": {
     "tags": {},
@@ -479,7 +1358,188 @@
   },
   "Con": {
     "tags": {},
-    "props": {}
+    "props": {
+      "box": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies `box-sizing: border-box` to the container."
+      },
+      "ovh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: hidden`."
+      },
+      "ova": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: auto`."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "tl": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, aligns text to the left."
+      },
+      "tc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the center."
+      },
+      "tr": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the right."
+      },
+      "bg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Background color of the container."
+      },
+      "fz": {
+        "type": "FontSize<string | number>",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Font size of the container text."
+      },
+      "rounded": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies border-radius of 5px."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "ib": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets display to inline-block."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "#dfdfdf",
+        "description": "Color of the border."
+      },
+      "p": {
+        "type": "Padding<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding of the container."
+      },
+      "pt": {
+        "type": "PaddingTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding top of the container."
+      },
+      "pr": {
+        "type": "PaddingRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding right of the container."
+      },
+      "pb": {
+        "type": "PaddingBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding bottom of the container."
+      },
+      "pl": {
+        "type": "PaddingLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding left of the container."
+      },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "mt": {
+        "type": "MarginTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin top of the container."
+      },
+      "mr": {
+        "type": "MarginRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin right of the container."
+      },
+      "mb": {
+        "type": "MarginBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin bottom of the container."
+      },
+      "ml": {
+        "type": "MarginLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin left of the container."
+      },
+      "maxW": {
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum width of the container."
+      },
+      "maxH": {
+        "type": "MaxHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum height of the container."
+      },
+      "minW": {
+        "type": "MinWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum width of the container."
+      },
+      "minH": {
+        "type": "MinHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum height of the container."
+      },
+      "w": {
+        "type": "Width<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Width of the container."
+      },
+      "h": {
+        "type": "Height<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Height of the container."
+      }
+    }
   },
   "Container": {
     "tags": {
@@ -487,7 +1547,188 @@
       "intro": "Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.\nUseful as a base layout block across components or pages.",
       "example": "<Container p={20} bg=\"#f9f9f9\" fw fh>\n  <h2>Content</h2>\n</Container>"
     },
-    "props": {}
+    "props": {
+      "box": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies `box-sizing: border-box` to the container."
+      },
+      "ovh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: hidden`."
+      },
+      "ova": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies `overflow: auto`."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "tl": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, aligns text to the left."
+      },
+      "tc": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the center."
+      },
+      "tr": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, aligns text to the right."
+      },
+      "bg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Background color of the container."
+      },
+      "fz": {
+        "type": "FontSize<string | number>",
+        "required": false,
+        "defaultValue": "14",
+        "description": "Font size of the container text."
+      },
+      "rounded": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies border-radius of 5px."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "ib": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets display to inline-block."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "#dfdfdf",
+        "description": "Color of the border."
+      },
+      "p": {
+        "type": "Padding<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding of the container."
+      },
+      "pt": {
+        "type": "PaddingTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding top of the container."
+      },
+      "pr": {
+        "type": "PaddingRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding right of the container."
+      },
+      "pb": {
+        "type": "PaddingBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding bottom of the container."
+      },
+      "pl": {
+        "type": "PaddingLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Padding left of the container."
+      },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "mt": {
+        "type": "MarginTop<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin top of the container."
+      },
+      "mr": {
+        "type": "MarginRight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin right of the container."
+      },
+      "mb": {
+        "type": "MarginBottom<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin bottom of the container."
+      },
+      "ml": {
+        "type": "MarginLeft<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin left of the container."
+      },
+      "maxW": {
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum width of the container."
+      },
+      "maxH": {
+        "type": "MaxHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Maximum height of the container."
+      },
+      "minW": {
+        "type": "MinWidth<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum width of the container."
+      },
+      "minH": {
+        "type": "MinHeight<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Minimum height of the container."
+      },
+      "w": {
+        "type": "Width<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Width of the container."
+      },
+      "h": {
+        "type": "Height<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Height of the container."
+      }
+    }
   },
   "Collapse": {
     "tags": {},

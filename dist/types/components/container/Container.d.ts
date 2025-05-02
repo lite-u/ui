@@ -42,10 +42,12 @@ export interface ContainerProps {
     tr?: boolean;
     /**
      * Background color of the container.
+     * @default \-
      */
     bg?: CSSProperties['backgroundColor'];
     /**
      * Text color of the container.
+     * @default \-
      */
     color?: CSSProperties['color'];
     /**
@@ -55,14 +57,17 @@ export interface ContainerProps {
     fz?: CSSProperties['fontSize'];
     /**
      * If true, applies border-radius of 5px.
+     * @default \-
      */
     rounded?: boolean;
     /**
      * If true, applies a 1px solid border with the specified border color.
+     * @default \-
      */
     border?: boolean;
     /**
      * If true, sets display to inline-block.
+     * @default \-
      */
     ib?: boolean;
     /**
@@ -72,66 +77,82 @@ export interface ContainerProps {
     borderColor?: CSSProperties['borderColor'];
     /**
      * Padding of the container.
+     * @default \-
      */
     p?: CSSProperties['padding'];
     /**
      * Padding top of the container.
+     * @default \-
      */
     pt?: CSSProperties['paddingTop'];
     /**
      * Padding right of the container.
+     * @default \-
      */
     pr?: CSSProperties['paddingRight'];
     /**
      * Padding bottom of the container.
+     * @default \-
      */
     pb?: CSSProperties['paddingBottom'];
     /**
      * Padding left of the container.
+     * @default \-
      */
     pl?: CSSProperties['paddingLeft'];
     /**
      * Margin of the container.
+     * @default \-
      */
     m?: CSSProperties['margin'];
     /**
      * Margin top of the container.
+     * @default \-
      */
     mt?: CSSProperties['marginTop'];
     /**
      * Margin right of the container.
+     * @default \-
      */
     mr?: CSSProperties['marginRight'];
     /**
      * Margin bottom of the container.
+     * @default \-
      */
     mb?: CSSProperties['marginBottom'];
     /**
      * Margin left of the container.
+     * @default \-
      */
     ml?: CSSProperties['marginLeft'];
     /**
      * Maximum width of the container.
+     * @default \-
      */
     maxW?: CSSProperties['maxWidth'];
     /**
      * Maximum height of the container.
+     * @default \-
      */
     maxH?: CSSProperties['maxHeight'];
     /**
      * Minimum width of the container.
+     * @default \-
      */
     minW?: CSSProperties['minWidth'];
     /**
      * Minimum height of the container.
+     * @default \-
      */
     minH?: CSSProperties['minHeight'];
     /**
      * Width of the container.
+     * @default \-
      */
     w?: CSSProperties['width'];
     /**
      * Height of the container.
+     * @default \-
      */
     h?: CSSProperties['height'];
     /**
