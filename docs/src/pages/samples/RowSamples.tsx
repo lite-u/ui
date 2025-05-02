@@ -3,7 +3,8 @@ import UsageBlock from '../UsageBlock.tsx'
 
 const RowSamples: React.FC = () => {
   return <Col>
-    <Row start space={10}>
+    <Row start space={10} wrap>
+
       <Con w={'auto'}>
         <UsageBlock title={'With Width'}>
           <Row between center w={200}>
@@ -26,19 +27,27 @@ const RowSamples: React.FC = () => {
         </UsageBlock>
       </Con>
 
-      <Con w={'auto'}>
+      <Con w={250}>
         <UsageBlock title={'With Column'}>
-          <Row space={20}>
-            <Button error>1</Button>
-            <Button error>2</Button>
-            <Button error>3</Button>
-            <Button error>4</Button>
+          <Row space={20} between w={200} h={200}>
+            <Col between fh>
+              <Button>1</Button>
+              <Button>4</Button>
+            </Col>
+
+            <Col fh center jc>
+              <Button>5</Button>
+            </Col>
+
+            <Col between end fh>
+              <Button>2</Button>
+              <Button>3</Button>
+            </Col>
           </Row>
         </UsageBlock>
       </Con>
 
     </Row>
-
   </Col>
 }
 
