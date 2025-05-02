@@ -3,7 +3,7 @@
     "tags": {
       "brief": "A styled dropdown (select) component.",
       "intro": "Renders a `<select>` like element styled according to theme context. Supports multiple sizes\nand validation states.",
-      "example": "import { Select } from '@lite-u/ui'\n\n<Select>\n  <option value=\"1\">One</option>\n  <option value=\"2\">Two</option>\n</Select>"
+      "example": "import { Select } from '@lite-u/ui'\n\n<Select s defaultValue={'2'}>\n  <SelectItem value={'1'}>1</SelectItem>\n  <SelectItem value={'2'}>2</SelectItem>\n  <SelectItem value={'3'}>3</SelectItem>\n</Select>"
     },
     "props": {
       "xs": {

@@ -18,9 +18,10 @@ import SelectItem from './SelectItem';
  * @example
  * import { Select } from '@lite-u/ui'
  *
- * <Select>
- *   <option value="1">One</option>
- *   <option value="2">Two</option>
+ * <Select s defaultValue={'2'}>
+ *   <SelectItem value={'1'}>1</SelectItem>
+ *   <SelectItem value={'2'}>2</SelectItem>
+ *   <SelectItem value={'3'}>3</SelectItem>
  * </Select>
  */
 const Select = ({ label, style, itemStyle = {}, xs, s, m, l, defaultValue = '', onChange, children, onKeyDown, ...props }) => {
@@ -51,7 +52,6 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, defaultValue = '', 
         borderRadius: theme.borderRadius[size],
         boxSizing: 'border-box',
     };
-    // console.log(theme.)
     const filteredChildren = [];
     Children.forEach(children, (child) => {
         // @ts-ignore

@@ -11,9 +11,10 @@
  * @example
  * import { Select } from '@lite-u/ui'
  *
- * <Select>
- *   <option value="1">One</option>
- *   <option value="2">Two</option>
+ * <Select s defaultValue={'2'}>
+ *   <SelectItem value={'1'}>1</SelectItem>
+ *   <SelectItem value={'2'}>2</SelectItem>
+ *   <SelectItem value={'3'}>3</SelectItem>
  * </Select>
  */
 declare const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
