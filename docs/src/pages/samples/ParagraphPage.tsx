@@ -1,4 +1,4 @@
-import {Col, Con, P, Paragraph, Row} from '@lite-u/ui'
+import {Col, Con, P, Row} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock.tsx'
 
 const TitlePage: React.FC = () => {
@@ -7,10 +7,23 @@ const TitlePage: React.FC = () => {
 
       <Con w={'auto'}>
         <UsageBlock title={'Titles'}>
-          <Col between>
-            <Paragraph>h1</Paragraph>
-            <P>h2</P>
-          </Col>
+          <Row w={400}>
+            <Col fw stretch>
+              <P size={10} color="gray"> Font size 10 </P>
+              <P size={12} color="gray"> Font size 12 </P>
+              <P size={14} color="gray"> Font size 14 </P>
+              <P size={16} color="gray"> Font size 16 </P>
+              <P size={18} color="gray"> Font size 18 </P>
+              <P size={20} color="gray"> Font size 20 </P>
+              <P size={30} color="gray"> Font size 30 </P>
+              <P size={40} color="gray"> Font size 40 </P>
+              <P size={60} color="gray"> Font size 60 </P>
+
+              <P center color="gray">
+                This is a centered paragraph with custom styling.
+              </P>
+            </Col>
+          </Row>
         </UsageBlock>
       </Con>
 

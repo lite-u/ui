@@ -49,6 +49,7 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
       }) => {
   const {theme} = useLiteUIContext()
   const styles: CSSProperties = {
+    flex: 1,
     fontSize: theme.title.h6,
     paddingTop: theme.padding.md.x,
     paddingBottom: theme.padding.md.x,

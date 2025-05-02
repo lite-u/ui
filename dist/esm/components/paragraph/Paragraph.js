@@ -20,6 +20,7 @@ import { useLiteUIContext } from '../../LiteUIProvider';
 const Paragraph = ({ children, size = 16, style = {}, color, center = false, wb = 'break-word', ...props }) => {
     const { theme } = useLiteUIContext();
     const styles = {
+        flex: 1,
         fontSize: theme.title.h6,
         paddingTop: theme.padding.md.x,
         paddingBottom: theme.padding.md.x,
