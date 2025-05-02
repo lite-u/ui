@@ -19,6 +19,8 @@ const TableContext = createContext({
  *
  * @example
  *
+ * import { Table, TableRow } from '@lite-u/ui'
+ *
  * const TableComp = () =>{
  *   return <Table>
  *     <TableRow head>

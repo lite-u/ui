@@ -29,17 +29,20 @@ export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
  * TableRow doesn’t require `td`(or `th`) — its children are automatically wrapped in <td>(or `th`) tags.
  *
  * @example
+ * import { Table, TableRow } from '@lite-u/ui'
  *
- * <Table>
- *   <TableRow head>
- *     <h1>th cell 0</h1>
- *     <h2>th cell 1</h2>
- *   </TableRow>
- *   <TableRow>
- *     <div>td cell 0</div>
- *     <p>td cell 1</p>
- *   </TableRow>
- * </Table>
+ * const TableComp = () => {
+ *   return <Table>
+ *       <TableRow head>
+ *         <h1>th cell 0</h1>
+ *         <h2>th cell 1</h2>
+ *       </TableRow>
+ *       <TableRow>
+ *         <div>td cell 0</div>
+ *         <p>td cell 1</p>
+ *       </TableRow>
+ *   </Table>
+ * }
  */
 const TableRow: TableRowProps = ({
                                    children,

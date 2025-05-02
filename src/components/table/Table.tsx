@@ -71,6 +71,8 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
  *
  * @example
  *
+ * import { Table, TableRow } from '@lite-u/ui'
+ *
  * const TableComp = () =>{
  *   return <Table>
  *     <TableRow head>

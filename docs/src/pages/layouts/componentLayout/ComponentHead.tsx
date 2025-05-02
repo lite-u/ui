@@ -17,9 +17,9 @@ const ComponentHead = () => {
   // @ts-ignore
   const intro = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.intro
   // @ts-ignore
-  const example = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.example
+  const codeExample = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.example
   const space = 100
-
+  console.log(codeExample)
   return <Con>
     <Col>
       <Con mt={10}></Con>
@@ -46,9 +46,7 @@ const ComponentHead = () => {
 
 
       <Con mt={10}></Con>
-      <CodeWrap style={{maxWidth: 400}} code={`
-      import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' \n \n ${example}
-      `}/>
+      <CodeWrap style={{maxWidth: 600}} code={`\n ${codeExample}`}/>
       <Con m={'0 0 20px 0'}></Con>
 
 
