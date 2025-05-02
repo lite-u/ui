@@ -5,6 +5,13 @@ const InputSample: React.FC = () => {
     <Title h4>Primary</Title>
 
     <Con w={600}>
+      <P>xs</P>
+      <Row space={6}>
+        <Input xs/>
+        <Input warn xs/>
+        <Input error xs/>
+      </Row>
+
       <P>Small</P>
       <Row space={6}>
         <Input s/>
@@ -39,6 +46,7 @@ const InputSample: React.FC = () => {
       </Row>
     </Con>
 
+    <Input label={'hello'}/>
   </Col>
 }
 

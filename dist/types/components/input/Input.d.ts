@@ -1,5 +1,6 @@
 declare const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
     label?: string;
+    xs?: boolean;
     s?: boolean;
     m?: boolean;
     l?: boolean;

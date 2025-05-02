@@ -1,9 +1,11 @@
 import InputNumber, {InputNumberProps} from './InputNumber'
 import InputText from './InputText'
 import {useLiteUIContext} from '../../LiteUIProvider'
+import {CSSProperties} from 'react'
 
 const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string,
+  xs?: boolean
   s?: boolean
   m?: boolean
   l?: boolean,
@@ -17,6 +19,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
         type = 'text',
         number,
         label,
+        xs,
         s,
         m = true,
         l,
@@ -28,36 +31,20 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
         ...props
       }) => {
   const {theme} = useLiteUIContext()
-  const sizeStyles = {
-    s: {
-      width: 100,
-      height: 25,
-      padding: '2px 6px',
-      fontSize: 12,
-      borderRadius: theme.borderRadius.sm,
-    },
-    m: {
-      width: 120,
-      height: 30,
-      padding: '4px 8px',
-      fontSize: 14,
-      borderRadius: theme.borderRadius.md,
-
-    },
-    l: {
-      width: 150,
-      height: 40,
-      padding: '6px 10px',
-      fontSize: 16,
-      borderRadius: theme.borderRadius.lg,
-    },
+  const getSize = () => {
+    if (xs) return 'xs'
+    if (s) return 'sm'
+    if (l) return 'lg'
+    return 'md'
   }
-
-  let styles: React.CSSProperties = {
+  const size = getSize()
+  const styles: CSSProperties = {
+    ...theme.formElements[size],
+    padding: `0 ${theme.padding[size].y}px`,
+    fontSize: theme.fontSizes[size],
+    borderRadius: theme.borderRadius[size],
     boxSizing: 'border-box',
   }
-
-  // console.log(theme.input.primary)
 
   if (neutral) {
     Object.assign(styles, theme.input.neutral)
@@ -73,18 +60,6 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
 
   if (error) {
     Object.assign(styles, theme.input.error)
-  }
-
-  if (m) {
-    Object.assign(styles, sizeStyles.m)
-  }
-
-  if (s) {
-    Object.assign(styles, sizeStyles.s)
-  }
-
-  if (l) {
-    Object.assign(styles, sizeStyles.l)
   }
 
   Object.assign(styles, style)
