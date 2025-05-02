@@ -12,6 +12,8 @@ import Flex from './Flex';
  *
  * @example
  * import { Column } from '@lite-u/ui'
+ * // Col is an alias of Column
+ * import { Col } from '@lite-u/ui'
  *
  * <Column center space={16}>
  *   <div>Item 1</div>

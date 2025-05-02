@@ -841,7 +841,7 @@
     "tags": {
       "brief": "A flexible vertical layout container built on top of the Flex component.",
       "intro": "Arranges children in a column direction using Flexbox. Supports alignment props\nlike `start`, `center`, `end`, and spacing between items using the `space` prop.",
-      "example": "import { Column } from '@lite-u/ui'\n\n<Column center space={16}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</Column>"
+      "example": "import { Column } from '@lite-u/ui'\n// Col is an alias of Column\nimport { Col } from '@lite-u/ui'\n\n<Column center space={16}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</Column>"
     },
     "props": {
       "start": {
