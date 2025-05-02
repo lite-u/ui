@@ -546,7 +546,7 @@
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": "Style object for table rows"
+        "description": "Style object for table rows\n\nConvenience way to style all table rows"
       },
       "rowHoverStyle": {
         "type": "CSSProperties",

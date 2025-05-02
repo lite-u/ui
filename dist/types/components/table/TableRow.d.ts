@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
     children: ReactNode;
     /**
-     * If true, renders the row using <th> elements instead of <td>.
+     * If true, renders the row using <th> elements instead of <td>, and wrap into <thead>.
      * @default false
      */
     head?: boolean;

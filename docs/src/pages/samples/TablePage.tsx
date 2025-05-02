@@ -118,6 +118,47 @@ const TablePage: React.FC = () => {
       </Flex>
     </Row>
 
+    <Flex col mt={30} minH={300} w={300}>
+      <UsageBlock title={'Custom Style Table'} style={{flex: 1}}>
+        <Table xs fixed
+               style={{
+                 borderCollapse: 'collapse',
+                 border: '1px solid orange',
+               }}
+               rowStyle={{
+                 backgroundColor: "#8361ea",
+               }}
+               rowHoverStyle={{
+                 backgroundColor: 'orange',
+                 color: 'green',
+               }}
+               cellStyle={{
+                 padding: 0,
+                 border: '1px solid #ff0000',
+               }}>
+          <TableRow head
+                    style={{
+                      fontSize: 16,
+                      color: '#fff',
+                      backgroundColor: '#1c285a',
+                    }}>
+            <span style={{padding: 10}}>brand</span>
+            <span>price</span>
+          </TableRow>
+
+          <TableRow style={{color: '#fff', backgroundColor: '#06852f'}}>
+            <span style={{backgroundColor: 'red', color: 'blue', padding: 20}}>Nike</span>
+            <span>1970</span>
+          </TableRow>
+          <TableRow>
+            <span>Nike</span>
+            <span>1970</span>
+          </TableRow>
+        </Table>
+      </UsageBlock>
+    </Flex>
+
+
     <Con mt={50} fz={16}>
       See also <NavLink to={'/components/tablerow'}>Table Row</NavLink>
     </Con>
