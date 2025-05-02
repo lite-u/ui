@@ -36,8 +36,10 @@ export const SpinnerControl = ({ onStep, intervalTime = 100 }) => {
                     background: '#dfdfdf',
                     boxShadow: '0 0 1px 0 #fff',
                     fontSize: '1em',
+                    display: 'inline-flex',
+                    justifyContent: 'center'
                     // cursor: 'pointer',
-                }, children: _jsx("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "18 15 12 9 6 15" }) }) }), _jsx(Button, { role: 'input-number-spinner-down', xs: true, onMouseDown: () => startHold('down'), onMouseUp: stopHold, onMouseLeave: stopHold, style: {
+                }, children: _jsx("svg", { style: { height: '100%' }, width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "18 15 12 9 6 15" }) }) }), _jsx(Button, { role: 'input-number-spinner-down', xs: true, onMouseDown: () => startHold('down'), onMouseUp: stopHold, onMouseLeave: stopHold, style: {
                     // width: '100%',
                     height: '50%',
                     flex: 1,
@@ -46,5 +48,7 @@ export const SpinnerControl = ({ onStep, intervalTime = 100 }) => {
                     color: '#000',
                     background: '#dfdfdf',
                     fontSize: '1em',
-                }, children: _jsx("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] }));
+                    display: 'inline-flex',
+                    justifyContent: 'center'
+                }, children: _jsx("svg", { style: { height: '100%' }, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] }));
 };
