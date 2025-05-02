@@ -15,17 +15,17 @@ export const IconButton = ({ xs, s, m = true, l, style = {}, type = 'button', ..
     };
     const size = getSize();
     const sizeStyle = formElements[size];
+    const len = sizeStyle.height;
     const styles = {
         cursor: 'pointer',
         fontSize: fontSizes[size],
-        padding: 2,
-        borderRadius: sizeStyle.height,
+        borderRadius: len,
         borderWidth: 0,
         backgroundColor: '#cfcfcf',
         color: '#ffffff',
         overflow: 'hidden',
-        width: sizeStyle.height,
-        height: sizeStyle.height,
+        width: len,
+        height: len,
         ...style,
     };
     return (_jsx(ButtonBase, { type: type, style: styles, ...props }));

@@ -31,17 +31,17 @@ export const IconButton: React.FC<IconButtonProps> = ({
   }
   const size = getSize()
   const sizeStyle = formElements[size]
+  const len = sizeStyle.height
   const styles: React.CSSProperties = {
     cursor: 'pointer',
     fontSize: fontSizes[size],
-    padding: 2,
-    borderRadius: sizeStyle.height,
+    borderRadius: len,
     borderWidth: 0,
     backgroundColor: '#cfcfcf',
     color: '#ffffff',
     overflow: 'hidden',
-    width: sizeStyle.height,
-    height: sizeStyle.height,
+    width: len,
+    height: len,
     ...style,
   }
 
