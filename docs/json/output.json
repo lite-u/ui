@@ -6,6 +6,12 @@
       "example": "import { Select } from '@lite-u/ui'\n\n<Select s defaultValue={'2'}>\n  <SelectItem value={'1'}>1</SelectItem>\n  <SelectItem value={'2'}>2</SelectItem>\n  <SelectItem value={'3'}>3</SelectItem>\n</Select>"
     },
     "props": {
+      "defaultValue": {
+        "type": "(string | number | readonly string[]) & (string | number)",
+        "required": false,
+        "defaultValue": "",
+        "description": "The initial selected value of the select component.\nThis value is used to set the internal state on mount.\nDoes not update the value after initial render (uncontrolled)."
+      },
       "xs": {
         "type": "boolean",
         "required": false,

@@ -5,26 +5,7 @@ import Interactable from '../interactive/Interactable'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import SelectItem from './SelectItem'
 
-/**
- * Select component
- *
- * @brief
- * A styled dropdown (select) component.
- *
- * @intro
- * Renders a `<select>` like element styled according to theme context. Supports multiple sizes
- * and validation states.
- *
- * @example
- * import { Select } from '@lite-u/ui'
- *
- * <Select s defaultValue={'2'}>
- *   <SelectItem value={'1'}>1</SelectItem>
- *   <SelectItem value={'2'}>2</SelectItem>
- *   <SelectItem value={'3'}>3</SelectItem>
- * </Select>
- */
-const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
+type SelectProps = React.HTMLProps<HTMLDivElement> & {
   /**
    * Extra small size variant for the select.
    * @default false
@@ -69,7 +50,28 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
    */
   onChange?: (value: string | number) => void
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>
-}> = ({
+}
+
+/**
+ * Select component
+ *
+ * @brief
+ * A styled dropdown (select) component.
+ *
+ * @intro
+ * Renders a `<select>` like element styled according to theme context. Supports multiple sizes
+ * and validation states.
+ *
+ * @example
+ * import { Select } from '@lite-u/ui'
+ *
+ * <Select s defaultValue={'2'}>
+ *   <SelectItem value={'1'}>1</SelectItem>
+ *   <SelectItem value={'2'}>2</SelectItem>
+ *   <SelectItem value={'3'}>3</SelectItem>
+ * </Select>
+ */
+const Select: React.FC<SelectProps> = ({
         label,
         style,
         itemStyle = {},

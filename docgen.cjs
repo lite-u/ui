@@ -2,12 +2,12 @@ const fs = require('fs');
 const path = require('path');
 // const parser = require('react-docgen-typescript').withDefaultConfig()
 const parser = require('react-docgen-typescript')
-const docs = parser.parse('src/index.tsx',{
-    skipChildrenPropWithoutDoc:false,
-    savePropValueAsString:true,
-    componentNameResolver:(exp,s) => {
-        // console.log(exp,s)
-    }
+const docs = parser.parse('src/index.tsx', {
+    skipChildrenPropWithoutDoc: false,
+    savePropValueAsString: true,
+    /*   componentNameResolver:(exp,s) => {
+           console.log(exp,s)
+       }*/
 
 });
 const result = {};
@@ -19,10 +19,16 @@ docs.forEach((component) => {
 
     const filteredProps = Object.entries(props)
         .filter(([_, prop]) => {
+            // Exclude HTML native props
             if (prop.parent) {
-                // Exclude HTML native props
+                if (prop.name === 'defaultValue') {
+                    return prop.declarations.some(d => d.name === 'TypeLiteral')
+                }
+
                 return false
             }
+
+            console.log(prop.name)
 
             return prop.name !== 'ref';
 
