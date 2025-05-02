@@ -1,7 +1,7 @@
 import {Button, Col, Con, Row} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock.tsx'
 
-const RowSamples: React.FC = () => {
+const RowPage: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
 
@@ -51,4 +51,4 @@ const RowSamples: React.FC = () => {
   </Col>
 }
 
-export default RowSamples
+export default RowPage
