@@ -19,8 +19,21 @@ import {useLiteUIContext} from '../../LiteUIProvider'
  * </Link>
  */
 const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
+  /**
+   * The content to display inside the link.
+   */
   children: ReactNode,
+
+  /**
+   * If true, the link will take up the full width of its container.
+   * @default true
+   */
   fw?: boolean,
+
+  /**
+   * If true, the link will take up the full height of its container.
+   * @default true
+   */
   fh?: boolean,
 }> = ({
         children,

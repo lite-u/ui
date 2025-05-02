@@ -238,13 +238,13 @@
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "If true, the link will take up the full width of its container."
       },
       "fh": {
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "If true, the link will take up the full height of its container."
       }
     }
   },
