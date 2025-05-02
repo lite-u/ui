@@ -22,7 +22,6 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   return (
     <Con
       role={'code-wrap'}
-      ovh
       onMouseEnter={() => {
         setVisible(true)
       }}
@@ -73,15 +72,16 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
           </IconButton>
         </Tooltip></Transition>
 
-      <Con
+      {/*<Con
         // maxH={200}
         style={{
           backgroundColor: '#fff',
           borderRadius: 2,
           overflow: 'auto',
         }}>
+      </Con>*/}
         <CodeBlock code={handledCode}/>
-      </Con></Con>
+    </Con>
   )
 }
 
