@@ -138,32 +138,34 @@
   },
   "IconButton": {
     "tags": {
-      "example": "```tsx\n<IconButton s onClick={handleClick}>\n  <Icon name=\"search\" />\n</IconButton>\n```"
+      "brief": "A square-shaped button designed to contain only an icon, not text.",
+      "intro": "Renders a circular or square icon-only button with predefined size variants.\nSupports four sizes and applies consistent styling from theme context.",
+      "example": "import { IconButton } from '@lite-u/ui'\nimport { Icon } from '@lite-u/icons'\n\n<IconButton s onClick={handleClick}>\n  <Icon name=\"search\" />\n</IconButton>"
     },
     "props": {
       "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Applies the extra small size variant to the button."
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Applies the small size variant to the button."
       },
       "m": {
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Applies the small size variant to the button."
       },
       "l": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Applies the large size variant to the button."
       }
     }
   },
