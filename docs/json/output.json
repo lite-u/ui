@@ -565,15 +565,15 @@
   "TableRow": {
     "tags": {
       "brief": "Represents a table row for use within the Table component.",
-      "intro": "Renders a styled `<tr>` or `<th>` element with automatically applied context-based row and cell styling.\n\nCan optionally render as a header row using the `head` prop.\n\nTableRow with head prop: recognized as a thead row\n\nTableRow without head prop: recognized as a tbody row\n\nTableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.",
-      "example": "<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
+      "intro": "Renders a styled `<tr>` element with automatically applied context-based row and cell styling.\n\nCan optionally render as a header row using the `head` prop.\n\nTableRow with `head` prop: recognized as a `thead` row\n\nTableRow without `head` prop: recognized as a `tbody` row\n\nTableRow doesn’t require `td`(or `th`) — its children are automatically wrapped in <td>(or `th`) tags.",
+      "example": "<Table>\n  <TableRow head>\n    <h1>th cell 0</h1>\n    <h2>th cell 1</h2>\n  </TableRow>\n  <TableRow>\n    <div>td cell 0</div>\n    <p>td cell 1</p>\n  </TableRow>\n</Table>"
     },
     "props": {
       "head": {
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "If true, renders the row using <th> elements instead of <td>, and wrap into <thead>."
+        "description": "If true, renders the row using `<th>` elements instead of `<td>`, and wrap into `<thead>` rather than `<tbody>`."
       }
     }
   },

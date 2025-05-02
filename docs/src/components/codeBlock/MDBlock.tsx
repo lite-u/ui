@@ -5,8 +5,8 @@ const MDBlock: React.FC<React.HTMLProps<HTMLDivElement> & { children: string }> 
   return <div {...props}><Markdown components={{
     code({children}) {
       return <span style={{
-        display: 'inline-block',
-        padding: ' 0 2px',
+        // display: 'inline-block',
+        padding: '2px 4px',
         borderRadius: 3,
         color: ' #000000',
         backgroundColor: '#dfdfdf',

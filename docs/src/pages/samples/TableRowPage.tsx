@@ -9,12 +9,12 @@ const TableRowPage: React.FC = () => {
         <UsageBlock title={'XS Size'} style={{flex: 1}}>
           <Table xs>
             <TableRow head>
-              <span>name</span>
-              <span>age</span>
+              <h1>name</h1>
+              <h2>age</h2>
             </TableRow>
             <TableRow>
-              <span>Puma</span>
-              <span>1970</span>
+              <div>Puma</div>
+              <p>1970</p>
             </TableRow>
             <TableRow>
               <span>Nike</span>
