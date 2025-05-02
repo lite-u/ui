@@ -1615,6 +1615,56 @@
       }
     }
   },
+  "Paragraph": {
+    "tags": {
+      "brief": "Renders a styled `<p>` tag with configurable font size, color, alignment, and word-break behavior.",
+      "intro": "Applies theming defaults for spacing and base typography, while allowing per-instance customization\nfor text alignment, font size, color, and word-breaking strategy.",
+      "example": "import { Paragraph } from '@lite-u/ui'\n\n<Paragraph size={14} color=\"gray\" center>\n  This is a centered paragraph with custom styling.\n</Paragraph>"
+    },
+    "props": {
+      "size": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "16",
+        "description": "Custom font size for the paragraph text."
+      },
+      "center": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Centers the paragraph text."
+      },
+      "wb": {
+        "type": "WordBreak",
+        "required": false,
+        "defaultValue": "break-word",
+        "description": "Controls word-break behavior (e.g., 'break-word', 'normal')."
+      }
+    }
+  },
+  "P": {
+    "tags": {},
+    "props": {
+      "size": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "16",
+        "description": "Custom font size for the paragraph text."
+      },
+      "center": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Centers the paragraph text."
+      },
+      "wb": {
+        "type": "WordBreak",
+        "required": false,
+        "defaultValue": "break-word",
+        "description": "Controls word-break behavior (e.g., 'break-word', 'normal')."
+      }
+    }
+  },
   "Menu": {
     "tags": {},
     "props": {

@@ -17,6 +17,7 @@ import TooltipSamples from '../../samples/TooltipSamples.tsx'
 import {ReactElement} from 'react'
 import TableRowPage from '../../samples/TableRowPage.tsx'
 import ButtonPage from '../../samples/ButtonPage.tsx'
+import ParagraphPage from '../../samples/ParagraphPage.tsx'
 
 export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
@@ -102,7 +103,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'paragraph',
     name: 'Paragraph',
     apiNameKey: 'Paragraph',
-    comp: <PanelPage/>,
+    comp: <ParagraphPage/>,
   },
   menu: {
     to: 'menu',
