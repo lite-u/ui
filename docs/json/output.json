@@ -368,7 +368,7 @@
         "type": "never",
         "required": false,
         "defaultValue": "false",
-        "description": "If true, sets the panel size to medium (`md`)."
+        "description": "If true, sets the panel size to medium (`md`).\nMargin of the container."
       },
       "l": {
         "type": "boolean",
@@ -482,7 +482,11 @@
     "props": {}
   },
   "Container": {
-    "tags": {},
+    "tags": {
+      "brief": "A flexible layout and style container that adapts to various UI layout needs.",
+      "intro": "Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.\nUseful as a base layout block across components or pages.",
+      "example": "<Container p={20} bg=\"#f9f9f9\" fw fh>\n  <h2>Content</h2>\n</Container>"
+    },
     "props": {}
   },
   "Collapse": {

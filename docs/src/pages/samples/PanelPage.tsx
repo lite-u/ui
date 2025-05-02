@@ -1,7 +1,7 @@
 import {Col, Con, Panel, Row} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock.tsx'
 
-const PanelSamples: React.FC = () => {
+const PanelPage: React.FC = () => {
   return <Col>
     <Row space={10} wrap>
 
@@ -49,4 +49,4 @@ const PanelSamples: React.FC = () => {
   </Col>
 }
 
-export default PanelSamples
+export default PanelPage

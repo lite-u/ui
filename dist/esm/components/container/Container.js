@@ -1,4 +1,19 @@
 import { jsx as _jsx } from "react/jsx-runtime";
+/**
+ * Container component
+ *
+ * @brief
+ * A flexible layout and style container that adapts to various UI layout needs.
+ *
+ * @intro
+ * Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.
+ * Useful as a base layout block across components or pages.
+ *
+ * @example
+ * <Container p={20} bg="#f9f9f9" fw fh>
+ *   <h2>Content</h2>
+ * </Container>
+ */
 const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, fz = 14, bg, color, border, rounded, ib, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',

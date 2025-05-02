@@ -4,8 +4,8 @@ import InputPage from '../../samples/InputPage.tsx'
 import SelectPage from '../../samples/SelectPage.tsx'
 import LinkPage from '../../samples/LinkPage.tsx'
 import ModalPage from '../../samples/ModalPage.tsx'
-import PanelSamples from '../../samples/PanelSamples.tsx'
-import ConSamples from '../../samples/ConSamples.tsx'
+import PanelPage from '../../samples/PanelPage.tsx'
+import ContainerPage from '../../samples/ContainerPage.tsx'
 import RowSamples from '../../samples/RowSamples.tsx'
 import TitleSamples from '../../samples/TitleSamples.tsx'
 import MenuSamples from '../../samples/MenuSamples.tsx'
@@ -72,13 +72,13 @@ const COMPONENT_ROUTE_MAP = {
     to: 'panel',
     name: 'Panel',
     apiNameKey: 'Panel',
-    comp: <PanelSamples/>,
+    comp: <PanelPage/>,
   },
   container: {
     to: 'container',
     name: 'Container',
     apiNameKey: 'Container',
-    comp: <ConSamples/>,
+    comp: <ContainerPage/>,
   },
   row: {
     to: 'row',
@@ -90,7 +90,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'column',
     name: 'Column',
     apiNameKey: 'Column',
-    comp: <ConSamples/>,
+    comp: <ContainerPage/>,
   },
   title: {
     to: 'title',
@@ -102,7 +102,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'paragraph',
     name: 'Paragraph',
     apiNameKey: 'Paragraph',
-    comp: <PanelSamples/>,
+    comp: <PanelPage/>,
   },
   menu: {
     to: 'menu',

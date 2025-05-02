@@ -1,7 +1,7 @@
 import {Col, Con, Panel, Row,  } from '@lite-u/ui'
 import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
-const ConSamples: React.FC = () => {
+const ContainerPage: React.FC = () => {
   return <Col  >
 
     <Col between>
@@ -39,4 +39,4 @@ const ConSamples: React.FC = () => {
   </Col>
 }
 
-export default ConSamples
+export default ContainerPage
