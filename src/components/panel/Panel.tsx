@@ -1,5 +1,5 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {Col} from '../../index'
+import {Column} from '../../index'
 import Container, {ContainerProps} from '../container/Container'
 
 /**
@@ -110,7 +110,7 @@ const Panel: React.FC<{
 
   console.log(titleStyle)
   return <Container fw fh role={'panel'} {...props}>
-    <Col fw fh stretch>
+    <Column fw fh stretch>
       <Container role={'panel-head'}
                  fw
                  style={{
@@ -138,7 +138,7 @@ const Panel: React.FC<{
                  className={contentClass}>
         {children}
       </Container>
-    </Col>
+    </Column>
   </Container>
 }
 

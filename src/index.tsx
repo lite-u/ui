@@ -5,7 +5,7 @@ import LiteUIProvider from './LiteUIProvider'
 import Modal from './components/modal/Modal'
 import Panel from './components/panel/Panel'
 import Row from './components/layouts/Row'
-import Col from './components/layouts/Col'
+import Column, {Col} from './components/layouts/Column'
 import Title from './components/title/Title'
 import Paragraph, {P} from './components/paragraph/Paragraph'
 import Menu from './components/menu/Menu'
@@ -39,6 +39,7 @@ export {
   Modal,
   Panel,
   Row,
+  Column,
   Col,
   Flex,
   Title,
