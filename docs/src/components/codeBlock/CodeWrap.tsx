@@ -6,11 +6,12 @@ import CodeBlock from './codeBlock.tsx'
 const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
   code: string;
 }> = ({code, style}) => {
+  const handledCode = dedent(code)
   const [copied, setCopied] = useState(false)
   const [visible, setVisible] = useState(false)
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(code)
+      await navigator.clipboard.writeText(handledCode)
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
     } catch (err) {
@@ -73,22 +74,13 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
         </Tooltip></Transition>
 
       <Con
-        maxH={200}
+        // maxH={200}
         style={{
           backgroundColor: '#fff',
-          // boxShadow: '0 0 1px 0px #000',
           borderRadius: 2,
           overflow: 'auto',
-          // position: 'relative',
         }}>
-        <CodeBlock code={dedent(code)}
-                   style={{
-                     border: 'none',
-                     fontSize: 14,
-                     backgroundColor: 'transparent',
-                     margin: 0,
-                     padding: 0,
-                   }}/>
+        <CodeBlock code={handledCode}/>
       </Con></Con>
   )
 }
