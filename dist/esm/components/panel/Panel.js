@@ -18,7 +18,7 @@ import Container from '../container/Container';
  *   <p>This is a section of content within a panel.</p>
  * </Panel>
  */
-const Panel = ({ xs, s, m, l, title, titleClass = '', titleStyle = {}, contentClass = '', contentStyle = {}, children, ...props }) => {
+const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, contentStyle = {}, children, ...props }) => {
     const { theme } = useLiteUIContext();
     let size = 'md';
     if (xs) {

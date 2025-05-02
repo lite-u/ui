@@ -355,62 +355,62 @@
       "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "If true, sets the panel size to extra small (`xs`)."
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "If true, sets the panel size to small (`sm`)."
       },
       "m": {
         "type": "never",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "If true, sets the panel size to medium (`md`)."
       },
       "l": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "If true, sets the panel size to large (`lg`)."
       },
       "title": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "The title text displayed in the panel header."
       },
       "titleStyle": {
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": ""
+        "description": "Optional custom styles for the title container."
       },
       "titleClass": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "Optional class name for the title container."
       },
       "contentStyle": {
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": ""
+        "description": "Optional custom styles for the panel content container."
       },
       "contentClass": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "Optional class name for the panel content container."
       },
       "children": {
         "type": "ReactNode",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "undefined",
+        "description": "Content to render inside the panel."
       }
     }
   },

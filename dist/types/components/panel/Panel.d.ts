@@ -17,15 +17,55 @@ import { ContainerProps } from '../container/Container';
  * </Panel>
  */
 declare const Panel: React.FC<{
+    /**
+     * If true, sets the panel size to extra small (`xs`).
+     * @default false
+     */
     xs?: boolean;
+    /**
+     * If true, sets the panel size to small (`sm`).
+     * @default false
+     */
     s?: boolean;
+    /**
+     * If true, sets the panel size to medium (`md`).
+     * @default false
+     */
     m?: boolean;
+    /**
+     * If true, sets the panel size to large (`lg`).
+     * @default false
+     */
     l?: boolean;
+    /**
+     * The title text displayed in the panel header.
+     * @default \-
+     */
     title: string;
+    /**
+     * Optional custom styles for the title container.
+     * @default {}
+     */
     titleStyle?: React.CSSProperties;
+    /**
+     * Optional class name for the title container.
+     * @default \-
+     */
     titleClass?: string;
+    /**
+     * Optional custom styles for the panel content container.
+     * @default {}
+     */
     contentStyle?: React.CSSProperties;
+    /**
+     * Optional class name for the panel content container.
+     * @default \-
+     */
     contentClass?: string;
+    /**
+     * Content to render inside the panel.
+     * @default undefined
+     */
     children?: ReactNode;
 } & ContainerProps & React.HTMLProps<HTMLDivElement>>;
 export default Panel;
