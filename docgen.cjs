@@ -42,7 +42,9 @@ docs.forEach((component) => {
         })
         .reduce((acc, [name, prop]) => {
             let defaultValue = prop.defaultValue?.value || ''
-
+/*if(name ==='selectValue'){
+    debugger
+}*/
             acc[name] = {
                 type: prop.type.name,
                 required: prop.required,

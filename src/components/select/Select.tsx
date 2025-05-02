@@ -78,7 +78,7 @@ const Select: React.FC<SelectProps> = ({
                                          s,
                                          m,
                                          l,
-                                         selectValue = '',
+                                         selectValue,
                                          onSelectChange,
                                          children,
                                          onKeyDown,
@@ -89,7 +89,7 @@ const Select: React.FC<SelectProps> = ({
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState<{ top?: string, bottom?: string }>({})
   const [wrapperHeight, setWrapperHeight] = useState(0)
-  const [value, setValue] = useState(selectValue)
+  const [value, setValue] = useState<number | string>(selectValue || '')
   const animationDuration = 100
   const animationLeaveDuration = 100
   const getSize = () => {
@@ -134,6 +134,7 @@ const Select: React.FC<SelectProps> = ({
   useEffect(() => {
     const maxHeight = window.innerHeight
 
+    // @ts-ignore
     setValue(selectValue)
 
     if (containerRef.current) {

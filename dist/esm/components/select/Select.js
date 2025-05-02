@@ -24,13 +24,13 @@ import SelectItem from './SelectItem';
  *   <SelectItem value={'3'}>3</SelectItem>
  * </Select>
  */
-const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue = '', onSelectChange, children, onKeyDown, ...props }) => {
+const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSelectChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
     const [position, setPosition] = useState({});
     const [wrapperHeight, setWrapperHeight] = useState(0);
-    const [value, setValue] = useState(selectValue);
+    const [value, setValue] = useState(selectValue || '');
     const animationDuration = 100;
     const animationLeaveDuration = 100;
     const getSize = () => {
@@ -71,6 +71,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue = '', o
     };
     useEffect(() => {
         const maxHeight = window.innerHeight;
+        // @ts-ignore
         setValue(selectValue);
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;

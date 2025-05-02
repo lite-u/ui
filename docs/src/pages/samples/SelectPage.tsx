@@ -13,7 +13,7 @@ const SelectPage: React.FC = () => {
           <Col space={10}>
             <Row fw center>
               <Con mr={2} w={20} ib>xs </Con>
-              <Select xs defaultValue={'2'}>
+              <Select xs selectValue={'2'}>
                 <SelectItem value={'1'}>1</SelectItem>
                 <SelectItem value={'2'}>2</SelectItem>
                 <SelectItem value={'3'}>3</SelectItem>
@@ -22,7 +22,7 @@ const SelectPage: React.FC = () => {
 
             <Row fw center>
               <Con mr={2} w={20} ib>s </Con>
-              <Select s defaultValue={'2'}>
+              <Select s selectValue={'2'}>
                 <SelectItem value={'1'}>1</SelectItem>
                 <SelectItem value={'2'}>2</SelectItem>
                 <SelectItem value={'3'}>3</SelectItem>
@@ -31,7 +31,7 @@ const SelectPage: React.FC = () => {
 
             <Row fw center>
               <Con mr={2} w={20} ib>m </Con>
-              <Select defaultValue={'2'}>
+              <Select selectValue={'2'}>
                 <SelectItem value={'1'}>1</SelectItem>
                 <SelectItem value={'2'}>2</SelectItem>
                 <SelectItem value={'3'}>3</SelectItem>
@@ -40,7 +40,7 @@ const SelectPage: React.FC = () => {
 
             <Row fw center>
               <Con mr={2} w={20} ib>L </Con>
-              <Select l defaultValue={'2'}>
+              <Select l selectValue={'2'}>
                 <SelectItem value={'1'}>1</SelectItem>
                 <SelectItem value={'2'}>2</SelectItem>
                 <SelectItem value={'3'}>3</SelectItem>
@@ -53,20 +53,20 @@ const SelectPage: React.FC = () => {
       <Con w={200}>
         <UsageBlock title={'Long list'} replacement={`
           <Row style={{zIndex: 60}} space={10} end>
-              <Select l defaultValue={'12'}>
-                {
-                  Array.from({length: 100}).fill(undefined).map((_, index) => {
-                    return <SelectItem key={index} value={(index + 1) + ''}>
-                      <span>hello {index + 1}</span>
-                    </SelectItem>
-                  })
-                }
-              </Select>
-            </Row>
+            <Select l selectValue={'12'}>
+              {
+                Array.from({length: 100}).fill(undefined).map((_, index) => {
+                  return <SelectItem key={index} value={(index + 1) + ''}>
+                    <span>hello {index + 1}</span>
+                  </SelectItem>
+                })
+              }
+            </Select>
+          </Row>
         `}>
           <Row style={{zIndex: 60}} space={10} end>
 
-            <Select l defaultValue={'12'}>
+            <Select l selectValue={'12'}>
               {
                 Array.from({length: 100}).fill(undefined).map((_, index) => {
                   return <SelectItem key={index} value={(index + 1) + ''}>
@@ -83,7 +83,7 @@ const SelectPage: React.FC = () => {
         <UsageBlock title={'Custom Style'}>
           <Col space={10} w={100}>
             <Select s
-                    defaultValue={'2'}
+                    selectValue={'2'}
                     itemStyle={{
                       color: 'green',
                       backgroundColor: '#000',
@@ -105,8 +105,8 @@ const SelectPage: React.FC = () => {
         <UsageBlock title={'onChange'}>
           <Col space={10} w={100}>
             <Select s
-                    defaultValue={selectValue}
-                    onChange={(v) => {
+                    selectValue={selectValue}
+                    onSelectChange={(v) => {
                       add('New Value is: ' + v)
                       setSelectValue(v as string)
                     }}>

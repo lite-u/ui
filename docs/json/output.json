@@ -1,0 +1,695 @@
+{
+  "Select": {
+    "tags": {
+      "brief": "A styled dropdown (select) component.",
+      "intro": "Renders a `<select>` like element styled according to theme context. Supports multiple sizes\nand validation states.",
+      "example": "import { Select } from '@lite-u/ui'\n\n<Select s defaultValue={'2'}>\n  <SelectItem value={'1'}>1</SelectItem>\n  <SelectItem value={'2'}>2</SelectItem>\n  <SelectItem value={'3'}>3</SelectItem>\n</Select>"
+    },
+    "props": {
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Extra small size variant for the select."
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Small size variant for the select."
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Medium size variant for the select."
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Large size variant for the select."
+      },
+      "itemStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Custom styles applied to each `SelectItem` within the dropdown."
+      },
+      "selectValue": {
+        "type": "string | number",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "The initial selected value of the select component."
+      },
+      "onSelectChange": {
+        "type": "(value: string | number) => void",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Callback fired when the selected value changes.\nReceives the new value as a string or number."
+      }
+    }
+  },
+  "SelectItem": {
+    "tags": {
+      "brief": "An individual selectable item used within the Select dropdown.",
+      "intro": "Displays a styled item that responds to click and keyboard interactions. Automatically highlights when selected.\nMust be used inside a `Select` component to inherit context.",
+      "example": "import { Select, SelectItem } from '@lite-u/ui'\n\n<Select>\n  <SelectItem value=\"1\">Option 1</SelectItem>\n  <SelectItem value=\"2\">Option 2</SelectItem>\n</Select>"
+    },
+    "props": {}
+  },
+  "ButtonBase": {
+    "tags": {},
+    "props": {}
+  },
+  "Button": {
+    "tags": {
+      "brief": "A customizable button component that supports size and color variants.",
+      "intro": "Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).",
+      "example": "import { Button } from '@lite-u/ui'\n\n<Button>Default</Button>\n<Button primary xs>Confirm</Button>\n<Button error l>Delete</Button>"
+    },
+    "props": {
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Extra small button. Sizing depends on theme."
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Small button. Sizing depends on theme."
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Medium button. Sizing depends on theme."
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Large button. Sizing depends on theme."
+      },
+      "primary": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies the primary color style."
+      },
+      "neutral": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, applies the neutral color style."
+      },
+      "warn": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies the warning color style."
+      },
+      "error": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, applies the error color style."
+      }
+    }
+  },
+  "IconButton": {
+    "tags": {
+      "brief": "A square-shaped button designed to contain only an icon, not text.",
+      "intro": "Renders a circular or square icon-only button with predefined size variants.\nSupports four sizes and applies consistent styling from theme context.",
+      "example": "import { IconButton } from '@lite-u/ui'\nimport { Icon } from '@lite-u/icons'\n\n<IconButton s onClick={handleClick}>\n  <Icon name=\"search\" />\n</IconButton>"
+    },
+    "props": {
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Applies the extra small size variant to the button."
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Applies the small size variant to the button."
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Applies the small size variant to the button."
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Applies the large size variant to the button."
+      }
+    }
+  },
+  "Input": {
+    "tags": {
+      "brief": "A stylized input field supporting text and number types with size and color variants.",
+      "intro": "Renders either a text or number input with support for theming, sizing, and validation states.\nStyling is pulled from the Lite UI theme context and adjusted according to provided props.",
+      "example": "import { Input } from '@lite-u/ui'\n\n<Input placeholder=\"Your name\" />\n<Input number step={0.1} error />\n<Input label=\"Username\" s primary />"
+    },
+    "props": {
+      "label": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "''",
+        "description": "Optional label to display as the `<label>`."
+      },
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Extra small size variant for the input."
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Small size variant for the input."
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Medium size variant for the input."
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Large size variant for the input."
+      },
+      "number": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders a number input instead of a text input."
+      },
+      "primary": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Applies primary styling to the input field."
+      },
+      "warn": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Applies warning styling to the input field."
+      },
+      "error": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Applies error styling to the input field."
+      },
+      "neutral": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Applies neutral styling to the input field."
+      },
+      "labelStyle": {
+        "type": "{}",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Inline styles to customize the label."
+      }
+    }
+  },
+  "Link": {
+    "tags": {},
+    "props": {
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": ""
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": ""
+      }
+    }
+  },
+  "LiteUIProvider": {
+    "tags": {},
+    "props": {
+      "children": {
+        "type": "React.ReactNode",
+        "required": true,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  },
+  "Transition": {
+    "tags": {},
+    "props": {
+      "visible": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": ""
+      },
+      "from": {
+        "type": "FromType",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      "to": {
+        "type": "FromType",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      "transformOrigin": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "center",
+        "description": ""
+      },
+      "effect": {
+        "type": "TimingFunction",
+        "required": false,
+        "defaultValue": "ease",
+        "description": ""
+      },
+      "duration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "300",
+        "description": ""
+      },
+      "leaveDuration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "300",
+        "description": ""
+      },
+      "delay": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": ""
+      },
+      "children": {
+        "type": "ReactNode",
+        "required": true,
+        "defaultValue": "",
+        "description": ""
+      },
+      "style": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      }
+    }
+  },
+  "Panel": {
+    "tags": {},
+    "props": {
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "sm": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "md": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "lg": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "title": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "titleStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      "titleClass": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "boxStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      "boxClass": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "children": {
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  },
+  "Row": {
+    "tags": {},
+    "props": {}
+  },
+  "Col": {
+    "tags": {},
+    "props": {}
+  },
+  "Flex": {
+    "tags": {},
+    "props": {}
+  },
+  "Menu": {
+    "tags": {},
+    "props": {
+      "space": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "8",
+        "description": ""
+      }
+    }
+  },
+  "MenuItem": {
+    "tags": {},
+    "props": {
+      "sm": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
+      "hoverStyle": {
+        "type": "FromType",
+        "required": false,
+        "defaultValue": "{\n            backgroundColor: '#dfdfdf',\n          }",
+        "description": ""
+      },
+      "hoverEnterDuration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "300",
+        "description": ""
+      },
+      "hoverLeaveDuration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "500",
+        "description": ""
+      }
+    }
+  },
+  "Tooltip": {
+    "tags": {},
+    "props": {
+      "bgColor": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "position": {
+        "type": "TooltipPosition",
+        "required": false,
+        "defaultValue": "t",
+        "description": ""
+      }
+    }
+  },
+  "Con": {
+    "tags": {},
+    "props": {}
+  },
+  "Container": {
+    "tags": {},
+    "props": {}
+  },
+  "Collapse": {
+    "tags": {},
+    "props": {
+      "head": {
+        "type": "ReactNode",
+        "required": true,
+        "defaultValue": "",
+        "description": ""
+      },
+      "headStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  },
+  "Drop": {
+    "tags": {},
+    "props": {
+      "accepts": {
+        "type": "string[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": ""
+      },
+      "onDragIsOver": {
+        "type": "(isFileTypeValid: boolean) => void",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onDragIsLeave": {
+        "type": "() => void",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onDropped": {
+        "type": "(e: DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  },
+  "Interactable": {
+    "tags": {},
+    "props": {
+      "tag": {
+        "type": "keyof HTMLElementTagNameMap",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "hover": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "focus": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "active": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "style": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "children": {
+        "type": "any",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onMouseEnter": {
+        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onMouseLeave": {
+        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onFocus": {
+        "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onBlur": {
+        "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onMouseDown": {
+        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onMouseUp": {
+        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onClick": {
+        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onKeyDown": {
+        "type": "(KeyboardEventHandler<HTMLElementTagNameMap[T]> & KeyboardEventHandler<HTMLObjectElement>) | ... 59 more ... | (KeyboardEventHandler<...> & KeyboardEventHandler<...>)",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  },
+  "Table": {
+    "tags": {
+      "brief": "A simple and easy-to-use table component with a minimal design.",
+      "intro": "Table accepts [TableRow](./tablerow) Component as children only",
+      "example": "import { Table, TableRow } from '@lite-u/ui'\n\n<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
+    },
+    "props": {
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Render the table with extra small (`xs`) size styling."
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Render the table with small (`s`) size styling."
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Render the table with medium (`s`) size styling."
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Render the table with large (`l`) size styling."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Whether the table should take up the full width of its parent"
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Whether the table should take up the full height of its parent"
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to `fixed`"
+      },
+      "rowStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Convenience way to style all table rows"
+      },
+      "rowHoverStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Convenience way to style Hovered body rows"
+      },
+      "cellStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Style object for table cells"
+      }
+    }
+  },
+  "TableRow": {
+    "tags": {
+      "brief": "Represents a table row for use within the Table component.",
+      "intro": "Renders a styled `<tr>` element with automatically applied context-based row and cell styling.\n\nCan optionally render as a header row using the `head` prop.\n\nTableRow with `head` prop: recognized as a `thead` row\n\nTableRow without `head` prop: recognized as a `tbody` row\n\nTableRow doesn’t require `td`(or `th`) — its children are automatically wrapped in <td>(or `th`) tags.",
+      "example": "import { Table, TableRow } from '@lite-u/ui'\n\n<Table>\n    <TableRow head>\n      <h1>th cell 0</h1>\n      <h2>th cell 1</h2>\n    </TableRow>\n    <TableRow>\n      <div>td cell 0</div>\n      <p>td cell 1</p>\n    </TableRow>\n</Table>"
+    },
+    "props": {
+      "head": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders the row using `<th>` elements instead of `<td>`, and wrap into `<thead>` rather than `<tbody>`."
+      }
+    }
+  },
+  "src": {
+    "tags": {},
+    "props": {
+      "children": {
+        "type": "React.ReactNode",
+        "required": true,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  }
+}
