@@ -14,29 +14,41 @@ const TableContext = createContext<{
 })
 
 export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
+  /**
+   * Render the table with extra small (`xs`) size styling.
+   * @default false
+   */
   xs?: boolean,
+  /**
+   * Render the table with small (`s`) size styling.
+   * @default false
+   */
   s?: boolean,
+  /**
+   * Render the table with medium (`s`) size styling.
+   * @default false
+   */
   m?: boolean,
+  /**
+   * Render the table with large (`l`) size styling.
+   * @default true
+   */
   l?: boolean,
-
   /**
    * Whether the table should take up the full width of its parent
    * @default false
    */
   fw?: boolean,
-
   /**
    * Whether the table should take up the full height of its parent
    * @default false
    */
   fh?: boolean,
-
   /**
    * Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to `fixed`
    * @default false
    */
   fixed?: boolean,
-
   /**
    * Style object for table rows
    *
@@ -44,7 +56,6 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
    *
    */
   rowStyle?: CSSProperties,
-
   /**
    * Style object for table body rows hovered
    *
@@ -52,11 +63,11 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
    *
    */
   rowHoverStyle?: CSSProperties,
-
   /**
    * Style object for table cells
    */
   cellStyle?: CSSProperties
+
   children: ReactNode
 }>
 

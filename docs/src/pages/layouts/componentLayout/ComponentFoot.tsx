@@ -6,7 +6,7 @@ const ComponentFoot = () => {
   const location = useLocation()
   const currentPath = location.pathname.split('/')[2]
 
-  console.log(Object.keys(COMPONENT_ROUTE_MAP))
+  // console.log(Object.keys(COMPONENT_ROUTE_MAP))
   const COMP_ROUTE = COMPONENT_ROUTE_MAP[currentPath as keyof typeof COMPONENT_ROUTE_MAP]
 
   if (!COMP_ROUTE) return

@@ -5,48 +5,55 @@
       "label": {
         "type": "string",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "s": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "m": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": ""
       },
       "l": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "number": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "primary": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "warn": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "error": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "neutral": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": ""
       }
     }
@@ -61,13 +68,13 @@
       "fw": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": ""
       },
       "fh": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": ""
       }
     }
@@ -82,43 +89,49 @@
       "xs": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": "Extra small button. Sizing depends on theme."
       },
       "s": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": "Small button. Sizing depends on theme."
       },
       "m": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": "Medium button. Sizing depends on theme."
       },
       "l": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": "Large button. Sizing depends on theme."
       },
       "primary": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": "If true, applies the primary color style."
       },
       "neutral": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": "If true, applies the neutral color style."
       },
       "warn": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": "If true, applies the warning color style."
       },
       "error": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": "If true, applies the error color style."
       }
     }
@@ -131,22 +144,25 @@
       "xs": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "s": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "m": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": ""
       },
       "l": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -165,7 +181,7 @@
       "visible": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": ""
       },
       "from": {
@@ -224,26 +240,31 @@
       "xs": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "sm": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "md": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "lg": {
         "type": "boolean",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "title": {
         "type": "string",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "titleStyle": {
@@ -301,7 +322,7 @@
       "sm": {
         "type": "boolean",
         "required": false,
-        "defaultValue": false,
+        "defaultValue": "false",
         "description": ""
       },
       "hoverStyle": {
@@ -330,6 +351,7 @@
       "bgColor": {
         "type": "string",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "position": {
@@ -354,11 +376,13 @@
       "head": {
         "type": "ReactNode",
         "required": true,
+        "defaultValue": "-",
         "description": ""
       },
       "headStyle": {
         "type": "CSSProperties",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -375,16 +399,19 @@
       "onDragIsOver": {
         "type": "(isFileTypeValid: boolean) => void",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onDragIsLeave": {
         "type": "() => void",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onDropped": {
         "type": "(e: DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -395,66 +422,79 @@
       "tag": {
         "type": "keyof HTMLElementTagNameMap",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "hover": {
         "type": "CSSProperties",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "focus": {
         "type": "CSSProperties",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "active": {
         "type": "CSSProperties",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "style": {
         "type": "CSSProperties",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseEnter": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseLeave": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onFocus": {
         "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onBlur": {
         "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseDown": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onMouseUp": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onClick": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       },
       "onKeyDown": {
         "type": "(KeyboardEventHandler<HTMLElementTagNameMap[T]> & KeyboardEventHandler<HTMLObjectElement>) | ... 59 more ... | (KeyboardEventHandler<...> & KeyboardEventHandler<...>)",
         "required": false,
+        "defaultValue": "-",
         "description": ""
       }
     }
@@ -469,40 +509,43 @@
       "xs": {
         "type": "boolean",
         "required": false,
-        "description": ""
+        "defaultValue": "false",
+        "description": "Render the table with extra small (`xs`) size styling."
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "description": ""
+        "defaultValue": "false",
+        "description": "Render the table with small (`s`) size styling."
       },
       "m": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
-        "description": ""
+        "defaultValue": "true",
+        "description": "Render the table with medium (`s`) size styling."
       },
       "l": {
         "type": "boolean",
         "required": false,
-        "description": ""
+        "defaultValue": "true",
+        "description": "Render the table with large (`l`) size styling."
       },
       "fw": {
         "type": "boolean",
         "required": false,
-        "defaultValue": true,
+        "defaultValue": "true",
         "description": "Whether the table should take up the full width of its parent"
       },
       "fh": {
         "type": "boolean",
         "required": false,
-        "defaultValue": false,
+        "defaultValue": "false",
         "description": "Whether the table should take up the full height of its parent"
       },
       "fixed": {
         "type": "boolean",
         "required": false,
-        "defaultValue": false,
+        "defaultValue": "false",
         "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to `fixed`"
       },
       "rowStyle": {
@@ -535,7 +578,7 @@
       "head": {
         "type": "boolean",
         "required": false,
-        "defaultValue": false,
+        "defaultValue": "false",
         "description": "If true, renders the row using `<th>` elements instead of `<td>`, and wrap into `<thead>` rather than `<tbody>`."
       }
     }

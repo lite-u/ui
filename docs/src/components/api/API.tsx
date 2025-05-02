@@ -5,10 +5,10 @@ import CodeBlock from '../codeBlock/codeBlock.tsx'
 import MDBlock from '../codeBlock/MDBlock.tsx'
 
 type APIType = {
-  defaultValue: null | boolean | string
-  description: 'If true, applies the error color style.'
-  required: false
-  type: 'boolean'
+  defaultValue: null | boolean | number | string
+  description: string
+  required: boolean
+  type: string
 }
 
 const API = ({data}: { data: Record<string, APIType> }) => {
@@ -42,20 +42,29 @@ const API = ({data}: { data: Record<string, APIType> }) => {
       </TableRow>
       {
         Object.keys(data).map((propName, index) => {
-          let {type, required, defaultValue = '-', description} = data[propName]
-
-          console.log(propName, defaultValue, defaultValue?.toString())
+          let {type, required, defaultValue, description} = data[propName]
+          let loadDefaultValueAsBool = defaultValue === 'true' || defaultValue === 'false'
 
           return <TableRow key={index}>
             <span style={{...firstColStyle, fontFamily: 'monospace'}}>{propName}</span>
+
             <CodeBlock code={type}/>
-            <div>
-              <CodeBlock code={defaultValue.toString()}/>
-            </div>
-            {/* <span
-              style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>*/}
-            {/*<span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>*/}
-            <CodeBlock code={required.toString()}/>
+
+            {
+              loadDefaultValueAsBool ?
+                <span style={{
+                  fontFamily: 'monospace',
+                  color: defaultValue === 'true' ? '#22863a' : '#a52525',
+                }}>{defaultValue}</span>
+                :
+                <Con fz={14} pl={4} style={{...lastColStyle, lineHeight: '1.5rem'}}>
+                  <MDBlock style={{textAlign: 'center'}}>{`${defaultValue}`}</MDBlock>
+                </Con>
+            }
+
+            <span
+              style={{fontFamily: 'monospace', color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>
+
 
             <Con fz={14} pl={4} style={{...lastColStyle, lineHeight: '1.5rem'}}>
               <MDBlock>{description}</MDBlock>
