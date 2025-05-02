@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "DEPRECATED - output-md-doc": "npx typedoc",
     "output-json-doc": "node ./docgen.cjs"
   },
   "author": "",
@@ -40,16 +39,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dedent": "^1.5.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-element-to-jsx-string": "^17.0.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "react-docgen-typescript": "^2.2.2",
-    "typedoc": "^0.28.3",
-    "typedoc-plugin-markdown": "^4.6.3"
+    "react-docgen-typescript": "^2.2.2"
   }
 }
