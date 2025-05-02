@@ -1,60 +1,70 @@
 {
   "Input": {
-    "tags": {},
+    "tags": {
+      "brief": "A stylized input field supporting text and number types with size and color variants.",
+      "intro": "Renders either a text or number input with support for theming, sizing, and validation states.\nStyling is pulled from the Lite UI theme context and adjusted according to provided props.",
+      "example": "import { Input } from '@lite-u/ui'\n\n<Input placeholder=\"Your name\" />\n<Input number step={0.1} error />\n<Input label=\"Username\" s primary />"
+    },
     "props": {
       "label": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "''",
+        "description": "Optional label to display as the `<label>`."
+      },
+      "xs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Extra small size variant for the input."
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Small size variant for the input."
       },
       "m": {
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Medium size variant for the input."
       },
       "l": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Large size variant for the input."
       },
       "number": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "If true, renders a number input instead of a text input."
       },
       "primary": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Applies primary styling to the input field."
       },
       "warn": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Applies warning styling to the input field."
       },
       "error": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Applies error styling to the input field."
       },
       "neutral": {
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Applies neutral styling to the input field."
       }
     }
   },

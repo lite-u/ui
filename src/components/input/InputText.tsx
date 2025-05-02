@@ -1,6 +1,8 @@
 // import {useLiteUIContext} from '../../LiteUIProvider'
 
-const InputNumber: React.FC<{ style: React.CSSProperties }> = ({style, ...props}) => {
+import {HTMLProps} from 'react'
+
+const InputNumber: React.FC<HTMLProps<HTMLInputElement> & { style: React.CSSProperties }> = ({style, ...props}) => {
   return <input
     type={'text'}
     style={{

@@ -1,8 +1,15 @@
 import {Col, Con, Input, P, Row, Title} from '@lite-u/ui'
+import {useEffect, useRef} from 'react'
 
 const InputSample: React.FC = () => {
+  const ref = useRef<HTMLInputElement>(null)
+  useEffect(()=>{
+    console.log(ref.current)
+  })
   return <Col>
     <Title h4>Primary</Title>
+    {/*<Input xs ref={ref} label={'hello'}/>*/}
+    <Input xs number ref={ref} label={'hello'}/>
 
     <Con w={600}>
       <P>xs</P>

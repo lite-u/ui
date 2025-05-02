@@ -10,16 +10,6 @@ export const liteTheme = {
         success: successColor,
         warn: warningColor,
         error: errorColor,
-        /*    neutralLight: '#f8f9fa',
-            neutralDark: '#343a40',
-            neutralGray: '#6c757d',
-            neutralBorder: '#ccc',
-            backgroundLight: '#ffffff',
-            backgroundDark: '#212529',
-            textPrimary: '#212529',
-            textSecondary: '#6c757d',
-            textError: '#dc3545',
-            textSuccess: '#28a745',*/
     },
     fontSizes: {
         xs: 12,
