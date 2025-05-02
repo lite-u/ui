@@ -13,7 +13,7 @@ docs.forEach((component) => {
       acc[name] = {
         type: prop.type.name,
         required: prop.required,
-        defaultValue: prop.defaultValue?.value || null,
+        defaultValue: prop.defaultValue?.value,
         description: prop.description || ''
       };
       return acc;

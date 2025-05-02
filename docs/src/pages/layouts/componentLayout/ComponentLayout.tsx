@@ -7,10 +7,10 @@ import {useEffect} from 'react'
 const ComponentLayout = () => {
   const {pathname} = useLocation()
   const isHere = useMatch('/components/*')
-  console.log(isHere)
+
   useEffect(() => {
 
-    console.log('ComponentLayout - ', pathname)
+
     // console.log(path)
     // document.title = `${path.replace('')} @Lite-u/ui Library`
   }, [pathname])

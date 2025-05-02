@@ -31,7 +31,6 @@ import { useTableContext } from './Table';
  *       <p>td cell 1</p>
  *     </TableRow>
  * </Table>
-
  */
 const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLeave, ...props }) => {
     const [bodyRowHoverStyle, setBodyRowHoverStyle] = useState({});

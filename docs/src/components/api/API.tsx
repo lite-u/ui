@@ -41,20 +41,21 @@ const API = ({data}: { data: Record<string, APIType> }) => {
         <p style={lastColStyle}>description</p>
       </TableRow>
       {
-        Object.keys(data).map((key, index) => {
-          const {type, required, defaultValue, description} = data[key]
+        Object.keys(data).map((propName, index) => {
+          let {type, required, defaultValue = '-', description} = data[propName]
+
+          console.log(propName, defaultValue, defaultValue?.toString())
 
           return <TableRow key={index}>
-            <span style={{...firstColStyle, fontFamily: 'monospace'}}>{key}</span>
-            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={type}/>
+            <span style={{...firstColStyle, fontFamily: 'monospace'}}>{propName}</span>
+            <CodeBlock code={type}/>
             <div>
-              {defaultValue ?
-                <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={defaultValue.toString()}/> : '-'}
+              <CodeBlock code={defaultValue.toString()}/>
             </div>
             {/* <span
               style={{color: defaultValue ? '#22863a' : '#000'}}>{defaultValue ? defaultValue.toString() : '-'}</span>*/}
             {/*<span style={{color: required ? '#22863a' : '#a52525'}}>{required.toString()}</span>*/}
-            <CodeBlock codeStyle={{backgroundColor: 'transparent'}} code={required.toString()}/>
+            <CodeBlock code={required.toString()}/>
 
             <Con fz={14} pl={4} style={{...lastColStyle, lineHeight: '1.5rem'}}>
               <MDBlock>{description}</MDBlock>

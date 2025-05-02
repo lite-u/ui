@@ -41,7 +41,6 @@ export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
  *       <p>td cell 1</p>
  *     </TableRow>
  * </Table>
-
  */
 const TableRow: TableRowProps = ({
                                    children,

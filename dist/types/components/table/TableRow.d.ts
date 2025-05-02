@@ -38,7 +38,6 @@ export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
  *       <p>td cell 1</p>
  *     </TableRow>
  * </Table>
-
  */
 declare const TableRow: TableRowProps;
 export default TableRow;

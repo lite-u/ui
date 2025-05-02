@@ -19,7 +19,7 @@ const ComponentHead = () => {
   // @ts-ignore
   const codeExample = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.example
   const space = 100
-  console.log(codeExample)
+
   return <Con>
     <Col>
       <Con mt={10}></Con>
