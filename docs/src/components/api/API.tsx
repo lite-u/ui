@@ -21,12 +21,13 @@ const API = ({data}: { data: Record<string, APIType> }) => {
 
   return <Con mb={20}>
     <Table fw fh
-           s
+           xs
            style={{
-             fontSize: 14,
+             fontSize: 13,
            }}
       // headCellStyle={headCellStyle}
            cellStyle={{
+             // padding:'0 10px',
              whiteSpace: 'pre-wrap',
              wordWrap: 'break-word',
              wordBreak: 'break-word',
