@@ -20,7 +20,7 @@ import { useImperativeHandle, useRef } from 'react';
  * <Input number step={0.1} error />
  * <Input label="Username" s primary />
  */
-const Input = ({ type = 'text', number, label = '', xs, s, m = true, l, style = {}, labelStyle = {}, primary, neutral = true, warn, error, ref, ...props }) => {
+const Input = ({ type = 'text', number, label, xs, s, m = true, l, style = {}, labelStyle = {}, primary, neutral = true, warn, error, ref, ...props }) => {
     const { theme } = useLiteUIContext();
     const getSize = () => {
         if (xs)

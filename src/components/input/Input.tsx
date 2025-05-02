@@ -80,7 +80,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
 }> = ({
         type = 'text',
         number,
-        label = '',
+        label,
         xs,
         s,
         m = true,

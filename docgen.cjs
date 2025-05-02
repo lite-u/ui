@@ -8,7 +8,16 @@ docs.forEach((component) => {
     const props = component.props || {};
 
     const filteredProps = Object.entries(props)
-        .filter(([_, prop]) => !prop.parent) // Exclude HTML native props
+        .filter(([_, prop]) => {
+            if (props.name === 'ref') {
+                return false
+            }
+
+            if (!prop.parent) {
+                // Exclude HTML native props
+                return true
+            }
+        })
         .reduce((acc, [name, prop]) => {
             // console.log(props)
             let defaultValue = ''

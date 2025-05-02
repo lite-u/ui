@@ -65,6 +65,18 @@
         "required": false,
         "defaultValue": "true",
         "description": "Applies neutral styling to the input field."
+      },
+      "labelStyle": {
+        "type": "{}",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      "ref": {
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
       }
     }
   },
