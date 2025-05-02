@@ -1,16 +1,13 @@
 import Installation from './pages/samples/Installation.tsx'
 import LiteUIProvider from '@lite-u/ui'
-import {BrowserRouter, Route, Routes, useLocation} from 'react-router'
+import {HashRouter,BrowserRouter, Route, Routes, useLocation} from 'react-router'
 import RootLayout from './pages/layouts/RootLayout.tsx'
 import ComponentLayout from './pages/layouts/componentLayout/ComponentLayout.tsx'
 import COMPONENT_ROUTE_MAP from './pages/layouts/componentLayout/componentData.tsx'
-import {useEffect} from 'react'
-
-
 
 function App() {
   return <LiteUIProvider>
-    <BrowserRouter>
+    <HashRouter>
       {/*<ScrollToTop />*/}
 
       <Routes>
@@ -27,7 +24,7 @@ function App() {
         </Route>
       </Routes>
       {/*<App/>,*/}
-    </BrowserRouter>
+    </HashRouter>
   </LiteUIProvider>
 }
 
