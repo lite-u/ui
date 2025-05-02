@@ -126,7 +126,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, defaultValue = '', 
                 // boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
-            }, ...props, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: 0, style: {
+            }, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: 0, style: {
                         userSelect: 'none',
                         border: '1px solid #dfdfdf',
                         ...defaultStyle,
@@ -144,7 +144,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, defaultValue = '', 
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, style: {
+                    }, ...props, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, style: {
                                     width: 14,
                                     height: 14,
                                 }, from: {

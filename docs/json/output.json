@@ -34,7 +34,7 @@
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": ""
+        "description": "Custom styles applied to each `SelectItem` within the dropdown."
       }
     }
   },
