@@ -1,5 +1,4 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {ReactNode} from 'react'
 import {Col} from '../../index'
 import Container, {ContainerProps} from '../container/Container'
 
@@ -73,12 +72,6 @@ const Panel: React.FC<{
    * @default \-
    */
   contentClass?: string,
-
-  /**
-   * Content to render inside the panel.
-   * @default undefined
-   */
-  children?: ReactNode,
 } & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
                                                            xs,
                                                            s,

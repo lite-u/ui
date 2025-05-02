@@ -405,12 +405,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Optional class name for the panel content container."
-      },
-      "children": {
-        "type": "ReactNode",
-        "required": false,
-        "defaultValue": "undefined",
-        "description": "Content to render inside the panel."
       }
     }
   },

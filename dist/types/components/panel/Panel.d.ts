@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { ContainerProps } from '../container/Container';
 /**
  * Panel component
@@ -62,10 +61,5 @@ declare const Panel: React.FC<{
      * @default \-
      */
     contentClass?: string;
-    /**
-     * Content to render inside the panel.
-     * @default undefined
-     */
-    children?: ReactNode;
 } & ContainerProps & React.HTMLProps<HTMLDivElement>>;
 export default Panel;
