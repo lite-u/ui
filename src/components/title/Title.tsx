@@ -1,5 +1,7 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
 
+type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
 type TitleProps = {
   /**
    * Makes the heading position sticky at the top of its container.
@@ -84,7 +86,7 @@ export const Title: React.FC<TitleProps> = ({
   const Tag: HeadingLevel = level
   const margin = headingMap[Tag].margin
   const fontSize = headingMap[Tag].fontSize
-   return (
+  return (
     <Tag
       style={{
         fontWeight: 'bold',
