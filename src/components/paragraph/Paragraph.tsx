@@ -31,7 +31,7 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
     styles.color = color
   }
 
-  if (size) {
+  if (!isNaN(size)) {
     styles.fontSize = size
   }
 

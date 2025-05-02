@@ -13,7 +13,7 @@ const Paragraph = ({ children, size = 16, style = {}, color, center = false, wb 
     if (color) {
         styles.color = color;
     }
-    if (size) {
+    if (!isNaN(size)) {
         styles.fontSize = size;
     }
     if (wb) {
