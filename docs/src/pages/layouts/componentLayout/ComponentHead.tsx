@@ -30,7 +30,7 @@ const ComponentHead = () => {
       {/*<Con mt={50}/>*/}
 
       {/*<Title h4>Intro</Title>*/}
-      <Con fz={16} pl={4} style={{lineHeight: '1.5rem'}}>
+      <Con fz={15} pl={4} style={{color: '#3f3f3f', lineHeight: '1.5rem'}}>
         <MDBlock>{brief}</MDBlock>
       </Con>
 
@@ -38,7 +38,7 @@ const ComponentHead = () => {
       <Title h4 id="description"><Link href={'#description'}># Description</Link></Title>
 
       <Con mt={10}></Con>
-      <Con pl={0} fz={16} style={{lineHeight: '1.5rem'}}>
+      <Con pl={0} fz={15} style={{color: '#3f3f3f', lineHeight: '1.5rem'}}>
         <MDBlock>{intro}</MDBlock>
       </Con>
 

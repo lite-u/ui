@@ -496,8 +496,8 @@
   "Table": {
     "tags": {
       "brief": "A simple and easy-to-use table component with a minimal design.",
-      "intro": "Table accepts [TableRow](./tablerow) Component as children only\n\nTableRow with head prop: recognized as a thead row\n\nTableRow without head prop: recognized as a tbody row\n\nTableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.",
-      "example": "<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
+      "intro": "Table accepts [TableRow](./tablerow) Component as children only",
+      "example": "<Table>\n<TableRow head>\n<span>th cell 0</span>\n<span>th cell 1</span>\n</TableRow>\n<TableRow>\n<span>td cell 0</span>\n<span>td cell 1</span>\n</TableRow>\n</Table>"
     },
     "props": {
       "xs": {
@@ -540,7 +540,7 @@
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to **fixed**"
+        "description": "Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to `fixed`"
       },
       "rowStyle": {
         "type": "CSSProperties",
@@ -552,7 +552,7 @@
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "{}",
-        "description": "Style object for table body rows hovered"
+        "description": "Style object for table body rows hovered\n\nConvenience way to style Hovered body rows"
       },
       "cellStyle": {
         "type": "CSSProperties",
@@ -565,7 +565,7 @@
   "TableRow": {
     "tags": {
       "brief": "Represents a table row for use within the Table component.",
-      "intro": "Renders a styled < tr > element with automatically applied context-based row and cell styling. Can optionally render as a header row using the `head` prop.",
+      "intro": "Renders a styled `<tr>` or `<th>` element with automatically applied context-based row and cell styling.\n\nCan optionally render as a header row using the `head` prop.\n\nTableRow with head prop: recognized as a thead row\n\nTableRow without head prop: recognized as a tbody row\n\nTableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.",
       "example": "<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
     },
     "props": {
@@ -573,7 +573,7 @@
         "type": "boolean",
         "required": false,
         "defaultValue": null,
-        "description": "If true, renders the row using <th> elements instead of <td>."
+        "description": "If true, renders the row using <th> elements instead of <td>, and wrap into <thead>."
       }
     }
   },

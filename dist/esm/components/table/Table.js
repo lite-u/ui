@@ -15,17 +15,9 @@ const TableContext = createContext({
  * A simple and easy-to-use table component with a minimal design.
  *
  * @intro
- *
  * Table accepts [TableRow](./tablerow) Component as children only
  *
- * TableRow with head prop: recognized as a thead row
- *
- * TableRow without head prop: recognized as a tbody row
- *
- * TableRow doesn’t require TableTd — its children are automatically wrapped in <td> tags.
- *
- * @example
- * <Table>
+ * @example<Table>
  *   <TableRow head>
  *     <span>th cell 0</span>
  *     <span>th cell 1</span>
