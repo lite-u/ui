@@ -838,55 +838,59 @@
     }
   },
   "Column": {
-    "tags": {},
+    "tags": {
+      "brief": "A flexible vertical layout container built on top of the Flex component.",
+      "intro": "Arranges children in a column direction using Flexbox. Supports alignment props\nlike `start`, `center`, `end`, and spacing between items using the `space` prop.",
+      "example": "import { Column } from '@lite-u/ui'\n\n<Column center space={16}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</Column>"
+    },
     "props": {
       "start": {
         "type": "never",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Aligns children to the start of the column (left by default)."
       },
       "center": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Aligns children to the center of the column."
       },
       "stretch": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Stretches children to fill the column width."
       },
       "end": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Aligns children to the end of the column (right by default)."
       },
       "space": {
         "type": "Gap<string | number>",
         "required": false,
         "defaultValue": "0",
-        "description": ""
+        "description": "Defines spacing between children using the CSS `gap` property."
       },
       "around": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justifies children with space around them."
       },
       "jc": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justifies children to the center vertically."
       },
       "between": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justifies children with space between them."
       },
       "box": {
         "type": "boolean",
@@ -1089,49 +1093,49 @@
         "type": "never",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Aligns children to the start of the column (left by default)."
       },
       "center": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Aligns children to the center of the column."
       },
       "stretch": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Stretches children to fill the column width."
       },
       "end": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Aligns children to the end of the column (right by default)."
       },
       "space": {
         "type": "Gap<string | number>",
         "required": false,
         "defaultValue": "0",
-        "description": ""
+        "description": "Defines spacing between children using the CSS `gap` property."
       },
       "around": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justifies children with space around them."
       },
       "jc": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justifies children to the center vertically."
       },
       "between": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": ""
+        "description": "Justifies children with space between them."
       },
       "box": {
         "type": "boolean",
