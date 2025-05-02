@@ -3,7 +3,7 @@ import IconButtonsPage from '../../samples/IconButtonsPage.tsx'
 import InputPage from '../../samples/InputPage.tsx'
 import SelectPage from '../../samples/SelectPage.tsx'
 import LinkPage from '../../samples/LinkPage.tsx'
-import ModalSamples from '../../samples/ModalSamples.tsx'
+import ModalPage from '../../samples/ModalPage.tsx'
 import PanelSamples from '../../samples/PanelSamples.tsx'
 import ConSamples from '../../samples/ConSamples.tsx'
 import RowSamples from '../../samples/RowSamples.tsx'
@@ -66,7 +66,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'modal',
     name: 'Modal',
     apiNameKey: 'Modal',
-    comp: <ModalSamples/>,
+    comp: <ModalPage/>,
   },
   panel: {
     to: 'panel',

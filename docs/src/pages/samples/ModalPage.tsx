@@ -2,7 +2,7 @@ import {Button, Col, Con, Modal, Row} from '@lite-u/ui'
 import {useState} from 'react'
 import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
-const ModalSamples: React.FC = () => {
+const ModalPage: React.FC = () => {
   const [showModal, setShowModal] = useState(false)
   return <Col>
 
@@ -50,4 +50,4 @@ const ModalSamples: React.FC = () => {
   </Col>
 }
 
-export default ModalSamples
+export default ModalPage

@@ -324,6 +324,27 @@
       }
     }
   },
+  "Modal": {
+    "tags": {
+      "brief": "A flexible modal dialog component that overlays content on top of the existing UI.",
+      "intro": "Renders children inside a centered modal container with a customizable backdrop and style.\nSupports optional backdrop click handling.",
+      "example": "import { Modal } from '@lite-u/ui'\n\n<Modal onBackdropClick={() => setOpen(false)}>\n  <div>Modal Content</div>\n</Modal>"
+    },
+    "props": {
+      "onBackdropClick": {
+        "type": "VoidFunction",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Callback invoked when the backdrop is clicked."
+      },
+      "backdropBg": {
+        "type": "BackgroundColor",
+        "required": false,
+        "defaultValue": "rgba(0,0,0,.5)",
+        "description": "Background color of the backdrop overlay."
+      }
+    }
+  },
   "Panel": {
     "tags": {},
     "props": {

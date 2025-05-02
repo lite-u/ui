@@ -1,5 +1,22 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { createPortal } from 'react-dom';
+/**
+ * Modal component
+ *
+ * @brief
+ * A flexible modal dialog component that overlays content on top of the existing UI.
+ *
+ * @intro
+ * Renders children inside a centered modal container with a customizable backdrop and style.
+ * Supports optional backdrop click handling.
+ *
+ * @example
+ * import { Modal } from '@lite-u/ui'
+ *
+ * <Modal onBackdropClick={() => setOpen(false)}>
+ *   <div>Modal Content</div>
+ * </Modal>
+ */
 const Modal = ({ children, style, onBackdropClick, backdropBg = 'rgba(0,0,0,.5)' }) => {
     return createPortal(_jsxs("div", { "data-name": 'modal-root', style: {
             'display': 'flex',
