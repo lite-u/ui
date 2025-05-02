@@ -8,9 +8,13 @@ import { jsx as _jsx } from "react/jsx-runtime";
  * @intro
  * Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.
  * Useful as a base layout block across components or pages.
+ * `Con` is an Alias of Container
  *
  * @example
+ *
  * import { Container } from '@lite-u/ui'
+ * // Con is an Alias of Container
+ * import { Con } from '@lite-u/ui'
  *
  * <Container p={20} bg="#f9f9f9" fw fh>
  *   <h2>Content</h2>

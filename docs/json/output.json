@@ -1560,8 +1560,8 @@
   "Container": {
     "tags": {
       "brief": "A flexible layout and style container that adapts to various UI layout needs.",
-      "intro": "Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.\nUseful as a base layout block across components or pages.",
-      "example": "import { Container } from '@lite-u/ui'\n\n<Container p={20} bg=\"#f9f9f9\" fw fh>\n  <h2>Content</h2>\n</Container>"
+      "intro": "Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.\nUseful as a base layout block across components or pages.\n`Con` is an Alias of Container",
+      "example": "import { Container } from '@lite-u/ui'\n// Con is an Alias of Container\nimport { Con } from '@lite-u/ui'\n\n<Container p={20} bg=\"#f9f9f9\" fw fh>\n  <h2>Content</h2>\n</Container>"
     },
     "props": {
       "box": {
