@@ -1,17 +1,29 @@
 import {Col, Con, Input, P, Row, Title} from '@lite-u/ui'
 import {useEffect, useRef} from 'react'
+import UsageBlock from '../UsageBlock.tsx'
 
-const InputSample: React.FC = () => {
+const InputPage: React.FC = () => {
   const ref = useRef<HTMLInputElement>(null)
-  useEffect(()=>{
+  useEffect(() => {
     console.log(ref.current)
   })
+
   return <Col>
     <Title h4>Primary</Title>
-    {/*<Input xs ref={ref} label={'hello'}/>*/}
-    <Input xs number ref={ref} label={'hello'} labelStyle={{
-      fontSize: 200,
-    }}/>
+
+
+    <Row center between>
+      <Con w={200}>
+        <UsageBlock title={'xs'}>
+          <Col between center space={10}>
+            <Input placeholder={'xs size default'} xs/>
+            <Input placeholder={'xs size warn'} warn xs/>
+            <Input placeholder={'xs size error'} error xs/>
+          </Col>
+        </UsageBlock>
+      </Con>
+
+    </Row>
 
     <Con w={600}>
       <P>xs</P>
@@ -59,4 +71,4 @@ const InputSample: React.FC = () => {
   </Col>
 }
 
-export default InputSample
+export default InputPage
