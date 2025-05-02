@@ -1564,6 +1564,57 @@
       }
     }
   },
+  "Title": {
+    "tags": {
+      "brief": "Renders a heading (`<h1>`–`<h6>`) with automatic theming and optional sticky positioning.",
+      "intro": "Automatically selects a heading level (h1–h6) based on the given boolean props.\nStyles the heading with a themed font size and margin. Supports sticky behavior for fixed headers.",
+      "example": "import { Title } from '@lite-u/ui'\n\n<Title h2 sticky>Section Title</Title>"
+    },
+    "props": {
+      "sticky": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Makes the heading position sticky at the top of its container."
+      },
+      "h1": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders an h1 element."
+      },
+      "h2": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders an h2 element."
+      },
+      "h3": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders an h3 element."
+      },
+      "h4": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders an h4 element."
+      },
+      "h5": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders an h5 element."
+      },
+      "h6": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, renders an h6 element."
+      }
+    }
+  },
   "Menu": {
     "tags": {},
     "props": {

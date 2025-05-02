@@ -1,5 +1,20 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
+/**
+ * Title component
+ *
+ * @brief
+ * Renders a heading (`<h1>`–`<h6>`) with automatic theming and optional sticky positioning.
+ *
+ * @intro
+ * Automatically selects a heading level (h1–h6) based on the given boolean props.
+ * Styles the heading with a themed font size and margin. Supports sticky behavior for fixed headers.
+ *
+ * @example
+ * import { Title } from '@lite-u/ui'
+ *
+ * <Title h2 sticky>Section Title</Title>
+ */
 export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, ...rest }) => {
     const { theme } = useLiteUIContext();
     const { padding } = theme;

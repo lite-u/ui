@@ -7,7 +7,7 @@ import ModalPage from '../../samples/ModalPage.tsx'
 import PanelPage from '../../samples/PanelPage.tsx'
 import ContainerPage from '../../samples/ContainerPage.tsx'
 import RowPage from '../../samples/RowPage.tsx'
-import TitleSamples from '../../samples/TitleSamples.tsx'
+import TitlePage from '../../samples/TitlePage.tsx'
 import MenuSamples from '../../samples/MenuSamples.tsx'
 import MenuItemSamples from '../../samples/MenuItemSamples.tsx'
 import DropSamples from '../../samples/DropSamples.tsx'
@@ -96,7 +96,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'title',
     name: 'Title',
     apiNameKey: 'Title',
-    comp: <TitleSamples/>,
+    comp: <TitlePage/>,
   },
   paragraph: {
     to: 'paragraph',
