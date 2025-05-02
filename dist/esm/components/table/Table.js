@@ -21,18 +21,16 @@ const TableContext = createContext({
  *
  * import { Table, TableRow } from '@lite-u/ui'
  *
- * const TableComp = () =>{
- *   return <Table>
- *     <TableRow head>
- *       <span>th cell 0</span>
- *       <span>th cell 1</span>
- *     </TableRow>
- *     <TableRow>
- *       <span>td cell 0</span>
- *       <span>td cell 1</span>
- *     </TableRow>
- *   </Table>
- *}
+ * <Table>
+ *   <TableRow head>
+ *     <span>th cell 0</span>
+ *     <span>th cell 1</span>
+ *   </TableRow>
+ *   <TableRow>
+ *     <span>td cell 0</span>
+ *     <span>td cell 1</span>
+ *   </TableRow>
+ * </Table>
  */
 const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {}, rowHoverStyle = {}, cellStyle = {}, ...props }) => {
     const { theme } = useLiteUIContext();

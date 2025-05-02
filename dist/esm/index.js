@@ -23,5 +23,6 @@ import Table from './components/table/Table';
 import TableRow from './components/table/TableRow';
 import Interactable from './components/interactive/Interactable';
 import Collapse from './components/collapse/Collapse';
-export { Input, Select, SelectItem, Link, Button, IconButton, LiteUIProvider, Transition, Modal, Panel, Row, Col, Flex, Title, Paragraph, P, Menu, MenuItem, Tooltip, Con, Container, Collapse, Drop, useNotification, Interactable, Table, TableRow, };
+import ButtonBase from './components/button/ButtonBase';
+export { Input, Select, SelectItem, Link, Button, IconButton, ButtonBase, LiteUIProvider, Transition, Modal, Panel, Row, Col, Flex, Title, Paragraph, P, Menu, MenuItem, Tooltip, Con, Container, Collapse, Drop, useNotification, Interactable, Table, TableRow, };
 export default LiteUIProvider;

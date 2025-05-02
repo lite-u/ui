@@ -6,9 +6,12 @@ import ButtonBase from './ButtonBase';
  *
  * @brief A customizable button component that supports size and color variants.
  *
- * @intro Renders a theme-aware, styled button using context-based configuration. Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
+ * @intro Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
  *
  * @example
+ *
+ * import { Button } from '@lite-u/ui'
+ *
  * <Button>Default</Button>
  * <Button primary xs>Confirm</Button>
  * <Button error l>Delete</Button>

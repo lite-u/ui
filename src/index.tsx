@@ -24,6 +24,7 @@ import Table from './components/table/Table'
 import TableRow from './components/table/TableRow'
 import Interactable from './components/interactive/Interactable'
 import Collapse from './components/collapse/Collapse'
+import ButtonBase from './components/button/ButtonBase'
 
 export {
   Input,
@@ -32,6 +33,7 @@ export {
   Link,
   Button,
   IconButton,
+  ButtonBase,
   LiteUIProvider,
   Transition,
   Modal,
