@@ -2,11 +2,11 @@ import {ReactNode} from 'react'
 
 const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
   { children: ReactNode, space?: number }> = ({
-                                              children,
-                                              style = {},
-                                              space = 8,
-                                              ...props
-                                            }) => {
+                                                children,
+                                                style = {},
+                                                space = 8,
+                                                ...props
+                                              }) => {
   // const {theme} = useTheme()
 
   return <div style={{
