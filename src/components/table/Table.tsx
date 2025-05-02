@@ -69,16 +69,20 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
  * @intro
  * Table accepts [TableRow](./tablerow) Component as children only
  *
- * @example<Table>
- *   <TableRow head>
- *     <span>th cell 0</span>
- *     <span>th cell 1</span>
- *   </TableRow>
- *   <TableRow>
- *     <span>td cell 0</span>
- *     <span>td cell 1</span>
- *   </TableRow>
- * </Table>
+ * @example
+ *
+ * const TableComp = () =>{
+ *   return <Table>
+ *     <TableRow head>
+ *       <span>th cell 0</span>
+ *       <span>th cell 1</span>
+ *     </TableRow>
+ *     <TableRow>
+ *       <span>td cell 0</span>
+ *       <span>td cell 1</span>
+ *     </TableRow>
+ *   </Table>
+ *}
  */
 
 const Table: TableProps = ({

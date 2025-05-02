@@ -497,7 +497,7 @@
     "tags": {
       "brief": "A simple and easy-to-use table component with a minimal design.",
       "intro": "Table accepts [TableRow](./tablerow) Component as children only",
-      "example": "<Table>\n<TableRow head>\n<span>th cell 0</span>\n<span>th cell 1</span>\n</TableRow>\n<TableRow>\n<span>td cell 0</span>\n<span>td cell 1</span>\n</TableRow>\n</Table>"
+      "example": "const TableComp = () =>{\n  return <Table>\n    <TableRow head>\n      <span>th cell 0</span>\n      <span>th cell 1</span>\n    </TableRow>\n    <TableRow>\n      <span>td cell 0</span>\n      <span>td cell 1</span>\n    </TableRow>\n  </Table>\n}"
     },
     "props": {
       "xs": {

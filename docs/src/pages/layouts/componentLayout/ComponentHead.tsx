@@ -12,7 +12,6 @@ const ComponentHead = () => {
   const COMP_ROUTE = COMPONENT_ROUTE_MAP[currentPath as keyof typeof COMPONENT_ROUTE_MAP]
 
   if (!COMP_ROUTE) return
-
   // @ts-ignore
   const brief = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.brief
   // @ts-ignore
@@ -48,8 +47,7 @@ const ComponentHead = () => {
 
       <Con mt={10}></Con>
       <CodeWrap style={{maxWidth: 400}} code={`
-      import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' 
-      
+      import { ${COMP_ROUTE.apiNameKey} } from '@lite-u/ui' \n \n ${example}
       `}/>
       <Con m={'0 0 20px 0'}></Con>
 

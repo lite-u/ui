@@ -19,7 +19,6 @@ docs.forEach((component) => {
       return acc;
     }, {});
 
-    console.log(component.tags)
   result[component.displayName] = {
     tags: component.tags || {},
     props: filteredProps
