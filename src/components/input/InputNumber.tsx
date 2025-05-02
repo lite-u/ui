@@ -10,7 +10,7 @@ export   type InputNumberProps = HTMLProps<HTMLInputElement> & {
   value: number,
   step: number
   intervalTime?: number
-  ref: React.RefObject<HTMLInputElement>
+  ref: React.Ref<HTMLInputElement>
 }
 const InputNumber: React.FC<InputNumberProps> = ({
                                                    style = {},
