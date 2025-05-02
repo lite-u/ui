@@ -349,7 +349,7 @@
     "tags": {
       "brief": "A flexible container component used to group and visually separate content within the layout.",
       "intro": "Provides a styled block container with customizable margin, padding, and background options.\nCommonly used to structure and emphasize content sections in a UI.",
-      "example": "<Panel p={20} bg=\"#fff\">\n  <h2>Section Title</h2>\n  <p>This is a section of content within a panel.</p>\n</Panel>"
+      "example": "import { Panel } from '@lite-u/ui'\n\n<Panel p={20} bg=\"#fff\">\n  <h2>Section Title</h2>\n  <p>This is a section of content within a panel.</p>\n</Panel>"
     },
     "props": {
       "xs": {
@@ -1545,7 +1545,7 @@
     "tags": {
       "brief": "A flexible layout and style container that adapts to various UI layout needs.",
       "intro": "Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.\nUseful as a base layout block across components or pages.",
-      "example": "<Container p={20} bg=\"#f9f9f9\" fw fh>\n  <h2>Content</h2>\n</Container>"
+      "example": "import { Container } from '@lite-u/ui'\n\n<Container p={20} bg=\"#f9f9f9\" fw fh>\n  <h2>Content</h2>\n</Container>"
     },
     "props": {
       "box": {

@@ -172,6 +172,8 @@ export interface ContainerProps {
  * Useful as a base layout block across components or pages.
  *
  * @example
+ * import { Container } from '@lite-u/ui'
+ *
  * <Container p={20} bg="#f9f9f9" fw fh>
  *   <h2>Content</h2>
  * </Container>

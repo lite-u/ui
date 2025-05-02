@@ -10,6 +10,8 @@ import { ContainerProps } from '../container/Container';
  * Commonly used to structure and emphasize content sections in a UI.
  *
  * @example
+ * import { Panel } from '@lite-u/ui'
+ *
  * <Panel p={20} bg="#fff">
  *   <h2>Section Title</h2>
  *   <p>This is a section of content within a panel.</p>
