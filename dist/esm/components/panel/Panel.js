@@ -3,19 +3,16 @@ import { useLiteUIContext } from '../../LiteUIProvider';
 import { Col } from '../../index';
 import Paragraph from '../paragraph/Paragraph';
 import Container from '../container/Container';
-const Panel = ({ xs, sm, md, lg, title, titleClass = '', titleStyle = {}, boxClass = '', boxStyle = {}, children, ...props }) => {
+const Panel = ({ xs, s, m, l, title, titleClass = '', titleStyle = {}, boxClass = '', boxStyle = {}, children, ...props }) => {
     const { theme } = useLiteUIContext();
     let size = 'md';
-    /*if (md) {
-      size = 'md'
-    }*/
-    if (sm) {
-        size = 'sm';
-    }
     if (xs) {
         size = 'xs';
     }
-    if (lg) {
+    if (s) {
+        size = 'sm';
+    }
+    if (l) {
         size = 'lg';
     }
     const headFontSize = theme.fontSizes[size];

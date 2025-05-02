@@ -6,10 +6,9 @@ import Container, {ContainerProps} from '../container/Container'
 
 const Panel: React.FC<{
   xs?: boolean
-  sm?: boolean
-  md?: boolean
-  lg?: boolean
-  // size?: 'md' | 'sm' | 'xs' | 'lg'
+  s?: boolean
+  m?: boolean
+  l?: boolean
   title: string,
   titleStyle?: React.CSSProperties,
   titleClass?: string,
@@ -18,9 +17,9 @@ const Panel: React.FC<{
   children?: ReactNode
 } & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
                                                            xs,
-                                                           sm,
-                                                           md,
-                                                           lg,
+                                                           s,
+                                                           m,
+                                                           l,
                                                            title,
                                                            titleClass = '',
                                                            titleStyle = {},
@@ -31,19 +30,16 @@ const Panel: React.FC<{
                                                          }) => {
   const {theme} = useLiteUIContext()
   let size = 'md'
-  /*if (md) {
-    size = 'md'
-  }*/
-
-  if (sm) {
-    size = 'sm'
-  }
 
   if (xs) {
     size = 'xs'
   }
 
-  if (lg) {
+  if (s) {
+    size = 'sm'
+  }
+
+  if (l) {
     size = 'lg'
   }
 
