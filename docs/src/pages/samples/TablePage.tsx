@@ -119,7 +119,7 @@ const TablePage: React.FC = () => {
     </Row>
 
     <Flex col mt={30} minH={300} w={300}>
-      <UsageBlock title={'Custom Style Table'} style={{flex: 1}}>
+      <UsageBlock title={'Custom Style Table 2'} style={{flex: 1}}>
         <Table xs fixed
                style={{
                  borderCollapse: 'collapse',
