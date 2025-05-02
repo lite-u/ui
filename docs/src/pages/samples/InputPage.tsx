@@ -3,11 +3,6 @@ import {useEffect, useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
 
 const InputPage: React.FC = () => {
-  const ref = useRef<HTMLInputElement>(null)
-  useEffect(() => {
-    console.log(ref.current)
-  })
-
   return <Col>
     <Title h4>Primary</Title>
 
@@ -66,9 +61,9 @@ const InputPage: React.FC = () => {
       <Con w={340}>
         <UsageBlock title={'Label'}>
           <Col between start space={10}>
-            <Input label={'Brand： '} labelStyle={{width: 50}} value={''} step={2} placeholder={'Enter Brand'}/>
-            <Input label={'Price： '} labelStyle={{width: 50}} value={''} step={2} placeholder={'Enter Price'} warn/>
-            <Input label={'SKU： '} labelStyle={{width: 50}} value={''} step={2} placeholder={'Enter SKU'} error/>
+            <Input label={'Brand： '} labelStyle={{width: 50}} step={2} placeholder={'Enter Brand'}/>
+            <Input label={'Price： '} labelStyle={{width: 50}} step={2} placeholder={'Enter Price'} warn/>
+            <Input label={'SKU： '} labelStyle={{width: 50}} step={2} placeholder={'Enter SKU'} error/>
           </Col>
         </UsageBlock>
       </Con>
