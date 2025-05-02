@@ -34,33 +34,14 @@ docs.forEach((component) => {
                 return false
             }
 
-            console.log(prop.name)
+            // console.log(prop.name)
 
             return prop.name !== 'ref';
 
 
         })
         .reduce((acc, [name, prop]) => {
-            // console.log(props)
-            let defaultValue = ''
-
-            console.log(typeof name, name)
-
-            if (name === 'selectValue') {
-                debugger
-            }
-
-            if (prop.defaultValue) {
-                defaultValue = prop.defaultValue.value;
-
-                if (defaultValue === '') {
-                    defaultValue = '\\-'
-                } else if (typeof defaultValue === 'boolean') {
-                    defaultValue = defaultValue.toString();
-                }
-            } else {
-                defaultValue = '-'
-            }
+            let defaultValue = prop.defaultValue?.value || ''
 
             acc[name] = {
                 type: prop.type.name,

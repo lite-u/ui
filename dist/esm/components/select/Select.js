@@ -24,7 +24,7 @@ import SelectItem from './SelectItem';
  *   <SelectItem value={'3'}>3</SelectItem>
  * </Select>
  */
-const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue = '', onChange, children, onKeyDown, ...props }) => {
+const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue = '', onSelectChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -89,7 +89,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue = '', o
     const handleItemClick = (newValue) => {
         setValue(newValue);
         if (newValue !== value) {
-            onChange && onChange(newValue);
+            onSelectChange && onSelectChange(newValue);
         }
         setOpenSelect(false);
         isOpenedRef.current = false;

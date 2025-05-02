@@ -29,14 +29,15 @@ type SelectProps = React.HTMLProps<HTMLDivElement> & {
     itemStyle?: React.CSSProperties;
     /**
      * The initial selected value of the select component.
-     * @default ''
+     * @default \-
      */
     selectValue?: string | number;
     /**
      * Callback fired when the selected value changes.
      * Receives the new value as a string or number.
-     */
-    onChange?: (value: string | number) => void;
+     * @default \-
+     * */
+    onSelectChange?: (value: string | number) => void;
     onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
 };
 /**
