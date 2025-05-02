@@ -118,7 +118,7 @@ const TablePage: React.FC = () => {
       </Flex>
     </Row>
 
-    <Flex col mt={30} minH={300} w={300}>
+    <Flex col mt={30} minH={300} w={500}>
       <UsageBlock title={'Custom Style Table 2'} style={{flex: 1}}>
         <Table xs fixed
                style={{
