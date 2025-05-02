@@ -141,6 +141,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
   return <div>
     {label &&
         <label style={{
+          display: 'inline-block',
           marginRight: 10,
           fontSize: theme.fontSizes[size],
           ...labelStyle,

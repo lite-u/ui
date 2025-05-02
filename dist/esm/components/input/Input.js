@@ -59,6 +59,7 @@ const Input = ({ type = 'text', number, label, xs, s, m = true, l, style = {}, l
     }
     return _jsxs("div", { children: [label &&
                 _jsx("label", { style: {
+                        display: 'inline-block',
                         marginRight: 10,
                         fontSize: theme.fontSizes[size],
                         ...labelStyle,
