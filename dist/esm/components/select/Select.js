@@ -1,9 +1,28 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useRef, useState } from 'react';
+import { Children, useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row, Transition } from '../../index';
 import Interactable from '../interactive/Interactable';
 import { useLiteUIContext } from '../../LiteUIProvider';
+import SelectItem from './SelectItem';
+/**
+ * Select component
+ *
+ * @brief
+ * A styled dropdown (select) component.
+ *
+ * @intro
+ * Renders a `<select>` like element styled according to theme context. Supports multiple sizes
+ * and validation states.
+ *
+ * @example
+ * import { Select } from '@lite-u/ui'
+ *
+ * <Select>
+ *   <option value="1">One</option>
+ *   <option value="2">Two</option>
+ * </Select>
+ */
 const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
@@ -12,6 +31,7 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
     const [wrapperHeight, setWrapperHeight] = useState(0);
     const [value, setValue] = useState(defaultValue);
     const animationDuration = 100;
+    const animationLeaveDuration = 100;
     const getSize = () => {
         if (xs)
             return 'xs';
@@ -23,6 +43,7 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
     };
     const { theme } = useLiteUIContext();
     const size = getSize();
+    const isOpenedRef = useRef(false);
     const styles = {
         ...theme.formElements[size],
         padding: `0 ${theme.padding[size].y}px`,
@@ -30,40 +51,29 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
         borderRadius: theme.borderRadius[size],
         boxSizing: 'border-box',
     };
-    /*
-    const sizeStyle: Record<SelectSize, CSSProperties> = {
-      sm: {
-        width: 40,
-        height: 20,
-        padding: 6,
-        borderRadius: 2,
-        fontSize: 12,
-      },
-      md: {
-        width: 60,
-        height: 30,
-        padding: 10,
-        borderRadius: 3,
-        fontSize: 14,
-      },
-      lg: {
-        width: 100,
-        height: 40,
-        padding: 12,
-        borderRadius: 4,
-        fontSize: 16,
-      },
-    }
-  
-  */
+    // console.log(theme.)
+    const filteredChildren = [];
+    Children.forEach(children, (child) => {
+        // @ts-ignore
+        if (child.type !== SelectItem) {
+            // @ts-ignore
+            console.error(`<Select> only accepts <SelectItem> as children. Found: <${child.type}>`);
+            return;
+        }
+        filteredChildren.push(child);
+    });
+    const close = (e) => {
+        const target = e.target;
+        const inside = wrapperRef?.current?.contains(target);
+        if (!inside && isOpenedRef.current) {
+            setOpenSelect(false);
+        }
+    };
     useEffect(() => {
         const maxHeight = window.innerHeight;
         setValue(defaultValue);
-        // setItemStyle(sizeStyle[size])
-        // console.log(containerRef.current)
         if (containerRef.current) {
             const h = containerRef.current.offsetHeight;
-            // console.log(h)
             if (h > maxHeight) {
                 setWrapperHeight(300);
             }
@@ -71,6 +81,10 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
                 setWrapperHeight(h);
             }
         }
+        window.addEventListener('click', close);
+        return () => {
+            window.removeEventListener('click', close);
+        };
     }, [children, defaultValue, size]);
     const handleItemClick = (newValue) => {
         setValue(newValue);
@@ -78,6 +92,7 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
             onChange && onChange(newValue);
         }
         setOpenSelect(false);
+        isOpenedRef.current = false;
     };
     const handleOpen = () => {
         const maxHeight = window.innerHeight;
@@ -91,34 +106,40 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
         }
         setPosition(newPosition);
         setOpenSelect(!openSelect);
+        isOpenedRef.current = !openSelect;
     };
     return _jsx(SelectContext.Provider, { value: { itemStyle: styles, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
-                width: styles.width,
+                flex: 'none',
+                minWidth: styles.minWidth,
                 height: styles.height,
                 borderRadius: styles.borderRadius,
-                boxShadow: '0 0 1px 0 #000',
+                // boxShadow: '0 0 1px 0 #000',
                 cursor: 'pointer',
                 boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
             }, ...props, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: 0, style: {
-                        height: '100%',
+                        ...styles,
+                        // height: '100%',
+                        border: '1px solid #dfdfdf',
                         borderRadius: styles.borderRadius,
                         fontSize: styles.fontSize,
                         userSelect: 'none',
                     }, onClick: () => {
+                        // e.stopPropagation()
                         handleOpen();
+                        return false;
                     }, onKeyDown: (e) => {
                         if (e.code.toLowerCase() === 'space') {
                             e.preventDefault();
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: styles.padding, pr: styles.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
+                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: styles.padding, pr: styles.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
-                                }, children: _jsx("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: _jsx("path", { d: "M6 9l6 6 6-6", stroke: "black", strokeWidth: "2", fill: "none", strokeLinecap: "round", strokeLinejoin: "round" }) }) })] }) }), _jsx(Transition, { visible: openSelect, duration: animationDuration, from: {
+                                }, children: _jsx("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: _jsx("path", { d: "M6 9l6 6 6-6", stroke: "black", strokeWidth: "2", fill: "none", strokeLinecap: "round", strokeLinejoin: "round" }) }) })] }) }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, from: {
                         height: 0,
                     }, to: {
                         height: wrapperHeight,
@@ -126,6 +147,7 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
                         position: 'absolute',
                         // top: '100%',
                         left: 0,
+                        zIndex: 1000,
                         overflow: 'hidden',
                         width: '100%',
                         height: wrapperHeight,
@@ -144,6 +166,6 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
                                 width: '100%',
                                 backgroundColor: '#fff',
                                 height: 'auto',
-                            }, children: children }) }) })] }) });
+                            }, children: filteredChildren }) }) })] }) });
 };
 export default Select;

@@ -17,7 +17,7 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
     m?: boolean;
     /**
      * Render the table with large (`l`) size styling.
-     * @default true
+     * @default false
      */
     l?: boolean;
     /**

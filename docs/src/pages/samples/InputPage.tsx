@@ -4,10 +4,7 @@ import UsageBlock from '../UsageBlock.tsx'
 
 const InputPage: React.FC = () => {
   return <Col>
-    <Title h4>Primary</Title>
-
-
-    <Row start style space={10} wrap>
+     <Row start style space={10} wrap>
       <Con w={200}>
         <UsageBlock title={'xs'}>
           <Col between center space={10}>

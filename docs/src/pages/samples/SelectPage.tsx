@@ -1,29 +1,48 @@
-import {Col, Row, Select, SelectItem, Title} from '@lite-u/ui'
+import {Col, Con, Row, Select, SelectItem, Title} from '@lite-u/ui'
+import UsageBlock from '../UsageBlock.tsx'
 
 const SelectPage: React.FC = () => {
   return <Col>
+
+    <Row start space={10} wrap>
+      <Con w={400}>
+        <UsageBlock title={'xs'}>
+          <Col space={10} w={100}>
+            <Select s
+                    defaultValue={'2'}
+                    onChange={(v) => {
+                      console.log(v)
+                    }}>
+              <SelectItem value={'1'}>1</SelectItem>
+              <SelectItem value={'2'}>2</SelectItem>
+              <SelectItem value={'3'}>3</SelectItem>
+            </Select>
+
+            <Select m defaultValue={'2'}
+                    onChange={(v) => {
+                      console.log(v)
+                    }}>
+              <SelectItem value={'1'}>hello 1</SelectItem>
+              <SelectItem value={'2'}>hello 2</SelectItem>
+              <SelectItem value={'3'}>hello 3</SelectItem>
+            </Select>
+            <Select l defaultValue={'2'}
+                    onChange={(v) => {
+                      console.log(v)
+                    }}>
+              <SelectItem value={'1'}>hello 1</SelectItem>
+              <SelectItem value={'2'}>hello 2</SelectItem>
+              <SelectItem value={'3'}>hello 3</SelectItem>
+            </Select>
+          </Col>
+        </UsageBlock>
+      </Con>
+    </Row>
+
     <Col between>
       <Title h2 sticky style={{zIndex: 60}}>Select</Title>
 
       <Row style={{zIndex: 60}} space={10} end>
-        <Select s
-                defaultValue={'2'}
-                onChange={(v) => {
-                  console.log(v)
-                }}>
-          <SelectItem value={'1'}>1</SelectItem>
-          <SelectItem value={'2'}>2</SelectItem>
-          <SelectItem value={'3'}>3</SelectItem>
-        </Select>
-
-        <Select m defaultValue={'2'}
-                onChange={(v) => {
-                  console.log(v)
-                }}>
-          <SelectItem value={'1'}>hello 1</SelectItem>
-          <SelectItem value={'2'}>hello 2</SelectItem>
-          <SelectItem value={'3'}>hello 3</SelectItem>
-        </Select>
 
         <Select l defaultValue={'12'}>
           {

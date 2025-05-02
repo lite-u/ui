@@ -1,21 +1,58 @@
-import React, {CSSProperties, HTMLProps, useEffect, useRef, useState} from 'react'
+import {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import Interactable from '../interactive/Interactable'
 import {useLiteUIContext} from '../../LiteUIProvider'
+import SelectItem from './SelectItem'
 
-export type SelectSize = 'sm' | 'md' | 'lg'
-const Select: React.FC<HTMLProps<HTMLDivElement> & {
-  label?: string
-  children?: React.ReactNode
+/**
+ * Select component
+ *
+ * @brief
+ * A styled dropdown (select) component.
+ *
+ * @intro
+ * Renders a `<select>` like element styled according to theme context. Supports multiple sizes
+ * and validation states.
+ *
+ * @example
+ * import { Select } from '@lite-u/ui'
+ *
+ * <Select>
+ *   <option value="1">One</option>
+ *   <option value="2">Two</option>
+ * </Select>
+ */
+const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
+  /**
+   * Extra small size variant for the select.
+   * @default false
+   */
+  xs?: boolean
+
+  /**
+   * Small size variant for the select.
+   * @default false
+   */
+  s?: boolean
+
+  /**
+   * Medium size variant for the select.
+   * @default true
+   */
+  m?: boolean
+
+  /**
+   * Large size variant for the select.
+   * @default false
+   */
+  l?: boolean
+  /**
+   * Inline styles to customize the select element.
+   */
+  style?: React.CSSProperties
   defaultValue?: string | number
   onChange?: (value: string | number) => void
-  xs?: boolean
-  s?: boolean
-  m?: boolean
-  l?: boolean
-  size?: SelectSize
-  style?: {},
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>
 }> = ({
         label,
@@ -37,6 +74,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
   const [wrapperHeight, setWrapperHeight] = useState(0)
   const [value, setValue] = useState(defaultValue)
   const animationDuration = 100
+  const animationLeaveDuration = 100
   const getSize = () => {
     if (xs) return 'xs'
     if (s) return 'sm'
@@ -45,6 +83,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
   }
   const {theme} = useLiteUIContext()
   const size = getSize()
+  const isOpenedRef = useRef<boolean>(false)
   const styles: CSSProperties = {
     ...theme.formElements[size],
     padding: `0 ${theme.padding[size].y}px`,
@@ -52,48 +91,48 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
     borderRadius: theme.borderRadius[size],
     boxSizing: 'border-box',
   }
-  /*
-  const sizeStyle: Record<SelectSize, CSSProperties> = {
-    sm: {
-      width: 40,
-      height: 20,
-      padding: 6,
-      borderRadius: 2,
-      fontSize: 12,
-    },
-    md: {
-      width: 60,
-      height: 30,
-      padding: 10,
-      borderRadius: 3,
-      fontSize: 14,
-    },
-    lg: {
-      width: 100,
-      height: 40,
-      padding: 12,
-      borderRadius: 4,
-      fontSize: 16,
-    },
-  }
+// console.log(theme.)
+  const filteredChildren: ReactNode[] = []
 
-*/
+  Children.forEach(children, (child) => {
+    // @ts-ignore
+    if (child.type !== SelectItem) {
+      // @ts-ignore
+      console.error(`<Select> only accepts <SelectItem> as children. Found: <${child.type}>`)
+      return
+    }
+
+    filteredChildren.push(child)
+  })
+
+  const close: EventListener = (e) => {
+    const target = e.target as HTMLElement
+    const inside = wrapperRef?.current?.contains(target)
+
+    if (!inside && isOpenedRef.current) {
+      setOpenSelect(false)
+    }
+  }
 
   useEffect(() => {
     const maxHeight = window.innerHeight
 
     setValue(defaultValue)
-    // setItemStyle(sizeStyle[size])
-    // console.log(containerRef.current)
+
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
-      // console.log(h)
       if (h > maxHeight) {
         setWrapperHeight(300)
       } else {
         setWrapperHeight(h)
       }
+    }
+
+    window.addEventListener('click', close)
+
+    return () => {
+      window.removeEventListener('click', close)
     }
   }, [children, defaultValue, size])
 
@@ -103,6 +142,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
       onChange && onChange(newValue)
     }
     setOpenSelect(false)
+    isOpenedRef.current = false
   }
 
   const handleOpen = () => {
@@ -118,16 +158,18 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
 
     setPosition(newPosition)
     setOpenSelect(!openSelect)
+    isOpenedRef.current = !openSelect
   }
 
   return <SelectContext.Provider value={{itemStyle: styles, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           width: styles.width,
+           flex: 'none',
+           minWidth: styles.minWidth,
            height: styles.height,
            borderRadius: styles.borderRadius,
-           boxShadow: '0 0 1px 0 #000',
+           // boxShadow: '0 0 1px 0 #000',
            cursor: 'pointer',
            boxSizing: 'border-box',
            ...style,
@@ -140,13 +182,17 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
         role={'placeholder'}
         tabIndex={0}
         style={{
-          height: '100%',
+          ...styles,
+          // height: '100%',
+          border: '1px solid #dfdfdf',
           borderRadius: styles.borderRadius,
           fontSize: styles.fontSize,
           userSelect: 'none',
         }}
         onClick={() => {
+          // e.stopPropagation()
           handleOpen()
+          return false
         }}
         onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
           if (e.code.toLowerCase() === 'space') {
@@ -164,6 +210,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
           <span>{value}</span>
           <Transition visible={openSelect}
                       duration={animationDuration}
+                      leaveDuration={animationLeaveDuration}
                       from={{
                         rotate: '0deg',
                       }}
@@ -180,6 +227,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
 
       <Transition visible={openSelect}
                   duration={animationDuration}
+                  leaveDuration={animationLeaveDuration}
                   from={{
                     height: 0,
                   }}
@@ -190,6 +238,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                     position: 'absolute',
                     // top: '100%',
                     left: 0,
+                    zIndex: 1000,
                     overflow: 'hidden',
                     width: '100%',
                     height: wrapperHeight,
@@ -213,7 +262,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                  backgroundColor: '#fff',
                  height: 'auto',
                }}>
-            {children}
+            {filteredChildren}
           </div>
         </div>
       </Transition>
