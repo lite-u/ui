@@ -16,7 +16,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
   // const headCellStyle = {minWidth: 100}
   const firstColStyle: CSSProperties = {width: '100%', textAlign: 'center', paddingLeft: 10}
   const lastColStyle: CSSProperties = {
-    // maxWidth: 250,
+    maxWidth: 300,
     width: '100%', textAlign: 'center', paddingLeft: 10, whiteSpace: 'wrap',
   }
 
