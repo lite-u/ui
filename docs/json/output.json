@@ -597,6 +597,12 @@
   "Row": {
     "tags": {},
     "props": {
+      "start": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Align items to the start vertically."
+      },
       "center": {
         "type": "boolean",
         "required": false,
@@ -614,6 +620,12 @@
         "required": false,
         "defaultValue": "false",
         "description": "Align items to the end vertically."
+      },
+      "wrap": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, allows child elements to wrap onto multiple lines."
       },
       "around": {
         "type": "boolean",

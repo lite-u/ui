@@ -11,6 +11,8 @@ import { CSSProperties } from 'react';
  * Supports extended `ContainerProps`.
  *
  * @example
+ * import { Container } from '@lite-u/ui'
+ *
  * <Row center space={10} wrap>
  *   <Box />
  *   <Box />
@@ -63,5 +65,6 @@ interface RowProps extends ContainerProps {
      */
     space?: CSSProperties['gap'];
 }
-declare const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap' & 'start'> & RowProps>;
+type RowComponentProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap' | 'start'> & RowProps;
+declare const Row: React.FC<RowComponentProps>;
 export default Row;

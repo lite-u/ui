@@ -4,7 +4,7 @@ import {NavLink} from 'react-router'
 
 const TableRowPage: React.FC = () => {
   return <Col id={'col'}>
-    <Row space={10} mt={10} wrap>
+    <Row space={10} mt={10} start wrap>
       <Flex col minH={260} w={200}>
         <UsageBlock title={'XS Size'} style={{flex: 1}}>
           <Table xs>
