@@ -5,13 +5,13 @@
       "label": {
         "type": "string",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "m": {
@@ -23,31 +23,31 @@
       "l": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "number": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "primary": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "warn": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "error": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "neutral": {
@@ -89,13 +89,13 @@
       "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "false",
         "description": "Extra small button. Sizing depends on theme."
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "false",
         "description": "Small button. Sizing depends on theme."
       },
       "m": {
@@ -107,13 +107,13 @@
       "l": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "false",
         "description": "Large button. Sizing depends on theme."
       },
       "primary": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "false",
         "description": "If true, applies the primary color style."
       },
       "neutral": {
@@ -125,13 +125,13 @@
       "warn": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "false",
         "description": "If true, applies the warning color style."
       },
       "error": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "false",
         "description": "If true, applies the error color style."
       }
     }
@@ -242,31 +242,31 @@
       "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "sm": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "md": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "lg": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "title": {
         "type": "string",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "titleStyle": {
@@ -353,7 +353,7 @@
       "bgColor": {
         "type": "string",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "position": {
@@ -378,13 +378,13 @@
       "head": {
         "type": "ReactNode",
         "required": true,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "headStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       }
     }
@@ -401,19 +401,19 @@
       "onDragIsOver": {
         "type": "(isFileTypeValid: boolean) => void",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onDragIsLeave": {
         "type": "() => void",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onDropped": {
         "type": "(e: DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       }
     }
@@ -424,79 +424,79 @@
       "tag": {
         "type": "keyof HTMLElementTagNameMap",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "hover": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "focus": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "active": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "style": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onMouseEnter": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onMouseLeave": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onFocus": {
         "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onBlur": {
         "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onMouseDown": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onMouseUp": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onClick": {
         "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       },
       "onKeyDown": {
         "type": "(KeyboardEventHandler<HTMLElementTagNameMap[T]> & KeyboardEventHandler<HTMLObjectElement>) | ... 59 more ... | (KeyboardEventHandler<...> & KeyboardEventHandler<...>)",
         "required": false,
-        "defaultValue": "-",
+        "defaultValue": "",
         "description": ""
       }
     }

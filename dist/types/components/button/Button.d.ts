@@ -1,34 +1,42 @@
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * Extra small button. Sizing depends on theme.
+     * @default false
      */
     xs?: boolean;
     /**
      * Small button. Sizing depends on theme.
+     * @default false
      */
     s?: boolean;
     /**
      * Medium button. Sizing depends on theme.
+     * @default true
      */
     m?: boolean;
     /**
      * Large button. Sizing depends on theme.
+     * @default false
      */
     l?: boolean;
     /**
      * If true, applies the primary color style.
+     * @default false
      */
     primary?: boolean;
     /**
      * If true, applies the neutral color style.
+     * @default true
      */
     neutral?: boolean;
     /**
      * If true, applies the warning color style.
+     * @default false
      */
     warn?: boolean;
     /**
      * If true, applies the error color style.
+     * @default false
      */
     error?: boolean;
     /**

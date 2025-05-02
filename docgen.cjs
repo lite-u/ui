@@ -11,7 +11,7 @@ docs.forEach((component) => {
         .filter(([_, prop]) => !prop.parent) // Exclude HTML native props
         .reduce((acc, [name, prop]) => {
             // console.log(props)
-            let defaultValue = '-'
+            let defaultValue = ''
 
             if (prop.defaultValue) {
                 defaultValue = prop.defaultValue.value;
