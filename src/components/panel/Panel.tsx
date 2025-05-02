@@ -1,9 +1,24 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {ReactNode} from 'react'
 import {Col} from '../../index'
-import Paragraph from '../paragraph/Paragraph'
 import Container, {ContainerProps} from '../container/Container'
 
+/**
+ * Panel component
+ *
+ * @brief
+ * A flexible container component used to group and visually separate content within the layout.
+ *
+ * @intro
+ * Provides a styled block container with customizable margin, padding, and background options.
+ * Commonly used to structure and emphasize content sections in a UI.
+ *
+ * @example
+ * <Panel p={20} bg="#fff">
+ *   <h2>Section Title</h2>
+ *   <p>This is a section of content within a panel.</p>
+ * </Panel>
+ */
 const Panel: React.FC<{
   xs?: boolean
   s?: boolean
@@ -12,8 +27,8 @@ const Panel: React.FC<{
   title: string,
   titleStyle?: React.CSSProperties,
   titleClass?: string,
-  boxStyle?: React.CSSProperties,
-  boxClass?: string,
+  contentStyle?: React.CSSProperties,
+  contentClass?: string,
   children?: ReactNode
 } & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
                                                            xs,
@@ -23,8 +38,8 @@ const Panel: React.FC<{
                                                            title,
                                                            titleClass = '',
                                                            titleStyle = {},
-                                                           boxClass = '',
-                                                           boxStyle = {},
+                                                           contentClass = '',
+                                                           contentStyle = {},
                                                            children,
                                                            ...props
                                                          }) => {
@@ -44,36 +59,39 @@ const Panel: React.FC<{
   }
 
   const headFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
-  const headPadding = theme.padding[size as keyof typeof theme['padding']].y
+  const headPadding = theme.padding[size as keyof typeof theme['padding']].x
   const boxFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
   const boxPadding = theme.padding[size as keyof typeof theme['padding']].x
+  const primaryColor = theme.panel.primaryColor
 
+  console.log(titleStyle)
   return <Container fw fh role={'panel'} {...props}>
     <Col fw fh stretch>
       <Container role={'panel-head'}
                  fw
                  style={{
-                   background: theme.panel.primaryColor,
+                   background: primaryColor,
                    borderRadius: '3px 3px 0 0',
-                   color: '#fff', ...titleStyle,
+                   color: '#fff',
+                   ...titleStyle,
                  }}
                  className={titleClass}>
-        <Paragraph center size={headFontSize} style={{padding: headPadding}}>{title}</Paragraph>
+        <p style={{fontSize: headFontSize, padding: headPadding}}>{title}</p>
       </Container>
 
-      <Container role={'panel-box'}
+      <Container role={'panel-content'}
                  fw
                  bg={'#fff'}
                  style={{
                    overflow: 'auto',
-                   border: `1px solid ${theme.panel.primaryColor}`,
+                   border: `1px solid ${primaryColor}`,
                    borderTop: 'none',
                    flex: '100%',
                    fontSize: boxFontSize,
                    padding: boxPadding,
-                   ...boxStyle,
+                   ...contentStyle,
                  }}
-                 className={boxClass}>
+                 className={contentClass}>
         {children}
       </Container>
     </Col>

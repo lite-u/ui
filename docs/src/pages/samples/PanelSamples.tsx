@@ -1,64 +1,51 @@
-import {Col, Con, Link, MenuItem, Panel, Row} from '@lite-u/ui'
+import {Col, Con, Panel, Row} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock.tsx'
 
 const PanelSamples: React.FC = () => {
   return <Col>
+    <Row space={10} wrap>
 
-    <Row end space={10}>
-      <Con w={300}>
-        <UsageBlock title={'Link'}>
+      <Con w={200}>
+        <UsageBlock title={'xs'}>
           <Panel xs mb={10} title={'Title'}>
-            <Con>
-              <p>Panel default</p>
-            </Con>
+            <p>Content 1</p>
+            <p>Content 2</p>
+            <p>Content 3</p>
           </Panel>
         </UsageBlock>
       </Con>
 
-      <Con mt={20} w={300}>
-        <UsageBlock title={'Wrapped by a MenuItem'}>
-          <MenuItem>
-            <Link target={'_blank'} href={`/components/link`}>
-              Click Me To Open A Tab
-            </Link>
-          </MenuItem>
+
+      <Con w={200}>
+        <UsageBlock title={'Small'}>
+          <Panel s mb={10} title={'Title'}>
+            <p>Content 1</p>
+            <p>Content 2</p>
+            <p>Content 3</p>
+          </Panel>
+        </UsageBlock>
+      </Con>
+
+      <Con w={200}>
+        <UsageBlock title={'Medium'}>
+          <Panel mb={10} title={'Title'}>
+            <p>Content 1</p>
+            <p>Content 2</p>
+            <p>Content 3</p>
+          </Panel>
+        </UsageBlock>
+      </Con>
+
+      <Con w={200}>
+        <UsageBlock title={'Large'}>
+          <Panel l mb={10} title={'Title'}>
+            <p>Content 1</p>
+            <p>Content 2</p>
+            <p>Content 3</p>
+          </Panel>
         </UsageBlock>
       </Con>
     </Row>
-
-    <Con w={200}>
-      <Panel mb={10} title={'Title'}>
-        <Con>
-          <p>Panel default</p>
-        </Con>
-      </Panel>
-
-      <Panel mb={10} xs title={'Title'}>
-        <Con>
-          <p>Panel xs</p>
-        </Con>
-      </Panel>
-
-      <Panel mb={10} sm title={'Title'}>
-        <Con>
-          <p>Panel sm</p>
-        </Con>
-      </Panel>
-
-      <Panel mb={10} md title={'Title'}>
-        <Con>
-          <p>Panel md</p>
-        </Con>
-      </Panel>
-
-      <Panel mb={10} lg title={'Title'}>
-        <Con>
-          <p>Panel lg</p>
-        </Con>
-      </Panel>
-
-
-    </Con>
   </Col>
 }
 
