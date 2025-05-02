@@ -1,4 +1,4 @@
-import {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
+import React, {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import Interactable from '../interactive/Interactable'
@@ -51,12 +51,14 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
    * Inline styles to customize the select element.
    */
   style?: React.CSSProperties
+  itemStyle?: React.CSSProperties
   defaultValue?: string | number
   onChange?: (value: string | number) => void
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>
 }> = ({
         label,
         style,
+        itemStyle = {},
         xs,
         s,
         m,
@@ -84,7 +86,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
   const {theme} = useLiteUIContext()
   const size = getSize()
   const isOpenedRef = useRef<boolean>(false)
-  const styles: CSSProperties = {
+  const defaultStyle: CSSProperties = {
     ...theme.formElements[size],
     padding: `0 ${theme.padding[size].y}px`,
     fontSize: theme.fontSizes[size],
@@ -92,6 +94,7 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     boxSizing: 'border-box',
   }
 // console.log(theme.)
+
   const filteredChildren: ReactNode[] = []
 
   Children.forEach(children, (child) => {
@@ -161,17 +164,24 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
     isOpenedRef.current = !openSelect
   }
 
-  return <SelectContext.Provider value={{itemStyle: styles, selectValue: value, itemClick: handleItemClick}}>
+  const mergedItemStyle = {
+    ...defaultStyle,
+    ...itemStyle,
+  }
+  console.log(mergedItemStyle)
+  return <SelectContext.Provider value={{itemStyle: mergedItemStyle, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}
          style={{
            flex: 'none',
-           minWidth: styles.minWidth,
-           height: styles.height,
-           borderRadius: styles.borderRadius,
+           ...defaultStyle,
+           padding: 0,
+           // minWidth: defaultStyle.minWidth,
+           // height: defaultStyle.height,
+           // borderRadius: defaultStyle.borderRadius,
            // boxShadow: '0 0 1px 0 #000',
            cursor: 'pointer',
-           boxSizing: 'border-box',
+           // boxSizing: 'border-box',
            ...style,
            position: 'relative',
          }}
@@ -182,12 +192,13 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
         role={'placeholder'}
         tabIndex={0}
         style={{
-          ...styles,
-          // height: '100%',
-          border: '1px solid #dfdfdf',
-          borderRadius: styles.borderRadius,
-          fontSize: styles.fontSize,
           userSelect: 'none',
+          border: '1px solid #dfdfdf',
+          ...defaultStyle,
+          ...style,
+          // height: '100%',
+          // borderRadius: defaultStyle.borderRadius,
+          // fontSize: defaultStyle.fontSize,
         }}
         onClick={() => {
           // e.stopPropagation()
@@ -205,21 +216,30 @@ const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
         <Row fh
              between
              center
-             pl={styles.padding}
-             pr={styles.padding}>
+             pl={defaultStyle.padding}
+             pr={defaultStyle.padding}>
           <span>{value}</span>
           <Transition visible={openSelect}
                       duration={animationDuration}
                       leaveDuration={animationLeaveDuration}
+                      style={{
+                        width: 14,
+                        height: 14,
+                      }}
                       from={{
                         rotate: '0deg',
                       }}
                       to={{
                         rotate: '180deg',
                       }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/*<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 9l6 6 6-6" stroke="black" strokeWidth="2" fill="none" strokeLinecap="round"
                     strokeLinejoin="round"/>
+            </svg>*/}
+
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"
+                 strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
             </svg>
           </Transition>
         </Row>

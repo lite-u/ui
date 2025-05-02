@@ -7,9 +7,45 @@ const SelectPage: React.FC = () => {
     <Row start space={10} wrap>
       <Con w={400}>
         <UsageBlock title={'xs'}>
+          <Row space={10} w={200} end>
+            <Select s defaultValue={'2'}>
+              <SelectItem value={'1'}>1</SelectItem>
+              <SelectItem value={'2'}>2</SelectItem>
+              <SelectItem value={'3'}>3</SelectItem>
+            </Select>
+
+            <Select m defaultValue={'2'}
+                    onChange={(v) => {
+                      console.log(v)
+                    }}>
+              <SelectItem value={'1'}>hello 1</SelectItem>
+              <SelectItem value={'2'}>hello 2</SelectItem>
+              <SelectItem value={'3'}>hello 3</SelectItem>
+            </Select>
+            <Select l defaultValue={'2'}
+                    onChange={(v) => {
+                      console.log(v)
+                    }}>
+              <SelectItem value={'1'}>hello 1</SelectItem>
+              <SelectItem value={'2'}>hello 2</SelectItem>
+              <SelectItem value={'3'}>hello 3</SelectItem>
+            </Select>
+          </Row>
+        </UsageBlock>
+
+        <UsageBlock title={'xs'}>
           <Col space={10} w={100}>
             <Select s
                     defaultValue={'2'}
+                    itemStyle={{
+                      color: 'green',
+                      backgroundColor: 'orange',
+                    }}
+                    style={{
+                      width: 166,
+                      color: 'red',
+                      borderRadius: 20,
+                    }}
                     onChange={(v) => {
                       console.log(v)
                     }}>
@@ -36,6 +72,7 @@ const SelectPage: React.FC = () => {
             </Select>
           </Col>
         </UsageBlock>
+
       </Con>
     </Row>
 

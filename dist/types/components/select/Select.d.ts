@@ -1,3 +1,4 @@
+import React from 'react';
 /**
  * Select component
  *
@@ -41,6 +42,7 @@ declare const Select: React.FC<React.HTMLProps<HTMLDivElement> & {
      * Inline styles to customize the select element.
      */
     style?: React.CSSProperties;
+    itemStyle?: React.CSSProperties;
     defaultValue?: string | number;
     onChange?: (value: string | number) => void;
     onKeyDown?: React.KeyboardEventHandler<HTMLElement>;

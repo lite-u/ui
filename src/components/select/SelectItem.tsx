@@ -52,10 +52,8 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   }
 
   const styles: CSSProperties = {
-    padding: itemStyle.padding,
-    height: itemStyle.height,
-    fontSize: itemStyle.fontSize,
-    boxSizing: 'border-box',
+    ...itemStyle,
+    // boxSizing: 'border-box',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

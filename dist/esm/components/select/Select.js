@@ -23,7 +23,7 @@ import SelectItem from './SelectItem';
  *   <option value="2">Two</option>
  * </Select>
  */
-const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, children, onKeyDown, ...props }) => {
+const Select = ({ label, style, itemStyle = {}, xs, s, m, l, defaultValue = '', onChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -44,7 +44,7 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
     const { theme } = useLiteUIContext();
     const size = getSize();
     const isOpenedRef = useRef(false);
-    const styles = {
+    const defaultStyle = {
         ...theme.formElements[size],
         padding: `0 ${theme.padding[size].y}px`,
         fontSize: theme.fontSizes[size],
@@ -108,23 +108,31 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
         setOpenSelect(!openSelect);
         isOpenedRef.current = !openSelect;
     };
-    return _jsx(SelectContext.Provider, { value: { itemStyle: styles, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
+    const mergedItemStyle = {
+        ...defaultStyle,
+        ...itemStyle,
+    };
+    console.log(mergedItemStyle);
+    return _jsx(SelectContext.Provider, { value: { itemStyle: mergedItemStyle, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
                 flex: 'none',
-                minWidth: styles.minWidth,
-                height: styles.height,
-                borderRadius: styles.borderRadius,
+                ...defaultStyle,
+                padding: 0,
+                // minWidth: defaultStyle.minWidth,
+                // height: defaultStyle.height,
+                // borderRadius: defaultStyle.borderRadius,
                 // boxShadow: '0 0 1px 0 #000',
                 cursor: 'pointer',
-                boxSizing: 'border-box',
+                // boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
             }, ...props, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: 0, style: {
-                        ...styles,
-                        // height: '100%',
-                        border: '1px solid #dfdfdf',
-                        borderRadius: styles.borderRadius,
-                        fontSize: styles.fontSize,
                         userSelect: 'none',
+                        border: '1px solid #dfdfdf',
+                        ...defaultStyle,
+                        ...style,
+                        // height: '100%',
+                        // borderRadius: defaultStyle.borderRadius,
+                        // fontSize: defaultStyle.fontSize,
                     }, onClick: () => {
                         // e.stopPropagation()
                         handleOpen();
@@ -135,11 +143,14 @@ const Select = ({ label, style, xs, s, m, l, defaultValue = '', onChange, childr
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: styles.padding, pr: styles.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, from: {
+                    }, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, style: {
+                                    width: 14,
+                                    height: 14,
+                                }, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
-                                }, children: _jsx("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: _jsx("path", { d: "M6 9l6 6 6-6", stroke: "black", strokeWidth: "2", fill: "none", strokeLinecap: "round", strokeLinejoin: "round" }) }) })] }) }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, from: {
+                                }, children: _jsx("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] }) }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, from: {
                         height: 0,
                     }, to: {
                         height: wrapperHeight,

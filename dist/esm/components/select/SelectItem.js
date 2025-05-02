@@ -30,10 +30,8 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         bgStyle.backgroundColor = '#dfdfdf';
     }
     const styles = {
-        padding: itemStyle.padding,
-        height: itemStyle.height,
-        fontSize: itemStyle.fontSize,
-        boxSizing: 'border-box',
+        ...itemStyle,
+        // boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
