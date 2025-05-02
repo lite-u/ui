@@ -1,4 +1,4 @@
-import {Col, Con, Flex, Row, Table, TableRow} from '@lite-u/ui'
+import {Col, Con, Flex, P, Row, Table, TableRow} from '@lite-u/ui'
 import UsageBlock from '../UsageBlock'
 import {NavLink} from 'react-router'
 
