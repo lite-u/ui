@@ -41,21 +41,30 @@ const ColumnPage: React.FC = () => {
 
       <Con w={'auto'}>
         <UsageBlock title={'With Row'}>
-          <Row border p={4} w={120} h={150} space={0} center >
-            <Col center jc fh space={10} color={'red'}>
-              <p style={{fontSize: 30}}> ♥ </p>
-              <p style={{fontSize: 30}}> ♥ </p>
-              <p style={{fontSize: 30}}> ♥ </p>
+          <Row border p={4} w={120} h={150} space={0} center fz={30} color={'red'}>
+            <Col start fh space={10} fz={20}>
+              <p> 8 </p>
+              <p> ♥ </p>
+            </Col>
+            <Col center jc fh space={10}>
+              <p> ♥ </p>
+              <p> ♥ </p>
+              <p> ♥ </p>
             </Col>
 
-            <Col h={60} center jc fh color={'red'}>
-              <p style={{fontSize: 30}}> ♥ </p>
-              <p style={{fontSize: 30}}> ♥ </p>
+            <Col h={60} center jc fh>
+              <p> ♥ </p>
+              <p> ♥ </p>
             </Col>
-            <Col center jc fh space={10} color={'red'}>
-              <p style={{fontSize: 30}}> ♥ </p>
-              <p style={{fontSize: 30}}> ♥ </p>
-              <p style={{fontSize: 30}}> ♥ </p>
+
+            <Col center jc fh space={10}>
+              <p> ♥ </p>
+              <p> ♥ </p>
+              <p> ♥ </p>
+            </Col>
+            <Col end fh fz={20} space={10}>
+              <p> ♥ </p>
+              <p> 8 </p>
             </Col>
           </Row>
         </UsageBlock>

@@ -194,7 +194,7 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  tl = true,
                                                                                  tc = false,
                                                                                  tr = false,
-                                                                                 fz = 14,
+                                                                                 fz,
                                                                                  bg,
                                                                                  color,
                                                                                  border,
