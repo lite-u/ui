@@ -18,7 +18,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
  *   <MenuItem>Item 2</MenuItem>
  * </Menu>
  */
-const Menu = ({ children, style = {}, space = 8, ...props }) => {
+const Menu = ({ children, style = {}, space = 4, ...props }) => {
     // const {theme} = useTheme()
     return _jsx("div", { style: {
             display: 'flex',

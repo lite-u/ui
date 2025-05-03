@@ -2,32 +2,37 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from 'react';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { Transition } from '../../index';
-const MenuItem = ({ children, style = {}, sm = false, hoverStyle = {
+const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
     backgroundColor: '#dfdfdf',
 }, hoverEnterDuration = 300, hoverLeaveDuration = 500, ...props }) => {
     const [visible, setVisible] = useState(false);
+    const getSize = () => {
+        if (xs)
+            return 'xs';
+        if (s)
+            return 'sm';
+        if (l)
+            return 'lg';
+        return 'md';
+    };
     const { theme } = useLiteUIContext();
+    const size = getSize();
     const styles = {
-        height: 40,
-        padding: theme.padding.md.y,
-        fontSize: theme.fontSizes.md,
+        height: theme.formElements[size].height,
+        padding: theme.padding[size].y,
+        fontSize: theme.fontSizes[size],
         boxSizing: 'border-box',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
     };
-    if (sm) {
-        styles.height = 30;
-        styles.fontSize = theme.fontSizes.sm;
-    }
-    // console.log(styles)
     return _jsx("div", { role: 'menu-item', onMouseOver: () => {
             setVisible(true);
         }, onMouseLeave: () => {
             setVisible(false);
         }, style: {
-            // ...styles,
-            ...style,
+        // ...styles,
+        // ...style,
         }, ...props, children: _jsx(Transition, { visible: visible, style: {
                 ...styles,
                 ...style,

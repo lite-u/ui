@@ -27,7 +27,7 @@ const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
   }> = ({
                                                 children,
                                                 style = {},
-                                                space = 8,
+                                                space = 4,
                                                 ...props
                                               }) => {
   // const {theme} = useTheme()

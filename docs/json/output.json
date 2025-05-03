@@ -1675,7 +1675,7 @@
       "space": {
         "type": "number",
         "required": false,
-        "defaultValue": "8",
+        "defaultValue": "4",
         "description": "Vertical spacing (gap) between children, in pixels."
       }
     }
@@ -1683,16 +1683,34 @@
   "MenuItem": {
     "tags": {},
     "props": {
-      "sm": {
+      "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "false",
+        "defaultValue": "",
+        "description": ""
+      },
+      "s": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "m": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": ""
+      },
+      "l": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "",
         "description": ""
       },
       "hoverStyle": {
         "type": "FromType",
         "required": false,
-        "defaultValue": "{\n            backgroundColor: '#dfdfdf',\n          }",
+        "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
         "description": ""
       },
       "hoverEnterDuration": {
