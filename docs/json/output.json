@@ -1666,13 +1666,17 @@
     }
   },
   "Menu": {
-    "tags": {},
+    "tags": {
+      "brief": "A vertical stack layout component designed for navigation or grouped UI items.",
+      "intro": "Arranges its children in a column using Flexbox with configurable spacing.\nUseful for building vertical menus, lists, or grouped controls. Automatically\nsets cursor to pointer and full width, promoting interactive layout.",
+      "example": "import { Menu, MenuItem } from '@lite-u/ui'\n\n<Menu space={12}>\n  <MenuItem>Item 1</MenuItem>\n  <MenuItem>Item 2</MenuItem>\n</Menu>"
+    },
     "props": {
       "space": {
         "type": "number",
         "required": false,
         "defaultValue": "8",
-        "description": ""
+        "description": "Vertical spacing (gap) between children, in pixels."
       }
     }
   },

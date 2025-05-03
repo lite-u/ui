@@ -8,7 +8,7 @@ import PanelPage from '../../samples/PanelPage.tsx'
 import ContainerPage from '../../samples/ContainerPage.tsx'
 import RowPage from '../../samples/RowPage.tsx'
 import TitlePage from '../../samples/TitlePage.tsx'
-import MenuSamples from '../../samples/MenuSamples.tsx'
+import MenuPage from '../../samples/MenuPage.tsx'
 import MenuItemSamples from '../../samples/MenuItemSamples.tsx'
 import DropSamples from '../../samples/DropSamples.tsx'
 import NotificationSamples from '../../samples/NotificationSamples.tsx'
@@ -109,7 +109,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'menu',
     name: 'Menu',
     apiNameKey: 'Menu',
-    comp: <MenuSamples/>,
+    comp: <MenuPage/>,
   },
   menuitem: {
     to: 'menuitem',

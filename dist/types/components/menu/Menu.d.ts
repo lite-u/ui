@@ -1,6 +1,27 @@
-import { ReactNode } from 'react';
+/**
+ * Menu component
+ *
+ * @brief
+ * A vertical stack layout component designed for navigation or grouped UI items.
+ *
+ * @intro
+ * Arranges its children in a column using Flexbox with configurable spacing.
+ * Useful for building vertical menus, lists, or grouped controls. Automatically
+ * sets cursor to pointer and full width, promoting interactive layout.
+ *
+ * @example
+ * import { Menu, MenuItem } from '@lite-u/ui'
+ *
+ * <Menu space={12}>
+ *   <MenuItem>Item 1</MenuItem>
+ *   <MenuItem>Item 2</MenuItem>
+ * </Menu>
+ */
 declare const Menu: React.FC<React.HTMLProps<HTMLDivElement> & {
-    children: ReactNode;
+    /**
+     * Vertical spacing (gap) between children, in pixels.
+     * @default 8
+     */
     space?: number;
 }>;
 export default Menu;
