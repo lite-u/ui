@@ -45,7 +45,7 @@ const RootLayout = () => {
         <Collapse head={<MenuItem style={{flex: 1}}>Components</MenuItem>}>
           {
             Object.values(COMPONENT_ROUTE_MAP).map((comp, index) =>
-              <MenuItem sm style={{padding: 0}} key={index}>
+              <MenuItem s style={{padding: 0}} key={index}>
                 <NavLink
                   style={({isActive}) => {
                     return {
@@ -65,11 +65,11 @@ const RootLayout = () => {
           }
         </Collapse>
 
-        <MenuItem sm><Link to={`compatibility`}>Compatibility</Link></MenuItem>
-        <MenuItem sm><Link to={`accessibility`}>Accessibility</Link></MenuItem>
-        <MenuItem sm><Link to={`i18n`}>I18n</Link></MenuItem>
-        <MenuItem sm><Link to={`responsible`}>Responsible Design</Link></MenuItem>
-        <MenuItem sm><Link to={`tree`}>Tree Shaking</Link></MenuItem>
+        <MenuItem s><Link to={`compatibility`}>Compatibility</Link></MenuItem>
+        <MenuItem s><Link to={`accessibility`}>Accessibility</Link></MenuItem>
+        <MenuItem s><Link to={`i18n`}>I18n</Link></MenuItem>
+        <MenuItem s><Link to={`responsible`}>Responsible Design</Link></MenuItem>
+        <MenuItem s><Link to={`tree`}>Tree Shaking</Link></MenuItem>
       </Con>
 
       <Col ref={mainRef} role={'app-main'} fw fh ova maxH={'100%'}>

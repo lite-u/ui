@@ -18,6 +18,7 @@ import {ReactElement} from 'react'
 import TableRowPage from '../../samples/TableRowPage.tsx'
 import ButtonPage from '../../samples/ButtonPage.tsx'
 import ParagraphPage from '../../samples/ParagraphPage.tsx'
+import ColumnPage from '../../samples/ColumnPage.tsx'
 
 export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
@@ -91,7 +92,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'column',
     name: 'Column',
     apiNameKey: 'Column',
-    comp: <ContainerPage/>,
+    comp: <ColumnPage/>,
   },
   title: {
     to: 'title',

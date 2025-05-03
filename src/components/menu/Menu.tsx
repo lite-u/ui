@@ -25,11 +25,11 @@ const Menu: React.FC<React.HTMLProps<HTMLDivElement> &
      */
     space?: number
   }> = ({
-                                                children,
-                                                style = {},
-                                                space = 4,
-                                                ...props
-                                              }) => {
+          children,
+          style = {},
+          space = 4,
+          ...props
+        }) => {
   // const {theme} = useTheme()
 
   return <div style={{
