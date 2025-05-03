@@ -19,7 +19,7 @@ const TitlePage: React.FC = () => {
               <P size={40} color="gray"> Font size 40 </P>
               <P size={60} color="gray"> Font size 60 </P>
 
-              <P center color="gray">
+              <P size={20} center color="gray">
                 Centered Paragraph
               </P>
             </Col>
