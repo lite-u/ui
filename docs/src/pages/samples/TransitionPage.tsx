@@ -1,14 +1,27 @@
-import {Button, Con, Flex, Transition} from '@lite-u/ui'
+import {Button, Con, Flex, Row, Transition} from '@lite-u/ui'
 import {useState} from 'react'
+import {Col} from '../../../../src'
+import UsageBlock from '../UsageBlock.tsx'
 // import TransitionB from '@ui/components/transition/TransitionB.tsx'
 
 const TransitionSample: React.FC = () => {
-  return <Flex>
-    <Sample/>
+  return <Col>
+    <Row start space={10} wrap>
+
+      <Con w={'auto'}>
+        <UsageBlock title={'Titles'}>
+          <Col between>
+            <Sample/>
+          </Col>
+        </UsageBlock>
+      </Con>
+
+    </Row>
+
     <TransitionSample1/>
     <TransitionSample2/>
     <TransitionSample3/>
-  </Flex>
+  </Col>
 }
 
 const Sample = () => {

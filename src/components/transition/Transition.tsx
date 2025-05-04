@@ -78,10 +78,11 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
  * Animates its children from one style state to another based on visibility.
  *
  * @intro
- * Provides smooth CSS transitions for child elements. Supports property-level control of animation duration,
- * delay, and timing function. When `visible` changes, styles interpolate from `from` to `to` definitions.
+ * To apply animations to elements typically requires external libraries or CSS files. For simplicity and control, `Transition` implements inline animations, putting all animation-related properties under your direct management.
  *
  * @example
+ * import { Con, Button, Transition } from '@lite-u/ui'
+ *
  * const Sample = () => {
  *   const [show, setShow] = useState(false)
  *
