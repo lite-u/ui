@@ -31,6 +31,25 @@ export type TransitionProps = {
   style?: CSSProperties
 }
 
+/**
+ * Transition component
+ *
+ * @brief
+ * Animates its children from one style state to another based on visibility.
+ *
+ * @intro
+ * Provides smooth CSS transitions for child elements. Supports property-level control of animation duration,
+ * delay, and timing function. When `visible` changes, styles interpolate from `from` to `to` definitions.
+ *
+ * @example
+ * <Transition
+ *   from={{ opacity: 0, scale: 0.9 }}
+ *   to={{ opacity: 1, scale: 1 }}
+ *   visible={show}
+ * >
+ *   <div>Hello world</div>
+ * </Transition>
+ */
 const Transition: FC<TransitionProps> = ({
                                            children,
                                            from = {},

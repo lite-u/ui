@@ -253,7 +253,11 @@
     "props": {}
   },
   "Transition": {
-    "tags": {},
+    "tags": {
+      "brief": "Animates its children from one style state to another based on visibility.",
+      "intro": "Provides smooth CSS transitions for child elements. Supports property-level control of animation duration,\ndelay, and timing function. When `visible` changes, styles interpolate from `from` to `to` definitions.",
+      "example": "<Transition\n  from={{ opacity: 0, scale: 0.9 }}\n  to={{ opacity: 1, scale: 1 }}\n  visible={show}\n>\n  <div>Hello world</div>\n</Transition>"
+    },
     "props": {
       "visible": {
         "type": "boolean",

@@ -1,5 +1,24 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
+/**
+ * Transition component
+ *
+ * @brief
+ * Animates its children from one style state to another based on visibility.
+ *
+ * @intro
+ * Provides smooth CSS transitions for child elements. Supports property-level control of animation duration,
+ * delay, and timing function. When `visible` changes, styles interpolate from `from` to `to` definitions.
+ *
+ * @example
+ * <Transition
+ *   from={{ opacity: 0, scale: 0.9 }}
+ *   to={{ opacity: 1, scale: 1 }}
+ *   visible={show}
+ * >
+ *   <div>Hello world</div>
+ * </Transition>
+ */
 const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, style = {}, }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     // const [waiting, setWaiting] = useState()
