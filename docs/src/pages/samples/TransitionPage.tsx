@@ -22,6 +22,12 @@ const TransitionSample: React.FC = () => {
         </UsageBlock>
       </Con>
 
+      <Con w={'auto'}>
+        <UsageBlock title={'Position Fixed(Screen Center)'}>
+          <TransitionFixed/>
+        </UsageBlock>
+      </Con>
+
     </Row>
 
     <TransitionFixed/>
