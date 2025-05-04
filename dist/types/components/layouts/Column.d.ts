@@ -1,6 +1,6 @@
 import { ContainerProps } from '../container/Container';
 import { CSSProperties } from 'react';
-export interface ColumnProps extends ContainerProps {
+export interface ColumnProps extends Omit<ContainerProps, 'start' | 'wrap'> {
     /**
      * Aligns children to the start of the column (left by default).
      * @default true

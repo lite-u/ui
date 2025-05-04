@@ -22,6 +22,7 @@ import Flex from './Flex';
 const Row = ({ children, wrap = false, around = false, jc = false, js = false, je = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
+        flex: 1,
         flexDirection: 'row',
         boxSizing: 'border-box',
         width: 'auto', height: 'auto', ...style,

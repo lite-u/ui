@@ -961,6 +961,42 @@
         "defaultValue": "false",
         "description": "Justifies children to the end vertically."
       },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "The CSS `left` value."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "#dfdfdf",
+        "description": "Color of the border."
+      },
       "box": {
         "type": "boolean",
         "required": false,
@@ -978,18 +1014,6 @@
         "required": false,
         "defaultValue": "false",
         "description": "If true, applies `overflow: auto`."
-      },
-      "fw": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "true",
-        "description": "If true, sets width to 100%."
-      },
-      "fh": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "false",
-        "description": "If true, sets height to 100%."
       },
       "tl": {
         "type": "boolean",
@@ -1027,12 +1051,6 @@
         "defaultValue": "\\-",
         "description": "If true, applies border-radius of 5px."
       },
-      "border": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "If true, applies a 1px solid border with the specified border color."
-      },
       "ib": {
         "type": "boolean",
         "required": false,
@@ -1069,18 +1087,6 @@
         "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
-      "l": {
-        "type": "Left<string | number>",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "The CSS `left` value."
-      },
-      "borderColor": {
-        "type": "BorderColor",
-        "required": false,
-        "defaultValue": "#dfdfdf",
-        "description": "Color of the border."
-      },
       "p": {
         "type": "Padding<string | number>",
         "required": false,
@@ -1110,12 +1116,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Padding left of the container."
-      },
-      "m": {
-        "type": "Margin<string | number>",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "Margin of the container."
       },
       "mt": {
         "type": "MarginTop<string | number>",
@@ -1248,6 +1248,42 @@
         "defaultValue": "false",
         "description": "Justifies children to the end vertically."
       },
+      "m": {
+        "type": "Margin<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Margin of the container."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "The CSS `left` value."
+      },
+      "fw": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "If true, sets width to 100%."
+      },
+      "fh": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, sets height to 100%."
+      },
+      "border": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, applies a 1px solid border with the specified border color."
+      },
+      "borderColor": {
+        "type": "BorderColor",
+        "required": false,
+        "defaultValue": "#dfdfdf",
+        "description": "Color of the border."
+      },
       "box": {
         "type": "boolean",
         "required": false,
@@ -1265,18 +1301,6 @@
         "required": false,
         "defaultValue": "false",
         "description": "If true, applies `overflow: auto`."
-      },
-      "fw": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "true",
-        "description": "If true, sets width to 100%."
-      },
-      "fh": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "false",
-        "description": "If true, sets height to 100%."
       },
       "tl": {
         "type": "boolean",
@@ -1314,12 +1338,6 @@
         "defaultValue": "\\-",
         "description": "If true, applies border-radius of 5px."
       },
-      "border": {
-        "type": "boolean",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "If true, applies a 1px solid border with the specified border color."
-      },
       "ib": {
         "type": "boolean",
         "required": false,
@@ -1356,18 +1374,6 @@
         "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
-      "l": {
-        "type": "Left<string | number>",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "The CSS `left` value."
-      },
-      "borderColor": {
-        "type": "BorderColor",
-        "required": false,
-        "defaultValue": "#dfdfdf",
-        "description": "Color of the border."
-      },
       "p": {
         "type": "Padding<string | number>",
         "required": false,
@@ -1397,12 +1403,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Padding left of the container."
-      },
-      "m": {
-        "type": "Margin<string | number>",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "Margin of the container."
       },
       "mt": {
         "type": "MarginTop<string | number>",
@@ -2381,6 +2381,12 @@
         "description": ""
       },
       "headStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "contentStyle": {
         "type": "CSSProperties",
         "required": false,
         "defaultValue": "",

@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
 import { Con, Transition } from '../../index';
-const Collapse = ({ open = true, head, children, onToggle, headStyle, ...props }) => {
+const Collapse = ({ open = true, head, children, onToggle, headStyle, contentStyle, ...props }) => {
     const [containerHeight, setContainerHeight] = useState(0);
     const [isOpen, setIsOpen] = useState(open);
     const containerRef = useRef(null);
@@ -25,6 +25,7 @@ const Collapse = ({ open = true, head, children, onToggle, headStyle, ...props }
                     height: containerHeight,
                 }, style: {
                     overflow: 'hidden',
+                    ...contentStyle,
                 }, ...props, children: _jsx("div", { ref: containerRef, role: 'collapse-content', children: children }) })] });
 };
 export const Open = Collapse;

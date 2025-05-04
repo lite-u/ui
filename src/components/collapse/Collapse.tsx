@@ -1,13 +1,15 @@
-import {CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
+import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
 import {Con, Transition} from '../../index'
 
 type CollapseProps = React.HTMLProps<HTMLDivElement> & {
   head: ReactNode,
   open?: boolean,
   headStyle?: CSSProperties,
+  contentStyle?: CSSProperties,
   duration?: number,
   leaveDuration?: number,
   onToggle?: (isOpen: boolean) => void,
+  ref?: RefObject<HTMLDivElement>,
 }
 const Collapse: React.FC<CollapseProps> = ({
                                              open = true,
@@ -15,6 +17,7 @@ const Collapse: React.FC<CollapseProps> = ({
                                              children,
                                              onToggle,
                                              headStyle,
+                                             contentStyle,
                                              ...props
                                            }) => {
   const [containerHeight, setContainerHeight] = useState(0)
@@ -54,6 +57,7 @@ const Collapse: React.FC<CollapseProps> = ({
       }}
       style={{
         overflow: 'hidden',
+        ...contentStyle,
       }}
       {...props}>
       <div ref={containerRef} role={'collapse-content'}>

@@ -2,7 +2,7 @@ import Flex, {FlexProps} from './Flex'
 import {ContainerProps} from '../container/Container'
 import {CSSProperties} from 'react'
 
-export interface ColumnProps extends ContainerProps {
+export interface ColumnProps extends Omit<ContainerProps, 'start' | 'wrap'> {
   /**
    * Aligns children to the start of the column (left by default).
    * @default true
@@ -100,6 +100,7 @@ const Column: React.FC<ColumnProps & Omit<React.HTMLProps<HTMLDivElement>, 'star
                                                                                         }) => {
   let styles: React.CSSProperties = {
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
     boxSizing: 'border-box',
     gap: space,

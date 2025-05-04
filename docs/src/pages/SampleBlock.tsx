@@ -19,18 +19,16 @@ const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string
     return `<${tag}>${content}</${tag}>`
   })
 
-  return <Con role={'usage-block'} fh fw border borderColor={'#bababa'} color={'#888'} rounded ib p={14} style={style}>
+  return <Con role={'usage-block'} fz={14} fh fw border borderColor={'#bababa'} color={'#333'} rounded ib p={14}
+              style={style}>
     {title && <p>{title}</p>}
     <Con mt={6} mb={20} h={0} style={{borderTop: '1px dashed #dfdfdf'}}></Con>
 
     {children}
 
-    <Con mt={30} mb={20} h={0} style={{borderTop: '1px dashed #dfdfdf'}}></Con>
+    <Con mt={30} mb={10} h={0} style={{borderTop: '1px dashed #dfdfdf'}}></Con>
 
     <Collapse open={false}
-              headStyle={{
-                marginBottom: 10,
-              }}
               duration={200}
               leaveDuration={100}
               head={
@@ -38,12 +36,15 @@ const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string
                   <Button xs style={{backgroundColor: '#f3f3f3'}}>{'</>'}</Button>
                 </Tooltip>
               }>
-      <Con fw border rounded p={'10px 0 10px 10px'}>
-        <CodeWrap wrapStyle={{
-          padding: 0,
-          border: 'none',
-          maxHeight: 200,
-        }} code={`\n ${code}`}/>
+      <Con pt={10}>
+        <Con fw border rounded>
+          <CodeWrap wrapStyle={{
+            padding: 0,
+            border: 'none',
+            marginTop: 10,
+            maxHeight: 200,
+          }} code={`\n ${code}`}/>
+        </Con>
       </Con>
     </Collapse>
   </Con>

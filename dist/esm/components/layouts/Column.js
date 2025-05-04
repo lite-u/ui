@@ -23,6 +23,7 @@ import Flex from './Flex';
 const Column = ({ children, wrap = false, around = false, jc = false, js = false, je = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, role = 'column', style = {}, ...props }) => {
     let styles = {
         display: 'flex',
+        flex: 1,
         flexDirection: 'column',
         boxSizing: 'border-box',
         gap: space,

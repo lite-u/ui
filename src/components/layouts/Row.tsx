@@ -108,6 +108,7 @@ const Row: React.FC<RowComponentProps> = ({
 
   let styles: React.CSSProperties = {
     display: 'flex',
+    flex: 1,
     flexDirection: 'row',
     boxSizing: 'border-box',
     width: 'auto', height: 'auto', ...style,
