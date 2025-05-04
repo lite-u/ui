@@ -5,15 +5,17 @@ const MenuPage: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
 
-      <Con w={200}>
+      <Con>
         <SampleBlock title={'Titles'}>
-          <Col between>
-            <Menu space={4}>
-              <MenuItem>Item 1</MenuItem>
-              <MenuItem>Item 2</MenuItem>
-              <MenuItem>Item 3</MenuItem>
+          <Con w={120} border>
+            <Menu space={0}>
+              <MenuItem s>Copy</MenuItem>
+              <MenuItem s>Paste</MenuItem>
+              <MenuItem s>Cut</MenuItem>
+              <MenuItem s>Duplicate</MenuItem>
+              <MenuItem s>Delete</MenuItem>
             </Menu>
-          </Col>
+          </Con>
         </SampleBlock>
       </Con>
 

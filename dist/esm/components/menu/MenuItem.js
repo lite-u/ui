@@ -35,7 +35,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
     const { theme } = useLiteUIContext();
     const size = getSize();
     const styles = {
-        minWidth: 150,
+        minWidth: 100,
         height: theme.formElements[size].height,
         padding: theme.padding[size].y,
         fontSize: theme.fontSizes[size],
@@ -54,6 +54,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
             setVisible(false);
         }, style: {
             display: 'flex',
+            overflow: 'hidden',
             // ...styles,
             // ...style,
         }, ...props, children: _jsx(Transition, { visible: visible, style: {
