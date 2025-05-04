@@ -2453,7 +2453,7 @@
   "Drop": {
     "tags": {
       "brief": "A drag-and-drop file drop zone with file type validation and customizable events.",
-      "intro": "In React, applying visual cues during drag-over can sometimes cause flickering—especially when styles update frequently. The Drop component simplifies handling such interactions by managing drag-over feedback smoothly and supporting MIME-type restrictions. It also provides hooks for custom logic when files are dropped, making it an easy and reliable way to implement drag-and-drop functionality.\n\n\\\n⚠️ `Caution`: Safari `CANNOT` detect files during the drag phase, so use `onDropped` for any functionality that needs to work reliably across all browsers.",
+      "intro": "In React, applying visual cues during drag-over can sometimes cause flickering—especially when styles update frequently. The Drop component simplifies handling such interactions by managing drag-over feedback smoothly and supporting MIME-type restrictions. It also provides hooks for custom logic when files are dropped, making it an easy and reliable way to implement drag-and-drop functionality.\n\n\\\n⚠️ `Caution`: Safari `CANNOT` detect files during the drag phase, so use `onDropped` ONLY for any functionality that needs to work reliably across all browsers.",
       "example": "import { Drop } from '@lite-u/ui'\n\n<Drop accepts={['image/png']}\n  onDragIsOver={(f) => {})\n  onDropped={(e, isValid) => console.log(e, isValid)}\n>\n  <p>Drop image files here</p>\n</Drop>"
     },
     "props": {
