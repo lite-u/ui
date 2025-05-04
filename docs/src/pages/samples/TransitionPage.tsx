@@ -8,11 +8,11 @@ const TransitionSample: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
 
-      <Con w={'auto'}>
-        <SampleBlock title={'Simple Scale'}>
-          <Col between>
+      <Con w={200}>
+        <SampleBlock title={'Scale'}>
+          <Row fw jc center>
             <TransitionScale/>
-          </Col>
+          </Row>
         </SampleBlock>
       </Con>
 
@@ -46,6 +46,12 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
+      <Con w={'auto'}>
+        <SampleBlock title={'Time Function'}>
+          <TransitionTimeFunction/>
+        </SampleBlock>
+      </Con>
+
 
     </Row>
 
@@ -59,11 +65,12 @@ const TransitionScale = () => {
   const [visible, setVisible] = useState(false)
 
   return <div>
-    <Button s onClick={() => setVisible(!visible)}>Scale {visible ? 'Down' : 'Up'}</Button>
     <Transition visible={visible}
+                onMouseEnter={() => setVisible(true)}
+                onMouseLeave={() => setVisible(false)}
                 from={{opacity: .5, scale: 0.5}}
                 to={{opacity: 1, scale: 1}}>
-      <Row jc center w={100} h={100} border rounded>Hello World</Row>
+      <Row jc center bg={'#0b2e71'} mt={10} w={100} h={100} border rounded></Row>
     </Transition>
   </div>
 }
@@ -116,7 +123,7 @@ const TransitionRotate = () => {
            bg={'#fff'}
            style={{
              boxShadow: '0 0 3px 0 #000',
-           }}>Hover On</Row>
+           }}>Text</Row>
     </Transition>
 
   </Con>
@@ -198,7 +205,29 @@ const TransitionDuration = () => {
            bg={'#fff'}
            style={{
              boxShadow: '0 0 3px 0 #000',
-           }}>hello world</Row>
+           }}></Row>
+    </Transition>
+
+  </Con>
+}
+
+const TransitionTimeFunction = () => {
+  const [visible, setVisible] = useState(false)
+
+  return <Con ml={10}>
+    <Transition
+      onMouseEnter={() => {
+        setVisible(true)
+      }}
+      onMouseLeave={() => {
+        setVisible(false)
+      }}
+      delay={1000}
+      visible={visible}
+      style={{width: 100, height: 30}}
+      from={{width: 100}}
+      to={{width: 200}}>
+      Hover On And Wait
     </Transition>
 
   </Con>
