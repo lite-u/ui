@@ -87,6 +87,6 @@ onDrop, onDragEnter, onDragLeave, onDragOver, ...props }) => {
     const styles = {
         ...style,
     };
-    return _jsx(Con, { fw: true, fh: true, "data-role": 'drop', style: styles, ...props, onDragEnter: handleDragEnter, onDragLeave: handleDragLeave, onDragOver: handleDragOver, onDrop: handleDrop, children: children });
+    return _jsx(Con, { fw: true, fh: true, role: 'drop', style: styles, onDragEnter: handleDragEnter, onDragLeave: handleDragLeave, onDragOver: handleDragOver, onDrop: handleDrop, ...props, children: children });
 };
 export default Drop;

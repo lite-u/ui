@@ -25,14 +25,7 @@ type DropProps = {
    * @default \-
    */
   onDropped?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void
-  /**
-   * Content to be rendered inside the drop zone.
-   */
-  children?: React.ReactNode
-  /**
-   * Custom styles for the drop container.
-   */
-  style?: React.CSSProperties
+  ref?: React.Ref<HTMLDivElement>
 };
 
 /**
@@ -57,7 +50,6 @@ type DropProps = {
  *   <p>Drop image files here</p>
  * </Drop>
  */
-
 export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
                                                                         accepts = [],
                                                                         onDragIsOver,
@@ -150,14 +142,15 @@ export const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps> = ({
     ...style,
   }
 
-  return <Con fw fh
-              data-role={'drop'}
+  return <Con fw
+              fh
+              role={'drop'}
               style={styles}
-              {...props}
               onDragEnter={handleDragEnter}
               onDragLeave={handleDragLeave}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
+              {...props}
   >
     {children}
   </Con>

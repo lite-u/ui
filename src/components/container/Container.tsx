@@ -1,6 +1,6 @@
 import {CSSProperties} from 'react'
 
-export interface ContainerProps {
+export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
   /**
    * If true, applies `box-sizing: border-box` to the container.
    * @default true
@@ -217,49 +217,49 @@ export interface ContainerProps {
  *   <h2>Content</h2>
  * </Container>
  */
-const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
-                                                                                 children,
-                                                                                 ovh = false,
-                                                                                 ova = false,
-                                                                                 box = true,
-                                                                                 fw = true,
-                                                                                 fh = false,
-                                                                                 tl,
-                                                                                 tc,
-                                                                                 tr,
-                                                                                 fz,
-                                                                                 bg,
-                                                                                 color,
-                                                                                 border,
-                                                                                 rounded,
-                                                                                 ib,
-                                                                                 abs,
-                                                                                 fixed,
-                                                                                 t,
-                                                                                 r,
-                                                                                 b,
-                                                                                 l,
-                                                                                 borderColor = '#dfdfdf',
-                                                                                 w,
-                                                                                 h,
-                                                                                 maxW,
-                                                                                 maxH,
-                                                                                 minW,
-                                                                                 minH,
-                                                                                 p,
-                                                                                 m,
-                                                                                 pt,
-                                                                                 pr,
-                                                                                 pb,
-                                                                                 pl,
-                                                                                 mt,
-                                                                                 mr,
-                                                                                 mb,
-                                                                                 ml,
-                                                                                 style = {},
-                                                                                 role = 'container',
-                                                                                 ...props
-                                                                               }) => {
+const Container: React.FC<ContainerProps> = ({
+                                               children,
+                                               ovh = false,
+                                               ova = false,
+                                               box = true,
+                                               fw = true,
+                                               fh = false,
+                                               tl,
+                                               tc,
+                                               tr,
+                                               fz,
+                                               bg,
+                                               color,
+                                               border,
+                                               rounded,
+                                               ib,
+                                               abs,
+                                               fixed,
+                                               t,
+                                               r,
+                                               b,
+                                               l,
+                                               borderColor = '#dfdfdf',
+                                               w,
+                                               h,
+                                               maxW,
+                                               maxH,
+                                               minW,
+                                               minH,
+                                               p,
+                                               m,
+                                               pt,
+                                               pr,
+                                               pb,
+                                               pl,
+                                               mt,
+                                               mr,
+                                               mb,
+                                               ml,
+                                               style = {},
+                                               role = 'container',
+                                               ...props
+                                             }) => {
 
   let styles: React.CSSProperties = {
     width: 'auto',

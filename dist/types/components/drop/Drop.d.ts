@@ -23,14 +23,7 @@ type DropProps = {
      * @default \-
      */
     onDropped?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void;
-    /**
-     * Content to be rendered inside the drop zone.
-     */
-    children?: React.ReactNode;
-    /**
-     * Custom styles for the drop container.
-     */
-    style?: React.CSSProperties;
+    ref?: React.Ref<HTMLDivElement>;
 };
 /**
  * Drop component
