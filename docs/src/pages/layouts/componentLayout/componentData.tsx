@@ -10,7 +10,7 @@ import RowPage from '../../samples/RowPage.tsx'
 import TitlePage from '../../samples/TitlePage.tsx'
 import MenuPage from '../../samples/MenuPage.tsx'
 import MenuItemPage from '../../samples/MenuItemPage.tsx'
-import DropSamples from '../../samples/DropSamples.tsx'
+import DropPage from '../../samples/DropPage.tsx'
 import NotificationSamples from '../../samples/NotificationSamples.tsx'
 import TransitionSamples from '../../samples/TransitionPage.tsx'
 import TooltipSamples from '../../samples/TooltipSamples.tsx'
@@ -122,7 +122,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'drop',
     name: 'Drop',
     apiNameKey: 'Drop',
-    comp: <DropSamples/>,
+    comp: <DropPage/>,
   },
   notification: {
     to: 'notification',

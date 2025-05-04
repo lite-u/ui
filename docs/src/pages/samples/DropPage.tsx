@@ -2,7 +2,7 @@ import {Col, Con, Drop, P, Row} from '@lite-u/ui'
 import {useState} from 'react'
 import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
 
-const DropSamples: React.FC = () => {
+const DropPage: React.FC = () => {
   const [sampleAData, setSampleAData] = useState({
     bg: '#cab077',
     defaultBg: '#cab077',
@@ -213,4 +213,4 @@ const DropSamples: React.FC = () => {
   </Col>
 }
 
-export default DropSamples
+export default DropPage
