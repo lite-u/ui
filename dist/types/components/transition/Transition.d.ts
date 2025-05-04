@@ -51,6 +51,7 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
      */
     delay?: number;
     children: ReactNode;
+    ref?: React.Ref<HTMLDivElement>;
 };
 /**
  * Transition component

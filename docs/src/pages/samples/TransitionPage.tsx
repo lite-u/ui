@@ -11,14 +11,8 @@ const TransitionSample: React.FC = () => {
       <Con w={'auto'}>
         <UsageBlock title={'Simple Scale'}>
           <Col between>
-            <Sample/>
+            <TransitionScale/>
           </Col>
-        </UsageBlock>
-      </Con>
-
-      <Con w={'auto'}>
-        <UsageBlock title={'Position Fixed(Screen Center)'}>
-          <TransitionFixed/>
         </UsageBlock>
       </Con>
 
@@ -28,6 +22,19 @@ const TransitionSample: React.FC = () => {
         </UsageBlock>
       </Con>
 
+      <Con w={400}>
+        <UsageBlock title={'Set Rotate'}>
+          <TransitionRotate/>
+        </UsageBlock>
+      </Con>
+
+      <Con w={'auto'}>
+        <UsageBlock title={'Position Fixed(Screen Center)'}>
+          <TransitionFixed/>
+        </UsageBlock>
+      </Con>
+
+
     </Row>
 
     {/*<TransitionFixed/>*/}
@@ -36,7 +43,7 @@ const TransitionSample: React.FC = () => {
   </Col>
 }
 
-const Sample = () => {
+const TransitionScale = () => {
   const [visible, setVisible] = useState(false)
 
   return <div>
@@ -47,6 +54,66 @@ const Sample = () => {
       <Row jc center w={100} h={100} border rounded>Hello World</Row>
     </Transition>
   </div>
+}
+
+const TransitionTranslate = () => {
+  const [showGreeting, setShowGreeting] = useState(false)
+
+  return <Con>
+    <Button onClick={() => {
+      setShowGreeting(!showGreeting)
+    }}>Toggle</Button>
+
+    <Transition
+      visible={showGreeting}
+      style={{width: 100, height: 100}}
+      from={{translate: '200px -50px'}}
+      to={{translate: '0 0'}}>
+      <Row fw
+           fh
+           center
+           jc
+           bg={'#fff'}
+           style={{
+             boxShadow: '0 0 3px 0 #000',
+           }}>hello world</Row>
+    </Transition>
+
+  </Con>
+}
+
+const TransitionRotate = () => {
+  const [showVisible, setShowVisible] = useState(false)
+
+  return <Con>
+    {/*
+    <Button onMouseEnter={() => {
+      setShowVisible(!showVisible)
+    }}>Toggle</Button>
+*/}
+
+    <Transition
+      onMouseEnter={() => {
+        setShowVisible(true)
+      }}
+      onMouseLeave={() => {
+        setShowVisible(false)
+      }}
+      visible={showVisible}
+      style={{width: 100, height: 100}}
+      from={{rotate: '0deg'}}
+      to={{rotate: '180deg'}}>
+      <Row fw
+           fh
+           center
+           jc
+           bg={'#fff'}
+           style={{
+             boxShadow: '0 0 3px 0 #000',
+           }}>hello world</Row>
+    </Transition>
+
+  </Con>
 }
 
 const TransitionFixed = () => {
@@ -79,40 +146,6 @@ const TransitionFixed = () => {
               }}>Hello World</Flex>
       </Transition>
     </div>
-  </Con>
-}
-
-const TransitionTranslate = () => {
-  const [showGreeting, setShowGreeting] = useState(false)
-
-  return <Con>
-    <Button onClick={() => {
-      setShowGreeting(!showGreeting)
-    }}>Toggle</Button>
-
-    <Transition
-      visible={showGreeting}
-      style={{width: 100, height: 100}}
-      from={{
-        translate: '200px -50px',
-        rotate: 'z 135deg',
-        scale: 1,
-      }}
-      to={{
-        translate: '0 0',
-        rotate: 'z 0deg',
-        scale: 1,
-      }}>
-      <Row fw
-           fh
-           center
-           jc
-           bg={'#fff'}
-           style={{
-             boxShadow: '0 0 3px 0 #000',
-           }}>hello world</Row>
-    </Transition>
-
   </Con>
 }
 

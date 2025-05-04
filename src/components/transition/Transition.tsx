@@ -69,6 +69,7 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
   delay?: number,
 
   children: ReactNode
+  ref?: React.Ref<HTMLDivElement>
 }
 
 /**
@@ -108,6 +109,7 @@ const Transition: FC<TransitionProps> = ({
                                            leaveDuration = 300,
                                            delay = 0,
                                            style = {},
+                                           ...props
                                          }) => {
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
   // const [waiting, setWaiting] = useState()
@@ -189,6 +191,7 @@ const Transition: FC<TransitionProps> = ({
         ...style,
         ...getStyle(),
       }}
+      {...props}
     >
       {children}
     </div>

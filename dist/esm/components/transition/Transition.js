@@ -26,7 +26,7 @@ import { useEffect, useState } from 'react';
  *   </Con>
  * }
  */
-const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, style = {}, }) => {
+const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, style = {}, ...props }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     // const [waiting, setWaiting] = useState()
     useEffect(() => {
@@ -95,7 +95,7 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
             // position: 'absolute',
             ...style,
             ...getStyle(),
-        }, children: children }));
+        }, ...props, children: children }));
 };
 const handleCamelPropsName = (propName) => propName.replace(/[A-Z]/g, (a) => '-' + a.toLowerCase());
 export default Transition;
