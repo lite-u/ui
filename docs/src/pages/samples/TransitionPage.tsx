@@ -228,6 +228,7 @@ const TransitionTimeFunction = () => {
       to={{translate: '100px 0'}}>
       <Row fw
            fh
+           mt={10}
            w={50}
            h={50}
            center
