@@ -86,11 +86,12 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     fontSize: theme.fontSizes[size],
     boxSizing: 'border-box',
     cursor: 'pointer',
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     wordBreak: 'keep-all',
     whiteSpace: 'nowrap',
-    overflow: 'hidden',
+    // overflow: 'hidden',
+    textOverflow: 'ellipsis',
   }
 
   return <div
