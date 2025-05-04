@@ -86,6 +86,7 @@ const NotificationSampleType: React.FC = () => {
 
   return <Col between space={10}>
     <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
+    <Button primary onClick={() => { add('Hello', 'suc') }}>Warn</Button>
     <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
     <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
   </Col>

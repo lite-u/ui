@@ -7,14 +7,14 @@ import {createPortal} from 'react-dom'
 export interface NotificationItemProps {
   id: string
   comp: ReactNode
-  type: 'info' | 'warn' | 'error'
+  type: 'info' | 'suc' | 'warn' | 'error'
   anim: boolean
   timer: number
 }
 
 interface NotificationContextType {
   notifications: NotificationItemProps[],
-  add: (comp: ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string,
+  add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string,
   remove: (id: string) => void,
 }
 
@@ -141,6 +141,10 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
             if (type === 'warn') {
               color = theme.colors.warn
+            }
+
+            if (type === 'suc') {
+              color = theme.colors.success
             }
 
             return <div role={'notification'} key={id} style={{

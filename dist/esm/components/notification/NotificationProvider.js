@@ -104,6 +104,9 @@ const NotificationProvider = ({ children }) => {
                 if (type === 'warn') {
                     color = theme.colors.warn;
                 }
+                if (type === 'suc') {
+                    color = theme.colors.success;
+                }
                 return _jsx("div", { role: 'notification', style: {
                         position: 'fixed',
                         top: '50%',
