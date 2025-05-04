@@ -250,14 +250,7 @@
   },
   "LiteUIProvider": {
     "tags": {},
-    "props": {
-      "children": {
-        "type": "ReactNode",
-        "required": true,
-        "defaultValue": "",
-        "description": ""
-      }
-    }
+    "props": {}
   },
   "Transition": {
     "tags": {},
@@ -308,12 +301,6 @@
         "type": "number",
         "required": false,
         "defaultValue": "0",
-        "description": ""
-      },
-      "children": {
-        "type": "ReactNode",
-        "required": true,
-        "defaultValue": "",
         "description": ""
       },
       "style": {
@@ -2502,14 +2489,7 @@
       "intro": "Wraps an application with a notification system. Allows components to trigger toast messages\nwith customizable content, type, and duration. Renders floating notifications using portals\nwith enter/exit animations, and removes them after a timeout(optional).",
       "example": "import { useNotification } from '@lite-u/ui'\n\nconst NotificationSampleSimple: React.FC = () => {\n   const { add } = useNotification()\n\n   return <div onClick={()=>add('hello')}></div>\n}"
     },
-    "props": {
-      "children": {
-        "type": "ReactNode",
-        "required": true,
-        "defaultValue": "",
-        "description": ""
-      }
-    }
+    "props": {}
   },
   "Interactable": {
     "tags": {},
@@ -2540,12 +2520,6 @@
       },
       "style": {
         "type": "CSSProperties",
-        "required": false,
-        "defaultValue": "",
-        "description": ""
-      },
-      "children": {
-        "type": "any",
         "required": false,
         "defaultValue": "",
         "description": ""
@@ -2686,13 +2660,6 @@
   },
   "src": {
     "tags": {},
-    "props": {
-      "children": {
-        "type": "ReactNode",
-        "required": true,
-        "defaultValue": "",
-        "description": ""
-      }
-    }
+    "props": {}
   }
 }

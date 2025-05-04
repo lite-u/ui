@@ -15,7 +15,7 @@ interface NotificationContextType {
      * Adds a new notification.
      *
      * @param comp - The content of the notification.
-     * @param type - Notification type: 'info', 'suc', 'warn', or 'error'.
+     * @param type - Notification type: "info", "suc", "warn", or "error".
      * @param delay - Time in ms before auto-removal. If false, notification persists.
      * @returns A unique ID for the notification.
      */

@@ -1,15 +1,35 @@
 import {Button, Col, Con, IconButton, Link, Row, Title, useNotification} from '@lite-u/ui'
 import {useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
-import API from '../../components/api/API.tsx'
+import API, {APIType} from '../../components/api/API.tsx'
 
 const NotificationPage: React.FC = () => {
+  const addApi: Record<string, APIType> = {
+    comp: {
+      required: true,
+      defaultValue: '\\-',
+      type: 'ReactNode',
+      description: 'The content to display in the notification.',
+    },
+    type: {
+      required: true,
+      defaultValue: '\\-',
+      type: '"info" | "suc" | "warn" | "error"',
+      description: 'Notification type',
+    },
+    delay: {
+      required: false,
+      defaultValue: 'info',
+      type: 'number | false',
+      description: 'Time in milliseconds before auto-removal. Use false to disable timeout.',
+    },
 
+  }
   return <Col>
     <Row start space={10} wrap>
 
       <Con w={200}>
-        <UsageBlock title={'Show a new Notification'} replacement={`
+        <UsageBlock title={'New One'} replacement={`
           const NotificationSampleSimple: React.FC = () => {
             const {add} = useNotification()
           
@@ -120,7 +140,7 @@ const NotificationPage: React.FC = () => {
         <Title h4 id="api"><Link href={'#api'}># API</Link></Title>
 
         <Con mb={30}></Con>
-        <API data={{}}/>
+        <API data={addApi}/>
 
 
       </Col>
