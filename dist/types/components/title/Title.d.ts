@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-type TitleProps = {
+type TitleProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'> & {
     /**
      * Set text color the element.
      * @default inherit
@@ -40,7 +40,7 @@ type TitleProps = {
      * @default false
      */
     h6?: boolean;
-} & React.HTMLAttributes<HTMLHeadingElement>;
+};
 /**
  * Title component
  *

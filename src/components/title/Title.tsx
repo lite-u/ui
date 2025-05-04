@@ -3,7 +3,7 @@ import {CSSProperties} from 'react'
 
 type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-type TitleProps = {
+type TitleProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'> & {
   /**
    * Set text color the element.
    * @default inherit
@@ -44,7 +44,7 @@ type TitleProps = {
    * @default false
    */
   h6?: boolean
-} & React.HTMLAttributes<HTMLHeadingElement>
+}
 
 /**
  * Title component

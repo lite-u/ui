@@ -1608,7 +1608,7 @@
     },
     "props": {
       "color": {
-        "type": "string",
+        "type": "Color",
         "required": false,
         "defaultValue": "inherit",
         "description": "Set text color the element."
