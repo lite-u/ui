@@ -27,7 +27,7 @@ const RowPage: React.FC = () => {
         </SampleBlock>
       </Con>
 
-      <Con w={250}>
+      <Con w={230}>
         <SampleBlock title={'With Column'}>
           <Row space={20} between w={200} h={200}>
             <Col between fh>

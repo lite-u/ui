@@ -1,4 +1,4 @@
-import {Button, Col, Con, Row} from '@lite-u/ui'
+import {Button, Col, Row} from '@lite-u/ui'
 import SampleBlock from '../SampleBlock.tsx'
 import {ButtonProps} from '../../../../src'
 
@@ -8,9 +8,9 @@ const ButtonPage: React.FC = () => {
 
   // neutral
   return <Col id={'col'}>
-    <Row space={10} mt={10} maxW={800} wrap>
+    <Row space={10} mt={10} maxW={500} wrap>
 
-      <Con w={'auto'}>
+      <Col maxW={260}>
         <SampleBlock title={'Neutral'}>
           <Row between end space={10}>
             {
@@ -24,9 +24,9 @@ const ButtonPage: React.FC = () => {
             }
           </Row>
         </SampleBlock>
-      </Con>
+      </Col>
 
-      <Con w={'auto'}>
+      <Col maxW={260}>
         <SampleBlock title={'Primary'}>
           <Row between end space={10}>
             {
@@ -40,9 +40,9 @@ const ButtonPage: React.FC = () => {
             }
           </Row>
         </SampleBlock>
-      </Con>
+      </Col>
 
-      <Con w={'auto'}>
+      <Col maxW={260}>
         <SampleBlock title={'Warn'}>
           <Row between end space={10}>
             {
@@ -56,9 +56,9 @@ const ButtonPage: React.FC = () => {
             }
           </Row>
         </SampleBlock>
-      </Con>
+      </Col>
 
-      <Con w={'auto'}>
+      <Col maxW={260}>
         <SampleBlock title={'Error'}>
           <Row between end space={10}>
             {
@@ -72,57 +72,9 @@ const ButtonPage: React.FC = () => {
             }
           </Row>
         </SampleBlock>
-      </Con>
+      </Col>
 
     </Row>
-
-    {/*
-    <Col mt={50}>
-      {
-        buttonVars.map(buttonVar => {
-            let sampleCode = ''
-
-            return <div key={buttonVar}>
-              <Title h5 style={{marginTop: blockMT, fontWeight: 'normal'}}>{buttonVar}</Title>
-              <Row between
-                   end
-                   space={10}
-                   w={wrapperWidth}
-                   style={{
-                     marginBottom: 20,
-                     alignItems: 'end',
-                     display: 'inline-flex',
-                     gap: 8,
-                   }}>
-                {
-                  buttonSizes.map((size) => {
-                    const props = {}
-                    const text = size || 'default'
-
-                    if (buttonVar !== 'default' || size !== 'default') {
-                      // @ts-ignore
-                      props[buttonVar] = true
-                      // @ts-ignore
-                      props[size] = true
-                    }
-
-                    return <Button key={size} {...props}>{text}</Button>
-                  })}
-              </Row>
-
-              <Row>
-                <CodeWrap code={sampleCode}/>
-              </Row>
-
-            </div>
-          },
-        )
-      }
-    </Col>*/}
-    {/*    <Con mt={50} fz={16}>
-      See also <NavLink to={'/components/table#description'}>table</NavLink>
-    </Con>*/}
-
   </Col>
 }
 

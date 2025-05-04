@@ -1,10 +1,9 @@
-import {Col, Con, Input, Row, Title} from '@lite-u/ui'
-import {useEffect, useRef} from 'react'
+import {Col, Con, Input, Row} from '@lite-u/ui'
 import SampleBlock from '../SampleBlock.tsx'
 
 const InputPage: React.FC = () => {
   return <Col>
-     <Row start style space={10} wrap>
+    <Row start space={10} wrap>
       <Con w={200}>
         <SampleBlock title={'xs'}>
           <Col between center space={10}>
