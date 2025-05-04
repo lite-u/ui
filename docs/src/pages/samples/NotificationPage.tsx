@@ -3,7 +3,7 @@ import {useRef} from 'react'
 
 const NotificationPage: React.FC = () => {
   const {add} = useNotification()
-  const noticeRef = useRef(null)
+  // const noticeRef = useRef(null)
   return <Col>
     <Row space={10}>
       <Button onClick={() => {

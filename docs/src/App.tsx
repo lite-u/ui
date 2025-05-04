@@ -25,9 +25,8 @@ function App() {
               })
             }
           </Route>
-        </Route>
 
-        <Route path={'/'} element={<HooksLayout/>}>
+
           <Route path={'hooks'} element={<HooksLayout/>}>
             {
               Object.values(HOOK_ROUTE_MAP).map((HOOK, index) => {
@@ -37,6 +36,7 @@ function App() {
             }
           </Route>
         </Route>
+
 
       </Routes>
       {/*<App/>,*/}

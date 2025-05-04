@@ -10,22 +10,14 @@ const HooksLayout = () => {
   const {pathname} = useLocation()
   const currentPath = location.pathname.split('/')[2]
   const HOOK_ROUTE = HOOK_ROUTE_MAP[currentPath as keyof typeof HOOK_ROUTE_MAP]
+  // @ts-ignore
+  const docData = OUTPUT_JSON[HOOK_ROUTE.apiNameKey]
 
-  if (!HOOK_ROUTE) return
-  // @ts-ignore
-  if (!OUTPUT_JSON[HOOK_ROUTE.apiNameKey]) return
-  if (!HOOK_ROUTE) return
-  // @ts-ignore
-  if (!OUTPUT_JSON[HOOK_ROUTE.apiNameKey]) return
   const to = HOOK_ROUTE.to
-  // @ts-ignore
-  const brief = OUTPUT_JSON[HOOK_ROUTE.apiNameKey].tags.brief
-  // @ts-ignore
-  const intro = OUTPUT_JSON[HOOK_ROUTE.apiNameKey].tags.intro
-  // @ts-ignore
-  const codeExample = OUTPUT_JSON[HOOK_ROUTE.apiNameKey].tags.example
-  // @ts-ignore
-  const apiData = OUTPUT_JSON[HOOK_ROUTE.apiNameKey].props
+  const brief = docData?.tags.brief
+  const intro = docData?.tags.intro
+  const codeExample = docData?.tags.example
+  const apiData = docData?.props
 
   useEffect(() => {
 
@@ -34,11 +26,11 @@ const HooksLayout = () => {
   }, [pathname])
 
   return <div>
-    <CommonHead to={to} name={HOOK_ROUTE.name} brief={brief} intro={intro} example={codeExample}/>
+    {brief && <CommonHead to={to} name={HOOK_ROUTE.name} brief={brief} intro={intro} example={codeExample}/>}
 
     <Outlet/>
 
-    <CommonAPI apiData={apiData}/>
+    {apiData && <CommonAPI apiData={apiData}/>}
 
     <CommonFoot/>
   </div>

@@ -252,7 +252,7 @@
     "tags": {},
     "props": {
       "children": {
-        "type": "React.ReactNode",
+        "type": "ReactNode",
         "required": true,
         "defaultValue": "",
         "description": ""
@@ -2403,7 +2403,7 @@
     "tags": {},
     "props": {
       "children": {
-        "type": "React.ReactNode",
+        "type": "ReactNode",
         "required": true,
         "defaultValue": "",
         "description": ""

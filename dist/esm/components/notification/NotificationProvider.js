@@ -5,24 +5,6 @@ import { NotificationContext } from './NotificationContext';
 import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
-/**
- * NotificationProvider component
- *
- * @brief
- * Context provider that manages and displays notification toasts.
- *
- * @intro
- * Provides `add` and `remove` methods to display timed notification messages of different types
- * (info, warn, error) using animated transitions. Notifications are rendered via portal
- * and automatically removed after a delay.
- *
- * @example
- * import { NotificationProvider } from '@lite-u/ui'
- *
- * <NotificationProvider>
- *   <App />
- * </NotificationProvider>
- */
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
@@ -32,14 +14,6 @@ const NotificationProvider = ({ children }) => {
         const arr = Array.from(notificationsRef.current.values());
         setNotifications(arr);
     };
-    /**
-     * Adds a notification with animation and automatic timeout.
-     *
-     * @param text - The notification message.
-     * @param type - Type of notification ('info' | 'warn' | 'error').
-     * @param delay - Time in ms before auto-dismissal.
-     * @returns void
-     */
     const addNotification = (text, type = 'info', delay = 2000) => {
         const id = type + '-' + Date.now();
         const n = {
@@ -72,12 +46,6 @@ const NotificationProvider = ({ children }) => {
         }, delay);
         updateNotifications();
     };
-    /**
-     * Removes a notification immediately and clears timeout.
-     *
-     * @param id - The ID of the notification to remove.
-     * @returns Whether the notification was successfully removed.
-     */
     const removeNotification = (id) => {
         const n = notificationsRef.current.get(id);
         if (n) {

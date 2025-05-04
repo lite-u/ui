@@ -5,6 +5,10 @@ import { liteTheme } from './themes/lite.theme';
 // import {ThemeType} from './themes/type'
 import NotificationProvider from './components/notification/NotificationProvider';
 /* eslint disable */
+/**
+ * List of LiteUIContext
+ * @default []
+ */
 export const LiteUIContext = createContext({
     theme: liteTheme,
     setTheme: () => { },
