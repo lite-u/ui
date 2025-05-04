@@ -9,6 +9,9 @@ import { useEffect, useState } from 'react';
  * @intro
  * To apply animations to elements typically requires external libraries or CSS files. For simplicity and control, `Transition` implements inline animations, putting all animation-related properties under your direct management.
  *
+ * \
+ * ✅️ `Tips`: Always remember: `Transition` is the direct receiver of the action. If you wrap your component with `Transition`, make sure to apply the corresponding styles directly to `Transition` itself.
+ *
  * @example
  * import { Con, Button, Transition } from '@lite-u/ui'
  *
