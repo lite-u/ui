@@ -4,7 +4,7 @@ import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
 
-export interface NotificationItemProps {
+interface NotificationItemProps {
   id: string
   comp: ReactNode
   type: 'info' | 'suc' | 'warn' | 'error'
@@ -39,8 +39,6 @@ export const NotificationContext = createContext({
   add: () => '',
   remove: () => {},
 } as NotificationContextType)
-
-export const useNotification = () => useContext(NotificationContext)
 
 /**
  * NotificationProvider component
@@ -123,64 +121,64 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     return false
   }
 
-  return (
-    <NotificationContext.Provider value={{
-      notifications,
-      add: addNotification,
-      remove: removeNotification,
-    }}>
-      {children}
-      {
-        createPortal(
-          notifications.map(({id, comp, type, anim}, index) => {
-            let color = '#666'
+  return <NotificationContext.Provider value={{
+    notifications,
+    add: addNotification,
+    remove: removeNotification,
+  }}>
+    {children}
+    {
+      createPortal(
+        notifications.map(({id, comp, type, anim}, index) => {
+          let color = '#666'
 
-            if (type === 'error') {
-              color = theme.colors.error
-            }
+          if (type === 'error') {
+            color = theme.colors.error
+          }
 
-            if (type === 'warn') {
-              color = theme.colors.warn
-            }
+          if (type === 'warn') {
+            color = theme.colors.warn
+          }
 
-            if (type === 'suc') {
-              color = theme.colors.success
-            }
+          if (type === 'suc') {
+            color = theme.colors.success
+          }
 
-            return <div role={'notification'} key={id} style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1000 + index,
-            }}>
-              <Transition
-                visible={anim}
-                from={{
-                  scale: 0,
-                }}
-                to={{
-                  scale: 1,
-                }}
-                leaveDuration={animationExitDuration}
-                style={{overflow: 'visible'}}
-              >
-                <Container style={{
-                  background: '#fff',
-                  padding: 10,
-                  textAlign: 'center',
-                  borderRadius: 5,
-                  fontSize: theme.fontSizes.sm,
-                  boxShadow: color + ' 0 0 3px 0',
-                  color,
-                }}>{comp}</Container>
-              </Transition>
-            </div>
-          }), document.body,
-        )
-      }
-    </NotificationContext.Provider>
-  )
+          return <div role={'notification'} key={id} style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1000 + index,
+          }}>
+            <Transition
+              visible={anim}
+              from={{
+                scale: 0,
+              }}
+              to={{
+                scale: 1,
+              }}
+              leaveDuration={animationExitDuration}
+              style={{overflow: 'visible'}}
+            >
+              <Container style={{
+                background: '#fff',
+                padding: 10,
+                textAlign: 'center',
+                borderRadius: 5,
+                fontSize: theme.fontSizes.sm,
+                boxShadow: color + ' 0 0 3px 0',
+                color,
+              }}>{comp}</Container>
+            </Transition>
+          </div>
+        }), document.body,
+      )
+    }
+  </NotificationContext.Provider>
 }
+
+export const useNotification = () => useContext(NotificationContext)
 
 export default NotificationProvider
