@@ -263,55 +263,49 @@
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Whether the transition should be visible.\nIf true, transition animates to `to` styles; otherwise, animates to `from`."
       },
       "from": {
         "type": "FromType",
         "required": false,
         "defaultValue": "{}",
-        "description": ""
+        "description": "The initial styles before transition starts.\nCan contain raw CSS values or detailed timing configurations."
       },
       "to": {
         "type": "FromType",
         "required": false,
         "defaultValue": "{}",
-        "description": ""
+        "description": "The target styles to animate toward when `visible` is true.\nCan contain raw CSS values or detailed timing configurations."
       },
       "transformOrigin": {
         "type": "string",
         "required": false,
         "defaultValue": "center",
-        "description": ""
+        "description": "CSS `transform-origin` value for the transition.\nControls the origin point of scaling/rotating transforms."
       },
       "effect": {
         "type": "TimingFunction",
         "required": false,
         "defaultValue": "ease",
-        "description": ""
+        "description": "Default timing function for all transitions unless overridden per-property."
       },
       "duration": {
         "type": "number",
         "required": false,
         "defaultValue": "300",
-        "description": ""
+        "description": "Default duration in milliseconds for entering transitions unless overridden per-property."
       },
       "leaveDuration": {
         "type": "number",
         "required": false,
         "defaultValue": "300",
-        "description": ""
+        "description": "Default duration in milliseconds for leaving transitions unless overridden per-property."
       },
       "delay": {
         "type": "number",
         "required": false,
         "defaultValue": "0",
-        "description": ""
-      },
-      "style": {
-        "type": "CSSProperties",
-        "required": false,
-        "defaultValue": "{}",
-        "description": ""
+        "description": "Default delay in milliseconds before starting the transition unless overridden per-property."
       }
     }
   },

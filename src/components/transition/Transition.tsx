@@ -1,4 +1,4 @@
-import {CSSProperties, FC, ReactNode, useEffect, useState} from 'react'
+import {CSSProperties, FC, HTMLProps, ReactNode, useEffect, useState} from 'react'
 
 type TimingFunction =
   | 'ease'
@@ -18,17 +18,57 @@ export type FromType = {
   }
 };
 
-export type TransitionProps = {
+export type TransitionProps = HTMLProps<HTMLDivElement> & {
+  /**
+   * Whether the transition should be visible.
+   * If true, transition animates to `to` styles; otherwise, animates to `from`.
+   */
   visible: boolean,
+
+  /**
+   * The initial styles before transition starts.
+   * Can contain raw CSS values or detailed timing configurations.
+   */
   from?: FromType
+
+  /**
+   * The target styles to animate toward when `visible` is true.
+   * Can contain raw CSS values or detailed timing configurations.
+   */
   to: FromType
+
+  /**
+   * CSS `transform-origin` value for the transition.
+   * Controls the origin point of scaling/rotating transforms.
+   * @default "center"
+   */
   transformOrigin?: string
+
+  /**
+   * Default timing function for all transitions unless overridden per-property.
+   * @default "ease"
+   */
   effect?: TimingFunction
+
+  /**
+   * Default duration in milliseconds for entering transitions unless overridden per-property.
+   * @default 300
+   */
   duration?: number,
+
+  /**
+   * Default duration in milliseconds for leaving transitions unless overridden per-property.
+   * @default 300
+   */
   leaveDuration?: number
+
+  /**
+   * Default delay in milliseconds before starting the transition unless overridden per-property.
+   * @default 0
+   */
   delay?: number,
+
   children: ReactNode
-  style?: CSSProperties
 }
 
 /**
