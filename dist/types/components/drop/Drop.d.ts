@@ -1,25 +1,4 @@
 import { HTMLProps } from 'react';
-/**
- * Drop component
- *
- * @brief
- * A drag-and-drop file drop zone with file type validation and customizable events.
- *
- * @intro
- * Wraps content with a container that listens for drag-and-drop events. You can specify
- * accepted MIME types, get feedback when dragging over or leaving the drop zone, and
- * handle dropped files with optional custom logic.
- *
- * @example
- * import { Drop } from '@lite-u/ui'
- *
- * <Drop
- *   accepts={['image/*']}
- *   onDropped={(e, isValid) => console.log(e, isValid)}
- * >
- *   <p>Drop image files here</p>
- * </Drop>
- */
 type DropProps = {
     /**
      * List of accepted MIME types. Wildcards like 'image/*' are supported.
@@ -48,5 +27,26 @@ type DropProps = {
      */
     style?: React.CSSProperties;
 };
+/**
+ * Drop component
+ *
+ * @brief
+ * A drag-and-drop file drop zone with file type validation and customizable events.
+ *
+ * @intro
+ * Wraps content with a container that listens for drag-and-drop events. You can specify
+ * accepted MIME types, get feedback when dragging over or leaving the drop zone, and
+ * handle dropped files with optional custom logic.
+ *
+ * @example
+ * import { Drop } from '@lite-u/ui'
+ *
+ * <Drop
+ *   accepts={['image/*']}
+ *   onDropped={(e, isValid) => console.log(e, isValid)}
+ * >
+ *   <p>Drop image files here</p>
+ * </Drop>
+ */
 export declare const Drop: React.FC<HTMLProps<HTMLDivElement> & DropProps>;
 export default Drop;

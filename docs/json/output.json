@@ -2194,7 +2194,11 @@
     }
   },
   "Drop": {
-    "tags": {},
+    "tags": {
+      "brief": "A drag-and-drop file drop zone with file type validation and customizable events.",
+      "intro": "Wraps content with a container that listens for drag-and-drop events. You can specify\naccepted MIME types, get feedback when dragging over or leaving the drop zone, and\nhandle dropped files with optional custom logic.",
+      "example": "import { Drop } from '@lite-u/ui'\n\n<Drop\n  accepts={['image/*']}\n  onDropped={(e, isValid) => console.log(e, isValid)}\n>\n  <p>Drop image files here</p>\n</Drop>"
+    },
     "props": {
       "accepts": {
         "type": "string[]",
