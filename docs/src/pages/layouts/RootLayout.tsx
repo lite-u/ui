@@ -74,7 +74,7 @@ const RootLayout = () => {
   </Flex>
 }
 
-const NavItem: FC<{ to: string, name: string }> = ({to, name}) => {
+const NavItem = ({to, name}: { to: string, name: string }) => {
   return <MenuItem s style={{padding: 0, width: '100%'}}>
     <NavLink
       style={({isActive}) => {
