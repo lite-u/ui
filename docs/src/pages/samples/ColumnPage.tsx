@@ -7,7 +7,7 @@ const ColumnPage: React.FC = () => {
 
       <Con w={200}>
         <UsageBlock title={'With Height'}>
-          <Col border between center h={200}>
+          <Col border around center h={200}>
             <Button s primary>1</Button>
             <Button s primary>2</Button>
             <Button s primary>3</Button>
