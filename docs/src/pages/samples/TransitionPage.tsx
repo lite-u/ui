@@ -25,17 +25,17 @@ const TransitionSample: React.FC = () => {
 }
 
 const Sample = () => {
-  const [show, setShow] = useState(false)
+  const [visible, setVisible] = useState(false)
 
-  return <Con w={100}>
-    <Button onClick={() => setShow(!show)}>{show ? 'Hide' : 'Show'}</Button>
-    <Transition visible={show}
+  return <Col start stretch w={100}>
+    <Button s onClick={() => setVisible(!visible)}>Scale {visible ? 'Down' : 'Up'}</Button>
+    <Transition visible={visible}
                 style={{marginTop: 10}}
-                from={{opacity: 0, scale: 0.1}}
+                from={{opacity: .5, scale: 0.5}}
                 to={{opacity: 1, scale: 1}}>
       <Row jc center w={100} h={100} border rounded>Hello world</Row>
     </Transition>
-  </Con>
+  </Col>
 }
 
 const TransitionSample1 = () => {
