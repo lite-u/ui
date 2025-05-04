@@ -85,13 +85,7 @@ const TransitionTranslate = () => {
 const TransitionRotate = () => {
   const [showVisible, setShowVisible] = useState(false)
 
-  return <Con>
-    {/*
-    <Button onMouseEnter={() => {
-      setShowVisible(!showVisible)
-    }}>Toggle</Button>
-*/}
-
+  return <Con ml={10}>
     <Transition
       onMouseEnter={() => {
         setShowVisible(true)
@@ -101,8 +95,8 @@ const TransitionRotate = () => {
       }}
       visible={showVisible}
       style={{width: 100, height: 100}}
-      from={{rotate: '0deg'}}
-      to={{rotate: '180deg'}}>
+      from={{rotate: '45deg'}}
+      to={{rotate: '360deg'}}>
       <Row fw
            fh
            center

@@ -254,8 +254,8 @@
   },
   "Transition": {
     "tags": {
-      "brief": "Animates its children from one style state to another based on visibility.",
-      "intro": "To apply animations to elements typically requires external libraries or CSS files. For simplicity and control, `Transition` implements inline animations, putting all animation-related properties under your direct management.\n\n\\\n✅️ `Tips`: Always remember: `Transition` is the direct receiver of the action and serves as the true boundary between the wrapped component and its parent. If you wrap a component with `Transition`, be sure to apply the corresponding styles directly to `Transition`.",
+      "brief": "Animates itself.",
+      "intro": "To apply animations to elements typically requires external libraries or CSS files. For simplicity and control, `Transition` implements inline animations, putting all animation-related properties under your direct management.\n\n\\\n✅️ `Tips`: Always remember: `Transition` is the direct receiver of the animation and serves as the true boundary between the wrapped component and its parent. If you wrap a component with `Transition`, be sure to apply the corresponding styles directly to `Transition`.",
       "example": "import { Con, Button, Transition } from '@lite-u/ui'\n\nconst Sample = () => {\n  const [show, setShow] = useState(false)\n\n  return <Con w={100} h={100}>\n    <Button onClick={() => setShow(!show)}>Toggle</Button>\n    <Transition from={{opacity: 0, scale: 0.9}} to={{opacity: 1, scale: 1}} visible={show}>\n      <div>Hello world</div>\n    </Transition>\n  </Con>\n}"
     },
     "props": {
