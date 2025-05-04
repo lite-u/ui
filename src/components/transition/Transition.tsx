@@ -188,6 +188,7 @@ const Transition: FC<TransitionProps> = ({
         // pointerEvents: state === 'entered' ? 'auto' : 'none',
         // overflow: 'hidden',
         // position: 'absolute',
+        flex: 1,
         ...style,
         ...getStyle(),
       }}

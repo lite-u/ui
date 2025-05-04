@@ -93,6 +93,7 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
             // pointerEvents: state === 'entered' ? 'auto' : 'none',
             // overflow: 'hidden',
             // position: 'absolute',
+            flex: 1,
             ...style,
             ...getStyle(),
         }, ...props, children: children }));

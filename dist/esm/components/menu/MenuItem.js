@@ -53,8 +53,9 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
         }, onMouseLeave: () => {
             setVisible(false);
         }, style: {
-        // ...styles,
-        // ...style,
+            display: 'flex',
+            // ...styles,
+            // ...style,
         }, ...props, children: _jsx(Transition, { visible: visible, style: {
                 ...styles,
                 ...style,

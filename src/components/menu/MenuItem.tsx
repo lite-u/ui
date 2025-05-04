@@ -103,6 +103,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
       setVisible(false)
     }}
     style={{
+      display: 'flex',
       // ...styles,
       // ...style,
     }}
