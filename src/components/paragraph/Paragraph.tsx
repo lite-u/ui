@@ -1,7 +1,7 @@
 import {CSSProperties} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
-type ParagraphProps = React.HTMLAttributes<HTMLParagraphElement> & {
+type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'> &{
   /**
    * Custom font size for the paragraph text.
    * @default 16
