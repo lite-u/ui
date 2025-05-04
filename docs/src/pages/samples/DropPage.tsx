@@ -51,7 +51,7 @@ const DropPage: React.FC = () => {
                       msg: sampleAData.defaultMsg,
                     })
                   }}>
-              <Con fw fh bg={sampleAData.bg}>
+              <Con fw fh tc bg={sampleAData.bg}>
                 <Row fh center jc>
                   <P color={'white'}>{sampleAData.msg}</P>
                 </Row>
@@ -80,7 +80,7 @@ const DropPage: React.FC = () => {
                       msg: sampleBData.defaultMsg,
                     })
                   }}>
-              <Con fw fh bg={sampleBData.bg}>
+              <Con fw fh tc bg={sampleBData.bg}>
                 <Row fh center jc>
                   <P color={'white'}>{sampleBData.msg}</P>
                 </Row>
@@ -108,7 +108,7 @@ const DropPage: React.FC = () => {
                       msg: sampleCData.defaultMsg,
                     })
                   }}>
-              <Con fw fh bg={sampleCData.bg}>
+              <Con fw fh tc bg={sampleCData.bg}>
                 <Row fh center jc>
                   <P color={'white'}>{sampleCData.msg}</P>
                 </Row>
