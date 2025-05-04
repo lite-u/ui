@@ -1,6 +1,7 @@
 import {Button, Col, Con, IconButton, Row, Title, useNotification} from '@lite-u/ui'
 import {useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
+import CommonAPI from '../layouts/common/CommonAPI.tsx'
 
 const NotificationPage: React.FC = () => {
 
@@ -112,6 +113,15 @@ const NotificationPage: React.FC = () => {
       </Con>
 
     </Row>
+
+    {/*<CommonAPI apiData={{
+      add: {
+        type: 'add: (comp: ReactNode, type?: NotificationItemProps[\'type\'], delay?: number | false) => string',
+        defaultValue: '\\-',
+        required: true,
+        description: '',
+      },
+    }}/>*/}
   </Col>
 }
 

@@ -12,12 +12,6 @@ interface NotificationItemProps {
   timer: number
 }
 
-interface NotificationContextType {
-  notifications: NotificationItemProps[],
-  add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string,
-  remove: (id: string) => void,
-}
-
 /**
  * NotificationContext
  *
@@ -34,6 +28,12 @@ interface NotificationContextType {
  * const { add } = useNotification()
  * add('Saved successfully!', 'info')
  */
+interface NotificationContextType {
+  notifications: NotificationItemProps[],
+  add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string,
+  remove: (id: string) => void,
+}
+
 export const NotificationContext = createContext({
   notifications: [],
   add: () => '',
