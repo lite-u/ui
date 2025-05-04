@@ -28,7 +28,7 @@ export interface ContainerProps {
   fh?: boolean,
   /**
    * If true, aligns text to the left.
-   * @default true
+   * @default false
    */
   tl?: boolean,
   /**
@@ -191,9 +191,9 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  box = true,
                                                                                  fw = true,
                                                                                  fh = false,
-                                                                                 tl = true,
-                                                                                 tc = false,
-                                                                                 tr = false,
+                                                                                 tl,
+                                                                                 tc,
+                                                                                 tr,
                                                                                  fz,
                                                                                  bg,
                                                                                  color,
