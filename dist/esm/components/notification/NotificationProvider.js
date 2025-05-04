@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { createContext, useContext, useRef, useState } from 'react';
-import { Transition } from '../../index';
+import Transition from '../transition/Transition';
 import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';

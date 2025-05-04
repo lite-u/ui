@@ -1,5 +1,5 @@
 import {createContext, FC, ReactNode, useContext, useRef, useState} from 'react'
-import {Transition} from '../../index'
+import Transition from '../transition/Transition'
 import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
