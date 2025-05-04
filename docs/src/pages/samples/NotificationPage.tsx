@@ -167,6 +167,7 @@ const NotificationPage: React.FC = () => {
         <Title h5>Remove</Title>
         <CodeBlock code={dedent(`
           const id = add(comp, type?, delay? )  
+          
           remove(id)
         `)}/>
 
