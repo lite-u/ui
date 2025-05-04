@@ -81,7 +81,7 @@ const TablePage: React.FC = () => {
         </SampleBlock>
       </Col>
 
-      <Col w={300}>
+      <Col>
         <SampleBlock title={'Custom Style Table'} style={{flex: 1}}>
           <Table xs fixed
                  style={{
@@ -116,47 +116,48 @@ const TablePage: React.FC = () => {
           </Table>
         </SampleBlock>
       </Col>
+
+      <Col mt={30}>
+        <SampleBlock title={'Custom Style Table 2'} style={{flex: 1}}>
+          <Table xs fixed
+                 style={{
+                   borderCollapse: 'collapse',
+                   border: '1px solid orange',
+                 }}
+                 rowStyle={{
+                   backgroundColor: '#8361ea',
+                 }}
+                 rowHoverStyle={{
+                   backgroundColor: 'orange',
+                   color: 'green',
+                 }}
+                 cellStyle={{
+                   padding: 0,
+                   border: '1px solid #ff0000',
+                 }}>
+            <TableRow head
+                      style={{
+                        fontSize: 16,
+                        color: '#fff',
+                        backgroundColor: '#1c285a',
+                      }}>
+              <span style={{padding: 10}}>brand</span>
+              <span>price</span>
+            </TableRow>
+
+            <TableRow style={{color: '#fff', backgroundColor: '#06852f'}}>
+              <span style={{backgroundColor: 'red', color: 'blue', padding: 20}}>Nike</span>
+              <span>1970</span>
+            </TableRow>
+            <TableRow>
+              <span>Nike</span>
+              <span>1970</span>
+            </TableRow>
+          </Table>
+        </SampleBlock>
+      </Col>
+
     </Row>
-
-    <Col mt={30}>
-      <SampleBlock title={'Custom Style Table 2'} style={{flex: 1}}>
-        <Table xs fixed
-               style={{
-                 borderCollapse: 'collapse',
-                 border: '1px solid orange',
-               }}
-               rowStyle={{
-                 backgroundColor: '#8361ea',
-               }}
-               rowHoverStyle={{
-                 backgroundColor: 'orange',
-                 color: 'green',
-               }}
-               cellStyle={{
-                 padding: 0,
-                 border: '1px solid #ff0000',
-               }}>
-          <TableRow head
-                    style={{
-                      fontSize: 16,
-                      color: '#fff',
-                      backgroundColor: '#1c285a',
-                    }}>
-            <span style={{padding: 10}}>brand</span>
-            <span>price</span>
-          </TableRow>
-
-          <TableRow style={{color: '#fff', backgroundColor: '#06852f'}}>
-            <span style={{backgroundColor: 'red', color: 'blue', padding: 20}}>Nike</span>
-            <span>1970</span>
-          </TableRow>
-          <TableRow>
-            <span>Nike</span>
-            <span>1970</span>
-          </TableRow>
-        </Table>
-      </SampleBlock>
-    </Col>
 
 
     <Con fw mt={50} fz={16}>
