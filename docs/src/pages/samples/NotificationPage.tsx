@@ -1,13 +1,16 @@
 import {Button, Col, Row, useNotification} from '@lite-u/ui'
-import {useRef} from 'react'
 
 const NotificationPage: React.FC = () => {
-  const {add} = useNotification()
-  // const noticeRef = useRef(null)
+  const {add, remove} = useNotification()
+
   return <Col>
     <Row space={10}>
       <Button onClick={() => {
-        const a = add('Hello Info' + Date.now(), 'info')
+        const a = add('Hello Info' + Date.now(), 'info', 10000)
+
+        setTimeout(() => {
+          remove(a)
+        }, 2000)
         console.log(a)
       }}>Notice Info</Button>
       <Button warn onClick={() => add('Hello Warn' + Date.now(), 'warn')}>Notice Warn</Button>

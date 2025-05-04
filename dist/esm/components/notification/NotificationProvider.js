@@ -31,7 +31,6 @@ const NotificationProvider = ({ children }) => {
                 n.anim = true;
                 updateNotifications();
             }
-            return id;
         }, 0);
         // handle animation exit
         n.timer = setTimeout(() => {
@@ -45,6 +44,7 @@ const NotificationProvider = ({ children }) => {
             }
         }, delay);
         updateNotifications();
+        return id;
     };
     const removeNotification = (id) => {
         const n = notificationsRef.current.get(id);

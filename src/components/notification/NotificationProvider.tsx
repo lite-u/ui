@@ -38,8 +38,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
         updateNotifications()
       }
-      
-      return id
+
     }, 0)
 
     // handle animation exit
@@ -57,6 +56,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     }, delay)
 
     updateNotifications()
+    return id
   }
 
   const removeNotification = (id: string): boolean => {
