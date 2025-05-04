@@ -60,7 +60,9 @@ export const NotificationContext = createContext({
  *    return <div onClick={()=>add('hello')}></div>
  * }
  */
-const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
+const NotificationProvider: FC<{
+  children: ReactNode
+}> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationItemProps[]>([])
   const notificationsRef = useRef<Map<string, NotificationItemProps>>(new Map())
   const animationExitDuration = 150
