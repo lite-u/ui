@@ -82,13 +82,16 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
  * delay, and timing function. When `visible` changes, styles interpolate from `from` to `to` definitions.
  *
  * @example
- * <Transition
- *   from={{ opacity: 0, scale: 0.9 }}
- *   to={{ opacity: 1, scale: 1 }}
- *   visible={show}
- * >
- *   <div>Hello world</div>
- * </Transition>
+ * const Sample = () => {
+ *   const [show, setShow] = useState(false)
+ *
+ *   return <Con w={100} h={100}>
+ *     <Button onClick={() => setShow(!show)}>Toggle</Button>
+ *     <Transition from={{opacity: 0, scale: 0.9}} to={{opacity: 1, scale: 1}} visible={show}>
+ *       <div>Hello world</div>
+ *     </Transition>
+ *   </Con>
+ * }
  */
 const Transition: FC<TransitionProps> = ({
                                            children,

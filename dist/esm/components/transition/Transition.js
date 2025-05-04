@@ -11,13 +11,16 @@ import { useEffect, useState } from 'react';
  * delay, and timing function. When `visible` changes, styles interpolate from `from` to `to` definitions.
  *
  * @example
- * <Transition
- *   from={{ opacity: 0, scale: 0.9 }}
- *   to={{ opacity: 1, scale: 1 }}
- *   visible={show}
- * >
- *   <div>Hello world</div>
- * </Transition>
+ * const Sample = () => {
+ *   const [show, setShow] = useState(false)
+ *
+ *   return <Con w={100} h={100}>
+ *     <Button onClick={() => setShow(!show)}>Toggle</Button>
+ *     <Transition from={{opacity: 0, scale: 0.9}} to={{opacity: 1, scale: 1}} visible={show}>
+ *       <div>Hello world</div>
+ *     </Transition>
+ *   </Con>
+ * }
  */
 const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, style = {}, }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
