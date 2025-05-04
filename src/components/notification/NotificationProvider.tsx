@@ -60,7 +60,6 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
       updateNotifications()
 
       n.timer = window.setTimeout(() => {
-        // removeNotification(id)
         notificationsRef.current.delete(id)
         updateNotifications()
       }, animationExitDuration)

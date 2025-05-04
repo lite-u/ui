@@ -10,7 +10,7 @@ const NotificationPage: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Titles'}>
+        <UsageBlock title={'Toggle a Notification'}>
           <Col between>
             {
               !notificationId.current ?
@@ -19,7 +19,7 @@ const NotificationPage: React.FC = () => {
                     remove(notificationId.current)
                   }
                   notificationId.current = add(
-                    'A Notification stay on middle of the screen, 10 Seconds',
+                    'A notification that stays centered on the screen until it is manually removed.',
                     'info',
                     false,
                   )
