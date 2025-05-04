@@ -1,10 +1,49 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useRef, useState } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 import { Transition } from '../../index';
-import { NotificationContext } from './NotificationContext';
 import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
+/**
+ * NotificationContext
+ *
+ * @brief
+ * React context for managing global notification toasts.
+ *
+ * @intro
+ * Provides shared state and methods (`add`, `remove`) for handling notification messages
+ * throughout the application. Used by `NotificationProvider` to supply context values.
+ *
+ * @example
+ * import { useNotification } from '@lite-u/ui'
+ *
+ * const { add } = useNotification()
+ * add('Saved successfully!', 'info')
+ */
+export const NotificationContext = createContext({
+    notifications: [],
+    add: () => '',
+    remove: () => { },
+});
+export const useNotification = () => useContext(NotificationContext);
+/**
+ * NotificationProvider component
+ *
+ * @brief
+ * Provides notification context and renders toasts with animation and auto-dismiss behavior.
+ *
+ * @intro
+ * Wraps an application with a notification system. Allows components to trigger toast messages
+ * with customizable content, type, and duration. Renders floating notifications using portals
+ * with enter/exit animations, and removes them after a timeout.
+ *
+ * @example
+ * import { NotificationProvider } from '@lite-u/ui'
+ *
+ * <NotificationProvider>
+ *   <App />
+ * </NotificationProvider>
+ */
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());

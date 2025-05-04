@@ -1,13 +1,68 @@
-import {FC, ReactNode, useRef, useState} from 'react'
+import {createContext, FC, ReactNode, useContext, useRef, useState} from 'react'
 import {Transition} from '../../index'
-import {NotificationContext, NotificationProps} from './NotificationContext'
 import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
 
+export interface NotificationItemProps {
+  id: string
+  comp: React.ReactNode
+  type: 'info' | 'warn' | 'error'
+  anim: boolean
+  timer: number
+}
+
+interface NotificationContextType {
+  notifications: NotificationItemProps[],
+  add: (comp: React.ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string,
+  remove: (id: string) => void,
+}
+
+/**
+ * NotificationContext
+ *
+ * @brief
+ * React context for managing global notification toasts.
+ *
+ * @intro
+ * Provides shared state and methods (`add`, `remove`) for handling notification messages
+ * throughout the application. Used by `NotificationProvider` to supply context values.
+ *
+ * @example
+ * import { useNotification } from '@lite-u/ui'
+ *
+ * const { add } = useNotification()
+ * add('Saved successfully!', 'info')
+ */
+export const NotificationContext = createContext({
+  notifications: [],
+  add: () => '',
+  remove: () => {},
+} as NotificationContextType)
+
+export const useNotification = () => useContext(NotificationContext)
+
+/**
+ * NotificationProvider component
+ *
+ * @brief
+ * Provides notification context and renders toasts with animation and auto-dismiss behavior.
+ *
+ * @intro
+ * Wraps an application with a notification system. Allows components to trigger toast messages
+ * with customizable content, type, and duration. Renders floating notifications using portals
+ * with enter/exit animations, and removes them after a timeout.
+ *
+ * @example
+ * import { NotificationProvider } from '@lite-u/ui'
+ *
+ * <NotificationProvider>
+ *   <App />
+ * </NotificationProvider>
+ */
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
-  const [notifications, setNotifications] = useState<NotificationProps[]>([])
-  const notificationsRef = useRef<Map<string, NotificationProps>>(new Map())
+  const [notifications, setNotifications] = useState<NotificationItemProps[]>([])
+  const notificationsRef = useRef<Map<string, NotificationItemProps>>(new Map())
   const animationExitDuration = 150
 
   const {theme} = useLiteUIContext()
@@ -17,9 +72,9 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     setNotifications(arr)
   }
 
-  const addNotification = (comp: React.ReactNode, type: NotificationProps['type'] = 'info', delay: number | false = 2000) => {
+  const addNotification = (comp: React.ReactNode, type: NotificationItemProps['type'] = 'info', delay: number | false = 2000) => {
     const id = type + '-' + Date.now()
-    const n: NotificationProps = {
+    const n: NotificationItemProps = {
       id,
       type,
       comp,
