@@ -25,7 +25,7 @@ const DropPage: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
       <Con maxW={700} w={'auto'}>
-        <UsageBlock title={'Titles'}>
+        <UsageBlock title={'Try to Drop File On Blocks'}>
           <Row w={620} h={200} stretch space={10}>
 
             <Drop accepts={['image/png']}
