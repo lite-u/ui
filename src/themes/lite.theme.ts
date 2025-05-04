@@ -71,6 +71,11 @@ export const liteTheme: ThemeType = {
       color: '#000000',
       border: primaryColor,
     },
+    disabled: {
+      backgroundColor: '#cfcfcf',
+      color: '#e1e1e1',
+      border: 'none',
+    },
   },
   input: {
     primary: {

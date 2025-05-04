@@ -108,7 +108,10 @@ const NotificationSampleComp: React.FC = () => {
   const NotificationComp = () => {
     return <Con w={100} h={100}>
       <Con abs ovh w={'auto'} r={5} t={5}>
-        <IconButton xs onClick={() => remove(notificationId.current as string)}>&times;</IconButton>
+        <IconButton xs onClick={() => {
+          remove(notificationId.current as string)
+          notificationId.current = ''
+        }}>&times;</IconButton>
       </Con>
 
       <Title>Title</Title>
@@ -117,7 +120,7 @@ const NotificationSampleComp: React.FC = () => {
   }
 
   return <Col between>
-    <Button disabled={notificationId.current} primary onClick={() => {
+    <Button disabled={!!notificationId.current} primary onClick={() => {
       if (notificationId.current) {
         return
       }

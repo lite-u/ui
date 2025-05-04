@@ -16,7 +16,7 @@ import ButtonBase from './ButtonBase';
  * <Button primary xs>Confirm</Button>
  * <Button error l>Delete</Button>
  */
-export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, style = {}, children, type = 'button', ...props }) => {
+export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = true, disabled = false, style = {}, children, type = 'button', ...props }) => {
     const { theme } = useLiteUIContext();
     const { fontSizes, padding, button, borderRadius, } = theme;
     const getVariant = () => {
@@ -49,6 +49,12 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
         ...theme.formElements[size],
         ...style,
     };
-    return (_jsx(ButtonBase, { type: type, style: styles, ...props, children: children }));
+    if (disabled) {
+        styles.backgroundColor = theme.button.disabled.backgroundColor;
+        styles.color = theme.button.disabled.color;
+        styles.border = theme.button.disabled.border;
+        styles.cursor = 'not-allowed';
+    }
+    return (_jsx(ButtonBase, { disabled: disabled, type: type, style: styles, ...props, children: children }));
 };
 export default Button;

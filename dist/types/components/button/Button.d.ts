@@ -40,6 +40,11 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
      */
     error?: boolean;
     /**
+     * If true, set the Button to disabled
+     * @default false
+     */
+    disabled?: boolean;
+    /**
      * Custom inline styles for the button.
      */
     style?: React.CSSProperties;

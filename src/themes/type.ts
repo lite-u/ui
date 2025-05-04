@@ -51,6 +51,12 @@ export type ThemeType = {
       color: string;
       border: string;
     };
+    disabled: {
+      backgroundColor: string;
+      color: string;
+      border: string;
+    };
+
   };
   input: {
     primary: {

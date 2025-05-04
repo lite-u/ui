@@ -46,6 +46,11 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
    */
   error?: boolean;
   /**
+   * If true, set the Button to disabled
+   * @default false
+   */
+  disabled?: boolean;
+  /**
    * Custom inline styles for the button.
    */
   style?: React.CSSProperties;
@@ -79,6 +84,7 @@ export const Button: React.FC<ButtonProps> = ({
                                                 warn,
                                                 error,
                                                 neutral = true,
+                                                disabled = false,
                                                 style = {},
                                                 children,
                                                 type = 'button',
@@ -119,8 +125,15 @@ export const Button: React.FC<ButtonProps> = ({
     ...style,
   }
 
+  if (disabled) {
+    styles.backgroundColor = theme.button.disabled.backgroundColor
+    styles.color = theme.button.disabled.color
+    styles.border = theme.button.disabled.border
+    styles.cursor = 'not-allowed'
+  }
+
   return (
-    <ButtonBase type={type} style={styles} {...props}>{children}</ButtonBase>
+    <ButtonBase disabled={disabled} type={type} style={styles} {...props}>{children}</ButtonBase>
   )
 }
 
