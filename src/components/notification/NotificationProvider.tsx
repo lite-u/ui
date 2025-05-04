@@ -17,7 +17,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     setNotifications(arr)
   }
 
-  const addNotification = (text: string, type: NotificationProps['type'] = 'info', delay = 2000) => {
+  const addNotification = (text: string, type: NotificationProps['type'] = 'info', delay: number | false = 2000) => {
     const id = type + '-' + Date.now()
     const n: NotificationProps = {
       id,
@@ -41,11 +41,13 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
     }, 0)
 
-    n.timer = window.setTimeout(() => {
-      removeNotification(id)
-    }, delay)
-    // handle animation exit
+    if (typeof delay === 'number') {
+      n.timer = window.setTimeout(() => {
+        removeNotification(id)
+      }, delay)
+    }
 
+    // handle animation exit
     updateNotifications()
     return id
   }

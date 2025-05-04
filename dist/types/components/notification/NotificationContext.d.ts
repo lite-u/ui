@@ -7,7 +7,7 @@ export interface NotificationProps {
 }
 interface NotificationContextType {
     notifications: NotificationProps[];
-    add: (text: string, type?: 'info' | 'error' | 'warn', delay?: number) => string;
+    add: (text: string, type?: 'info' | 'error' | 'warn', delay?: number | false) => string;
     remove: (id: string) => void;
 }
 /**

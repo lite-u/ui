@@ -32,9 +32,11 @@ const NotificationProvider = ({ children }) => {
                 updateNotifications();
             }
         }, 0);
-        n.timer = window.setTimeout(() => {
-            removeNotification(id);
-        }, delay);
+        if (typeof delay === 'number') {
+            n.timer = window.setTimeout(() => {
+                removeNotification(id);
+            }, delay);
+        }
         // handle animation exit
         updateNotifications();
         return id;
