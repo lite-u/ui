@@ -70,16 +70,18 @@ const RootLayout = () => {
   </Flex>
 }
 
-const NavItem: FC<{ to: string, name: string }> = (to, name) => {
-  return <MenuItem s style={{padding: 0}}>
+const NavItem: FC<{ to: string, name: string }> = ({to, name}) => {
+  return <MenuItem s style={{padding: 0, width: '100%'}}>
     <NavLink
       style={({isActive}) => {
+        console.log(isActive, name)
         return {
           backgroundColor: isActive ? '#0a2e71' : 'transparent',
           color: isActive ? '#fff' : '#000',
           width: '100%',
           height: '100%',
           paddingLeft: 30,
+          display: 'block',
         } as CSSProperties
       }}
       to={to}>
