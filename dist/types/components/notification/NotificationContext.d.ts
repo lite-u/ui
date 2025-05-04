@@ -1,31 +1,49 @@
-export interface NotificationProps {
+import { ReactNode } from 'react';
+export interface NotificationItemProps {
     id: string;
-    comp: React.ReactNode;
-    type: 'info' | 'warn' | 'error';
+    comp: ReactNode;
+    type: 'info' | 'suc' | 'warn' | 'error';
     anim: boolean;
     timer: number;
-}
-interface NotificationContextType {
-    notifications: NotificationProps[];
-    add: (comp: React.ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string;
-    remove: (id: string) => void;
 }
 /**
  * NotificationContext
  *
  * @brief
- * React context for managing global notification toasts.
+ * React context for global toast notification state and actions.
  *
  * @intro
- * Provides shared state and methods (`add`, `remove`) for handling notification messages
- * throughout the application. Used by `NotificationProvider` to supply context values.
+ * Provides access to a list of active notifications and functions to add or remove them.
+ * Each notification can include content, type (info, success, warning, error), and an optional timeout.
  *
  * @example
- * import { useNotification } from '@lite-u/ui'
- *
- * const { add } = useNotification()
- * add('Saved successfully!', 'info')
+ * const { add, remove } = useNotification()
+ * add('Upload complete', 'suc', 3000)
  */
-export declare const NotificationContext: import("react").Context<NotificationContextType>;
+/**
+ * Shape of the notification context including list of notifications and management functions.
+ */
+interface NotificationContextType {
+    /**
+     * List of currently displayed notifications.
+     */
+    notifications: NotificationItemProps[];
+    /**
+     * Adds a new notification.
+     *
+     * @param comp - The content of the notification.
+     * @param type - Notification type: 'info', 'suc', 'warn', or 'error'.
+     * @param delay - Time in ms before auto-removal. If false, notification persists.
+     * @returns A unique ID for the notification.
+     */
+    add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string;
+    /**
+     * Removes a notification by ID.
+     *
+     * @param id - ID of the notification to remove.
+     */
+    remove: (id: NotificationItemProps['id']) => void;
+}
+declare const NotificationContext: import("react").Context<NotificationContextType>;
+export default NotificationContext;
 export declare const useNotification: () => NotificationContextType;
-export {};

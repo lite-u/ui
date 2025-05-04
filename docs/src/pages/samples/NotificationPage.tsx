@@ -1,7 +1,7 @@
-import {Button, Col, Con, IconButton, Row, Title, useNotification} from '@lite-u/ui'
+import {Button, Col, Con, IconButton, Link, Row, Title, useNotification} from '@lite-u/ui'
 import {useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
-import CommonAPI from '../layouts/common/CommonAPI.tsx'
+import API from '../../components/api/API.tsx'
 
 const NotificationPage: React.FC = () => {
 
@@ -113,6 +113,18 @@ const NotificationPage: React.FC = () => {
       </Con>
 
     </Row>
+
+
+    <Con mt={100} mb={40}>
+      <Col w={'auto'}>
+        <Title h4 id="api"><Link href={'#api'}># API</Link></Title>
+
+        <Con mb={30}></Con>
+        <API data={{}}/>
+
+
+      </Col>
+    </Con>
 
     {/*<CommonAPI apiData={{
       add: {

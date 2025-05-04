@@ -1,14 +1,10 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { createContext, useContext, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Transition from '../transition/Transition';
 import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
-export const NotificationContext = createContext({
-    notifications: [],
-    add: () => '',
-    remove: () => { },
-});
+import { NotificationContext } from './NotificationContext';
 /**
  * NotificationProvider component
  *
@@ -24,7 +20,7 @@ export const NotificationContext = createContext({
  * import { useNotification } from '@lite-u/ui'
  *
  * const NotificationSampleSimple: React.FC = () => {
- *    const {add} = useNotification()
+ *    const { add } = useNotification()
  *
  *    return <div onClick={()=>add('hello')}></div>
  * }
@@ -113,5 +109,4 @@ const NotificationProvider = ({ children }) => {
                             }, children: comp }) }) }, id);
             }), document.body)] });
 };
-export const useNotification = () => useContext(NotificationContext);
 export default NotificationProvider;

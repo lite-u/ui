@@ -1,44 +1,9 @@
-import {createContext, FC, ReactNode, useContext, useRef, useState} from 'react'
+import {FC, ReactNode, useRef, useState} from 'react'
 import Transition from '../transition/Transition'
 import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
-
-interface NotificationItemProps {
-  id: string
-  comp: ReactNode
-  type: 'info' | 'suc' | 'warn' | 'error'
-  anim: boolean
-  timer: number
-}
-
-/**
- * NotificationContext
- *
- * @brief
- * React context for managing global notification toasts.
- *
- * @intro
- * Provides shared state and methods (`add`, `remove`) for handling notification messages
- * throughout the application. Used by `NotificationProvider` to supply context values.
- *
- * @example
- * import { useNotification } from '@lite-u/ui'
- *
- * const { add } = useNotification()
- * add('Saved successfully!', 'info')
- */
-interface NotificationContextType {
-  notifications: NotificationItemProps[],
-  add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string,
-  remove: (id: NotificationItemProps['id']) => void,
-}
-
-export const NotificationContext = createContext({
-  notifications: [],
-  add: () => '',
-  remove: () => {},
-} as NotificationContextType)
+import {NotificationContext, NotificationItemProps} from './NotificationContext'
 
 /**
  * NotificationProvider component
@@ -55,7 +20,7 @@ export const NotificationContext = createContext({
  * import { useNotification } from '@lite-u/ui'
  *
  * const NotificationSampleSimple: React.FC = () => {
- *    const {add} = useNotification()
+ *    const { add } = useNotification()
  *
  *    return <div onClick={()=>add('hello')}></div>
  * }
@@ -182,7 +147,5 @@ const NotificationProvider: FC<{
     }
   </NotificationContext.Provider>
 }
-
-export const useNotification = () => useContext(NotificationContext)
 
 export default NotificationProvider

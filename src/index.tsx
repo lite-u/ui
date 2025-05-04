@@ -15,10 +15,7 @@ import {ThemeType} from './themes/type'
 import SelectItem from './components/select/SelectItem'
 import Container, {Con} from './components/container/Container'
 import Drop from './components/drop/Drop'
-import NotificationProvider, {
-  NotificationContext,
-  useNotification,
-} from './components/notification/NotificationProvider'
+import NotificationProvider from './components/notification/NotificationProvider'
 import Flex from './components/layouts/Flex'
 import Transition from './components/transition/Transition'
 import Tooltip from './components/tooltip/Tooltip'
@@ -28,6 +25,7 @@ import TableRow from './components/table/TableRow'
 import Interactable from './components/interactive/Interactable'
 import Collapse from './components/collapse/Collapse'
 import ButtonBase from './components/button/ButtonBase'
+import NotificationContext, {useNotification} from './components/notification/NotificationContext'
 
 export {
   Select,
