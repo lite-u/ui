@@ -146,7 +146,7 @@ const TransitionSample: React.FC = () => {
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Enter duration 3000ms, exit duration:1000ms'}>
+        <UsageBlock title={'Enter duration 3000ms, exit duration:4000ms'}>
           <Con ml={10}>
             <Transition
               onMouseEnter={() => {
