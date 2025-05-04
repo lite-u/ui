@@ -57,6 +57,16 @@ const NotificationPage: React.FC = () => {
 
       <Con w={320}>
         <UsageBlock title={'Notification Types'} replacement={`
+        const NotificationSampleType: React.FC = () => {
+  const {add} = useNotification()
+
+  return <Row between>
+    <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
+    <Button primary onClick={() => { add('Hello', 'suc') }}>Warn</Button>
+    <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
+    <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
+  </Row>
+}
           `}>
           <NotificationSampleType/>
         </UsageBlock>
