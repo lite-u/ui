@@ -34,6 +34,12 @@ const TransitionSample: React.FC = () => {
         </UsageBlock>
       </Con>
 
+      <Con w={'auto'}>
+        <UsageBlock title={'Delayed 1000ms'}>
+          <TransitionDelayed/>
+        </UsageBlock>
+      </Con>
+
 
     </Row>
 
@@ -57,15 +63,15 @@ const TransitionScale = () => {
 }
 
 const TransitionTranslate = () => {
-  const [showGreeting, setShowGreeting] = useState(false)
+  const [showVisible, setShowVisible] = useState(false)
 
   return <Con>
     <Button onClick={() => {
-      setShowGreeting(!showGreeting)
+      setShowVisible(!showVisible)
     }}>Toggle</Button>
 
     <Transition
-      visible={showGreeting}
+      visible={showVisible}
       style={{width: 100, height: 100}}
       from={{translate: '200px -50px'}}
       to={{translate: '0 0'}}>
@@ -111,25 +117,25 @@ const TransitionRotate = () => {
 }
 
 const TransitionFixed = () => {
-  const [showGreeting, setShowGreeting] = useState(false)
+  const [showVisible, setShowVisible] = useState(false)
 
   return <Con w={100} h={100}>
     <Button onClick={() => {
-      setShowGreeting(!showGreeting)
+      setShowVisible(!showVisible)
     }}>Toggle</Button>
     <div style={{
       position: 'fixed',
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      pointerEvents: showGreeting ? 'auto' : 'none',
+      pointerEvents: showVisible ? 'auto' : 'none',
       textAlign: 'center',
       zIndex: 9999,
     }}>
       <Transition
         from={{scale: 0}}
         to={{scale: 1}}
-        visible={showGreeting}>
+        visible={showVisible}>
         <Flex w={100}
               h={100}
               alignItems="center"
@@ -143,12 +149,41 @@ const TransitionFixed = () => {
   </Con>
 }
 
+const TransitionDelayed = () => {
+  const [showVisible, setShowVisible] = useState(false)
+
+  return <Con ml={10}>
+    <Transition
+      onMouseEnter={() => {
+        setShowVisible(true)
+      }}
+      onMouseLeave={() => {
+        setShowVisible(false)
+      }}
+      delay={1000}
+      visible={showVisible}
+      style={{width: 100, height: 100}}
+      from={{width: 100}}
+      to={{width: 120}}>
+      <Row fw
+           fh
+           center
+           jc
+           bg={'#fff'}
+           style={{
+             boxShadow: '0 0 3px 0 #000',
+           }}>hello world</Row>
+    </Transition>
+
+  </Con>
+}
+
 const TransitionSample3 = () => {
-  const [showGreeting, setShowGreeting] = useState(false)
+  const [showVisible, setShowVisible] = useState(false)
 
   return <Con w={100} h={100}>
     <Button onClick={() => {
-      setShowGreeting(!showGreeting)
+      setShowVisible(!showVisible)
     }}>Toggle</Button>
 
     <Transition
@@ -168,7 +203,7 @@ const TransitionSample3 = () => {
         },
         scale: 1,
       }}
-      visible={showGreeting}
+      visible={showVisible}
       duration={3000}
     >
       <Transition
@@ -180,7 +215,7 @@ const TransitionSample3 = () => {
           translate: '0 0',
           scale: 1,
         }}
-        visible={showGreeting}>
+        visible={showVisible}>
         <Flex w={100}
               h={100}
               alignItems="center"
@@ -196,11 +231,11 @@ const TransitionSample3 = () => {
 
 /*
 const TransitionSampleB = () => {
-  const [showGreeting, setShowGreeting] = useState(false)
+  const [showVisible, setShowVisible] = useState(false)
 
   return <Con w={100} h={100}>
     <Button onClick={() => {
-      setShowGreeting(!showGreeting)
+      setShowVisible(!showVisible)
     }}>Toggle</Button>
 
     <div style={{
@@ -212,7 +247,7 @@ const TransitionSampleB = () => {
       zIndex: 9999,
     }}>
       {/!*  <TransitionB
-        visible={showGreeting}
+        visible={showVisible}
         from={{
           scale: 0,
           opacity: 0,
@@ -226,7 +261,7 @@ const TransitionSampleB = () => {
       </TransitionB>
 *!/}
       {/!* <TransitionB
-        visible={showGreeting}
+        visible={showVisible}
         from={{
           width: 0,
 
@@ -241,7 +276,7 @@ const TransitionSampleB = () => {
       </TransitionB>*!/}
 
       {/!* <TransitionB
-        visible={showGreeting}
+        visible={showVisible}
         from={{
           rotate: '0deg',
           scale: 0,
@@ -258,7 +293,7 @@ const TransitionSampleB = () => {
       </TransitionB>*!/}
 
       <TransitionB
-        visible={showGreeting}
+        visible={showVisible}
         from={{
           marginLeft: 10,
         }}
