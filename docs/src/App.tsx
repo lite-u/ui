@@ -13,6 +13,7 @@ function App() {
       {/*<ScrollToTop />*/}
 
       <Routes>
+
         <Route path={'/'} element={<RootLayout/>}>
           <Route path={'installation'} element={<Installation/>}/>
 
@@ -24,6 +25,9 @@ function App() {
               })
             }
           </Route>
+        </Route>
+
+        <Route path={'/'} element={<HooksLayout/>}>
           <Route path={'hooks'} element={<HooksLayout/>}>
             {
               Object.values(HOOK_ROUTE_MAP).map((HOOK, index) => {
@@ -33,6 +37,7 @@ function App() {
             }
           </Route>
         </Route>
+
       </Routes>
       {/*<App/>,*/}
     </BrowserRouter>

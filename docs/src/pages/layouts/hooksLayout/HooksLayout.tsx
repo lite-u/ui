@@ -6,7 +6,7 @@ import HOOK_ROUTE_MAP from './hooksData.tsx'
 import CommonHead from '../common/CommonHead.tsx'
 import CommonFoot from '../common/CommonFoot.tsx'
 
-const ComponentLayout = () => {
+const HooksLayout = () => {
   const {pathname} = useLocation()
   const currentPath = location.pathname.split('/')[2]
   const HOOK_ROUTE = HOOK_ROUTE_MAP[currentPath as keyof typeof HOOK_ROUTE_MAP]
@@ -44,4 +44,4 @@ const ComponentLayout = () => {
   </div>
 }
 
-export default ComponentLayout
+export default HooksLayout
