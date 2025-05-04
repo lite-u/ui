@@ -2,8 +2,8 @@ import Installation from './pages/samples/Installation.tsx'
 import LiteUIProvider from '@lite-u/ui'
 import {BrowserRouter, Route, Routes} from 'react-router'
 import RootLayout from './pages/layouts/RootLayout.tsx'
-import ComponentLayout from './pages/layouts/componentLayout/ComponentLayout.tsx'
-import COMPONENT_ROUTE_MAP from './pages/layouts/componentLayout/componentData.tsx'
+import ComponentLayout from './pages/layouts/componentsLayout/ComponentLayout.tsx'
+import COMPONENT_ROUTE_MAP from './pages/layouts/componentsLayout/componentData.tsx'
 
 function App() {
   return <LiteUIProvider>

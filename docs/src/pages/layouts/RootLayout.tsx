@@ -1,7 +1,8 @@
 import {Col, Collapse, Con, Flex, MenuItem} from '@lite-u/ui'
 import {Link, NavLink, Outlet, useLocation} from 'react-router'
-import COMPONENT_ROUTE_MAP from './componentLayout/componentData.tsx'
+import COMPONENT_ROUTE_MAP from './componentsLayout/componentData.tsx'
 import {CSSProperties, useEffect, useRef} from 'react'
+import HOOK_ROUTE_MAP from './hooksLayout/componentData.tsx'
 
 const RootLayout = () => {
   const {pathname, hash} = useLocation()
@@ -49,10 +50,13 @@ const RootLayout = () => {
             })
           }
         </Collapse>
-        {/*
         <Collapse head={<MenuItem style={{flex: 1}}>Hooks</MenuItem>}>
-          <MenuItem s style={{padding: 0}}> </MenuItem>)
-        </Collapse>*/}
+          {
+            Object.values(HOOK_ROUTE_MAP).map((comp, index) => {
+              return <NavItem key={index} to={`components/${comp.to}`} name={comp.name}/>
+            })
+          }
+        </Collapse>
 
         <MenuItem s><Link to={`compatibility`}>Compatibility</Link></MenuItem>
         <MenuItem s><Link to={`accessibility`}>Accessibility</Link></MenuItem>

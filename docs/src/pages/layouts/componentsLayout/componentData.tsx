@@ -11,7 +11,7 @@ import TitlePage from '../../samples/TitlePage.tsx'
 import MenuPage from '../../samples/MenuPage.tsx'
 import MenuItemPage from '../../samples/MenuItemPage.tsx'
 import DropPage from '../../samples/DropPage.tsx'
-import NotificationSamples from '../../samples/NotificationSamples.tsx'
+import NotificationPage from '../../samples/NotificationPage.tsx'
 import TransitionSamples from '../../samples/TransitionPage.tsx'
 import TooltipSamples from '../../samples/TooltipSamples.tsx'
 import {ReactElement} from 'react'
@@ -128,7 +128,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'notification',
     name: 'Notification',
     apiNameKey: 'Notification',
-    comp: <NotificationSamples/>,
+    comp: <NotificationPage/>,
   },
   transition: {
     to: 'transition',

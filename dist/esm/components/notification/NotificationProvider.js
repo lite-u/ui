@@ -9,11 +9,6 @@ const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
     const animationExitDuration = 300;
-    /*
-      useEffect(() => {
-  
-      }, [])
-    */
     const { theme } = useLiteUIContext();
     const updateNotifications = () => {
         const arr = Array.from(notificationsRef.current.values());
@@ -36,6 +31,7 @@ const NotificationProvider = ({ children }) => {
                 n.anim = true;
                 updateNotifications();
             }
+            return id;
         }, 0);
         // handle animation exit
         n.timer = setTimeout(() => {

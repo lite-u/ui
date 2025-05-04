@@ -9,11 +9,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationProps[]>([])
   const notificationsRef = useRef<Map<string, NotificationProps>>(new Map())
   const animationExitDuration = 300
-  /*
-    useEffect(() => {
 
-    }, [])
-  */
   const {theme} = useLiteUIContext()
   const updateNotifications = () => {
     const arr = Array.from(notificationsRef.current.values())
@@ -42,6 +38,8 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
         updateNotifications()
       }
+
+      return id
     }, 0)
 
     // handle animation exit
