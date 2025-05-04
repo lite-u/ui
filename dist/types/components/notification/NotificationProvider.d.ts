@@ -1,14 +1,14 @@
 import { FC, ReactNode } from 'react';
 export interface NotificationItemProps {
     id: string;
-    comp: React.ReactNode;
+    comp: ReactNode;
     type: 'info' | 'warn' | 'error';
     anim: boolean;
     timer: number;
 }
 interface NotificationContextType {
     notifications: NotificationItemProps[];
-    add: (comp: React.ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string;
+    add: (comp: ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string;
     remove: (id: string) => void;
 }
 /**

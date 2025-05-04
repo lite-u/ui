@@ -6,7 +6,7 @@ import {createPortal} from 'react-dom'
 
 export interface NotificationItemProps {
   id: string
-  comp: React.ReactNode
+  comp: ReactNode
   type: 'info' | 'warn' | 'error'
   anim: boolean
   timer: number
@@ -14,7 +14,7 @@ export interface NotificationItemProps {
 
 interface NotificationContextType {
   notifications: NotificationItemProps[],
-  add: (comp: React.ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string,
+  add: (comp: ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string,
   remove: (id: string) => void,
 }
 
