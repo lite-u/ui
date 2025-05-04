@@ -45,7 +45,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
         alignItems: 'center',
         wordBreak: 'keep-all',
         whiteSpace: 'nowrap',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         textOverflow: 'ellipsis',
     };
     return _jsx("div", { role: 'menu-item', onMouseOver: () => {
@@ -54,7 +54,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
             setVisible(false);
         }, style: {
             display: 'flex',
-            overflow: 'hidden',
+            // overflow: 'hidden',
             // ...styles,
             // ...style,
         }, ...props, children: _jsx(Transition, { visible: visible, style: {

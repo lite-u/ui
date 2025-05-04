@@ -90,7 +90,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     alignItems: 'center',
     wordBreak: 'keep-all',
     whiteSpace: 'nowrap',
-    overflow: 'hidden',
+    // overflow: 'hidden',
     textOverflow: 'ellipsis',
   }
 
@@ -104,7 +104,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     }}
     style={{
       display: 'flex',
-      overflow: 'hidden',
+      // overflow: 'hidden',
       // ...styles,
       // ...style,
     }}
