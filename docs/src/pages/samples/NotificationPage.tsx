@@ -183,7 +183,7 @@ const NotificationSampleToggle: React.FC = () => {
           )
         }}>Show</Button>
         :
-        <Button warn onClick={() => {
+        <Button primary onClick={() => {
           remove(notificationId.current as string)
           notificationId.current = undefined
         }}>Hide</Button>
