@@ -11,7 +11,6 @@ import TitlePage from '../../samples/TitlePage.tsx'
 import MenuPage from '../../samples/MenuPage.tsx'
 import MenuItemPage from '../../samples/MenuItemPage.tsx'
 import DropPage from '../../samples/DropPage.tsx'
-import NotificationPage from '../../samples/NotificationPage.tsx'
 import TransitionSamples from '../../samples/TransitionPage.tsx'
 import TooltipSamples from '../../samples/TooltipSamples.tsx'
 import {ReactElement} from 'react'
@@ -20,7 +19,7 @@ import ButtonPage from '../../samples/ButtonPage.tsx'
 import ParagraphPage from '../../samples/ParagraphPage.tsx'
 import ColumnPage from '../../samples/ColumnPage.tsx'
 
-export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
+// export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
   table: {
     to: 'table',
@@ -124,12 +123,12 @@ const COMPONENT_ROUTE_MAP = {
     apiNameKey: 'Drop',
     comp: <DropPage/>,
   },
-/*  notification: {
-    to: 'notification',
-    name: 'Notification',
-    apiNameKey: 'Notification',
-    comp: <NotificationPage/>,
-  },*/
+  /*  notification: {
+      to: 'notification',
+      name: 'Notification',
+      apiNameKey: 'Notification',
+      comp: <NotificationPage/>,
+    },*/
   transition: {
     to: 'transition',
     name: 'Transition',

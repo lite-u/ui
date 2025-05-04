@@ -1,5 +1,5 @@
 import {useLocation} from 'react-router'
-import COMPONENT_ROUTE_MAP from './CommonData.tsx'
+import COMPONENT_ROUTE_MAP from '../componentsLayout/CommonData.tsx'
 
 const CommonFoot = () => {
   const location = useLocation()
