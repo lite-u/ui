@@ -49,7 +49,7 @@ export const NotificationContext = createContext({
  * @intro
  * Wraps an application with a notification system. Allows components to trigger toast messages
  * with customizable content, type, and duration. Renders floating notifications using portals
- * with enter/exit animations, and removes them after a timeout.
+ * with enter/exit animations, and removes them after a timeout(optional).
  *
  * @example
  * import { useNotification } from '@lite-u/ui'
@@ -61,6 +61,9 @@ export const NotificationContext = createContext({
  * }
  */
 const NotificationProvider: FC<{
+  /**
+   * children
+   */
   children: ReactNode
 }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationItemProps[]>([])
