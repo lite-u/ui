@@ -22,13 +22,6 @@ const NotificationPage: React.FC = () => {
       </Con>
 
       <Con w={200}>
-        <UsageBlock title={'Notification Types'} replacement={`
-          `}>
-          <NotificationSampleType/>
-        </UsageBlock>
-      </Con>
-
-      <Con w={200}>
         <UsageBlock title={'Toggle a Notification'} replacement={`
         const NotificationSampleToggle: React.FC = () => {
           const {add, remove} = useNotification()
@@ -62,9 +55,48 @@ const NotificationPage: React.FC = () => {
         </UsageBlock>
       </Con>
 
+      <Con w={320}>
+        <UsageBlock title={'Notification Types'} replacement={`
+          `}>
+          <NotificationSampleType/>
+        </UsageBlock>
+      </Con>
+
       <Con w={200}>
-        <UsageBlock title={'Pass in a Component'} replacement={`
-`}>
+        <UsageBlock title={'Pass in a Component'}
+                    replacement={`
+                    const NotificationSampleComp: React.FC = () => {
+  const {add, remove} = useNotification()
+  const notificationId = useRef<string>(undefined)
+
+  const NotificationComp = () => {
+    return <Con w={100} h={100}>
+      <Con abs ovh w={'auto'} r={5} t={5}>
+        <IconButton xs onClick={() => {
+          remove(notificationId.current as string)
+          notificationId.current = ''
+        }}>&times;</IconButton>
+      </Con>
+
+      <Title>Title</Title>
+      <Title>Hello</Title>
+    </Con>
+  }
+
+  return <Col between>
+    <Button disabled={!!notificationId.current} primary onClick={() => {
+      if (notificationId.current) {
+        return
+      }
+      notificationId.current = add(
+        <NotificationComp/>,
+        'info',
+        false,
+      )
+    }}>Show</Button>
+  </Col>
+}
+                    `}>
           <NotificationSampleComp/>
         </UsageBlock>
       </Con>
@@ -78,17 +110,6 @@ const NotificationSampleSimple: React.FC = () => {
 
   return <Col between>
     <Button onClick={() => { add('Hello: ' + new Date().toLocaleString('en-US')) }}>Show</Button>
-  </Col>
-}
-
-const NotificationSampleType: React.FC = () => {
-  const {add} = useNotification()
-
-  return <Col between space={10}>
-    <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
-    <Button primary onClick={() => { add('Hello', 'suc') }}>Warn</Button>
-    <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
-    <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
   </Col>
 }
 
@@ -117,6 +138,17 @@ const NotificationSampleToggle: React.FC = () => {
     }
 
   </Col>
+}
+
+const NotificationSampleType: React.FC = () => {
+  const {add} = useNotification()
+
+  return <Row between>
+    <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
+    <Button primary onClick={() => { add('Hello', 'suc') }}>Warn</Button>
+    <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
+    <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
+  </Row>
 }
 
 const NotificationSampleComp: React.FC = () => {
