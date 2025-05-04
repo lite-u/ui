@@ -12,6 +12,8 @@ import { useLiteUIContext } from '../../LiteUIProvider';
  *
  * @example
  * import { Paragraph } from '@lite-u/ui'
+ * P is an alias of Paragraph
+ * import { P } from '@lite-u/ui'
  *
  * <Paragraph size={14} color="gray" center>
  *   This is a centered paragraph with custom styling.

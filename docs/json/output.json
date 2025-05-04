@@ -1661,7 +1661,7 @@
     "tags": {
       "brief": "Renders a styled `<p>` tag with configurable font size, color, alignment, and word-break behavior.",
       "intro": "Applies theming defaults for spacing and base typography, while allowing per-instance customization\nfor text alignment, font size, color, and word-breaking strategy.",
-      "example": "import { Paragraph } from '@lite-u/ui'\n\n<Paragraph size={14} color=\"gray\" center>\n  This is a centered paragraph with custom styling.\n</Paragraph>"
+      "example": "import { Paragraph } from '@lite-u/ui'\nP is an alias of Paragraph\nimport { P } from '@lite-u/ui'\n\n<Paragraph size={14} color=\"gray\" center>\n  This is a centered paragraph with custom styling.\n</Paragraph>"
     },
     "props": {
       "size": {
