@@ -1,5 +1,6 @@
 import {Outlet, useLocation} from 'react-router'
 import {useEffect} from 'react'
+import HookHead from './HookHead.tsx'
 
 const HooksLayout = () => {
   const {pathname} = useLocation()
@@ -9,7 +10,7 @@ const HooksLayout = () => {
   }, [pathname])
 
   return <div>
-    {/*<ComponentHead/>*/}
+    <HookHead />
 
     <Outlet/>
 

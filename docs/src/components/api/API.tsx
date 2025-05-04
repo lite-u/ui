@@ -4,7 +4,7 @@ import {Con} from '../../../../src'
 import CodeBlock from '../codeBlock/codeBlock.tsx'
 import MDBlock from '../codeBlock/MDBlock.tsx'
 
-type APIType = {
+export type APIType = {
   defaultValue: null | boolean | number | string
   description: string
   required: boolean
