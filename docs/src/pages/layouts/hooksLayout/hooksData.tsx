@@ -1,4 +1,3 @@
-
 import NotificationPage from '../../samples/NotificationPage.tsx'
 import {ReactElement} from 'react'
 
