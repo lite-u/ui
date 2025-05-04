@@ -6,11 +6,6 @@ interface NotificationItemProps {
     anim: boolean;
     timer: number;
 }
-interface NotificationContextType {
-    notifications: NotificationItemProps[];
-    add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string;
-    remove: (id: string) => void;
-}
 /**
  * NotificationContext
  *
@@ -27,6 +22,11 @@ interface NotificationContextType {
  * const { add } = useNotification()
  * add('Saved successfully!', 'info')
  */
+interface NotificationContextType {
+    notifications: NotificationItemProps[];
+    add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string;
+    remove: (id: NotificationItemProps['id']) => void;
+}
 export declare const NotificationContext: import("react").Context<NotificationContextType>;
 /**
  * NotificationProvider component

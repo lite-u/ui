@@ -31,7 +31,7 @@ interface NotificationItemProps {
 interface NotificationContextType {
   notifications: NotificationItemProps[],
   add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string,
-  remove: (id: string) => void,
+  remove: (id: NotificationItemProps['id']) => void,
 }
 
 export const NotificationContext = createContext({
