@@ -52,33 +52,40 @@ const NotificationPage: React.FC = () => {
 
       <Con w={200}>
         <UsageBlock title={'Toggle a Notification'} replacement={`
-        const NotificationSampleToggle: React.FC = () => {
-          const {add, remove} = useNotification()
-          const notificationId = useRef<string>(undefined)
-        
-          return <Col between>
-            {
-              !notificationId.current ?
-                <Button primary onClick={() => {
-                  if (notificationId.current) {
-                    remove(notificationId.current)
-                  }
-                  notificationId.current = add(
-                    'A notification that stays centered on the screen until it is manually removed.',
-                    'info',
-                    false,
-                  )
-                }}>Show</Button>
-                :
-                <Button warn onClick={() => {
-                  remove(notificationId.current as string)
-                  notificationId.current = undefined
-                }}>Hide</Button>
-            }
-        
-          </Col>
-        }
-
+          const NotificationSampleToggle: React.FC = () => {
+            const {add, remove} = useNotification()
+            const notificationId = useRef<string>(undefined)
+          
+            useEffect(() => {
+              return () => {
+                if (notificationId.current) {
+                  remove(notificationId.current)
+                }
+              }
+            }, [])
+          
+            return <Col between>
+              {
+                !notificationId.current ?
+                  <Button primary onClick={() => {
+                    if (notificationId.current) {
+                      remove(notificationId.current)
+                    }
+                    notificationId.current = add(
+                      'A notification that stays centered on the screen until it is manually removed.',
+                      'info',
+                      false,
+                    )
+                  }}>Show</Button>
+                  :
+                  <Button primary onClick={() => {
+                    remove(notificationId.current as string)
+                    notificationId.current = undefined
+                  }}>Hide</Button>
+              }
+          
+            </Col>
+          }
         `}>
           <NotificationSampleToggle/>
         </UsageBlock>
@@ -87,15 +94,15 @@ const NotificationPage: React.FC = () => {
       <Con w={320}>
         <UsageBlock title={'Notification Types'} replacement={`
         const NotificationSampleType: React.FC = () => {
-  const {add} = useNotification()
-
-  return <Row between>
-    <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
-    <Button primary onClick={() => { add('Hello', 'suc') }}>Warn</Button>
-    <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
-    <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
-  </Row>
-}
+          const {add} = useNotification()
+        
+          return <Row between>
+            <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
+            <Button primary onClick={() => { add('Hello', 'suc') }}>Warn</Button>
+            <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
+            <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
+          </Row>
+        }
           `}>
           <NotificationSampleType/>
         </UsageBlock>
@@ -105,36 +112,36 @@ const NotificationPage: React.FC = () => {
         <UsageBlock title={'Pass in a Component'}
                     replacement={`
                     const NotificationSampleComp: React.FC = () => {
-  const {add, remove} = useNotification()
-  const notificationId = useRef<string>(undefined)
-
-  const NotificationComp = () => {
-    return <Con w={100} h={100}>
-      <Con abs ovh w={'auto'} r={5} t={5}>
-        <IconButton xs onClick={() => {
-          remove(notificationId.current as string)
-          notificationId.current = ''
-        }}>&times;</IconButton>
-      </Con>
-
-      <Title>Title</Title>
-      <Title>Hello</Title>
-    </Con>
-  }
-
-  return <Col between>
-    <Button disabled={!!notificationId.current} primary onClick={() => {
-      if (notificationId.current) {
-        return
-      }
-      notificationId.current = add(
-        <NotificationComp/>,
-        'info',
-        false,
-      )
-    }}>Show</Button>
-  </Col>
-}
+                      const {add, remove} = useNotification()
+                      const notificationId = useRef<string>(undefined)
+                    
+                      const NotificationComp = () => {
+                        return <Con w={100} h={100}>
+                          <Con abs ovh w={'auto'} r={5} t={5}>
+                            <IconButton xs onClick={() => {
+                              remove(notificationId.current as string)
+                              notificationId.current = ''
+                            }}>&times;</IconButton>
+                          </Con>
+                    
+                          <Title>Title</Title>
+                          <Title>Hello</Title>
+                        </Con>
+                      }
+                    
+                      return <Col between>
+                        <Button disabled={!!notificationId.current} primary onClick={() => {
+                          if (notificationId.current) {
+                            return
+                          }
+                          notificationId.current = add(
+                            <NotificationComp/>,
+                            'info',
+                            false,
+                          )
+                        }}>Show</Button>
+                      </Col>
+                    }
                     `}>
           <NotificationSampleComp/>
         </UsageBlock>
