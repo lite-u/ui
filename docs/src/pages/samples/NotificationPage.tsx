@@ -1,5 +1,5 @@
 import {Button, Col, Con, IconButton, Link, Row, Title, useNotification} from '@lite-u/ui'
-import {ReactNode, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
 import API, {APIType} from '../../components/api/API.tsx'
 import CodeBlock from '../../components/codeBlock/codeBlock.tsx'
@@ -32,6 +32,7 @@ const NotificationPage: React.FC = () => {
       description: 'Returns A unique ID for the notification',
     },
   }
+
   return <Col>
     <Row start space={10} wrap>
 
@@ -188,6 +189,14 @@ const NotificationSampleSimple: React.FC = () => {
 const NotificationSampleToggle: React.FC = () => {
   const {add, remove} = useNotification()
   const notificationId = useRef<string>(undefined)
+
+  useEffect(() => {
+    return () => {
+      if (notificationId.current) {
+        remove(notificationId.current)
+      }
+    }
+  }, [])
 
   return <Col between>
     {
