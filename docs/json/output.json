@@ -447,12 +447,6 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
-      "color": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "Text color of the container."
-      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -602,12 +596,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
-      },
-      "role": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "'container'",
-        "description": "ARIA role attribute for the container."
       }
     }
   },
@@ -1029,12 +1017,6 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
-      "color": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "Text color of the container."
-      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1196,12 +1178,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
-      },
-      "role": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "column",
-        "description": "ARIA role attribute for the container."
       }
     }
   },
@@ -1328,12 +1304,6 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
-      "color": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "Text color of the container."
-      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1495,12 +1465,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
-      },
-      "role": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "column",
-        "description": "ARIA role attribute for the container."
       }
     }
   },
@@ -1597,12 +1561,6 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
-      "color": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "\\-",
-        "description": "Text color of the container."
-      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1764,12 +1722,6 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
-      },
-      "role": {
-        "type": "string",
-        "required": false,
-        "defaultValue": "flex",
-        "description": "ARIA role attribute for the container."
       }
     }
   },

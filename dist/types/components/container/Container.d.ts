@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-export interface ContainerProps {
+export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
     /**
      * If true, applies `box-sizing: border-box` to the container.
      * @default true
@@ -190,7 +190,7 @@ export interface ContainerProps {
      * @default 'container'
      */
     role?: string;
-}
+};
 /**
  * Container component
  *
@@ -212,6 +212,6 @@ export interface ContainerProps {
  *   <h2>Content</h2>
  * </Container>
  */
-declare const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps>;
-export declare const Con: import("react").FC<import("react").HTMLProps<HTMLDivElement> & ContainerProps>;
+declare const Container: React.FC<ContainerProps>;
+export declare const Con: import("react").FC<ContainerProps>;
 export default Container;
