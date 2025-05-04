@@ -1670,6 +1670,12 @@
         "defaultValue": "16",
         "description": "Custom font size for the paragraph text."
       },
+      "color": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "inherit",
+        "description": "Text color of the paragraph."
+      },
       "center": {
         "type": "boolean",
         "required": false,
@@ -1692,6 +1698,12 @@
         "required": false,
         "defaultValue": "16",
         "description": "Custom font size for the paragraph text."
+      },
+      "color": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "inherit",
+        "description": "Text color of the paragraph."
       },
       "center": {
         "type": "boolean",
