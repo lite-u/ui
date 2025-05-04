@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
-    const animationExitDuration = 300;
+    const animationExitDuration = 100;
     const { theme } = useLiteUIContext();
     const updateNotifications = () => {
         const arr = Array.from(notificationsRef.current.values());
@@ -76,7 +76,7 @@ const NotificationProvider = ({ children }) => {
                             scale: 0,
                         }, to: {
                             scale: 1,
-                        }, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
+                        }, leaveDuration: animationExitDuration, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
                                 background: '#fff',
                                 padding: 10,
                                 textAlign: 'center',

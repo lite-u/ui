@@ -8,7 +8,7 @@ import {createPortal} from 'react-dom'
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationProps[]>([])
   const notificationsRef = useRef<Map<string, NotificationProps>>(new Map())
-  const animationExitDuration = 300
+  const animationExitDuration = 100
 
   const {theme} = useLiteUIContext()
   const updateNotifications = () => {
@@ -104,6 +104,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
                 to={{
                   scale: 1,
                 }}
+                leaveDuration={animationExitDuration}
                 style={{overflow: 'visible'}}
               >
                 <Container style={{
