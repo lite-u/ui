@@ -3,15 +3,17 @@ import {useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
 
 const NotificationPage: React.FC = () => {
-  const {add, remove} = useNotification()
-  const notificationId = useRef<string>(undefined)
 
   return <Col>
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Toggle a Notification'}>
-          <Col between>
+        <UsageBlock title={'Toggle a Notification'} replacement={`
+        const NotificationSample: React.FC = () => {
+          const {add, remove} = useNotification()
+          const notificationId = useRef<string>(undefined)
+        
+          return <Col between>
             {
               !notificationId.current ?
                 <Button onClick={() => {
@@ -19,7 +21,7 @@ const NotificationPage: React.FC = () => {
                     remove(notificationId.current)
                   }
                   notificationId.current = add(
-                    'A notification that stays centered on the screen until it is manually removed.',
+                    <p style={{width: 200, height: 200}}>Hello </p>,
                     'info',
                     false,
                   )
@@ -30,24 +32,43 @@ const NotificationPage: React.FC = () => {
                   notificationId.current = undefined
                 }}>Hide</Button>
             }
-
+        
           </Col>
+        }
+
+        `}>
+          <NotificationSample/>
         </UsageBlock>
       </Con>
 
     </Row>
+  </Col>
+}
 
-    {/* <Row space={10}>
-      <Button onClick={() => {
-        const id = add('Hello Info' + Date.now(), 'info', false)
+const NotificationSample: React.FC = () => {
+  const {add, remove} = useNotification()
+  const notificationId = useRef<string>(undefined)
 
-        setTimeout(() => {
-          remove(id)
-        }, 2000)
-      }}>Notice Info</Button>
-      <Button warn onClick={() => add('Hello Warn' + Date.now(), 'warn')}>Notice Warn</Button>
-      <Button error onClick={() => add('Hello Error' + Date.now(), 'error')}>Notice Error</Button>
-    </Row>*/}
+  return <Col between>
+    {
+      !notificationId.current ?
+        <Button onClick={() => {
+          if (notificationId.current) {
+            remove(notificationId.current)
+          }
+          notificationId.current = add(
+            <p style={{width: 200, height: 200}}>Hello </p>,
+            'info',
+            false,
+          )
+        }}>Show</Button>
+        :
+        <Button warn onClick={() => {
+          remove(notificationId.current as string)
+          notificationId.current = undefined
+        }}>Hide</Button>
+    }
+
   </Col>
 }
 

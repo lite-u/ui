@@ -8,18 +8,18 @@ import { createPortal } from 'react-dom';
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
-    const animationExitDuration = 100;
+    const animationExitDuration = 150;
     const { theme } = useLiteUIContext();
     const updateNotifications = () => {
         const arr = Array.from(notificationsRef.current.values());
         setNotifications(arr);
     };
-    const addNotification = (text, type = 'info', delay = 2000) => {
+    const addNotification = (comp, type = 'info', delay = 2000) => {
         const id = type + '-' + Date.now();
         const n = {
             id,
             type,
-            text,
+            comp,
             anim: false,
             timer: NaN,
         };
@@ -47,7 +47,6 @@ const NotificationProvider = ({ children }) => {
             n.anim = false;
             updateNotifications();
             n.timer = window.setTimeout(() => {
-                // removeNotification(id)
                 notificationsRef.current.delete(id);
                 updateNotifications();
             }, animationExitDuration);
@@ -58,7 +57,7 @@ const NotificationProvider = ({ children }) => {
             notifications,
             add: addNotification,
             remove: removeNotification,
-        }, children: [children, createPortal(notifications.map(({ id, text, type, anim }, index) => {
+        }, children: [children, createPortal(notifications.map(({ id, comp, type, anim }, index) => {
                 let color = '#000';
                 if (type === 'error') {
                     color = theme.colors.error;
@@ -84,7 +83,7 @@ const NotificationProvider = ({ children }) => {
                                 fontSize: theme.fontSizes.sm,
                                 boxShadow: color + ' 0 0 3px 0',
                                 color,
-                            }, children: text }) }) }, id);
+                            }, children: comp }) }) }, id);
             }), document.body)] }));
 };
 export default NotificationProvider;

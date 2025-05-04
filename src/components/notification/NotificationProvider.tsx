@@ -8,7 +8,7 @@ import {createPortal} from 'react-dom'
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationProps[]>([])
   const notificationsRef = useRef<Map<string, NotificationProps>>(new Map())
-  const animationExitDuration = 100
+  const animationExitDuration = 150
 
   const {theme} = useLiteUIContext()
   const updateNotifications = () => {
@@ -17,12 +17,12 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     setNotifications(arr)
   }
 
-  const addNotification = (text: string, type: NotificationProps['type'] = 'info', delay: number | false = 2000) => {
+  const addNotification = (comp: React.ReactNode, type: NotificationProps['type'] = 'info', delay: number | false = 2000) => {
     const id = type + '-' + Date.now()
     const n: NotificationProps = {
       id,
       type,
-      text,
+      comp,
       anim: false,
       timer: NaN,
     }
@@ -77,7 +77,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
       {children}
       {
         createPortal(
-          notifications.map(({id, text, type, anim}, index) => {
+          notifications.map(({id, comp, type, anim}, index) => {
             let color = '#000'
 
             if (type === 'error') {
@@ -114,7 +114,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
                   fontSize: theme.fontSizes.sm,
                   boxShadow: color + ' 0 0 3px 0',
                   color,
-                }}>{text}</Container>
+                }}>{comp}</Container>
               </Transition>
             </div>
           }), document.body,

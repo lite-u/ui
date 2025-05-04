@@ -1,13 +1,13 @@
 export interface NotificationProps {
     id: string;
-    text: string;
+    comp: React.ReactNode;
     type: 'info' | 'warn' | 'error';
     anim: boolean;
     timer: number;
 }
 interface NotificationContextType {
     notifications: NotificationProps[];
-    add: (text: string, type?: 'info' | 'error' | 'warn', delay?: number | false) => string;
+    add: (comp: React.ReactNode, type?: 'info' | 'error' | 'warn', delay?: number | false) => string;
     remove: (id: string) => void;
 }
 /**
