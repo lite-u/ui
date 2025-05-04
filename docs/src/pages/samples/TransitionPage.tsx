@@ -30,19 +30,19 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
-      <Con w={'auto'}>
+      <Con w={200}>
         <SampleBlock title={'Position Fixed(Screen Center)'}>
           <TransitionFixed/>
         </SampleBlock>
       </Con>
 
-      <Con w={'auto'}>
+      <Con w={200}>
         <SampleBlock title={'Delayed 1000ms'}>
           <TransitionDelayed/>
         </SampleBlock>
       </Con>
 
-      <Con w={'auto'}>
+      <Con w={200}>
         <SampleBlock title={'Enter 3000ms, exit 4000ms'}>
           <TransitionDuration/>
         </SampleBlock>
@@ -116,17 +116,17 @@ const TransitionRotate = () => {
         setVisible(false)
       }}
       visible={visible}
-      style={{width: 100, height: 100}}
+      style={{width: 50, height: 50}}
       from={{rotate: '0deg'}}
       to={{rotate: '360deg'}}>
       <Row fw
            fh
            center
            jc
-           bg={'#fff'}
-           style={{
-             boxShadow: '0 0 3px 0 #000',
-           }}>Text</Row>
+           bg={'#571881'}
+           rounded
+           border
+      ></Row>
     </Transition>
 
   </Con>
@@ -198,17 +198,16 @@ const TransitionDuration = () => {
       duration={3000}
       leaveDuration={4000}
       visible={visible}
-      style={{width: 100, height: 100}}
+      style={{width: 50, height: 50}}
       from={{rotate: '0deg'}}
       to={{rotate: '360deg'}}>
       <Row fw
            fh
            center
            jc
-           bg={'#fff'}
-           style={{
-             boxShadow: '0 0 3px 0 #000',
-           }}></Row>
+           bg={'#8e7f34'}
+           rounded
+           border></Row>
     </Transition>
 
   </Con>

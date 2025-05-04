@@ -13,7 +13,6 @@ const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string
     tabStop: 2,
     // maxInlineAttributesLineLength: 40,
   })
-  console.log(code)
   // replace inline
   code = code.replace(/<(\w+)>\s*([^<]+?)\s*<\/\1>/g, (_, tag, content) => {
     return `<${tag}>${content}</${tag}>`
