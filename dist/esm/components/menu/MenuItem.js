@@ -2,6 +2,23 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from 'react';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { Transition } from '../../index';
+/**
+ * MenuItem component
+ *
+ * @brief
+ * A flexible interactive item used within menus or lists, with optional size variants and hover transitions.
+ *
+ * @intro
+ * Applies consistent dimensions and padding based on selected size (`xs`, `s`, `m`, `l`),
+ * and shows a transition effect on hover. Integrates theming from Lite UI context.
+ *
+ * @example
+ * import { MenuItem } from '@lite-u/ui'
+ *
+ * <MenuItem m hoverStyle={{ backgroundColor: 'lightgray' }}>
+ *   Settings
+ * </MenuItem>
+ */
 const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
     backgroundColor: '#dfdfdf',
 }, hoverEnterDuration = 300, hoverLeaveDuration = 500, ...props }) => {

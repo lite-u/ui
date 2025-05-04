@@ -1735,49 +1735,53 @@
     }
   },
   "MenuItem": {
-    "tags": {},
+    "tags": {
+      "brief": "A flexible interactive item used within menus or lists, with optional size variants and hover transitions.",
+      "intro": "Applies consistent dimensions and padding based on selected size (`xs`, `s`, `m`, `l`),\nand shows a transition effect on hover. Integrates theming from Lite UI context.",
+      "example": "import { MenuItem } from '@lite-u/ui'\n\n<MenuItem m hoverStyle={{ backgroundColor: 'lightgray' }}>\n  Settings\n</MenuItem>"
+    },
     "props": {
       "xs": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Renders the item in extra-small size."
       },
       "s": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Renders the item in small size."
       },
       "m": {
         "type": "boolean",
         "required": false,
         "defaultValue": "true",
-        "description": ""
+        "description": "Renders the item in medium size."
       },
       "l": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "false",
+        "description": "Renders the item in large size."
       },
       "hoverStyle": {
         "type": "FromType",
         "required": false,
         "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
-        "description": ""
+        "description": "CSS styles to apply on hover transition."
       },
       "hoverEnterDuration": {
         "type": "number",
         "required": false,
         "defaultValue": "300",
-        "description": ""
+        "description": "Duration of the hover transition entering, in milliseconds."
       },
       "hoverLeaveDuration": {
         "type": "number",
         "required": false,
         "defaultValue": "500",
-        "description": ""
+        "description": "Duration of the hover transition leaving, in milliseconds."
       }
     }
   },
