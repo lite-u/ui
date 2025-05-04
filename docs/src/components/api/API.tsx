@@ -1,4 +1,4 @@
-import {Table, TableRow} from '@lite-u/ui'
+import {P, Table, TableRow} from '@lite-u/ui'
 import {CSSProperties} from 'react'
 import {Con} from '../../../../src'
 import CodeBlock from '../codeBlock/codeBlock.tsx'
@@ -14,7 +14,7 @@ export type APIType = {
 const API = ({data}: { data: Record<string, APIType> }) => {
   if (!data) return null
   // const headCellStyle = {minWidth: 100}
-  const firstColStyle: CSSProperties = {width: '100%', textAlign: 'center', paddingLeft: 10}
+  const firstColStyle: CSSProperties = {color: '#044e95', width: '100%', textAlign: 'center', paddingLeft: 10}
   const lastColStyle: CSSProperties = {
     maxWidth: 300,
     width: '100%', textAlign: 'left', paddingLeft: 10, whiteSpace: 'wrap',
@@ -33,10 +33,11 @@ const API = ({data}: { data: Record<string, APIType> }) => {
              wordWrap: 'break-word',
              wordBreak: 'break-word',
              minWidth: 100,
+             maxWidth: 300,
            }}
     >
       <TableRow head>
-        <p style={firstColStyle}>Property</p>
+        <P style={firstColStyle} color={'#292929'}>Property</P>
         <span>type</span>
         <span>Default Value</span>
         <span>required</span>
