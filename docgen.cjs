@@ -3,7 +3,7 @@ const path = require('path');
 // const parser = require('react-docgen-typescript').withDefaultConfig()
 const parser = require('react-docgen-typescript')
 const docs = parser.parse('src/index.tsx', {
-    skipChildrenPropWithoutDoc: false,
+    skipChildrenPropWithoutDoc: true,
     savePropValueAsString: true,
     /*   componentNameResolver:(exp,s) => {
            console.log(exp,s)

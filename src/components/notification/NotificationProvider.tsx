@@ -61,9 +61,6 @@ export const NotificationContext = createContext({
  * }
  */
 const NotificationProvider: FC<{
-  /**
-   * children
-   */
   children: ReactNode
 }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationItemProps[]>([])
