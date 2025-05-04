@@ -45,7 +45,7 @@ type DropProps = {
  * In React, applying visual cues during drag-over can sometimes cause flickering—especially when styles update frequently. The Drop component simplifies handling such interactions by managing drag-over feedback smoothly and supporting MIME-type restrictions. It also provides hooks for custom logic when files are dropped, making it an easy and reliable way to implement drag-and-drop functionality.
  *
  * \
- * `Caution`: Safari cannot detect files during the drag phase, so use onDropped for any functionality that needs to work reliably across all browsers.
+ * ⚠️ `Caution`: Safari `CANNOT` detect files during the drag phase, so use `onDropped` for any functionality that needs to work reliably across all browsers.
  *
  * @example
  * import { Drop } from '@lite-u/ui'
