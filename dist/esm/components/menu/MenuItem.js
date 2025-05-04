@@ -43,6 +43,9 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
+        wordBreak: 'keep-all',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
     };
     return _jsx("div", { role: 'menu-item', onMouseOver: () => {
             setVisible(true);

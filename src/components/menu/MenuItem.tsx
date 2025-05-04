@@ -88,6 +88,9 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
+    wordBreak: 'keep-all',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
   }
 
   return <div
