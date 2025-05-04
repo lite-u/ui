@@ -35,6 +35,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   const {theme} = useLiteUIContext()
   const size = getSize()
   const styles: CSSProperties = {
+    width: 150,
     height: theme.formElements[size].height,
     padding: theme.padding[size].y,
     fontSize: theme.fontSizes[size],
