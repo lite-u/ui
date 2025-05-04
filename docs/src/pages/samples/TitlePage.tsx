@@ -8,7 +8,7 @@ const TitlePage: React.FC = () => {
       <Con w={'auto'}>
         <UsageBlock title={'Titles'}>
           <Col between>
-            <Title h1 sticky style={{zIndex:100}}>h1</Title>
+            <Title h1 color={'red'} sticky style={{zIndex:100}}>h1</Title>
             <Title h2>h2</Title>
             <Title h3>h3</Title>
             <Title h4>h4</Title>

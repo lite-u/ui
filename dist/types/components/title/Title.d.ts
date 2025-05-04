@@ -1,5 +1,10 @@
 type TitleProps = {
     /**
+     * Set text color the element.
+     * @default inherit
+     */
+    color?: string;
+    /**
      * Makes the heading position sticky at the top of its container.
      * @default false
      */
@@ -34,11 +39,6 @@ type TitleProps = {
      * @default false
      */
     h6?: boolean;
-    /**
-     * Set text color the element.
-     * @default #000
-     */
-    color?: boolean;
 } & React.HTMLAttributes<HTMLHeadingElement>;
 /**
  * Title component

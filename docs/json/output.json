@@ -1607,6 +1607,12 @@
       "example": "import { Title } from '@lite-u/ui'\n\n<Title h2 sticky>Section Title</Title>"
     },
     "props": {
+      "color": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "inherit",
+        "description": "Set text color the element."
+      },
       "sticky": {
         "type": "boolean",
         "required": false,
@@ -1648,12 +1654,6 @@
         "required": false,
         "defaultValue": "false",
         "description": "If true, renders an h6 element."
-      },
-      "color": {
-        "type": "never",
-        "required": false,
-        "defaultValue": "#000",
-        "description": "Set text color the element."
       }
     }
   },

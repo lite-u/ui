@@ -72,7 +72,7 @@ export interface ContainerProps {
     ib?: boolean;
     /**
      * Color of the border.
-     * @default '#dfdfdf'
+     * @default #dfdfdf
      */
     borderColor?: CSSProperties['borderColor'];
     /**

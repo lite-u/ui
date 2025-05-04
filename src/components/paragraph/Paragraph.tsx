@@ -26,6 +26,7 @@ const Paragraph: React.FC<React.HTMLAttributes<HTMLParagraphElement> & {
   size?: number,
   /**
    * Text color of the paragraph.
+   * @default false
    */
   color?: CSSProperties['color']
   /**

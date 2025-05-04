@@ -1,8 +1,14 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
+import {CSSProperties} from 'react'
 
 type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 type TitleProps = {
+  /**
+   * Set text color the element.
+   * @default inherit
+   */
+  color?: string
   /**
    * Makes the heading position sticky at the top of its container.
    * @default false
@@ -38,11 +44,6 @@ type TitleProps = {
    * @default false
    */
   h6?: boolean
-  /**
-   * Set text color the element.
-   * @default #000
-   */
-  color?: boolean
 } & React.HTMLAttributes<HTMLHeadingElement>
 
 /**
@@ -65,7 +66,7 @@ export const Title: React.FC<TitleProps> = ({
                                               children,
                                               style,
                                               sticky,
-                                              color='#000',
+                                              color,
                                               ...rest
                                             }) => {
   const {theme} = useLiteUIContext()
@@ -92,23 +93,25 @@ export const Title: React.FC<TitleProps> = ({
   const Tag: HeadingLevel = level
   const margin = headingMap[Tag].margin
   const fontSize = headingMap[Tag].fontSize
+  const styles: CSSProperties = {
+    fontWeight: 'bold',
+    margin: `${margin}px 0`,
+    fontSize: fontSize + 'px',
+    position: sticky ? 'sticky' : 'static',
+    zIndex: 10,
+    left: sticky ? 0 : 'auto',
+    top: sticky ? 0 : 'auto',
+    color,
+    backgroundColor: theme.title.backgroundColor,
+    ...style,
+  }
+
+  if (color) {
+    styles.color = color
+  }
 
   return (
-    <Tag
-      style={{
-        fontWeight: 'bold',
-        margin: `${margin}px 0`,
-        fontSize: fontSize + 'px',
-        position: sticky ? 'sticky' : 'static',
-        zIndex: 10,
-        left: sticky ? 0 : 'auto',
-        top: sticky ? 0 : 'auto',
-        color,
-        backgroundColor: theme.title.backgroundColor,
-        ...style,
-      }}
-      {...rest}
-    >
+    <Tag style={styles} {...rest}>
       {children}
     </Tag>
   )
