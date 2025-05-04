@@ -114,7 +114,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
                   ...styles,
                   ...style,
                 }}
-                leaveDuration={hoverLeaveDuration}
+                exitDuration={hoverLeaveDuration}
                 duration={hoverEnterDuration}
                 from={{
                   backgroundColor: '#fff',

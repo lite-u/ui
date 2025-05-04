@@ -239,7 +239,7 @@ const Select: React.FC<SelectProps> = ({
           <span>{value}</span>
           <Transition visible={openSelect}
                       duration={animationDuration}
-                      leaveDuration={animationLeaveDuration}
+                      exitDuration={animationLeaveDuration}
                       style={{
                         width: 14,
                         height: 14,
@@ -265,7 +265,7 @@ const Select: React.FC<SelectProps> = ({
 
       <Transition visible={openSelect}
                   duration={animationDuration}
-                  leaveDuration={animationLeaveDuration}
+                  exitDuration={animationLeaveDuration}
                   from={{
                     height: 0,
                   }}

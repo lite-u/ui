@@ -74,21 +74,8 @@ const TransitionScale = () => {
 
   return <div>
     <Transition visible={visible}
-                onAnimationEntered={() => {
-                  console.log('onAnimationEntered')
-                }}
-                onAnimationExited={() => {
-                  console.log('onAnimationExited')
-                }}
-                onAnimationEnterCancel={() => {
-                  console.log('onAnimationEnterCancel')
-                }}
-                onAnimationExitCancel={() => {
-                  console.log('onAnimationExitCancel')
-                }}
                 onMouseEnter={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}
-                duration={200}
                 from={{opacity: .5, scale: 0.5}}
                 to={{opacity: 1, scale: 1}}>
       <Row jc center bg={'#0b2e71'} mt={10} w={100} h={100} border rounded></Row>
@@ -215,7 +202,7 @@ const TransitionDuration = () => {
         setVisible(false)
       }}
       duration={3000}
-      leaveDuration={4000}
+      exitDuration={4000}
       visible={visible}
       style={{width: 50, height: 50}}
       from={{rotate: '0deg'}}
@@ -269,41 +256,46 @@ const TransitionNested = () => {
     }, 400)*/
 
   useEffect(() => {
-    return () => {
-      // clearInterval(_timer)
-    }
+    setTimeout(() => {
+      setVisible(true)
+    })
   }, [])
 
   return <Con ml={10}>
-    <Button s onClick={() => {
-      setVisible(!visible)
-    }}>{visible ? 'Back' : 'Go'}</Button>
+    {/* <Button s onClick={() => {
+      setVisible(true)
+    }}>Pulse</Button>*/}
     <Con w={100} h={100} m={30}>
       <Transition
         visible={visible}
         delay={100}
         duration={100}
-        leaveDuration={100}
-        from={{scale: 1}}
-        onTransitionStart={() => {
-          console.log('onTransitionStart')
-        }}
-
+        exitDuration={100}
+        from={{scale: 1, opacity: .8}}
+        to={{scale: .8, opacity: 1}}
         onAnimationEntered={() => {
+          setVisible(false)
           console.log('onAnimationEntered')
         }}
         onAnimationExited={() => {
-
+          setTimeout(() => {
+            setVisible(true)
+          }, 1000)
+          console.log('onAnimationExited')
         }}
-        to={{scale: .8}}>
+        onAnimationEnterCancel={() => {
+          console.log('onAnimationEnterCancel')
+        }}
+        onAnimationExitCancel={() => {
+          console.log('onAnimationExitCancel')
+        }}>
         <Transition
           visible={visible}
           delay={0}
           duration={100}
-          leaveDuration={100}
-
-          from={{scale: .1}}
-          to={{scale: 1}}>
+          exitDuration={100}
+          from={{scale: .8, opacity: .5}}
+          to={{scale: 1, opacity: 1}}>
           <Row fw
                fh
                w={100}

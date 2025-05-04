@@ -29,7 +29,7 @@ const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string
 
     <Collapse open={false}
               duration={200}
-              leaveDuration={100}
+              exitDuration={100}
               head={
                 <Tooltip title={'Code'}>
                   <Button xs style={{backgroundColor: '#f3f3f3'}}>{'</>'}</Button>

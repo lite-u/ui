@@ -128,7 +128,7 @@ const NotificationProvider: FC<{
               to={{
                 scale: 1,
               }}
-              leaveDuration={animationExitDuration}
+              exitDuration={animationExitDuration}
               style={{overflow: 'visible'}}
             >
               <Container style={{

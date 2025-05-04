@@ -26,7 +26,7 @@ import { useEffect, useRef, useState } from 'react';
  *   </Con>
  * }
  */
-const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, onAnimationEntered, onAnimationExited, onAnimationEnterCancel, onAnimationExitCancel, style = {}, ...props }) => {
+const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, exitDuration = 300, delay = 0, onAnimationEntered, onAnimationExited, onAnimationEnterCancel, onAnimationExitCancel, style = {}, ...props }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     // const [waiting, setWaiting] = useState()
     const initialized = useRef(false);
@@ -82,7 +82,7 @@ const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', 
             const item = handlingObj[key];
             let itemTransitionDeclaration = '';
             let itemDelay = delay;
-            let itemDuration = showing ? duration : leaveDuration;
+            let itemDuration = showing ? duration : exitDuration;
             let itemEffect = effect;
             let itemStyleValue;
             if (typeof item === 'object') {

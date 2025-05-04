@@ -295,7 +295,7 @@
         "defaultValue": "300",
         "description": "Default duration in milliseconds for entering transitions unless overridden per-property."
       },
-      "leaveDuration": {
+      "exitDuration": {
         "type": "number",
         "required": false,
         "defaultValue": "300",
@@ -314,6 +314,18 @@
         "description": ""
       },
       "onAnimationExited": {
+        "type": "VoidFunction",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onAnimationEnterCancel": {
+        "type": "VoidFunction",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onAnimationExitCancel": {
         "type": "VoidFunction",
         "required": false,
         "defaultValue": "",

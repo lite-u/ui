@@ -145,14 +145,14 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
                             handleOpen();
                         }
                         onKeyDown && onKeyDown(e);
-                    }, ...props, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, style: {
+                    }, ...props, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, exitDuration: animationLeaveDuration, style: {
                                     width: 14,
                                     height: 14,
                                 }, from: {
                                     rotate: '0deg',
                                 }, to: {
                                     rotate: '180deg',
-                                }, children: _jsx("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] }) }), _jsx(Transition, { visible: openSelect, duration: animationDuration, leaveDuration: animationLeaveDuration, from: {
+                                }, children: _jsx("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1", strokeLinecap: "round", strokeLinejoin: "round", children: _jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] }) }), _jsx(Transition, { visible: openSelect, duration: animationDuration, exitDuration: animationLeaveDuration, from: {
                         height: 0,
                     }, to: {
                         height: wrapperHeight,

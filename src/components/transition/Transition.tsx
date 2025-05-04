@@ -60,7 +60,7 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
    * Default duration in milliseconds for leaving transitions unless overridden per-property.
    * @default 300
    */
-  leaveDuration?: number
+  exitDuration?: number
 
   /**
    * Default delay in milliseconds before starting the transition unless overridden per-property.
@@ -70,6 +70,8 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
 
   onAnimationEntered?: VoidFunction,
   onAnimationExited?: VoidFunction,
+  onAnimationEnterCancel?: VoidFunction,
+  onAnimationExitCancel?: VoidFunction,
   children: ReactNode
   ref?: React.Ref<HTMLDivElement>
 }
@@ -108,7 +110,7 @@ const Transition: FC<TransitionProps> = ({
                                            visible = true,
                                            effect = 'ease',
                                            duration = 300,
-                                           leaveDuration = 300,
+                                           exitDuration = 300,
                                            delay = 0,
                                            onAnimationEntered,
                                            onAnimationExited,
@@ -175,7 +177,7 @@ const Transition: FC<TransitionProps> = ({
       const item = handlingObj[key]
       let itemTransitionDeclaration = ''
       let itemDelay = delay
-      let itemDuration = showing ? duration : leaveDuration
+      let itemDuration = showing ? duration : exitDuration
       let itemEffect = effect
       let itemStyleValue: CSSProperties[typeof key]
 

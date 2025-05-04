@@ -98,7 +98,7 @@ const NotificationProvider = ({ children }) => {
                             scale: 0,
                         }, to: {
                             scale: 1,
-                        }, leaveDuration: animationExitDuration, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
+                        }, exitDuration: animationExitDuration, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
                                 background: '#fff',
                                 padding: 10,
                                 textAlign: 'center',

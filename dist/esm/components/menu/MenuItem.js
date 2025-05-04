@@ -60,7 +60,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
         }, ...props, children: _jsx(Transition, { visible: visible, style: {
                 ...styles,
                 ...style,
-            }, leaveDuration: hoverLeaveDuration, duration: hoverEnterDuration, from: {
+            }, exitDuration: hoverLeaveDuration, duration: hoverEnterDuration, from: {
                 backgroundColor: '#fff',
             }, to: hoverStyle, children: children }) });
 };

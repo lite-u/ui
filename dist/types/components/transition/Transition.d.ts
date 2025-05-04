@@ -44,7 +44,7 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
      * Default duration in milliseconds for leaving transitions unless overridden per-property.
      * @default 300
      */
-    leaveDuration?: number;
+    exitDuration?: number;
     /**
      * Default delay in milliseconds before starting the transition unless overridden per-property.
      * @default 0
@@ -52,6 +52,8 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
     delay?: number;
     onAnimationEntered?: VoidFunction;
     onAnimationExited?: VoidFunction;
+    onAnimationEnterCancel?: VoidFunction;
+    onAnimationExitCancel?: VoidFunction;
     children: ReactNode;
     ref?: React.Ref<HTMLDivElement>;
 };
