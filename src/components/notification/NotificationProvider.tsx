@@ -41,19 +41,10 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
 
     }, 0)
 
-    // handle animation exit
     n.timer = window.setTimeout(() => {
-      const n = notificationsRef.current.get(id)
-
-      if (n) {
-        n.anim = false
-        updateNotifications()
-
-        setTimeout(() => {
-          removeNotification(id)
-        }, animationExitDuration)
-      }
+      removeNotification(id)
     }, delay)
+    // handle animation exit
 
     updateNotifications()
     return id
@@ -63,11 +54,14 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
     const n = notificationsRef.current.get(id)
 
     if (n) {
-      clearTimeout(n.timer)
-      notificationsRef.current.delete(id)
+      n.anim = false
       updateNotifications()
 
-      return true
+      n.timer = window.setTimeout(() => {
+        // removeNotification(id)
+        notificationsRef.current.delete(id)
+        updateNotifications()
+      }, animationExitDuration)
     }
 
     return false
