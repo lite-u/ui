@@ -27,7 +27,7 @@ const TransitionSample: React.FC = () => {
 const Sample = () => {
   const [visible, setVisible] = useState(false)
 
-  return <Col start stretch w={100}>
+  return <div>
     <Button s onClick={() => setVisible(!visible)}>Scale {visible ? 'Down' : 'Up'}</Button>
     <Transition visible={visible}
                 style={{marginTop: 10}}
@@ -35,7 +35,7 @@ const Sample = () => {
                 to={{opacity: 1, scale: 1}}>
       <Row jc center w={100} h={100} border rounded>Hello world</Row>
     </Transition>
-  </Col>
+  </div>
 }
 
 const TransitionSample1 = () => {
