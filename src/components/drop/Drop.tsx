@@ -1,7 +1,6 @@
 import {HTMLProps, useCallback, useRef} from 'react'
 import Con from '../container/Container'
 
-
 type DropProps = {
   /**
    * List of accepted MIME types. Wildcards like 'image/*' are supported.

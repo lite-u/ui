@@ -22,7 +22,7 @@ const ComponentHead = () => {
   const codeExample = OUTPUT_JSON[COMP_ROUTE.apiNameKey].tags.example
   const space = 100
 
-  return <Con>
+  return <Con maxW={620}>
     <Col>
       <Con mt={10}></Con>
       {/*<Title id={COMP_ROUTE.to}><Link to={COMP_ROUTE.to}>#</Link> {COMP_ROUTE.name}</Title>*/}

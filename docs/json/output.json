@@ -439,7 +439,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {
@@ -700,7 +700,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {
@@ -949,7 +949,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {
@@ -1206,7 +1206,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {
@@ -1439,7 +1439,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {
@@ -1838,7 +1838,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {
@@ -2027,7 +2027,7 @@
       "tl": {
         "type": "boolean",
         "required": false,
-        "defaultValue": "true",
+        "defaultValue": "false",
         "description": "If true, aligns text to the left."
       },
       "tc": {

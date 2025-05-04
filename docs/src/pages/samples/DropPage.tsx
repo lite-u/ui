@@ -24,7 +24,7 @@ const DropPage: React.FC = () => {
 
   return <Col>
     <Row start space={10} wrap>
-      <Con w={'auto'}>
+      <Con maxW={700} w={'auto'}>
         <UsageBlock title={'Titles'}>
           <Row w={620} h={200} stretch space={10}>
 

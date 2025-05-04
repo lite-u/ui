@@ -2,7 +2,7 @@ import React from 'react'
 import Markdown from 'react-markdown'
 
 const MDBlock: React.FC<React.HTMLProps<HTMLDivElement> & { children: string }> = ({children, ...props}) => {
-  return <div {...props}><Markdown components={{
+  return <div role={'markdown-block'} {...props}><Markdown components={{
     code({children}) {
       return <span style={{
         // display: 'inline-block',

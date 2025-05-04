@@ -27,7 +27,7 @@ export interface ContainerProps {
     fh?: boolean;
     /**
      * If true, aligns text to the left.
-     * @default true
+     * @default false
      */
     tl?: boolean;
     /**
