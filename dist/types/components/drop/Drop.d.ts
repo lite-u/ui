@@ -7,15 +7,18 @@ type DropProps = {
     accepts?: string[];
     /**
      * Callback triggered when a valid drag enters the drop zone.
+     * @default \-
      */
     onDragIsOver?: (isFileTypeValid: boolean) => void;
     /**
      * Callback triggered when dragging leaves the drop zone.
+     * @default \-
      */
     onDragIsLeave?: () => void;
     /**
      * Callback triggered when a file is dropped.
      * Provides the event and a flag indicating file type validity.
+     * @default \-
      */
     onDropped?: (e: React.DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void;
     /**

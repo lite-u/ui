@@ -1,6 +1,6 @@
 import {Col, Con, Drop, P, Row} from '@lite-u/ui'
 import {useState} from 'react'
-import CodeWrap from '../../components/codeBlock/CodeWrap.tsx'
+import UsageBlock from '../UsageBlock.tsx'
 
 const DropPage: React.FC = () => {
   const [sampleAData, setSampleAData] = useState({
@@ -23,193 +23,102 @@ const DropPage: React.FC = () => {
   })
 
   return <Col>
-    <Row w={620} h={200} stretch space={10}>
+    <Row start space={10} wrap>
+      <Con w={'auto'}>
+        <UsageBlock title={'Titles'}>
+          <Row w={620} h={200} stretch space={10}>
 
-      <Drop accepts={['image/png']}
-            onDropped={(e, f) => {
-              f && setSampleAData({
-                ...sampleAData,
+            <Drop accepts={['image/png']}
+                  onDropped={(e, f) => {
+                    f && setSampleAData({
+                      ...sampleAData,
+                      bg: 'green',
+                      msg: e.dataTransfer.files[0].name,
+                    })
+                  }}
+                  onDragIsOver={(f) => {
+                    setSampleAData({
+                      ...sampleAData,
+                      bg: f ? 'blue' : 'red',
+                      msg: f ? 'I Love PNG !' : 'I Love PNG ONLY',
+                    })
+
+                  }}
+                  onDragIsLeave={() => {
+                    setSampleAData({
+                      ...sampleAData,
+                      bg: sampleAData.defaultBg,
+                      msg: sampleAData.defaultMsg,
+                    })
+                  }}>
+              <Con fw fh bg={sampleAData.bg}>
+                <Row fh center jc>
+                  <P color={'white'}>{sampleAData.msg}</P>
+                </Row>
+              </Con>
+            </Drop>
+
+            <Drop accepts={['image/*']}
+                  onDropped={(e, f) => {
+                    f && setSampleBData({
+                      ...sampleBData,
+                      bg: 'green',
+                      msg: e.dataTransfer.files[0].name,
+                    })
+                  }}
+                  onDragIsOver={(f) => {
+                    setSampleBData({
+                      ...sampleBData,
+                      bg: f ? 'blue' : 'red',
+                      msg: f ? 'I Love IMAGE !' : 'I Love IMAGE ONLY',
+                    })
+                  }}
+                  onDragIsLeave={() => {
+                    setSampleBData({
+                      ...sampleBData,
+                      bg: sampleBData.defaultBg,
+                      msg: sampleBData.defaultMsg,
+                    })
+                  }}>
+              <Con fw fh bg={sampleBData.bg}>
+                <Row fh center jc>
+                  <P color={'white'}>{sampleBData.msg}</P>
+                </Row>
+              </Con>
+            </Drop>
+
+            <Drop onDropped={(e, f) => {
+              f && setSampleCData({
+                ...sampleCData,
                 bg: 'green',
                 msg: e.dataTransfer.files[0].name,
               })
             }}
-            onDragIsOver={(f) => {
-              setSampleAData({
-                ...sampleAData,
-                bg: f ? 'blue' : 'red',
-                msg: f ? 'I Love PNG !' : 'I Love PNG ONLY',
-              })
+                  onDragIsOver={(f) => {
+                    setSampleCData({
+                      ...sampleCData,
+                      bg: f ? 'blue' : 'red',
+                      msg: f ? 'More And More !' : 'What Is This?',
+                    })
+                  }}
+                  onDragIsLeave={() => {
+                    setSampleCData({
+                      ...sampleCData,
+                      bg: sampleCData.defaultBg,
+                      msg: sampleCData.defaultMsg,
+                    })
+                  }}>
+              <Con fw fh bg={sampleCData.bg}>
+                <Row fh center jc>
+                  <P color={'white'}>{sampleCData.msg}</P>
+                </Row>
+              </Con>
+            </Drop>
 
-            }}
-            onDragIsLeave={() => {
-              setSampleAData({
-                ...sampleAData,
-                bg: sampleAData.defaultBg,
-                msg: sampleAData.defaultMsg,
-              })
-            }}>
-        <Con fw fh bg={sampleAData.bg}>
-          <Row fh center jc>
-            <P color={'white'}>{sampleAData.msg}</P>
           </Row>
-        </Con>
-      </Drop>
-
-      <Drop accepts={['image/*']}
-            onDropped={(e, f) => {
-              f && setSampleBData({
-                ...sampleBData,
-                bg: 'green',
-                msg: e.dataTransfer.files[0].name,
-              })
-            }}
-            onDragIsOver={(f) => {
-              setSampleBData({
-                ...sampleBData,
-                bg: f ? 'blue' : 'red',
-                msg: f ? 'I Love IMAGE !' : 'I Love IMAGE ONLY',
-              })
-            }}
-            onDragIsLeave={() => {
-              setSampleBData({
-                ...sampleBData,
-                bg: sampleBData.defaultBg,
-                msg: sampleBData.defaultMsg,
-              })
-            }}>
-        <Con fw fh bg={sampleBData.bg}>
-          <Row fh center jc>
-            <P color={'white'}>{sampleBData.msg}</P>
-          </Row>
-        </Con>
-      </Drop>
-
-      <Drop onDropped={(e, f) => {
-        f && setSampleCData({
-          ...sampleCData,
-          bg: 'green',
-          msg: e.dataTransfer.files[0].name,
-        })
-      }}
-            onDragIsOver={(f) => {
-              setSampleCData({
-                ...sampleCData,
-                bg: f ? 'blue' : 'red',
-                msg: f ? 'More And More !' : 'What Is This?',
-              })
-            }}
-            onDragIsLeave={() => {
-              setSampleCData({
-                ...sampleCData,
-                bg: sampleCData.defaultBg,
-                msg: sampleCData.defaultMsg,
-              })
-            }}>
-        <Con fw fh bg={sampleCData.bg}>
-          <Row fh center jc>
-            <P color={'white'}>{sampleCData.msg}</P>
-          </Row>
-        </Con>
-      </Drop>
-
+        </UsageBlock>
+      </Con>
     </Row>
-
-    <Con m={10}></Con>
-
-    <CodeWrap code={`
-        <Row w={620} h={200} stretch space={10}>
-
-      <Drop accepts={['image/png']}
-            style={{cursor}}
-            onDrop={(e) => {
-              setSampleAData({
-                ...sampleAData,
-                bg: 'green',
-                msg: e.dataTransfer.files[0].name
-              })
-            }}
-            onDragIsOver={(f) => {
-              setSampleAData({
-                ...sampleAData,
-                bg: f ? 'blue' : 'red',
-                msg: f ? 'I Love PNG !' : 'I Love PNG ONLY'
-              })
-            }}
-            onDragIsLeave={() => {
-              setSampleAData({
-                ...sampleAData,
-                bg: sampleAData.defaultBg,
-                msg: sampleAData.defaultMsg
-              })
-            }}>
-        <Con fw fh bg={sampleAData.bg}>
-          <Row fh center jc>
-            <P color={'white'}>{sampleAData.msg}</P>
-          </Row>
-        </Con>
-      </Drop>
-
-      <Drop accepts={['image/*']}
-            onDrop={(e) => {
-              setSampleBData({
-                ...sampleBData,
-                bg: 'green',
-                msg: e.dataTransfer.files[0].name
-              })
-            }}
-            onDragIsOver={(f) => {
-              setSampleBData({
-                ...sampleBData,
-                bg: f ? 'blue' : 'red',
-                msg: f ? 'I Love IMAGE !' : 'I Love IMAGE ONLY'
-              })
-            }}
-            onDragIsLeave={() => {
-              setSampleBData({
-                ...sampleBData,
-                bg: sampleBData.defaultBg,
-                msg: sampleBData.defaultMsg
-              })
-            }}>
-        <Con fw fh bg={sampleBData.bg}>
-          <Row fh center jc>
-            <P color={'white'}>{sampleBData.msg}</P>
-          </Row>
-        </Con>
-      </Drop>
-
-      <Drop onDrop={(e) => {
-        setSampleCData({
-          ...sampleCData,
-          bg: 'green',
-          msg: e.dataTransfer.files[0].name
-        })
-      }}
-            onDragIsOver={(f) => {
-              setSampleCData({
-                ...sampleCData,
-                bg: f ? 'blue' : 'red',
-                msg: f ? 'More And More !' : 'What Is This?'
-              })
-            }}
-            onDragIsLeave={() => {
-              setSampleCData({
-                ...sampleCData,
-                bg: sampleCData.defaultBg,
-                msg: sampleCData.defaultMsg
-              })
-            }}>
-        <Con fw fh bg={sampleCData.bg}>
-          <Row fh center jc>
-            <P color={'white'}>{sampleCData.msg}</P>
-          </Row>
-        </Con>
-      </Drop>
-
-    </Row>
-
-    `}></CodeWrap>
-
   </Col>
 }
 

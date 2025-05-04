@@ -2209,19 +2209,19 @@
       "onDragIsOver": {
         "type": "(isFileTypeValid: boolean) => void",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "\\-",
         "description": "Callback triggered when a valid drag enters the drop zone."
       },
       "onDragIsLeave": {
         "type": "() => void",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "\\-",
         "description": "Callback triggered when dragging leaves the drop zone."
       },
       "onDropped": {
         "type": "(e: DragEvent<HTMLDivElement>, isFileTypeValid: boolean) => void",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "\\-",
         "description": "Callback triggered when a file is dropped.\nProvides the event and a flag indicating file type validity."
       }
     }
