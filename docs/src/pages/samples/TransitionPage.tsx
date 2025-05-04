@@ -251,9 +251,6 @@ const TransitionTimeFunction = () => {
 
 const TransitionNested = () => {
   const [visible, setVisible] = useState(false)
-  /*  const _timer = setInterval(() => {
-      setVisible(!visible)
-    }, 400)*/
 
   useEffect(() => {
     setTimeout(() => {
@@ -262,9 +259,6 @@ const TransitionNested = () => {
   }, [])
 
   return <Con ml={10}>
-    {/* <Button s onClick={() => {
-      setVisible(true)
-    }}>Pulse</Button>*/}
     <Con w={100} h={100} m={30}>
       <Transition
         visible={visible}
