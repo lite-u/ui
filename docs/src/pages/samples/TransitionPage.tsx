@@ -22,16 +22,16 @@ const TransitionSample: React.FC = () => {
         </UsageBlock>
       </Con>
 
-      <Con w={'auto'}>
-        <UsageBlock title={'Position Fixed(Screen Center)'}>
-          <TransitionFixed/>
+      <Con w={400}>
+        <UsageBlock title={'Set Translates'}>
+          <TransitionTranslate/>
         </UsageBlock>
       </Con>
 
     </Row>
 
-    <TransitionFixed/>
-    <TransitionSample2/>
+    {/*<TransitionFixed/>*/}
+    {/*<TransitionSample2/>*/}
     <TransitionSample3/>
   </Col>
 }
@@ -82,24 +82,26 @@ const TransitionFixed = () => {
   </Con>
 }
 
-const TransitionSample2 = () => {
+const TransitionTranslate = () => {
   const [showGreeting, setShowGreeting] = useState(false)
 
-  return <Con w={100} h={100}>
+  return <Con>
     <Button onClick={() => {
       setShowGreeting(!showGreeting)
     }}>Toggle</Button>
 
     <Transition
+      visible={showGreeting}
       from={{
-        translate: '-100px -100px',
-        scale: .5,
-      }}
-      to={{
-        translate: '0 0',
+        translate: '100px 100px',
+        rotate: '0deg',
         scale: 1,
       }}
-      visible={showGreeting}>
+      to={{
+        translate: '100px 100px',
+        rotate: '180deg',
+        scale: 1,
+      }}>
       <Flex w={100}
             h={100}
             alignItems="center"
