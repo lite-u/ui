@@ -1897,13 +1897,13 @@
       "hoverEnterDuration": {
         "type": "number",
         "required": false,
-        "defaultValue": "300",
+        "defaultValue": "200",
         "description": "Duration of the hover transition entering, in milliseconds."
       },
       "hoverLeaveDuration": {
         "type": "number",
         "required": false,
-        "defaultValue": "500",
+        "defaultValue": "300",
         "description": "Duration of the hover transition leaving, in milliseconds."
       }
     }

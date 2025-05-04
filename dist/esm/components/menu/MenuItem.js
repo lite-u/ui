@@ -21,7 +21,7 @@ import { Transition } from '../../index';
  */
 const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
     backgroundColor: '#dfdfdf',
-}, hoverEnterDuration = 300, hoverLeaveDuration = 500, ...props }) => {
+}, hoverEnterDuration = 200, hoverLeaveDuration = 300, ...props }) => {
     const [visible, setVisible] = useState(false);
     const getSize = () => {
         if (xs)

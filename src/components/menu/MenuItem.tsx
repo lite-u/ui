@@ -66,8 +66,8 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         hoverStyle = {
           backgroundColor: '#dfdfdf',
         },
-        hoverEnterDuration = 300,
-        hoverLeaveDuration = 500,
+        hoverEnterDuration = 200,
+        hoverLeaveDuration = 300,
         ...props
       }) => {
   const [visible, setVisible] = useState(false)
