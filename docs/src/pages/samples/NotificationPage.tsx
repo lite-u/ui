@@ -1,4 +1,4 @@
-import {Button, Col, Con, Row, useNotification} from '@lite-u/ui'
+import {Button, Col, Con, IconButton, Row, Title, useNotification} from '@lite-u/ui'
 import {useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
 
@@ -106,15 +106,20 @@ const NotificationSampleComp: React.FC = () => {
   const notificationId = useRef<string>(undefined)
 
   const NotificationComp = () => {
-    return <Con w={100} height={100}>
-      <Con abs r={0} t={0}></Con>
+    return <Con w={100} h={100}>
+      <Con abs ovh w={'auto'} r={5} t={5}>
+        <IconButton xs onClick={() => remove(notificationId.current as string)}>&times;</IconButton>
+      </Con>
+
+      <Title>Title</Title>
+      <Title>Hello</Title>
     </Con>
   }
 
   return <Col between>
-    <Button primary onClick={() => {
+    <Button disabled={notificationId.current} primary onClick={() => {
       if (notificationId.current) {
-        remove(notificationId.current)
+        return
       }
       notificationId.current = add(
         <NotificationComp/>,

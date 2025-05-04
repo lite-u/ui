@@ -65,7 +65,7 @@ const NotificationProvider = ({ children }) => {
                 if (type === 'warn') {
                     color = theme.colors.warn;
                 }
-                return _jsx("div", { style: {
+                return _jsx("div", { role: 'notification', style: {
                         position: 'fixed',
                         top: '50%',
                         left: '50%',

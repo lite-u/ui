@@ -88,7 +88,7 @@ const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
               color = theme.colors.warn
             }
 
-            return <div key={id} style={{
+            return <div role={'notification'} key={id} style={{
               position: 'fixed',
               top: '50%',
               left: '50%',
