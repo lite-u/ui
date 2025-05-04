@@ -175,9 +175,9 @@ const TransitionDelayed = () => {
       }}
       delay={1000}
       visible={visible}
-      style={{width: 100, height: 30, backgroundColor: '#146e18', color: '#fff'}}
-      from={{width: 100,height: 20}}
-      to={{width: 140,height: 50}}>
+      style={{width: 100, height: 30, backgroundColor: '#146e18', color: '#fff', overflow: 'hidden'}}
+      from={{width: 100, height: 20}}
+      to={{width: 140, height: 50}}>
       <Con p={2} bg={'#146e18'} color={'#fff'}>Hover On And Wait</Con>
     </Transition>
 
@@ -217,19 +217,25 @@ const TransitionTimeFunction = () => {
   const [visible, setVisible] = useState(false)
 
   return <Con ml={10}>
+    <Button s onClick={() => {
+      setVisible(!visible)
+    }}>Move</Button>
     <Transition
-      onMouseEnter={() => {
-        setVisible(true)
-      }}
-      onMouseLeave={() => {
-        setVisible(false)
-      }}
-      delay={1000}
       visible={visible}
-      style={{width: 100, height: 30}}
-      from={{width: 100}}
-      to={{width: 200}}>
-      Hover On And Wait
+      duration={1000}
+      effect={'cubic-bezier(0.9, 0.5, 0.1, 1)'}
+      from={{translate: '0 0'}}
+      to={{translate: '100px 0'}}>
+      <Row fw
+           fh
+           w={50}
+           h={50}
+           center
+           jc
+           bg={'#8e7f34'}
+           rounded
+           border>
+      </Row>
     </Transition>
 
   </Con>
