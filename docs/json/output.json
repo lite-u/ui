@@ -952,6 +952,12 @@
         "defaultValue": "0",
         "description": "Defines spacing between children using the CSS `gap` property."
       },
+      "wrap": {
+        "type": "never",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, allows child elements to wrap onto multiple columns."
+      },
       "around": {
         "type": "boolean",
         "required": false,
@@ -1244,6 +1250,12 @@
         "required": false,
         "defaultValue": "0",
         "description": "Defines spacing between children using the CSS `gap` property."
+      },
+      "wrap": {
+        "type": "never",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, allows child elements to wrap onto multiple columns."
       },
       "around": {
         "type": "boolean",

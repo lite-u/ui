@@ -116,6 +116,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const styles: React.CSSProperties = {
     cursor: 'pointer',
+    userSelect: 'none',
     fontSize: fontSizes[size],
     padding: `0 ${padding[size].x}px`,
     borderRadius: `${borderRadius[size]}px`,

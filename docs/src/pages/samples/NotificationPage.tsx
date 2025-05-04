@@ -22,6 +22,13 @@ const NotificationPage: React.FC = () => {
       </Con>
 
       <Con w={200}>
+        <UsageBlock title={'Notification Types'} replacement={`
+          `}>
+          <NotificationSampleType/>
+        </UsageBlock>
+      </Con>
+
+      <Con w={200}>
         <UsageBlock title={'Toggle a Notification'} replacement={`
         const NotificationSampleToggle: React.FC = () => {
           const {add, remove} = useNotification()
@@ -71,6 +78,16 @@ const NotificationSampleSimple: React.FC = () => {
 
   return <Col between>
     <Button onClick={() => { add('Hello: ' + new Date().toLocaleString('en-US')) }}>Show</Button>
+  </Col>
+}
+
+const NotificationSampleType: React.FC = () => {
+  const {add} = useNotification()
+
+  return <Col between space={10}>
+    <Button onClick={() => { add('Hello', 'info') }}>Normal</Button>
+    <Button warn onClick={() => { add('Hello', 'warn') }}>Warn</Button>
+    <Button error onClick={() => { add('Warning', 'error') }}>Error</Button>
   </Col>
 }
 

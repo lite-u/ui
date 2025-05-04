@@ -28,7 +28,12 @@ export interface ColumnProps extends ContainerProps {
    * @default 0
    */
   space?: CSSProperties['gap']
-  // justify-content
+  /**
+   * If true, allows child elements to wrap onto multiple columns.
+   * @default false
+   */
+  wrap?: boolean,
+
   /**
    * Justifies children with space around them.
    * @default false
@@ -76,22 +81,23 @@ export interface ColumnProps extends ContainerProps {
  *   <div>Item 2</div>
  * </Column>
  */
-const Column: React.FC<ColumnProps & Omit<React.HTMLProps<HTMLDivElement>,'start'>> = ({
-                                                                           children,
-                                                                           around = false,
-                                                                           jc = false,
-                                                                           js = false,
-                                                                           je = false,
-                                                                           between = false,
-                                                                           space = 0,
-                                                                           start = true,
-                                                                           center = false,
-                                                                           stretch = false,
-                                                                           end = false,
-                                                                           role = 'column',
-                                                                           style = {},
-                                                                           ...props
-                                                                         }) => {
+const Column: React.FC<ColumnProps & Omit<React.HTMLProps<HTMLDivElement>, 'start'>> = ({
+                                                                                          children,
+                                                                                          wrap = false,
+                                                                                          around = false,
+                                                                                          jc = false,
+                                                                                          js = false,
+                                                                                          je = false,
+                                                                                          between = false,
+                                                                                          space = 0,
+                                                                                          start = true,
+                                                                                          center = false,
+                                                                                          stretch = false,
+                                                                                          end = false,
+                                                                                          role = 'column',
+                                                                                          style = {},
+                                                                                          ...props
+                                                                                        }) => {
   let styles: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -138,6 +144,10 @@ const Column: React.FC<ColumnProps & Omit<React.HTMLProps<HTMLDivElement>,'start
 
   if (stretch) {
     flexProps.alignItems = 'stretch'
+  }
+
+  if (wrap) {
+    flexProps.flexWrap = 'wrap'
   }
 
   return <Flex

@@ -41,6 +41,7 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
     const variant = getVariant();
     const styles = {
         cursor: 'pointer',
+        userSelect: 'none',
         fontSize: fontSizes[size],
         padding: `0 ${padding[size].x}px`,
         borderRadius: `${borderRadius[size]}px`,

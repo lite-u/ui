@@ -20,7 +20,7 @@ import Flex from './Flex';
  *   <div>Item 2</div>
  * </Column>
  */
-const Column = ({ children, around = false, jc = false, js = false, je = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, role = 'column', style = {}, ...props }) => {
+const Column = ({ children, wrap = false, around = false, jc = false, js = false, je = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, role = 'column', style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'column',
@@ -58,6 +58,9 @@ const Column = ({ children, around = false, jc = false, js = false, je = false, 
     }
     if (stretch) {
         flexProps.alignItems = 'stretch';
+    }
+    if (wrap) {
+        flexProps.flexWrap = 'wrap';
     }
     return _jsx(Flex, { col: true, role: role, style: styles, ...flexProps, children: children });
 };

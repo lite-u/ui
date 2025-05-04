@@ -58,7 +58,7 @@ const NotificationProvider = ({ children }) => {
             add: addNotification,
             remove: removeNotification,
         }, children: [children, createPortal(notifications.map(({ id, comp, type, anim }, index) => {
-                let color = '#000';
+                let color = '#666';
                 if (type === 'error') {
                     color = theme.colors.error;
                 }

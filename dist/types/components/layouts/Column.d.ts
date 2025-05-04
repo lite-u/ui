@@ -27,6 +27,11 @@ export interface ColumnProps extends ContainerProps {
      */
     space?: CSSProperties['gap'];
     /**
+     * If true, allows child elements to wrap onto multiple columns.
+     * @default false
+     */
+    wrap?: boolean;
+    /**
      * Justifies children with space around them.
      * @default false
      */
