@@ -16,15 +16,17 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
-      <Con w={400}>
+      <Con w={300}>
         <SampleBlock title={'Set Translates'}>
           <TransitionTranslate/>
         </SampleBlock>
       </Con>
 
-      <Con w={'auto'}>
+      <Con w={200}>
         <SampleBlock title={'Set Rotate'}>
-          <TransitionRotate/>
+          <Row fw jc center>
+            <TransitionRotate/>
+          </Row>
         </SampleBlock>
       </Con>
 
@@ -79,23 +81,24 @@ const TransitionTranslate = () => {
   const [visible, setVisible] = useState(false)
 
   return <Con>
-    <Button onClick={() => {
+    <Button s onClick={() => {
       setVisible(!visible)
-    }}>Toggle</Button>
+    }}>Move</Button>
 
     <Transition
       visible={visible}
-      style={{width: 100, height: 100}}
-      from={{translate: '200px -50px'}}
-      to={{translate: '0 0'}}>
+      style={{width: 50, height: 50}}
+      from={{translate: '0 10px'}}
+      to={{translate: '200px -20px'}}
+    >
       <Row fw
            fh
            center
            jc
-           bg={'#fff'}
-           style={{
-             boxShadow: '0 0 3px 0 #000',
-           }}>hello world</Row>
+           bg={'#ac5353'}
+           border
+           rounded
+      ></Row>
     </Transition>
 
   </Con>
@@ -104,7 +107,7 @@ const TransitionTranslate = () => {
 const TransitionRotate = () => {
   const [visible, setVisible] = useState(false)
 
-  return <Con ml={10}>
+  return <Con w={100}>
     <Transition
       onMouseEnter={() => {
         setVisible(true)
@@ -133,7 +136,7 @@ const TransitionFixed = () => {
   const [visible, setVisible] = useState(false)
 
   return <Con w={100} h={100}>
-    <Button onClick={() => {
+    <Button s onClick={() => {
       setVisible(!visible)
     }}>Toggle</Button>
     <Con w={100} h={100} fixed tc t={'50%'} l={'50%'}
@@ -150,10 +153,10 @@ const TransitionFixed = () => {
               h={100}
               alignItems="center"
               justifyContent="center"
-              style={{
-                backgroundColor: '#fff',
-                boxShadow: '0 0 3px 0 #000',
-              }}>Hello World</Flex>
+              border
+              rounded
+              color={'#fff'}
+              bg={'#146e18'}>Center</Flex>
       </Transition>
     </Con>
   </Con>

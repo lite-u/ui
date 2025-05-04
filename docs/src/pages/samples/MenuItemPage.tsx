@@ -9,8 +9,8 @@ const MenuItemPage: React.FC = () => {
           <Col>
             <MenuItem xs color={'red'}>XS size Menu Item </MenuItem>
             <MenuItem s color={'red'}>Small size Menu Item </MenuItem>
-            <MenuItem color={'red'}>medium (default) Menu Item 1</MenuItem>
-            <MenuItem l color={'red'}>Large Menu Item</MenuItem>
+            <MenuItem color={'red'}>medium size Menu Item</MenuItem>
+            <MenuItem l color={'red'}>Large size Menu Item</MenuItem>
           </Col>
         </SampleBlock>
       </Con>
