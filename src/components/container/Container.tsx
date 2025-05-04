@@ -83,25 +83,25 @@ export interface ContainerProps {
   fixed?: boolean,
   /**
    * The CSS `top` value.
-   * @default undefined
+   * @default \-
    */
   t?: CSSProperties['top'],
 
   /**
    * The CSS `right` value.
-   * @default undefined
+   * @default \-
    */
   r?: CSSProperties['right'],
 
   /**
    * The CSS `bottom` value.
-   * @default undefined
+   * @default \-
    */
   b?: CSSProperties['bottom'],
 
   /**
    * The CSS `left` value.
-   * @default undefined
+   * @default \-
    */
   l?: CSSProperties['left'],
   /**

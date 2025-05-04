@@ -373,7 +373,7 @@
       "l": {
         "type": "never",
         "required": false,
-        "defaultValue": "false\nundefined",
+        "defaultValue": "false\n\\-",
         "description": "If true, sets the panel size to large (`lg`).\nThe CSS `left` value."
       },
       "title": {
@@ -505,19 +505,19 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "borderColor": {
@@ -790,25 +790,25 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "l": {
         "type": "Left<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `left` value."
       },
       "borderColor": {
@@ -1081,25 +1081,25 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "l": {
         "type": "Left<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `left` value."
       },
       "borderColor": {
@@ -1374,25 +1374,25 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "l": {
         "type": "Left<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `left` value."
       },
       "borderColor": {
@@ -1643,25 +1643,25 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "l": {
         "type": "Left<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `left` value."
       },
       "borderColor": {
@@ -2072,25 +2072,25 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "l": {
         "type": "Left<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `left` value."
       },
       "borderColor": {
@@ -2297,25 +2297,25 @@
       "t": {
         "type": "Top<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `top` value."
       },
       "r": {
         "type": "Right<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `right` value."
       },
       "b": {
         "type": "Bottom<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `bottom` value."
       },
       "l": {
         "type": "Left<string | number>",
         "required": false,
-        "defaultValue": "undefined",
+        "defaultValue": "\\-",
         "description": "The CSS `left` value."
       },
       "borderColor": {
