@@ -117,7 +117,7 @@ const TablePage: React.FC = () => {
         </SampleBlock>
       </Col>
 
-      <Col mt={30}>
+      <Col>
         <SampleBlock title={'Custom Style Table 2'} style={{flex: 1}}>
           <Table xs fixed
                  style={{
