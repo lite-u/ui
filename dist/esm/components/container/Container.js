@@ -20,7 +20,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
  *   <h2>Content</h2>
  * </Container>
  */
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, color, border, rounded, ib, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, color, border, rounded, ib, abs, fixed, t, r, b, l, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -113,6 +113,24 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     }
     if (ib) {
         styles.display = 'inline-block';
+    }
+    if (abs) {
+        styles.position = 'absolute';
+    }
+    if (fixed) {
+        styles.position = 'fixed';
+    }
+    if (typeof t === 'string' || typeof t === 'number') {
+        styles.top = t;
+    }
+    if (typeof r === 'string' || typeof r === 'number') {
+        styles.right = r;
+    }
+    if (typeof b === 'string' || typeof b === 'number') {
+        styles.borderRadius = b;
+    }
+    if (typeof l === 'string' || typeof l === 'number') {
+        styles.left = l;
     }
     return _jsx("div", { role: role, style: styles, ...props, children: children });
 };

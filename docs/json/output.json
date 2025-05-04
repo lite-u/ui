@@ -371,10 +371,10 @@
         "description": "If true, sets the panel size to medium (`md`).\nMargin of the container."
       },
       "l": {
-        "type": "boolean",
+        "type": "never",
         "required": false,
-        "defaultValue": "false",
-        "description": "If true, sets the panel size to large (`lg`)."
+        "defaultValue": "false\nundefined",
+        "description": "If true, sets the panel size to large (`lg`).\nThe CSS `left` value."
       },
       "title": {
         "type": "string",
@@ -489,6 +489,36 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
+      },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
       },
       "borderColor": {
         "type": "BorderColor",
@@ -745,6 +775,42 @@
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
       },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `left` value."
+      },
       "borderColor": {
         "type": "BorderColor",
         "required": false,
@@ -999,6 +1065,42 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
+      },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `left` value."
       },
       "borderColor": {
         "type": "BorderColor",
@@ -1257,6 +1359,42 @@
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
       },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `left` value."
+      },
       "borderColor": {
         "type": "BorderColor",
         "required": false,
@@ -1489,6 +1627,42 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
+      },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `left` value."
       },
       "borderColor": {
         "type": "BorderColor",
@@ -1883,6 +2057,42 @@
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
       },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `left` value."
+      },
       "borderColor": {
         "type": "BorderColor",
         "required": false,
@@ -2071,6 +2281,42 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets display to inline-block."
+      },
+      "abs": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to absolute."
+      },
+      "fixed": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to fixed."
+      },
+      "t": {
+        "type": "Top<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `top` value."
+      },
+      "r": {
+        "type": "Right<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `right` value."
+      },
+      "b": {
+        "type": "Bottom<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `bottom` value."
+      },
+      "l": {
+        "type": "Left<string | number>",
+        "required": false,
+        "defaultValue": "undefined",
+        "description": "The CSS `left` value."
       },
       "borderColor": {
         "type": "BorderColor",

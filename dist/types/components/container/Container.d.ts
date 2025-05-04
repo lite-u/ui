@@ -71,6 +71,36 @@ export interface ContainerProps {
      */
     ib?: boolean;
     /**
+     * If true, sets position to absolute.
+     * @default \-
+     */
+    abs?: boolean;
+    /**
+     * If true, sets position to fixed.
+     * @default \-
+     */
+    fixed?: boolean;
+    /**
+     * The CSS `top` value.
+     * @default undefined
+     */
+    t?: CSSProperties['top'];
+    /**
+     * The CSS `right` value.
+     * @default undefined
+     */
+    r?: CSSProperties['right'];
+    /**
+     * The CSS `bottom` value.
+     * @default undefined
+     */
+    b?: CSSProperties['bottom'];
+    /**
+     * The CSS `left` value.
+     * @default undefined
+     */
+    l?: CSSProperties['left'];
+    /**
      * Color of the border.
      * @default #dfdfdf
      */

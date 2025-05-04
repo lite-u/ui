@@ -72,6 +72,39 @@ export interface ContainerProps {
    */
   ib?: boolean,
   /**
+   * If true, sets position to absolute.
+   * @default \-
+   */
+  abs?: boolean,
+  /**
+   * If true, sets position to fixed.
+   * @default \-
+   */
+  fixed?: boolean,
+  /**
+   * The CSS `top` value.
+   * @default undefined
+   */
+  t?: CSSProperties['top'],
+
+  /**
+   * The CSS `right` value.
+   * @default undefined
+   */
+  r?: CSSProperties['right'],
+
+  /**
+   * The CSS `bottom` value.
+   * @default undefined
+   */
+  b?: CSSProperties['bottom'],
+
+  /**
+   * The CSS `left` value.
+   * @default undefined
+   */
+  l?: CSSProperties['left'],
+  /**
    * Color of the border.
    * @default #dfdfdf
    */
@@ -200,6 +233,12 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
                                                                                  border,
                                                                                  rounded,
                                                                                  ib,
+                                                                                 abs,
+                                                                                 fixed,
+                                                                                 t,
+                                                                                 r,
+                                                                                 b,
+                                                                                 l,
                                                                                  borderColor = '#dfdfdf',
                                                                                  w,
                                                                                  h,
@@ -343,6 +382,30 @@ const Container: React.FC<React.HTMLProps<HTMLDivElement> & ContainerProps> = ({
 
   if (ib) {
     styles.display = 'inline-block'
+  }
+
+  if (abs) {
+    styles.position = 'absolute'
+  }
+
+  if (fixed) {
+    styles.position = 'fixed'
+  }
+
+  if (typeof t === 'string' || typeof t === 'number') {
+    styles.top = t
+  }
+
+  if (typeof r === 'string' || typeof r === 'number') {
+    styles.right = r
+  }
+
+  if (typeof b === 'string' || typeof b === 'number') {
+    styles.borderRadius = b
+  }
+
+  if (typeof l === 'string' || typeof l === 'number') {
+    styles.left = l
   }
 
   return <div
