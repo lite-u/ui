@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-export interface NotificationItemProps {
+interface NotificationItemProps {
     id: string;
     comp: ReactNode;
     type: 'info' | 'suc' | 'warn' | 'error';
@@ -28,12 +28,11 @@ interface NotificationContextType {
  * add('Saved successfully!', 'info')
  */
 export declare const NotificationContext: import("react").Context<NotificationContextType>;
-export declare const useNotification: () => NotificationContextType;
 /**
  * NotificationProvider component
  *
  * @brief
- * Provides notification context and renders toasts with animation and auto-dismiss behavior.
+ * Provides notification context and renders toasts with animation and auto-dismiss(optional) behavior.
  *
  * @intro
  * Wraps an application with a notification system. Allows components to trigger toast messages
@@ -41,13 +40,16 @@ export declare const useNotification: () => NotificationContextType;
  * with enter/exit animations, and removes them after a timeout.
  *
  * @example
- * import { NotificationProvider } from '@lite-u/ui'
+ * import { useNotification } from '@lite-u/ui'
  *
- * <NotificationProvider>
- *   <App />
- * </NotificationProvider>
+ * const NotificationSampleSimple: React.FC = () => {
+ *    const {add} = useNotification()
+ *
+ *    return <div onClick={()=>add('hello')}></div>
+ * }
  */
 declare const NotificationProvider: FC<{
     children: ReactNode;
 }>;
+export declare const useNotification: () => NotificationContextType;
 export default NotificationProvider;

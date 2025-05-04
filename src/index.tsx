@@ -15,7 +15,7 @@ import {ThemeType} from './themes/type'
 import SelectItem from './components/select/SelectItem'
 import Container, {Con} from './components/container/Container'
 import Drop from './components/drop/Drop'
-import {useNotification} from './components/notification/NotificationProvider'
+import NotificationProvider, {useNotification} from './components/notification/NotificationProvider'
 import Flex from './components/layouts/Flex'
 import Transition from './components/transition/Transition'
 import Tooltip from './components/tooltip/Tooltip'
@@ -35,6 +35,7 @@ export {
   Input,
   Link,
   LiteUIProvider,
+  NotificationProvider,
   Transition,
   Modal,
   Panel,

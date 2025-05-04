@@ -6,7 +6,7 @@ const HOOK_ROUTE_MAP = {
   notification: {
     to: 'notification',
     name: 'Notification',
-    apiNameKey: 'Notification',
+    apiNameKey: 'NotificationProvider',
     comp: <NotificationPage/>,
   },
 }

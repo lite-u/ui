@@ -25,12 +25,11 @@ export const NotificationContext = createContext({
     add: () => '',
     remove: () => { },
 });
-export const useNotification = () => useContext(NotificationContext);
 /**
  * NotificationProvider component
  *
  * @brief
- * Provides notification context and renders toasts with animation and auto-dismiss behavior.
+ * Provides notification context and renders toasts with animation and auto-dismiss(optional) behavior.
  *
  * @intro
  * Wraps an application with a notification system. Allows components to trigger toast messages
@@ -38,11 +37,13 @@ export const useNotification = () => useContext(NotificationContext);
  * with enter/exit animations, and removes them after a timeout.
  *
  * @example
- * import { NotificationProvider } from '@lite-u/ui'
+ * import { useNotification } from '@lite-u/ui'
  *
- * <NotificationProvider>
- *   <App />
- * </NotificationProvider>
+ * const NotificationSampleSimple: React.FC = () => {
+ *    const {add} = useNotification()
+ *
+ *    return <div onClick={()=>add('hello')}></div>
+ * }
  */
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
@@ -92,7 +93,7 @@ const NotificationProvider = ({ children }) => {
         }
         return false;
     };
-    return (_jsxs(NotificationContext.Provider, { value: {
+    return _jsxs(NotificationContext.Provider, { value: {
             notifications,
             add: addNotification,
             remove: removeNotification,
@@ -126,6 +127,7 @@ const NotificationProvider = ({ children }) => {
                                 boxShadow: color + ' 0 0 3px 0',
                                 color,
                             }, children: comp }) }) }, id);
-            }), document.body)] }));
+            }), document.body)] });
 };
+export const useNotification = () => useContext(NotificationContext);
 export default NotificationProvider;

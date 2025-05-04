@@ -259,6 +259,21 @@
       }
     }
   },
+  "NotificationProvider": {
+    "tags": {
+      "brief": "Provides notification context and renders toasts with animation and auto-dismiss(optional) behavior.",
+      "intro": "Wraps an application with a notification system. Allows components to trigger toast messages\nwith customizable content, type, and duration. Renders floating notifications using portals\nwith enter/exit animations, and removes them after a timeout.",
+      "example": "import { useNotification } from '@lite-u/ui'\n\nconst NotificationSampleSimple: React.FC = () => {\n   const {add} = useNotification()\n\n   return <div onClick={()=>add('hello')}></div>\n}"
+    },
+    "props": {
+      "children": {
+        "type": "ReactNode",
+        "required": true,
+        "defaultValue": "",
+        "description": ""
+      }
+    }
+  },
   "Transition": {
     "tags": {},
     "props": {

@@ -44,7 +44,7 @@ export const NotificationContext = createContext({
  * NotificationProvider component
  *
  * @brief
- * Provides notification context and renders toasts with animation and auto-dismiss behavior.
+ * Provides notification context and renders toasts with animation and auto-dismiss(optional) behavior.
  *
  * @intro
  * Wraps an application with a notification system. Allows components to trigger toast messages
@@ -52,11 +52,13 @@ export const NotificationContext = createContext({
  * with enter/exit animations, and removes them after a timeout.
  *
  * @example
- * import { NotificationProvider } from '@lite-u/ui'
+ * import { useNotification } from '@lite-u/ui'
  *
- * <NotificationProvider>
- *   <App />
- * </NotificationProvider>
+ * const NotificationSampleSimple: React.FC = () => {
+ *    const {add} = useNotification()
+ *
+ *    return <div onClick={()=>add('hello')}></div>
+ * }
  */
 const NotificationProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [notifications, setNotifications] = useState<NotificationItemProps[]>([])
