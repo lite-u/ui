@@ -156,6 +156,7 @@ const TransitionSample: React.FC = () => {
                 setVisibleDuration(false)
               }}
               duration={3000}
+              leaveDuration={4000}
               visible={visibleDuration}
               style={{width: 100, height: 100}}
               from={{rotate: '0deg'}}
