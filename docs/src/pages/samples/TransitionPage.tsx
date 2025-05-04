@@ -49,7 +49,7 @@ const TransitionSample: React.FC = () => {
       </Con>
 
       <Con w={'auto'}>
-        <SampleBlock title={'Time Function'}>
+        <SampleBlock title={'Time Function - Cubic-Bezier'}>
           <TransitionTimeFunction/>
         </SampleBlock>
       </Con>
