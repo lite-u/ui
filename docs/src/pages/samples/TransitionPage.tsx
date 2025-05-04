@@ -175,10 +175,10 @@ const TransitionDelayed = () => {
       }}
       delay={1000}
       visible={visible}
-      style={{width: 100, height: 30,backgroundColor:'#146e18',color:'#fff'}}
+      style={{width: 100, height: 30, backgroundColor: '#146e18', color: '#fff'}}
       from={{width: 100}}
-      to={{width: 120}}>
-      Hover On And Wait
+      to={{width: 140}}>
+      <Con p={2} bg={'#146e18'} color={'#fff'}>Hover On And Wait</Con>
     </Transition>
 
   </Con>
