@@ -493,7 +493,7 @@
       "borderColor": {
         "type": "BorderColor",
         "required": false,
-        "defaultValue": "'#dfdfdf'",
+        "defaultValue": "#dfdfdf",
         "description": "Color of the border."
       },
       "p": {
@@ -748,7 +748,7 @@
       "borderColor": {
         "type": "BorderColor",
         "required": false,
-        "defaultValue": "'#dfdfdf'",
+        "defaultValue": "#dfdfdf",
         "description": "Color of the border."
       },
       "p": {
@@ -1003,7 +1003,7 @@
       "borderColor": {
         "type": "BorderColor",
         "required": false,
-        "defaultValue": "'#dfdfdf'",
+        "defaultValue": "#dfdfdf",
         "description": "Color of the border."
       },
       "p": {
@@ -1260,7 +1260,7 @@
       "borderColor": {
         "type": "BorderColor",
         "required": false,
-        "defaultValue": "'#dfdfdf'",
+        "defaultValue": "#dfdfdf",
         "description": "Color of the border."
       },
       "p": {
@@ -1493,7 +1493,7 @@
       "borderColor": {
         "type": "BorderColor",
         "required": false,
-        "defaultValue": "'#dfdfdf'",
+        "defaultValue": "#dfdfdf",
         "description": "Color of the border."
       },
       "p": {
@@ -1648,6 +1648,12 @@
         "required": false,
         "defaultValue": "false",
         "description": "If true, renders an h6 element."
+      },
+      "color": {
+        "type": "never",
+        "required": false,
+        "defaultValue": "#000",
+        "description": "Set text color the element."
       }
     }
   },

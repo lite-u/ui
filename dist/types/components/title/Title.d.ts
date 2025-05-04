@@ -34,6 +34,11 @@ type TitleProps = {
      * @default false
      */
     h6?: boolean;
+    /**
+     * Set text color the element.
+     * @default #000
+     */
+    color?: boolean;
 } & React.HTMLAttributes<HTMLHeadingElement>;
 /**
  * Title component

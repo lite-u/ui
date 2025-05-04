@@ -38,6 +38,11 @@ type TitleProps = {
    * @default false
    */
   h6?: boolean
+  /**
+   * Set text color the element.
+   * @default #000
+   */
+  color?: boolean
 } & React.HTMLAttributes<HTMLHeadingElement>
 
 /**
@@ -60,6 +65,7 @@ export const Title: React.FC<TitleProps> = ({
                                               children,
                                               style,
                                               sticky,
+                                              color='#000',
                                               ...rest
                                             }) => {
   const {theme} = useLiteUIContext()
@@ -86,6 +92,7 @@ export const Title: React.FC<TitleProps> = ({
   const Tag: HeadingLevel = level
   const margin = headingMap[Tag].margin
   const fontSize = headingMap[Tag].fontSize
+
   return (
     <Tag
       style={{
@@ -96,6 +103,7 @@ export const Title: React.FC<TitleProps> = ({
         zIndex: 10,
         left: sticky ? 0 : 'auto',
         top: sticky ? 0 : 'auto',
+        color,
         backgroundColor: theme.title.backgroundColor,
         ...style,
       }}

@@ -15,7 +15,7 @@ import { useLiteUIContext } from '../../LiteUIProvider';
  *
  * <Title h2 sticky>Section Title</Title>
  */
-export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, ...rest }) => {
+export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, color = '#000', ...rest }) => {
     const { theme } = useLiteUIContext();
     const { padding } = theme;
     const headingMap = {
@@ -44,6 +44,7 @@ export const Title = ({ h1, h2, h3, h4, h5, h6, children, style, sticky, ...rest
             zIndex: 10,
             left: sticky ? 0 : 'auto',
             top: sticky ? 0 : 'auto',
+            color,
             backgroundColor: theme.title.backgroundColor,
             ...style,
         }, ...rest, children: children }));
