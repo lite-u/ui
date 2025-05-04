@@ -293,6 +293,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
           duration={animationEnterDuration}
           style={{
             position: 'fixed',
+            zIndex: 9999,
             // width: 'auto',
             // height: 'auto',
             ...realTimeStyle,

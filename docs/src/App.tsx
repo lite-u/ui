@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Routes} from 'react-router'
 import RootLayout from './pages/layouts/RootLayout.tsx'
 import ComponentLayout from './pages/layouts/componentsLayout/ComponentLayout.tsx'
 import COMPONENT_ROUTE_MAP from './pages/layouts/componentsLayout/componentData.tsx'
+import HooksLayout from './pages/layouts/hooksLayout/HooksLayout.tsx'
+import HOOK_ROUTE_MAP from './pages/layouts/hooksLayout/hooksData.tsx'
 
 function App() {
   return <LiteUIProvider>
@@ -19,6 +21,14 @@ function App() {
               Object.values(COMPONENT_ROUTE_MAP).map((COMP, index) => {
                 // @ts-ignore
                 return <Route key={index} path={COMP.to} element={COMP.comp}/>
+              })
+            }
+          </Route>
+          <Route path={'hooks'} element={<HooksLayout/>}>
+            {
+              Object.values(HOOK_ROUTE_MAP).map((HOOK, index) => {
+                // @ts-ignore
+                return <Route key={index} path={HOOK.to} element={HOOK.comp}/>
               })
             }
           </Route>

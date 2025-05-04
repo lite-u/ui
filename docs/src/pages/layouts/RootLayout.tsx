@@ -2,7 +2,7 @@ import {Col, Collapse, Con, Flex, MenuItem} from '@lite-u/ui'
 import {Link, NavLink, Outlet, useLocation} from 'react-router'
 import COMPONENT_ROUTE_MAP from './componentsLayout/componentData.tsx'
 import {CSSProperties, useEffect, useRef} from 'react'
-import HOOK_ROUTE_MAP from './hooksLayout/componentData.tsx'
+import HOOK_ROUTE_MAP from './hooksLayout/hooksData.tsx'
 
 const RootLayout = () => {
   const {pathname, hash} = useLocation()
