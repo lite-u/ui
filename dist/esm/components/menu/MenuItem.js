@@ -35,7 +35,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
     const { theme } = useLiteUIContext();
     const size = getSize();
     const styles = {
-        width: 150,
+        minWidth: 150,
         height: theme.formElements[size].height,
         padding: theme.padding[size].y,
         fontSize: theme.fontSizes[size],
@@ -45,7 +45,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
         alignItems: 'center',
         wordBreak: 'keep-all',
         whiteSpace: 'nowrap',
-        // overflow: 'hidden',
+        overflow: 'hidden',
         textOverflow: 'ellipsis',
     };
     return _jsx("div", { role: 'menu-item', onMouseOver: () => {

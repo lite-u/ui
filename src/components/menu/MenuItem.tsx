@@ -80,7 +80,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   const {theme} = useLiteUIContext()
   const size = getSize()
   const styles: CSSProperties = {
-    width: 150,
+    minWidth: 150,
     height: theme.formElements[size].height,
     padding: theme.padding[size].y,
     fontSize: theme.fontSizes[size],
@@ -90,7 +90,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     alignItems: 'center',
     wordBreak: 'keep-all',
     whiteSpace: 'nowrap',
-    // overflow: 'hidden',
+    overflow: 'hidden',
     textOverflow: 'ellipsis',
   }
 
