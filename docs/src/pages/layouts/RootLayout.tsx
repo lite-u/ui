@@ -44,26 +44,15 @@ const RootLayout = () => {
 
         <Collapse head={<MenuItem style={{flex: 1}}>Components</MenuItem>}>
           {
-            Object.values(COMPONENT_ROUTE_MAP).map((comp, index) =>
-              <MenuItem s style={{padding: 0}} key={index}>
-                <NavLink
-                  style={({isActive}) => {
-                    return {
-                      backgroundColor: isActive ? '#0a2e71' : 'transparent',
-                      color: isActive ? '#fff' : '#000',
-                      width: '100%',
-                      height: '100%',
-                      paddingLeft: 30,
-                    } as CSSProperties
-                  }}
-                  to={`components/${comp.to}`}>
-                  <Col tl fh jc>
-                    {comp.name}
-                  </Col>
-                </NavLink>
-              </MenuItem>)
+            Object.values(COMPONENT_ROUTE_MAP).map((comp, index) => {
+              return <NavItem key={index} to={`components/${comp.to}`} name={comp.name}/>
+            })
           }
         </Collapse>
+        {/*
+        <Collapse head={<MenuItem style={{flex: 1}}>Hooks</MenuItem>}>
+          <MenuItem s style={{padding: 0}}> </MenuItem>)
+        </Collapse>*/}
 
         <MenuItem s><Link to={`compatibility`}>Compatibility</Link></MenuItem>
         <MenuItem s><Link to={`accessibility`}>Accessibility</Link></MenuItem>
@@ -79,5 +68,23 @@ const RootLayout = () => {
       </Col>
     </Flex>
   </Flex>
+}
+
+const NavItem: FC<{ to: string, name: string }> = (to, name) => {
+  return <MenuItem s style={{padding: 0}}>
+    <NavLink
+      style={({isActive}) => {
+        return {
+          backgroundColor: isActive ? '#0a2e71' : 'transparent',
+          color: isActive ? '#fff' : '#000',
+          width: '100%',
+          height: '100%',
+          paddingLeft: 30,
+        } as CSSProperties
+      }}
+      to={to}>
+      <Col tl fh jc>{name}</Col>
+    </NavLink>
+  </MenuItem>
 }
 export default RootLayout
