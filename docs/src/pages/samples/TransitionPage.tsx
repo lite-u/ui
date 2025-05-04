@@ -54,6 +54,12 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
+      <Con w={'auto'}>
+        <SampleBlock title={'Nested'}>
+          <TransitionNested/>
+        </SampleBlock>
+      </Con>
+
 
     </Row>
 
@@ -220,15 +226,42 @@ const TransitionTimeFunction = () => {
     <Button s onClick={() => {
       setVisible(!visible)
     }}>{visible ? 'Back' : 'Go'}</Button>
+    <Con w={50} h={50}>
+      <Transition
+        visible={visible}
+        duration={1000}
+        effect={'cubic-bezier(0.9, 0.5, 0.1, 1)'}
+        from={{translate: '0 0'}}
+        to={{translate: '100px 0'}}>
+        <Row fw
+             fh
+             mt={10}
+             w={50}
+             h={50}
+             center
+             jc
+             bg={'#8e7f34'}
+             rounded
+             border>
+        </Row>
+      </Transition>
+    </Con>
+  </Con>
+}
+
+const TransitionNested = () => {
+  const [visible, setVisible] = useState(false)
+
+  return <Con ml={10}>
+    <Button s onClick={() => {
+      setVisible(!visible)
+    }}>{visible ? 'Back' : 'Go'}</Button>
     <Transition
       visible={visible}
-      duration={1000}
-      effect={'cubic-bezier(0.9, 0.5, 0.1, 1)'}
-      from={{translate: '0 0'}}
-      to={{translate: '100px 0'}}>
+      from={{scale: .1}}
+      to={{scale: 1}}>
       <Row fw
            fh
-           mt={10}
            w={50}
            h={50}
            center
