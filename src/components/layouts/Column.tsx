@@ -35,15 +35,25 @@ export interface ColumnProps extends ContainerProps {
    */
   around?: boolean,
   /**
+   * Justifies children with space between them.
+   * @default false
+   */
+  between?: boolean,
+  /**
    * Justifies children to the center vertically.
    * @default false
    */
   jc?: boolean,
   /**
-   * Justifies children with space between them.
+   * Justifies children to the start vertically.
    * @default false
    */
-  between?: boolean,
+  js?: boolean,
+  /**
+   * Justifies children to the end vertically.
+   * @default false
+   */
+  je?: boolean,
 }
 
 /**
@@ -66,10 +76,12 @@ export interface ColumnProps extends ContainerProps {
  *   <div>Item 2</div>
  * </Column>
  */
-const Column: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
+const Column: React.FC<ColumnProps & Omit<React.HTMLProps<HTMLDivElement>,'start'>> = ({
                                                                            children,
                                                                            around = false,
                                                                            jc = false,
+                                                                           js = false,
+                                                                           je = false,
                                                                            between = false,
                                                                            space = 0,
                                                                            start = true,
@@ -102,6 +114,14 @@ const Column: React.FC<ColumnProps & React.HTMLProps<HTMLDivElement>> = ({
 
   if (jc) {
     flexProps.justifyContent = 'center'
+  }
+
+  if (js) {
+    flexProps.justifyContent = 'start'
+  }
+
+  if (je) {
+    flexProps.justifyContent = 'end'
   }
 
   if (start) {

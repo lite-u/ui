@@ -20,7 +20,7 @@ import Flex from './Flex';
  *   <div>Item 2</div>
  * </Column>
  */
-const Column = ({ children, around = false, jc = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, role = 'column', style = {}, ...props }) => {
+const Column = ({ children, around = false, jc = false, js = false, je = false, between = false, space = 0, start = true, center = false, stretch = false, end = false, role = 'column', style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'column',
@@ -40,6 +40,12 @@ const Column = ({ children, around = false, jc = false, between = false, space =
     }
     if (jc) {
         flexProps.justifyContent = 'center';
+    }
+    if (js) {
+        flexProps.justifyContent = 'start';
+    }
+    if (je) {
+        flexProps.justifyContent = 'end';
     }
     if (start) {
         flexProps.alignItems = 'start';

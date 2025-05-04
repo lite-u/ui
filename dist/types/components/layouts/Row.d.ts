@@ -32,10 +32,20 @@ interface RowProps extends ContainerProps {
      */
     around?: boolean;
     /**
-     * Justify content to the center.
+     * Justify content to the center horizontally.
      * @default false
      */
     jc?: boolean;
+    /**
+     * Justifies children to the start horizontally.
+     * @default false
+     */
+    js?: boolean;
+    /**
+     * Justifies children to the end horizontally.
+     * @default false
+     */
+    je?: boolean;
     /**
      * Justify content with space between items.
      * @default false

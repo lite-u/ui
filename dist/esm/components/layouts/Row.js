@@ -19,7 +19,7 @@ import Flex from './Flex';
  *   <span>3</span>
  * </Row>
  */
-const Row = ({ children, wrap = false, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
+const Row = ({ children, wrap = false, around = false, jc = false, js = false, je = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
         flexDirection: 'row',
@@ -35,6 +35,12 @@ const Row = ({ children, wrap = false, around = false, jc = false, between = fal
     }
     if (jc) {
         flexProps.justifyContent = 'center';
+    }
+    if (js) {
+        flexProps.justifyContent = 'start';
+    }
+    if (je) {
+        flexProps.justifyContent = 'end';
     }
     if (between) {
         flexProps.justifyContent = 'space-between';

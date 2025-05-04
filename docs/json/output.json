@@ -641,7 +641,19 @@
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": "Justify content to the center."
+        "description": "Justify content to the center horizontally."
+      },
+      "js": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Justifies children to the start horizontally."
+      },
+      "je": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Justifies children to the end horizontally."
       },
       "between": {
         "type": "boolean",
@@ -845,7 +857,7 @@
     },
     "props": {
       "start": {
-        "type": "never",
+        "type": "boolean",
         "required": false,
         "defaultValue": "true",
         "description": "Aligns children to the start of the column (left by default)."
@@ -880,17 +892,29 @@
         "defaultValue": "false",
         "description": "Justifies children with space around them."
       },
+      "between": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Justifies children with space between them."
+      },
       "jc": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
         "description": "Justifies children to the center vertically."
       },
-      "between": {
+      "js": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": "Justifies children with space between them."
+        "description": "Justifies children to the start vertically."
+      },
+      "je": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Justifies children to the end vertically."
       },
       "box": {
         "type": "boolean",
@@ -1090,7 +1114,7 @@
     "tags": {},
     "props": {
       "start": {
-        "type": "never",
+        "type": "boolean",
         "required": false,
         "defaultValue": "true",
         "description": "Aligns children to the start of the column (left by default)."
@@ -1125,17 +1149,29 @@
         "defaultValue": "false",
         "description": "Justifies children with space around them."
       },
+      "between": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Justifies children with space between them."
+      },
       "jc": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
         "description": "Justifies children to the center vertically."
       },
-      "between": {
+      "js": {
         "type": "boolean",
         "required": false,
         "defaultValue": "false",
-        "description": "Justifies children with space between them."
+        "description": "Justifies children to the start vertically."
+      },
+      "je": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Justifies children to the end vertically."
       },
       "box": {
         "type": "boolean",

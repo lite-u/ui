@@ -40,11 +40,20 @@ interface RowProps extends ContainerProps {
   around?: boolean,
 
   /**
-   * Justify content to the center.
+   * Justify content to the center horizontally.
    * @default false
    */
   jc?: boolean,
-
+  /**
+   * Justifies children to the start horizontally.
+   * @default false
+   */
+  js?: boolean,
+  /**
+   * Justifies children to the end horizontally.
+   * @default false
+   */
+  je?: boolean,
   /**
    * Justify content with space between items.
    * @default false
@@ -84,6 +93,8 @@ const Row: React.FC<RowComponentProps> = ({
                                             wrap = false,
                                             around = false,
                                             jc = false,
+                                            js = false,
+                                            je = false,
                                             between = false,
                                             start = true,
                                             center = false,
@@ -113,6 +124,14 @@ const Row: React.FC<RowComponentProps> = ({
 
   if (jc) {
     flexProps.justifyContent = 'center'
+  }
+
+  if (js) {
+    flexProps.justifyContent = 'start'
+  }
+
+  if (je) {
+    flexProps.justifyContent = 'end'
   }
 
   if (between) {

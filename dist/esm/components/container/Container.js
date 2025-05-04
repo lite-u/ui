@@ -20,7 +20,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
  *   <h2>Content</h2>
  * </Container>
  */
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, fz = 14, bg, color, border, rounded, ib, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, fz, bg, color, border, rounded, ib, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
