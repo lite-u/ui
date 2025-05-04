@@ -4,7 +4,7 @@ import Transition from '../transition/Transition';
 import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
-import { NotificationContext } from './NotificationContext';
+import NotificationContext from './NotificationContext';
 /**
  * NotificationProvider component
  *

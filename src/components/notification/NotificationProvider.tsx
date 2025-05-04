@@ -3,7 +3,7 @@ import Transition from '../transition/Transition'
 import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
-import {NotificationContext, NotificationItemProps} from './NotificationContext'
+import NotificationContext, {NotificationItemProps} from './NotificationContext'
 
 /**
  * NotificationProvider component

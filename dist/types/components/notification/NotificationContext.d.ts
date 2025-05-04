@@ -6,23 +6,6 @@ export interface NotificationItemProps {
     anim: boolean;
     timer: number;
 }
-/**
- * NotificationContext
- *
- * @brief
- * React context for global toast notification state and actions.
- *
- * @intro
- * Provides access to a list of active notifications and functions to add or remove them.
- * Each notification can include content, type (info, success, warning, error), and an optional timeout.
- *
- * @example
- * const { add, remove } = useNotification()
- * add('Upload complete', 'suc', 3000)
- */
-/**
- * Shape of the notification context including list of notifications and management functions.
- */
 interface NotificationContextType {
     /**
      * List of currently displayed notifications.
@@ -44,6 +27,23 @@ interface NotificationContextType {
      */
     remove: (id: NotificationItemProps['id']) => void;
 }
+/**
+ * NotificationContext
+ *
+ * @brief
+ * React context for global toast notification state and actions.
+ *
+ * @intro
+ * Provides access to a list of active notifications and functions to add or remove them.
+ * Each notification can include content, type (info, success, warning, error), and an optional timeout.
+ *
+ * @example
+ * const { add, remove } = useNotification()
+ * add('Upload complete', 'suc', 3000)
+ */
+/**
+ * Shape of the notification context including list of notifications and management functions.
+ */
 declare const NotificationContext: import("react").Context<NotificationContextType>;
 export default NotificationContext;
 export declare const useNotification: () => NotificationContextType;
