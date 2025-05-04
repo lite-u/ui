@@ -6,8 +6,6 @@ const NotificationPage: React.FC = () => {
   const {add, remove} = useNotification()
   const notificationId = useRef<string>(undefined)
 
-  console.log(notificationId.current)
-
   return <Col>
     <Row start space={10} wrap>
 
@@ -15,19 +13,22 @@ const NotificationPage: React.FC = () => {
         <UsageBlock title={'Titles'}>
           <Col between>
             {
-              notificationId.current ?
+              !notificationId.current ?
                 <Button onClick={() => {
                   if (notificationId.current) {
                     remove(notificationId.current)
                   }
                   notificationId.current = add(
                     'A Notification stay on middle of the screen, 10 Seconds',
-                    'warn',
+                    'info',
                     false,
                   )
-                }}>Show Notice</Button>
+                }}>Show</Button>
                 :
-                <Button warn onClick={() => remove(notificationId.current as string)}>Hide It</Button>
+                <Button warn onClick={() => {
+                  remove(notificationId.current as string)
+                  notificationId.current = undefined
+                }}>Hide</Button>
             }
 
           </Col>
