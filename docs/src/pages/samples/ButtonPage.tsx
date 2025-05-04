@@ -12,7 +12,7 @@ const ButtonPage: React.FC = () => {
 
       <Con w={'auto'}>
         <SampleBlock title={'Neutral'}>
-          <Row between end space={2}>
+          <Row between end space={10}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -28,7 +28,7 @@ const ButtonPage: React.FC = () => {
 
       <Con w={'auto'}>
         <SampleBlock title={'Primary'}>
-          <Row between end space={2}>
+          <Row between end space={10}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -44,7 +44,7 @@ const ButtonPage: React.FC = () => {
 
       <Con w={'auto'}>
         <SampleBlock title={'Warn'}>
-          <Row between end space={2}>
+          <Row between end space={10}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
@@ -60,7 +60,7 @@ const ButtonPage: React.FC = () => {
 
       <Con w={'auto'}>
         <SampleBlock title={'Error'}>
-          <Row between end space={2}>
+          <Row between end space={10}>
             {
               buttonSizes.map((size) => {
                 const prop: Partial<ButtonProps> = {
