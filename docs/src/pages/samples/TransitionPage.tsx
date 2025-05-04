@@ -9,7 +9,7 @@ const TransitionSample: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Titles'}>
+        <UsageBlock title={'Simple Zoom'}>
           <Col between>
             <Sample/>
           </Col>
@@ -27,12 +27,13 @@ const TransitionSample: React.FC = () => {
 const Sample = () => {
   const [show, setShow] = useState(false)
 
-  return <Con w={100} h={100}>
-    <Button onClick={() => setShow(!show)}>Toggle</Button>
+  return <Con w={100}>
+    <Button onClick={() => setShow(!show)}>{show ? 'Hide' : 'Show'}</Button>
     <Transition visible={show}
+                style={{marginTop: 10}}
                 from={{opacity: 0, scale: 0.1}}
                 to={{opacity: 1, scale: 1}}>
-      <div>Hello world</div>
+      <Row jc center w={100} h={100} border rounded>Hello world</Row>
     </Transition>
   </Con>
 }
