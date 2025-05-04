@@ -1,6 +1,6 @@
 import {Button, Col, Con, IconButton, Link, Row, Title, useNotification} from '@lite-u/ui'
 import {useEffect, useRef} from 'react'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 import API, {APIType} from '../../components/api/API.tsx'
 import CodeBlock from '../../components/codeBlock/codeBlock.tsx'
 import dedent from 'dedent'
@@ -37,7 +37,7 @@ const NotificationPage: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={200}>
-        <UsageBlock title={'New One'} replacement={`
+        <SampleBlock title={'New One'} replacement={`
           const NotificationSampleSimple: React.FC = () => {
             const {add} = useNotification()
           
@@ -47,11 +47,11 @@ const NotificationPage: React.FC = () => {
           }
         `}>
           <NotificationSampleSimple/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={200}>
-        <UsageBlock title={'Toggle a Notification'} replacement={`
+        <SampleBlock title={'Toggle a Notification'} replacement={`
           const NotificationSampleToggle: React.FC = () => {
             const {add, remove} = useNotification()
             const notificationId = useRef<string>(undefined)
@@ -88,11 +88,11 @@ const NotificationPage: React.FC = () => {
           }
         `}>
           <NotificationSampleToggle/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={320}>
-        <UsageBlock title={'Notification Types'} replacement={`
+        <SampleBlock title={'Notification Types'} replacement={`
         const NotificationSampleType: React.FC = () => {
           const {add} = useNotification()
         
@@ -105,12 +105,12 @@ const NotificationPage: React.FC = () => {
         }
           `}>
           <NotificationSampleType/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={200}>
-        <UsageBlock title={'Pass in a Component'}
-                    replacement={`
+        <SampleBlock title={'Pass in a Component'}
+                     replacement={`
                     const NotificationSampleComp: React.FC = () => {
                       const {add, remove} = useNotification()
                       const notificationId = useRef<string>(undefined)
@@ -144,7 +144,7 @@ const NotificationPage: React.FC = () => {
                     }
                     `}>
           <NotificationSampleComp/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
     </Row>

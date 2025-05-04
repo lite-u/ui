@@ -1,11 +1,11 @@
 import {Col, Con, Row} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 
 const ContainerPage: React.FC = () => {
   return <Col>
     <Row space={10} wrap>
       <Con w={300}>
-        <UsageBlock title={'Nested Containers'}>
+        <SampleBlock title={'Nested Containers'}>
           <Con w={200} h={200} p={20} bg={'blue'}>
             <Con fh p={20} bg={'green'}>
               <Con fh p={20} bg={'red'}>
@@ -13,7 +13,7 @@ const ContainerPage: React.FC = () => {
               </Con>
             </Con>
           </Con>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
     </Row>

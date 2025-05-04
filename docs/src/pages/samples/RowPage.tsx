@@ -1,34 +1,34 @@
 import {Button, Col, Con, Row} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 
 const RowPage: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'With Width'}>
+        <SampleBlock title={'With Width'}>
           <Row between center w={200}>
             <Button s primary>1</Button>
             <Button s primary>2</Button>
             <Button s primary>3</Button>
             <Button s primary>4</Button>
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'With Space'}>
+        <SampleBlock title={'With Space'}>
           <Row space={20}>
             <Button error>1</Button>
             <Button error>2</Button>
             <Button error>3</Button>
             <Button error>4</Button>
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={250}>
-        <UsageBlock title={'With Column'}>
+        <SampleBlock title={'With Column'}>
           <Row space={20} between w={200} h={200}>
             <Col between fh>
               <Button>1</Button>
@@ -44,7 +44,7 @@ const RowPage: React.FC = () => {
               <Button>3</Button>
             </Col>
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
     </Row>

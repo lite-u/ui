@@ -1,12 +1,12 @@
 import {Col, Con, Flex, Row, Table, TableRow} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock'
+import SampleBlock from '../SampleBlock.tsx'
 import {NavLink} from 'react-router'
 
 const TablePage: React.FC = () => {
   return <Col id={'col'}>
     <Row space={10} mt={10} wrap>
       <Flex col minH={260} w={200}>
-        <UsageBlock title={'XS Size'} style={{flex: 1}}>
+        <SampleBlock title={'XS Size'} style={{flex: 1}}>
           <Table xs fixed>
             <TableRow head>
               <span>name</span>
@@ -21,11 +21,11 @@ const TablePage: React.FC = () => {
               <span>1970</span>
             </TableRow>
           </Table>
-        </UsageBlock>
+        </SampleBlock>
       </Flex>
 
       <Flex col minH={260} w={200}>
-        <UsageBlock title={'Small Size'} style={{flex: 1}}>
+        <SampleBlock title={'Small Size'} style={{flex: 1}}>
           <Table s>
             <TableRow head>
               <span>name</span>
@@ -40,11 +40,11 @@ const TablePage: React.FC = () => {
               <span>1970</span>
             </TableRow>
           </Table>
-        </UsageBlock>
+        </SampleBlock>
       </Flex>
 
       <Flex col minH={300} w={300}>
-        <UsageBlock title={'Medium Size (default)'} style={{flex: 1}}>
+        <SampleBlock title={'Medium Size (default)'} style={{flex: 1}}>
           <Table m>
             <TableRow head>
               <span>name</span>
@@ -59,11 +59,11 @@ const TablePage: React.FC = () => {
               <span>1970</span>
             </TableRow>
           </Table>
-        </UsageBlock>
+        </SampleBlock>
       </Flex>
 
       <Flex col minH={300} w={300}>
-        <UsageBlock title={'Large Size'} style={{flex: 1}}>
+        <SampleBlock title={'Large Size'} style={{flex: 1}}>
           <Table l>
             <TableRow head>
               <span>name</span>
@@ -78,11 +78,11 @@ const TablePage: React.FC = () => {
               <span>1970</span>
             </TableRow>
           </Table>
-        </UsageBlock>
+        </SampleBlock>
       </Flex>
 
       <Flex col minH={300} w={300}>
-        <UsageBlock title={'Custom Style Table'} style={{flex: 1}}>
+        <SampleBlock title={'Custom Style Table'} style={{flex: 1}}>
           <Table xs fixed
                  style={{
                    borderCollapse: 'collapse',
@@ -114,12 +114,12 @@ const TablePage: React.FC = () => {
               })
             }
           </Table>
-        </UsageBlock>
+        </SampleBlock>
       </Flex>
     </Row>
 
     <Flex col mt={30} minH={300} w={500}>
-      <UsageBlock title={'Custom Style Table 2'} style={{flex: 1}}>
+      <SampleBlock title={'Custom Style Table 2'} style={{flex: 1}}>
         <Table xs fixed
                style={{
                  borderCollapse: 'collapse',
@@ -155,7 +155,7 @@ const TablePage: React.FC = () => {
             <span>1970</span>
           </TableRow>
         </Table>
-      </UsageBlock>
+      </SampleBlock>
     </Flex>
 
 

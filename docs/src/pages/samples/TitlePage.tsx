@@ -1,12 +1,12 @@
 import {Col, Con, Row, Title} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 
 const TitlePage: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Titles'}>
+        <SampleBlock title={'Titles'}>
           <Col between>
             <Title h1 color={'red'} sticky style={{zIndex:100}}>h1</Title>
             <Title h2>h2</Title>
@@ -15,7 +15,7 @@ const TitlePage: React.FC = () => {
             <Title h5>h5</Title>
             <Title h6>h6</Title>
           </Col>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
     </Row>

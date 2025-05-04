@@ -1,13 +1,13 @@
 import {Button, Col, Con, Modal, Row} from '@lite-u/ui'
 import {useState} from 'react'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 
 const ModalPage: React.FC = () => {
   // const [showModal, setShowModal] = useState(false)
   return <Col>
     <Row end space={10}>
       <Con w={300}>
-        <UsageBlock title={'Open Modal'} replacement={`
+        <SampleBlock title={'Open Modal'} replacement={`
           import {Button, Col, Con, Modal, Row} from '@lite-u/ui'
 
           const ModalSample: React.FC = () => {
@@ -37,7 +37,7 @@ const ModalPage: React.FC = () => {
           }
         `}>
           <ModalSample/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
     </Row>
   </Col>

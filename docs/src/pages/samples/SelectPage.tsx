@@ -1,5 +1,5 @@
 import {Col, Con, Row, Select, SelectItem, useNotification} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 import {useState} from 'react'
 
 const SelectPage: React.FC = () => {
@@ -9,7 +9,7 @@ const SelectPage: React.FC = () => {
 
     <Row start space={10} wrap>
       <Con w={250}>
-        <UsageBlock title={'Sizes'}>
+        <SampleBlock title={'Sizes'}>
           <Col space={10}>
             <Row fw center>
               <Con mr={2} w={20} ib>xs </Con>
@@ -47,11 +47,11 @@ const SelectPage: React.FC = () => {
               </Select>
             </Row>
           </Col>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={200}>
-        <UsageBlock title={'Long list'} replacement={`
+        <SampleBlock title={'Long list'} replacement={`
           <Row style={{zIndex: 60}} space={10} end>
             <Select l selectValue={'12'}>
               {
@@ -76,11 +76,11 @@ const SelectPage: React.FC = () => {
               }
             </Select>
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={200}>
-        <UsageBlock title={'Custom Style'}>
+        <SampleBlock title={'Custom Style'}>
           <Col space={10} w={100}>
             <Select s
                     selectValue={'2'}
@@ -98,11 +98,11 @@ const SelectPage: React.FC = () => {
               <SelectItem value={'3'}>3</SelectItem>
             </Select>
           </Col>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={200}>
-        <UsageBlock title={'onChange'}>
+        <SampleBlock title={'onChange'}>
           <Col space={10} w={100}>
             <Select s
                     selectValue={selectValue}
@@ -115,7 +115,7 @@ const SelectPage: React.FC = () => {
               <SelectItem value={'3'}>3</SelectItem>
             </Select>
           </Col>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
     </Row>

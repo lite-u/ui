@@ -1,5 +1,5 @@
 import {Button, Col, Con, Row} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock'
+import SampleBlock from '../SampleBlock.tsx'
 import {ButtonProps} from '../../../../src'
 
 const ButtonPage: React.FC = () => {
@@ -11,7 +11,7 @@ const ButtonPage: React.FC = () => {
     <Row space={10} mt={10} maxW={800} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Neutral'}>
+        <SampleBlock title={'Neutral'}>
           <Row between end space={2}>
             {
               buttonSizes.map((size) => {
@@ -23,11 +23,11 @@ const ButtonPage: React.FC = () => {
               })
             }
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Primary'}>
+        <SampleBlock title={'Primary'}>
           <Row between end space={2}>
             {
               buttonSizes.map((size) => {
@@ -39,11 +39,11 @@ const ButtonPage: React.FC = () => {
               })
             }
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Warn'}>
+        <SampleBlock title={'Warn'}>
           <Row between end space={2}>
             {
               buttonSizes.map((size) => {
@@ -55,11 +55,11 @@ const ButtonPage: React.FC = () => {
               })
             }
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Error'}>
+        <SampleBlock title={'Error'}>
           <Row between end space={2}>
             {
               buttonSizes.map((size) => {
@@ -71,7 +71,7 @@ const ButtonPage: React.FC = () => {
               })
             }
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
     </Row>

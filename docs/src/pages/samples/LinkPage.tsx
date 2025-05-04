@@ -1,23 +1,23 @@
 import {Col, Con, Link, MenuItem, Row} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 
 const LinkPage: React.FC = () => {
   return <Col>
     <Row end space={10}>
       <Con w={300}>
-        <UsageBlock title={'Link'}>
+        <SampleBlock title={'Link'}>
           <Link style={{padding: '0px 20px'}} target={'_blank'} href={`/components/link`}>Click Me To Open A Tab</Link>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con mt={20} w={300}>
-        <UsageBlock title={'Wrapped by a MenuItem'}>
+        <SampleBlock title={'Wrapped by a MenuItem'}>
           <MenuItem>
             <Link target={'_blank'} href={`/components/link`}>
               Click Me To Open A Tab
             </Link>
           </MenuItem>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
     </Row>
 

@@ -1,9 +1,9 @@
-import {Button, Collapse, Con, Title, Tooltip} from '@lite-u/ui'
+import {Button, Collapse, Con, P, Title, Tooltip} from '@lite-u/ui'
 import {CSSProperties, FC, ReactNode} from 'react'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
 
-const UsageBlock: FC<{ title: string, children: ReactNode, replacement?: string, style?: CSSProperties }> = ({
+const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string, style?: CSSProperties }> = ({
                                                                                                                title,
                                                                                                                children,
                                                                                                                replacement,
@@ -19,8 +19,8 @@ const UsageBlock: FC<{ title: string, children: ReactNode, replacement?: string,
     return `<${tag}>${content}</${tag}>`
   })
 
-  return <Con role={'usage-block'} fh fw border rounded ib p={15} style={style}>
-    {title && <Title h6 style={{marginBottom: 30}}>{title}</Title>}
+  return <Con role={'usage-block'} fh fw border borderColor={'#000'} rounded ib p={15} style={style}>
+    {title && <P style={{marginBottom: 30}}>{title}</P>}
 
     {children}
 
@@ -48,4 +48,4 @@ const UsageBlock: FC<{ title: string, children: ReactNode, replacement?: string,
   </Con>
 }
 
-export default UsageBlock
+export default SampleBlock

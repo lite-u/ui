@@ -1,12 +1,12 @@
 import {Con, IconButton, Row} from '@lite-u/ui'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 
 const IconButtonsPage: React.FC = () => {
 
   return <Con>
     <Row center between>
       <Con w={250}>
-        <UsageBlock title={'Neutral'}>
+        <SampleBlock title={'Neutral'}>
           <Row between center space={2}>
             <IconButton>D</IconButton>
             <IconButton xs>xs</IconButton>
@@ -14,7 +14,7 @@ const IconButtonsPage: React.FC = () => {
             <IconButton m>M</IconButton>
             <IconButton l>L</IconButton>
           </Row>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
     </Row>
   </Con>

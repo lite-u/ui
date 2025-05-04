@@ -1,7 +1,7 @@
 import {Button, Con, Flex, Row, Transition} from '@lite-u/ui'
 import {useState} from 'react'
 import {Col} from '../../../../src'
-import UsageBlock from '../UsageBlock.tsx'
+import SampleBlock from '../SampleBlock.tsx'
 // import TransitionB from '@ui/components/transition/TransitionB.tsx'
 
 const TransitionSample: React.FC = () => {
@@ -9,41 +9,41 @@ const TransitionSample: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Simple Scale'}>
+        <SampleBlock title={'Simple Scale'}>
           <Col between>
             <TransitionScale/>
           </Col>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={400}>
-        <UsageBlock title={'Set Translates'}>
+        <SampleBlock title={'Set Translates'}>
           <TransitionTranslate/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Set Rotate'}>
+        <SampleBlock title={'Set Rotate'}>
           <TransitionRotate/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Position Fixed(Screen Center)'}>
+        <SampleBlock title={'Position Fixed(Screen Center)'}>
           <TransitionFixed/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Delayed 1000ms'}>
+        <SampleBlock title={'Delayed 1000ms'}>
           <TransitionDelayed/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Enter 3000ms, exit 4000ms'}>
+        <SampleBlock title={'Enter 3000ms, exit 4000ms'}>
           <TransitionDuration/>
-        </UsageBlock>
+        </SampleBlock>
       </Con>
 
 
@@ -165,9 +165,9 @@ const TransitionDelayed = () => {
       }}
       delay={1000}
       visible={visible}
-      style={{width: 100, height: 100}}
+      style={{width: 100, height: 30}}
       from={{width: 100}}
-      to={{width: 120}}>
+      to={{width: 200}}>
       <Row fw
            fh
            center
@@ -175,7 +175,7 @@ const TransitionDelayed = () => {
            bg={'#fff'}
            style={{
              boxShadow: '0 0 3px 0 #000',
-           }}>hello world</Row>
+           }}><span>Hover On And Wait</span></Row>
     </Transition>
 
   </Con>
