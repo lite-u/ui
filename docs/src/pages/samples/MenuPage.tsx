@@ -14,6 +14,29 @@ const MenuPage: React.FC = () => {
               <MenuItem s>Cut</MenuItem>
               <MenuItem s>Duplicate</MenuItem>
               <MenuItem s>Delete</MenuItem>
+              <MenuItem s>
+                <Con style={{position: 'relative'}}>
+                  <Row between>
+                    <span>More</span>
+                    <span>R</span>
+                  </Row>
+                  <Con abs>
+                    <Menu space={0}>
+                      <MenuItem s>Copy</MenuItem>
+                      <MenuItem s>Paste</MenuItem>
+                      <MenuItem s>Cut</MenuItem>
+                      <MenuItem s>Duplicate</MenuItem>
+                      <MenuItem s>Delete</MenuItem>
+                      <MenuItem s>
+                        <Row between>
+                          <span>More</span>
+                          <span>R</span>
+                        </Row>
+
+                      </MenuItem>
+                    </Menu>
+                  </Con></Con>
+              </MenuItem>
             </Menu>
           </Con>
         </SampleBlock>
