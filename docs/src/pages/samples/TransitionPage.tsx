@@ -1,5 +1,5 @@
 import {Button, Con, Flex, Row, Transition} from '@lite-u/ui'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Col} from '../../../../src'
 import SampleBlock from '../SampleBlock.tsx'
 // import TransitionB from '@ui/components/transition/TransitionB.tsx'
@@ -226,7 +226,7 @@ const TransitionTimeFunction = () => {
     <Button s onClick={() => {
       setVisible(!visible)
     }}>{visible ? 'Back' : 'Go'}</Button>
-    <Con w={50} h={50}>
+    <Con w={100} h={50}>
       <Transition
         visible={visible}
         duration={1000}
@@ -251,27 +251,55 @@ const TransitionTimeFunction = () => {
 
 const TransitionNested = () => {
   const [visible, setVisible] = useState(false)
+  const _timer = setInterval(() => {
+    setVisible(!visible)
+  }, 1000)
+
+  useEffect(() => {
+    return () => {
+      clearInterval(_timer)
+    }
+  }, [])
 
   return <Con ml={10}>
-    <Button s onClick={() => {
+    {/*<Button s onClick={() => {
       setVisible(!visible)
-    }}>{visible ? 'Back' : 'Go'}</Button>
-    <Transition
-      visible={visible}
-      from={{scale: .1}}
-      to={{scale: 1}}>
-      <Row fw
-           fh
-           w={50}
-           h={50}
-           center
-           jc
-           bg={'#8e7f34'}
-           rounded
-           border>
-      </Row>
-    </Transition>
-
+    }}>{visible ? 'Back' : 'Go'}</Button>*/}
+    <Con w={100} h={100} m={30}>
+      <Transition
+        visible={visible}
+        duration={100}
+        leaveDuration={0}
+        delay={200}
+        from={{scale: 1}}
+        to={{scale: .8}}>
+        <Transition
+          visible={visible}
+          delay={100}
+          duration={100}
+          leaveDuration={0}
+          from={{scale: 1}}
+          to={{scale: 1.2}}>
+          <Transition
+            visible={visible}
+            delay={0}
+            duration={100}
+            leaveDuration={0}
+            from={{scale: .1}}
+            to={{scale: 1}}>
+            <Row fw
+                 fh
+                 w={100}
+                 h={100}
+                 center
+                 jc
+                 fz={100}>
+              ❤️
+            </Row>
+          </Transition>
+        </Transition>
+      </Transition>
+    </Con>
   </Con>
 }
 
