@@ -219,7 +219,7 @@ const TransitionTimeFunction = () => {
   return <Con ml={10}>
     <Button s onClick={() => {
       setVisible(!visible)
-    }}>Move</Button>
+    }}>{visible ? 'Back' : 'Go'}</Button>
     <Transition
       visible={visible}
       duration={1000}
