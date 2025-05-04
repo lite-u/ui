@@ -92,25 +92,27 @@ const TransitionTranslate = () => {
 
     <Transition
       visible={showGreeting}
+      style={{width: 100, height: 100}}
       from={{
-        translate: '100px 100px',
-        rotate: '0deg',
+        translate: '200px -50px',
+        rotate: 'z 135deg',
         scale: 1,
       }}
       to={{
-        translate: '100px 100px',
-        rotate: '180deg',
+        translate: '0 0',
+        rotate: 'z 0deg',
         scale: 1,
       }}>
-      <Flex w={100}
-            h={100}
-            alignItems="center"
-            justifyContent="center"
-            style={{
-              backgroundColor: '#fff',
-              boxShadow: '0 0 3px 0 #000',
-            }}>hello world</Flex>
+      <Row fw
+           fh
+           center
+           jc
+           bg={'#fff'}
+           style={{
+             boxShadow: '0 0 3px 0 #000',
+           }}>hello world</Row>
     </Transition>
+
   </Con>
 }
 
