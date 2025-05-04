@@ -1,7 +1,8 @@
 import {Button, Col, Con, IconButton, Link, Row, Title, useNotification} from '@lite-u/ui'
-import {useRef} from 'react'
+import {ReactNode, useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
 import API, {APIType} from '../../components/api/API.tsx'
+import MDBlock from '../../components/codeBlock/MDBlock.tsx'
 
 const NotificationPage: React.FC = () => {
   const addApi: Record<string, APIType> = {
@@ -138,10 +139,17 @@ const NotificationPage: React.FC = () => {
     <Con mt={100} mb={40}>
       <Col w={'auto'}>
         <Title h4 id="api"><Link href={'#api'}># API</Link></Title>
+        <MDBlock>
+          add: (
+          comp: ReactNode,
+          type?: NotificationItemProps['type'],
+          delay?: number | false
+          ) => string
+        </MDBlock>
 
         <Con mb={30}></Con>
         <API data={addApi}/>
-
+        @returns A unique ID for the notification.
 
       </Col>
     </Con>
