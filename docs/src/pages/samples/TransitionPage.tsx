@@ -16,9 +16,15 @@ const TransitionSample: React.FC = () => {
         </UsageBlock>
       </Con>
 
+      <Con w={'auto'}>
+        <UsageBlock title={'Position Fixed(Screen Center)'}>
+          <TransitionFixed/>
+        </UsageBlock>
+      </Con>
+
     </Row>
 
-    <TransitionSample1/>
+    <TransitionFixed/>
     <TransitionSample2/>
     <TransitionSample3/>
   </Col>
@@ -32,12 +38,12 @@ const Sample = () => {
     <Transition visible={visible}
                 from={{opacity: .5, scale: 0.5}}
                 to={{opacity: 1, scale: 1}}>
-      <Row jc center w={100} h={100} border rounded>Hello world</Row>
+      <Row jc center w={100} h={100} border rounded>Hello World</Row>
     </Transition>
   </div>
 }
 
-const TransitionSample1 = () => {
+const TransitionFixed = () => {
   const [showGreeting, setShowGreeting] = useState(false)
 
   return <Con w={100} h={100}>
@@ -48,19 +54,14 @@ const TransitionSample1 = () => {
       position: 'fixed',
       top: '50%',
       left: '50%',
-      // backgroundColor: 'red',
       transform: 'translate(-50%, -50%)',
       pointerEvents: showGreeting ? 'auto' : 'none',
       textAlign: 'center',
       zIndex: 9999,
     }}>
       <Transition
-        from={{
-          scale: 0,
-        }}
-        to={{
-          scale: 1,
-        }}
+        from={{scale: 0}}
+        to={{scale: 1}}
         visible={showGreeting}>
         <Flex w={100}
               h={100}
@@ -69,7 +70,7 @@ const TransitionSample1 = () => {
               style={{
                 backgroundColor: '#fff',
                 boxShadow: '0 0 3px 0 #000',
-              }}>hello world</Flex>
+              }}>Hello World</Flex>
       </Transition>
     </div>
   </Con>
