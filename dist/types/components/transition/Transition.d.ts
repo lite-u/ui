@@ -8,7 +8,7 @@ export type FromType = {
         delay?: number;
     };
 };
-declare const Transition: FC<{
+export type TransitionProps = {
     visible: boolean;
     from?: FromType;
     to: FromType;
@@ -19,5 +19,6 @@ declare const Transition: FC<{
     delay?: number;
     children: ReactNode;
     style?: CSSProperties;
-}>;
+};
+declare const Transition: FC<TransitionProps>;
 export default Transition;

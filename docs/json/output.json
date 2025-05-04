@@ -2190,6 +2190,18 @@
         "required": false,
         "defaultValue": "",
         "description": ""
+      },
+      "duration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "leaveDuration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
       }
     }
   },

@@ -18,7 +18,7 @@ export type FromType = {
   }
 };
 
-const Transition: FC<{
+export type TransitionProps = {
   visible: boolean,
   from?: FromType
   to: FromType
@@ -29,18 +29,20 @@ const Transition: FC<{
   delay?: number,
   children: ReactNode
   style?: CSSProperties
-}> = ({
-        children,
-        from = {},
-        to = {},
-        transformOrigin = 'center',
-        visible = true,
-        effect = 'ease',
-        duration = 300,
-        leaveDuration = 300,
-        delay = 0,
-        style = {},
-      }) => {
+}
+
+const Transition: FC<TransitionProps> = ({
+                                           children,
+                                           from = {},
+                                           to = {},
+                                           transformOrigin = 'center',
+                                           visible = true,
+                                           effect = 'ease',
+                                           duration = 300,
+                                           leaveDuration = 300,
+                                           delay = 0,
+                                           style = {},
+                                         }) => {
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
   // const [waiting, setWaiting] = useState()
   useEffect(() => {

@@ -30,6 +30,8 @@ const UsageBlock: FC<{ title: string, children: ReactNode, replacement?: string,
               headStyle={{
                 marginBottom: 10,
               }}
+              duration={200}
+              leaveDuration={100}
               head={
                 <Tooltip title={'Code'}>
                   <Button xs style={{backgroundColor: '#f3f3f3'}}>{'</>'}</Button>
