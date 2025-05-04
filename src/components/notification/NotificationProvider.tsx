@@ -20,7 +20,7 @@ import NotificationContext, {NotificationItemProps} from './NotificationContext'
  * import { useNotification } from '@lite-u/ui'
  *
  * const NotificationSampleSimple: React.FC = () => {
- *    const { add } = useNotification()
+ *    const { add, remove } = useNotification()
  *
  *    return <div onClick={()=>add('hello')}></div>
  * }

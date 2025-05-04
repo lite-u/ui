@@ -2,7 +2,8 @@ import {Button, Col, Con, IconButton, Link, Row, Title, useNotification} from '@
 import {ReactNode, useRef} from 'react'
 import UsageBlock from '../UsageBlock.tsx'
 import API, {APIType} from '../../components/api/API.tsx'
-import MDBlock from '../../components/codeBlock/MDBlock.tsx'
+import CodeBlock from '../../components/codeBlock/codeBlock.tsx'
+import dedent from 'dedent'
 
 const NotificationPage: React.FC = () => {
   const addApi: Record<string, APIType> = {
@@ -24,7 +25,12 @@ const NotificationPage: React.FC = () => {
       type: 'number | false',
       description: 'Time in milliseconds before auto-removal. Use false to disable timeout.',
     },
-
+    Return: {
+      required: false,
+      defaultValue: '\\-',
+      type: 'string',
+      description: 'Returns A unique ID for the notification',
+    },
   }
   return <Col>
     <Row start space={10} wrap>
@@ -138,19 +144,33 @@ const NotificationPage: React.FC = () => {
 
     <Con mt={100} mb={40}>
       <Col w={'auto'}>
-        <Title h4 id="api"><Link href={'#api'}># API</Link></Title>
-        <MDBlock>
-          add: (
-          comp: ReactNode,
-          type?: NotificationItemProps['type'],
-          delay?: number | false
-          ) => string
-        </MDBlock>
+        {/*<Title h4 id="api"><Link href={'#api'}># API</Link></Title>*/}
+        <Link href={'#api'}># API</Link>
+        <Con mt={30} mb={40}></Con>
+        <Title h5>Add</Title>
+        <CodeBlock code={dedent(`
+          const id = add(comp, type?, delay? )  
+        `)}/>
 
         <Con mb={30}></Con>
         <API data={addApi}/>
-        @returns A unique ID for the notification.
 
+        <Con mt={30} mb={40}></Con>
+        <Title h5>Remove</Title>
+        <CodeBlock code={dedent(`
+          const id = add(comp, type?, delay? )  
+          remove(id)
+        `)}/>
+
+        <Con mb={30}></Con>
+        <API data={{
+          id: {
+            required: true,
+            defaultValue: '\\-',
+            type: 'string',
+            description: 'ID of the notification to remove.',
+          },
+        }}/>
       </Col>
     </Con>
 
