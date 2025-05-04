@@ -275,13 +275,6 @@ const TransitionNested = () => {
           setTimeout(() => {
             setVisible(true)
           }, 1000)
-          console.log('onAnimationExited')
-        }}
-        onAnimationEnterCancel={() => {
-          console.log('onAnimationEnterCancel')
-        }}
-        onAnimationExitCancel={() => {
-          console.log('onAnimationExitCancel')
         }}>
         <Transition
           visible={visible}
