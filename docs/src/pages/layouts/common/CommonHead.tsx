@@ -1,37 +1,28 @@
 import {Col, Con, Link, Title} from '@lite-u/ui'
-import {useLocation} from 'react-router'
 import CodeWrap from '../../../components/codeBlock/CodeWrap.tsx'
 import MDBlock from '../../../components/codeBlock/MDBlock.tsx'
-import COMPONENT_ROUTE_MAP from './componentData.tsx'
-import OUTPUT_JSON from '../../../../json/output.json'
 
 const CommonHead = (
   {
+    to,
     name,
     brief,
     intro,
     example,
   }
   : {
+    to: string
     name: string,
     brief: string,
     intro: string,
     example: string,
   }) => {
-  const location = useLocation()
-  const currentPath = location.pathname.split('/')[2]
-
-  const COMP_ROUTE = COMPONENT_ROUTE_MAP[currentPath as keyof typeof COMPONENT_ROUTE_MAP]
-
-  if (!COMP_ROUTE) return
-  if (!OUTPUT_JSON[COMP_ROUTE.apiNameKey]) return
-
   const space = 100
 
   return <Con maxW={620}>
     <Col>
       <Con mt={10}></Con>
-      <Title id={COMP_ROUTE.to}>{name}</Title>
+      <Title id={to}>{name}</Title>
 
       <Con fz={15} pl={4} color={'#3f3f3f'} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{brief}</MDBlock>

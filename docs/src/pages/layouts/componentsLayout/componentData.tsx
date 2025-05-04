@@ -124,12 +124,12 @@ const COMPONENT_ROUTE_MAP = {
     apiNameKey: 'Drop',
     comp: <DropPage/>,
   },
-  notification: {
+/*  notification: {
     to: 'notification',
     name: 'Notification',
     apiNameKey: 'Notification',
     comp: <NotificationPage/>,
-  },
+  },*/
   transition: {
     to: 'transition',
     name: 'Transition',

@@ -53,7 +53,7 @@ const RootLayout = () => {
         <Collapse head={<MenuItem style={{flex: 1}}>Hooks</MenuItem>}>
           {
             Object.values(HOOK_ROUTE_MAP).map((comp, index) => {
-              return <NavItem key={index} to={`components/${comp.to}`} name={comp.name}/>
+              return <NavItem key={index} to={`hooks/${comp.to}`} name={comp.name}/>
             })
           }
         </Collapse>
@@ -78,7 +78,6 @@ const NavItem: FC<{ to: string, name: string }> = ({to, name}) => {
   return <MenuItem s style={{padding: 0, width: '100%'}}>
     <NavLink
       style={({isActive}) => {
-        console.log(isActive, name)
         return {
           backgroundColor: isActive ? '#0a2e71' : 'transparent',
           color: isActive ? '#fff' : '#000',
