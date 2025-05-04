@@ -16,7 +16,9 @@ const Sample = () => {
 
   return <Con w={100} h={100}>
     <Button onClick={() => setShow(!show)}>Toggle</Button>
-    <Transition from={{opacity: 0, scale: 0.1}} to={{opacity: 1, scale: 1}} visible={show}>
+    <Transition visible={show}
+                from={{opacity: 0, scale: 0.1}}
+                to={{opacity: 1, scale: 1}}>
       <div>Hello world</div>
     </Transition>
   </Con>
