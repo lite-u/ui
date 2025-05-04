@@ -1,14 +1,14 @@
-import {Button, Collapse, Con, P, Title, Tooltip} from '@lite-u/ui'
+import {Button, Collapse, Con, P, Tooltip} from '@lite-u/ui'
 import {CSSProperties, FC, ReactNode} from 'react'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 import CodeWrap from '../components/codeBlock/CodeWrap.tsx'
 
 const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string, style?: CSSProperties }> = ({
-                                                                                                               title,
-                                                                                                               children,
-                                                                                                               replacement,
-                                                                                                               style,
-                                                                                                             }) => {
+                                                                                                                title,
+                                                                                                                children,
+                                                                                                                replacement,
+                                                                                                                style,
+                                                                                                              }) => {
   let code = replacement || reactElementToJSXString(children, {
     tabStop: 2,
     // maxInlineAttributesLineLength: 40,

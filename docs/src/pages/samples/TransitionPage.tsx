@@ -168,14 +168,7 @@ const TransitionDelayed = () => {
       style={{width: 100, height: 30}}
       from={{width: 100}}
       to={{width: 200}}>
-      <Row fw
-           fh
-           center
-           jc
-           bg={'#fff'}
-           style={{
-             boxShadow: '0 0 3px 0 #000',
-           }}><span>Hover On And Wait</span></Row>
+      Hover On And Wait
     </Transition>
 
   </Con>
