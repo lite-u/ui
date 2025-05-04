@@ -50,6 +50,8 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
      * @default 0
      */
     delay?: number;
+    onAnimationEntered?: VoidFunction;
+    onAnimationExited?: VoidFunction;
     children: ReactNode;
     ref?: React.Ref<HTMLDivElement>;
 };

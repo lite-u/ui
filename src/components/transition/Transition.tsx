@@ -1,4 +1,4 @@
-import {CSSProperties, FC, HTMLProps, ReactNode, useEffect, useState} from 'react'
+import {CSSProperties, FC, HTMLProps, ReactNode, useEffect, useRef, useState} from 'react'
 
 type TimingFunction =
   | 'ease'
@@ -68,6 +68,8 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
    */
   delay?: number,
 
+  onAnimationEntered?: VoidFunction,
+  onAnimationExited?: VoidFunction,
   children: ReactNode
   ref?: React.Ref<HTMLDivElement>
 }
@@ -108,21 +110,49 @@ const Transition: FC<TransitionProps> = ({
                                            duration = 300,
                                            leaveDuration = 300,
                                            delay = 0,
+                                           onAnimationEntered,
+                                           onAnimationExited,
+                                           onAnimationEnterCancel,
+                                           onAnimationExitCancel,
                                            style = {},
                                            ...props
                                          }) => {
   const [state, setState] = useState(visible ? 'entered' : 'exiting')
   // const [waiting, setWaiting] = useState()
+  const initialized = useRef<boolean>(false)
+
   useEffect(() => {
-    // console.log(state)
+    if (!initialized.current) {
+      initialized.current = true
+      return
+    }
     if (visible) {
       setState('entering')
-      const timer = setTimeout(() => setState('entered'), duration)
-      return () => clearTimeout(timer)
+      let timer = window.setTimeout(() => {
+        setState('entered')
+        onAnimationEntered?.()
+        timer = 0
+      }, duration)
+
+      return () => {
+        if (timer) {
+          clearTimeout(timer)
+          onAnimationEnterCancel?.()
+        }
+      }
     } else {
       setState('exiting')
-      const timer = setTimeout(() => setState('exited'), duration)
-      return () => clearTimeout(timer)
+      let timer = window.setTimeout(() => {
+        setState('exited')
+        timer = 0
+        onAnimationExited?.()
+      }, duration)
+      return () => {
+        if (timer) {
+          clearTimeout(timer)
+          onAnimationExitCancel?.()
+        }
+      }
     }
   }, [
     visible,

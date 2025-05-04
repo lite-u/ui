@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 /**
  * Transition component
  *
@@ -26,20 +26,42 @@ import { useEffect, useState } from 'react';
  *   </Con>
  * }
  */
-const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, style = {}, ...props }) => {
+const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, leaveDuration = 300, delay = 0, onAnimationEntered, onAnimationExited, onAnimationEnterCancel, onAnimationExitCancel, style = {}, ...props }) => {
     const [state, setState] = useState(visible ? 'entered' : 'exiting');
     // const [waiting, setWaiting] = useState()
+    const initialized = useRef(false);
     useEffect(() => {
-        // console.log(state)
+        if (!initialized.current) {
+            initialized.current = true;
+            return;
+        }
         if (visible) {
             setState('entering');
-            const timer = setTimeout(() => setState('entered'), duration);
-            return () => clearTimeout(timer);
+            let timer = window.setTimeout(() => {
+                setState('entered');
+                onAnimationEntered?.();
+                timer = 0;
+            }, duration);
+            return () => {
+                if (timer) {
+                    clearTimeout(timer);
+                    onAnimationEnterCancel?.();
+                }
+            };
         }
         else {
             setState('exiting');
-            const timer = setTimeout(() => setState('exited'), duration);
-            return () => clearTimeout(timer);
+            let timer = window.setTimeout(() => {
+                setState('exited');
+                timer = 0;
+                onAnimationExited?.();
+            }, duration);
+            return () => {
+                if (timer) {
+                    clearTimeout(timer);
+                    onAnimationExitCancel?.();
+                }
+            };
         }
     }, [
         visible,

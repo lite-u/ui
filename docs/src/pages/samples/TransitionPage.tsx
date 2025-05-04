@@ -74,8 +74,21 @@ const TransitionScale = () => {
 
   return <div>
     <Transition visible={visible}
+                onAnimationEntered={() => {
+                  console.log('onAnimationEntered')
+                }}
+                onAnimationExited={() => {
+                  console.log('onAnimationExited')
+                }}
+                onAnimationEnterCancel={() => {
+                  console.log('onAnimationEnterCancel')
+                }}
+                onAnimationExitCancel={() => {
+                  console.log('onAnimationExitCancel')
+                }}
                 onMouseEnter={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}
+                duration={200}
                 from={{opacity: .5, scale: 0.5}}
                 to={{opacity: 1, scale: 1}}>
       <Row jc center bg={'#0b2e71'} mt={10} w={100} h={100} border rounded></Row>
@@ -251,52 +264,55 @@ const TransitionTimeFunction = () => {
 
 const TransitionNested = () => {
   const [visible, setVisible] = useState(false)
-  const _timer = setInterval(() => {
-    setVisible(!visible)
-  }, 1000)
+  /*  const _timer = setInterval(() => {
+      setVisible(!visible)
+    }, 400)*/
 
   useEffect(() => {
     return () => {
-      clearInterval(_timer)
+      // clearInterval(_timer)
     }
   }, [])
 
   return <Con ml={10}>
-    {/*<Button s onClick={() => {
+    <Button s onClick={() => {
       setVisible(!visible)
-    }}>{visible ? 'Back' : 'Go'}</Button>*/}
+    }}>{visible ? 'Back' : 'Go'}</Button>
     <Con w={100} h={100} m={30}>
       <Transition
         visible={visible}
+        delay={100}
         duration={100}
-        leaveDuration={0}
-        delay={200}
+        leaveDuration={100}
         from={{scale: 1}}
+        onTransitionStart={() => {
+          console.log('onTransitionStart')
+        }}
+
+        onAnimationEntered={() => {
+          console.log('onAnimationEntered')
+        }}
+        onAnimationExited={() => {
+
+        }}
         to={{scale: .8}}>
         <Transition
           visible={visible}
-          delay={100}
+          delay={0}
           duration={100}
-          leaveDuration={0}
-          from={{scale: 1}}
-          to={{scale: 1.2}}>
-          <Transition
-            visible={visible}
-            delay={0}
-            duration={100}
-            leaveDuration={0}
-            from={{scale: .1}}
-            to={{scale: 1}}>
-            <Row fw
-                 fh
-                 w={100}
-                 h={100}
-                 center
-                 jc
-                 fz={100}>
-              ❤️
-            </Row>
-          </Transition>
+          leaveDuration={100}
+
+          from={{scale: .1}}
+          to={{scale: 1}}>
+          <Row fw
+               fh
+               w={100}
+               h={100}
+               center
+               jc
+               fz={100}>
+            ❤️
+          </Row>
         </Transition>
       </Transition>
     </Con>

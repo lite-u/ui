@@ -306,6 +306,18 @@
         "required": false,
         "defaultValue": "0",
         "description": "Default delay in milliseconds before starting the transition unless overridden per-property."
+      },
+      "onAnimationEntered": {
+        "type": "VoidFunction",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      "onAnimationExited": {
+        "type": "VoidFunction",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
       }
     }
   },
