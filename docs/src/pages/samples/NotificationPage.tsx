@@ -12,14 +12,14 @@ const NotificationPage: React.FC = () => {
       description: 'The content to display in the notification.',
     },
     type: {
-      required: true,
-      defaultValue: '\\-',
+      required: false,
+      defaultValue: 'info',
       type: '"info" | "suc" | "warn" | "error"',
       description: 'Notification type',
     },
     delay: {
       required: false,
-      defaultValue: 'info',
+      defaultValue: 2000,
       type: 'number | false',
       description: 'Time in milliseconds before auto-removal. Use false to disable timeout.',
     },
@@ -146,14 +146,6 @@ const NotificationPage: React.FC = () => {
       </Col>
     </Con>
 
-    {/*<CommonAPI apiData={{
-      add: {
-        type: 'add: (comp: ReactNode, type?: NotificationItemProps[\'type\'], delay?: number | false) => string',
-        defaultValue: '\\-',
-        required: true,
-        description: '',
-      },
-    }}/>*/}
   </Col>
 }
 
