@@ -15,7 +15,7 @@ const NotificationPage: React.FC = () => {
     },
     type: {
       required: false,
-      defaultValue: 'info',
+      defaultValue: '"info"',
       type: '"info" | "suc" | "warn" | "error"',
       description: 'Notification type',
     },
