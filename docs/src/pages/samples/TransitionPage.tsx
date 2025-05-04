@@ -9,7 +9,7 @@ const TransitionSample: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={'auto'}>
-        <UsageBlock title={'Simple Zoom'}>
+        <UsageBlock title={'Simple Scale'}>
           <Col between>
             <Sample/>
           </Col>
@@ -30,7 +30,6 @@ const Sample = () => {
   return <div>
     <Button s onClick={() => setVisible(!visible)}>Scale {visible ? 'Down' : 'Up'}</Button>
     <Transition visible={visible}
-                style={{marginTop: 10}}
                 from={{opacity: .5, scale: 0.5}}
                 to={{opacity: 1, scale: 1}}>
       <Row jc center w={100} h={100} border rounded>Hello world</Row>
