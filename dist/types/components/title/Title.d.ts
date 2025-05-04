@@ -1,9 +1,10 @@
+import { CSSProperties } from 'react';
 type TitleProps = {
     /**
      * Set text color the element.
      * @default inherit
      */
-    color?: string;
+    color?: CSSProperties['color'];
     /**
      * Makes the heading position sticky at the top of its container.
      * @default false
