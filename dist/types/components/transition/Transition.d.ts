@@ -50,9 +50,21 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
      * @default 0
      */
     delay?: number;
+    /**
+     * Called when the enter transition finishes.
+     */
     onAnimationEntered?: VoidFunction;
+    /**
+     * Called when the exit transition finishes.
+     */
     onAnimationExited?: VoidFunction;
+    /**
+     * Called if the enter transition is canceled (e.g., unmount during enter).
+     */
     onAnimationEnterCancel?: VoidFunction;
+    /**
+     * Called if the exit transition is canceled (e.g., re-enter during exit).
+     */
     onAnimationExitCancel?: VoidFunction;
     children: ReactNode;
     ref?: React.Ref<HTMLDivElement>;
@@ -80,7 +92,7 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
  *     <Transition from={{opacity: 0, scale: 0.9}} to={{opacity: 1, scale: 1}} visible={show}>
  *       <div>Hello world</div>
  *     </Transition>
- *   </Con>
+ *   )
  * }
  */
 declare const Transition: FC<TransitionProps>;

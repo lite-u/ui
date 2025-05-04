@@ -9,9 +9,9 @@ const TransitionSample: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={200}>
-        <SampleBlock title={'Scale'}>
+        <SampleBlock title={'Set Rotate'}>
           <Row fw jc center>
-            <TransitionScale/>
+            <TransitionRotate/>
           </Row>
         </SampleBlock>
       </Con>
@@ -23,9 +23,9 @@ const TransitionSample: React.FC = () => {
       </Con>
 
       <Con w={200}>
-        <SampleBlock title={'Set Rotate'}>
+        <SampleBlock title={'Scale'}>
           <Row fw jc center>
-            <TransitionRotate/>
+            <TransitionScale/>
           </Row>
         </SampleBlock>
       </Con>
@@ -281,8 +281,8 @@ const TransitionNested = () => {
           delay={0}
           duration={100}
           exitDuration={100}
-          from={{scale: .8, opacity: .5}}
-          to={{scale: 1, opacity: 1}}>
+          from={{scale: 1, opacity: .5}}
+          to={{scale: 1.2, opacity: 1}}>
           <Row fw
                fh
                w={100}

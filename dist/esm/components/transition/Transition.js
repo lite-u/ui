@@ -23,7 +23,7 @@ import { useEffect, useRef, useState } from 'react';
  *     <Transition from={{opacity: 0, scale: 0.9}} to={{opacity: 1, scale: 1}} visible={show}>
  *       <div>Hello world</div>
  *     </Transition>
- *   </Con>
+ *   )
  * }
  */
 const Transition = ({ children, from = {}, to = {}, transformOrigin = 'center', visible = true, effect = 'ease', duration = 300, exitDuration = 300, delay = 0, onAnimationEntered, onAnimationExited, onAnimationEnterCancel, onAnimationExitCancel, style = {}, ...props }) => {
