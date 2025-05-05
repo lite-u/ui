@@ -24,7 +24,7 @@ const CommonHead = (
       <Con mt={10}></Con>
       <Title id={to}>{name}</Title>
 
-      <Con fz={15} pl={4} color={'#3f3f3f'} style={{lineHeight: '1.5rem'}}>
+      <Con fz={15} pl={4} textColor={'#3f3f3f'} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{brief}</MDBlock>
       </Con>
 
@@ -32,7 +32,7 @@ const CommonHead = (
       <Title h4 id="description"><Link href={'#description'}># Description</Link></Title>
 
       <Con mt={10}></Con>
-      <Con pl={0} fz={15} color={'#3f3f3f'} style={{lineHeight: '1.5rem'}}>
+      <Con pl={0} fz={15} textColor={'#3f3f3f'} style={{lineHeight: '1.5rem'}}>
         <MDBlock>{intro}</MDBlock>
       </Con>
 

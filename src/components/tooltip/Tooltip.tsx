@@ -21,7 +21,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
    * @default '#fff'
    *
    */
-  color?: string;
+  textColor?: string;
 
   /**
    * The placement of the tooltip relative to its children. Can be one of:
@@ -51,7 +51,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
  */
 export const Tooltip: React.FC<ToolTipProps> = ({
                                                   title,
-                                                  color = '#fff',
+                                                  textColor = '#fff',
                                                   bgColor = '#333',
                                                   placement = 't',
                                                   // delay = 100,
@@ -62,7 +62,6 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const targetRef = useRef<HTMLDivElement>(null)
   const backgroundColor = bgColor
-  const textColor = color
   const [realTimeStyle, setRealTimeStyle] = useState<CSSProperties>({})
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)

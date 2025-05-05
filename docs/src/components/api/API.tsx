@@ -35,7 +35,7 @@ const API = ({data}: { data: Record<string, APIType> }) => {
            }}
     >
       <TableRow head>
-        <P style={firstColStyle} color={'#292929'}>Property</P>
+        <P style={firstColStyle} textColor={'#292929'}>Property</P>
         <span>type</span>
         <span>Default Value</span>
         <span>required</span>

@@ -5,12 +5,12 @@ const MenuItemPage: React.FC = () => {
   return <Col>
     <Row start space={10} wrap>
       <Con w={'auto'}>
-        <SampleBlock title={'Titles'}>
+        <SampleBlock title={'Sizes'}>
           <Col>
-            <MenuItem xs color={'red'}>XS size Menu Item </MenuItem>
-            <MenuItem s color={'red'}>Small size Menu Item </MenuItem>
-            <MenuItem color={'red'}>medium size Menu Item</MenuItem>
-            <MenuItem l color={'red'}>Large size Menu Item</MenuItem>
+            <MenuItem xs>XS size Menu Item </MenuItem>
+            <MenuItem s>Small size Menu Item </MenuItem>
+            <MenuItem>medium size Menu Item</MenuItem>
+            <MenuItem l>Large size Menu Item</MenuItem>
           </Col>
         </SampleBlock>
       </Con>

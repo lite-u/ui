@@ -165,7 +165,7 @@ const TransitionFixed = () => {
               justifyContent="center"
               border
               rounded
-              color={'#fff'}
+              textColor={'#fff'}
               bg={'#146e18'}>Center</Flex>
       </Transition>
     </Con>
@@ -188,7 +188,7 @@ const TransitionDelayed = () => {
       style={{width: 100, height: 30, backgroundColor: '#146e18', color: '#fff', overflow: 'hidden'}}
       from={{width: 100, height: 20}}
       to={{width: 140, height: 50}}>
-      <Con p={2} bg={'#146e18'} color={'#fff'}>Hover On And Wait</Con>
+      <Con p={2} bg={'#146e18'} textColor={'#fff'}>Hover On And Wait</Con>
     </Transition>
 
   </Con>

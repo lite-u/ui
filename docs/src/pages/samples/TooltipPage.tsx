@@ -13,7 +13,7 @@ const TooltipPage: React.FC = () => {
 
             <Tooltip placement={'t'}
                      bgColor={'green'}
-                     color={'red'}
+                     textColor={'red'}
                      title={'helloworldhelloworldhello world'}>
               <Button>t</Button>
             </Tooltip>

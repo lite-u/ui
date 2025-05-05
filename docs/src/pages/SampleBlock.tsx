@@ -18,7 +18,7 @@ const SampleBlock: FC<{ title: string, children: ReactNode, replacement?: string
     return `<${tag}>${content}</${tag}>`
   })
 
-  return <Con role={'usage-block'} fz={14} fh fw border borderColor={'#bababa'} color={'#333'} rounded ib p={14}
+  return <Con role={'usage-block'} fz={14} fh fw border borderColor={'#bababa'} textColor={'#333'} rounded ib p={14}
               style={style}>
     {title && <p>{title}</p>}
     <Con mt={6} mb={20} h={0} style={{borderTop: '1px dashed #dfdfdf'}}></Con>

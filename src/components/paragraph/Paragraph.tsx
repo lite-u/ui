@@ -1,7 +1,7 @@
 import {CSSProperties} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
-type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'> & {
+type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColor'> & {
   /**
    * Custom font size for the paragraph text.
    * @default 16
@@ -11,7 +11,7 @@ type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'> 
    * Text color of the paragraph.
    * @default inherit
    */
-  color?: CSSProperties['color']
+  textColor?: CSSProperties['color']
   /**
    * Centers the paragraph text.
    * @default false
@@ -39,7 +39,7 @@ type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'> 
  * P is an alias of Paragraph
  * import { P } from '@lite-u/ui'
  *
- * <Paragraph size={14} color="gray" center>
+ * <Paragraph size={14} textColor="gray" center>
  *   This is a centered paragraph with custom styling.
  * </Paragraph>
  */
@@ -47,7 +47,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
                                                children,
                                                size = 16,
                                                style = {},
-                                               color,
+                                               textColor,
                                                center = false,
                                                wb = 'break-word',
                                                ...props
@@ -64,8 +64,8 @@ const Paragraph: React.FC<ParagraphProps> = ({
     styles.textAlign = 'center'
   }
 
-  if (color) {
-    styles.color = color
+  if (textColor) {
+    styles.color = textColor
   }
 
   if (!isNaN(size)) {

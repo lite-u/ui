@@ -29,7 +29,7 @@ const ColumnPage: React.FC = () => {
 
       <Con w={'auto'}>
         <SampleBlock title={'With Row'}>
-          <Row border p={10} m={'0 auto'} w={115} h={150} space={2} center fz={30} color={'red'}>
+          <Row border p={10} m={'0 auto'} w={115} h={150} space={2} center fz={30} textColor={'red'}>
             <Col start fh fz={18}>
               <p> 8 </p>
               <p> ♥ </p>

@@ -49,7 +49,7 @@ export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
      * Text color of the container.
      * @default \-
      */
-    color?: CSSProperties['color'];
+    textColor?: CSSProperties['color'];
     /**
      * Font size of the container text.
      * @default 14

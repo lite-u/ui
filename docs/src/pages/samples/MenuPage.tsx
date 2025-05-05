@@ -6,9 +6,9 @@ const MenuPage: React.FC = () => {
     <Row start space={10} wrap>
 
       <Con w={180}>
-        <SampleBlock title={'Titles'}>
+        <SampleBlock title={'Space 10'}>
           <Con border>
-            <Menu>
+            <Menu space={10}>
               <MenuItem s>Copy</MenuItem>
               <MenuItem s>Paste</MenuItem>
               <MenuItem s>Cut</MenuItem>

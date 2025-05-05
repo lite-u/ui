@@ -6,7 +6,7 @@ const TitlePage: React.FC = () => {
     <Con w={200}>
       <SampleBlock title={'Titles'}>
         <Col stretch between>
-          <Title h1 color={'red'} sticky style={{zIndex: 100}}>h1</Title>
+          <Title h1 textColor={'red'} sticky style={{zIndex: 100}}>h1</Title>
           <Title h2>h2</Title>
           <Title h3>h3</Title>
           <Title h4>h4</Title>

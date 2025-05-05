@@ -50,7 +50,7 @@ export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
    * Text color of the container.
    * @default \-
    */
-  color?: CSSProperties['color'],
+  textColor?: CSSProperties['color'],
   /**
    * Font size of the container text.
    * @default 14
@@ -234,7 +234,7 @@ const Container: React.FC<ContainerProps> = ({
                                                tr,
                                                fz,
                                                bg,
-                                               color,
+                                               textColor,
                                                border,
                                                rounded,
                                                ib,
@@ -354,8 +354,8 @@ const Container: React.FC<ContainerProps> = ({
     styles.background = bg
   }
 
-  if (color) {
-    styles.color = color
+  if (textColor) {
+    styles.color = textColor
   }
 
   if (ovh) {

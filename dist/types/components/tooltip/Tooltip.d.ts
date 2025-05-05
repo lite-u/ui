@@ -14,7 +14,7 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
      * @default '#fff'
      *
      */
-    color?: string;
+    textColor?: string;
     /**
      * The placement of the tooltip relative to its children. Can be one of:
      * `t` , `r` , `b` , `l` , `tl` , `tr` , `bl` , `br`

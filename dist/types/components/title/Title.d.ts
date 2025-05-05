@@ -1,10 +1,10 @@
 import { CSSProperties } from 'react';
-type TitleProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'> & {
+type TitleProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 'textColor'> & {
     /**
      * Set text color the element.
      * @default inherit
      */
-    color?: CSSProperties['color'];
+    textColor?: CSSProperties['color'];
     /**
      * Makes the heading position sticky at the top of its container.
      * @default false

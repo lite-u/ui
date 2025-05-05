@@ -3,12 +3,12 @@ import {CSSProperties} from 'react'
 
 type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-type TitleProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'> & {
+type TitleProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 'textColor'> & {
   /**
    * Set text color the element.
    * @default inherit
    */
-  color?: CSSProperties['color']
+  textColor?: CSSProperties['color']
   /**
    * Makes the heading position sticky at the top of its container.
    * @default false
@@ -66,7 +66,7 @@ export const Title: React.FC<TitleProps> = ({
                                               children,
                                               style,
                                               sticky,
-                                              color,
+                                              textColor,
                                               ...rest
                                             }) => {
   const {theme} = useLiteUIContext()
@@ -101,13 +101,13 @@ export const Title: React.FC<TitleProps> = ({
     zIndex: 10,
     left: sticky ? 0 : 'auto',
     top: sticky ? 0 : 'auto',
-    color,
+    // color:textColor,
     backgroundColor: theme.title.backgroundColor,
     ...style,
   }
 
-  if (color) {
-    styles.color = color
+  if (textColor) {
+    styles.color = textColor
   }
 
   return (

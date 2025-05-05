@@ -19,7 +19,7 @@ import { Transition } from '../../index';
  *   <button>Hover me</button>
  * </Tooltip>
  */
-export const Tooltip = ({ title, color = '#fff', bgColor = '#333', placement = 't', 
+export const Tooltip = ({ title, textColor = '#fff', bgColor = '#333', placement = 't', 
 // delay = 100,
 children, }) => {
     const [isVisible, setIsVisible] = useState(false);
@@ -27,7 +27,6 @@ children, }) => {
     const tooltipRef = useRef(null);
     const targetRef = useRef(null);
     const backgroundColor = bgColor;
-    const textColor = color;
     const [realTimeStyle, setRealTimeStyle] = useState({});
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);

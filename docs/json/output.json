@@ -469,6 +469,12 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -778,6 +784,12 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1075,6 +1087,12 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1368,6 +1386,12 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1607,6 +1631,12 @@
         "defaultValue": "\\-",
         "description": "Background color of the container."
       },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
+      },
       "fz": {
         "type": "FontSize<string | number>",
         "required": false,
@@ -1784,7 +1814,7 @@
       "example": "import { Title } from '@lite-u/ui'\n\n<Title h2 sticky>Section Title</Title>"
     },
     "props": {
-      "color": {
+      "textColor": {
         "type": "Color",
         "required": false,
         "defaultValue": "inherit",
@@ -1838,7 +1868,7 @@
     "tags": {
       "brief": "Renders a styled `<p>` tag with configurable font size, color, alignment, and word-break behavior.",
       "intro": "Applies theming defaults for spacing and base typography, while allowing per-instance customization\nfor text alignment, font size, color, and word-breaking strategy.",
-      "example": "import { Paragraph } from '@lite-u/ui'\nP is an alias of Paragraph\nimport { P } from '@lite-u/ui'\n\n<Paragraph size={14} color=\"gray\" center>\n  This is a centered paragraph with custom styling.\n</Paragraph>"
+      "example": "import { Paragraph } from '@lite-u/ui'\nP is an alias of Paragraph\nimport { P } from '@lite-u/ui'\n\n<Paragraph size={14} textColor=\"gray\" center>\n  This is a centered paragraph with custom styling.\n</Paragraph>"
     },
     "props": {
       "size": {
@@ -1847,7 +1877,7 @@
         "defaultValue": "16",
         "description": "Custom font size for the paragraph text."
       },
-      "color": {
+      "textColor": {
         "type": "Color",
         "required": false,
         "defaultValue": "inherit",
@@ -1876,7 +1906,7 @@
         "defaultValue": "16",
         "description": "Custom font size for the paragraph text."
       },
-      "color": {
+      "textColor": {
         "type": "Color",
         "required": false,
         "defaultValue": "inherit",
@@ -1975,6 +2005,12 @@
         "defaultValue": "#333",
         "description": "The background color of the tooltip. Defaults to a neutral color."
       },
+      "textColor": {
+        "type": "string",
+        "required": false,
+        "defaultValue": "#fff",
+        "description": "The text color of the tooltip. Defaults to a readable color."
+      },
       "placement": {
         "type": "TooltipPlacement",
         "required": false,
@@ -2039,6 +2075,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Background color of the container."
+      },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
       },
       "fz": {
         "type": "FontSize<string | number>",
@@ -2270,6 +2312,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Background color of the container."
+      },
+      "textColor": {
+        "type": "Color",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Text color of the container."
       },
       "fz": {
         "type": "FontSize<string | number>",
