@@ -8,6 +8,24 @@ export const HoverContext = createContext({
     onMouseEnter: () => { },
     onMouseLeave: () => { },
 });
+/**
+ * Hover component
+ *
+ * @brief
+ * A hover-triggered wrapper that reveals content based on mouse interactions.
+ *
+ * @intro
+ * Wraps `HoverHead` and `HoverBody` components to provide tooltip or popover-like functionality.
+ * It manages visibility and optional persistence of content based on hover state, with customizable delay and trigger behavior.
+ *
+ * @example
+ * import { Hover, HoverHead, HoverBody } from '@lite-u/ui'
+ *
+ * <Hover delay={200} persistMode>
+ *   <HoverHead>Hover me</HoverHead>
+ *   <HoverBody>This content shows on hover</HoverBody>
+ * </Hover>
+ */
 const Hover = ({ children, delay = 0, onlyTriggerByHead = false, persistMode = false, style = {}, }) => {
     const [isShow, setIsShow] = useState(false);
     const filterChildren = [];

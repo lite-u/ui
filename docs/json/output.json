@@ -2736,6 +2736,54 @@
       }
     }
   },
+  "Hover": {
+    "tags": {
+      "brief": "A hover-triggered wrapper that reveals content based on mouse interactions.",
+      "intro": "Wraps `HoverHead` and `HoverBody` components to provide tooltip or popover-like functionality.\nIt manages visibility and optional persistence of content based on hover state, with customizable delay and trigger behavior.",
+      "example": "import { Hover, HoverHead, HoverBody } from '@lite-u/ui'\n\n<Hover delay={200} persistMode>\n  <HoverHead>Hover me</HoverHead>\n  <HoverBody>This content shows on hover</HoverBody>\n</Hover>"
+    },
+    "props": {
+      "delay": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Delay in milliseconds before hiding the hover content after mouse leaves."
+      },
+      "onlyTriggerByHead": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "If true, hover effects are triggered only when hovering over the `HoverHead` element,\nand `HoverBody` will disappear when the mouse leaves the `HoverHead`."
+      },
+      "persistMode": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Enables persistent display mode, where hover state is managed logically and content is not removed from the DOM,\nbut instead controlled via display (display: none)."
+      },
+      "style": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      }
+    }
+  },
+  "HoverHead": {
+    "tags": {},
+    "props": {}
+  },
+  "HoverBody": {
+    "tags": {},
+    "props": {
+      "style": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      }
+    }
+  },
   "src": {
     "tags": {},
     "props": {}
