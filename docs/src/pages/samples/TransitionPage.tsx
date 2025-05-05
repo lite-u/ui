@@ -276,7 +276,7 @@ const TransitionCallback = () => {
         console.log('start')
         setVisible(true)
       }
-    }, 1000)
+    }, 1500)
 
     return () => {
       clearInterval(timer)
