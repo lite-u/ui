@@ -48,15 +48,15 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
-      <Con w={300}>
-        <SampleBlock title={'Time Function - Cubic-Bezier'}>
-          <TransitionTimeFunction/>
-        </SampleBlock>
-      </Con>
-
       <Con w={'auto'}>
         <SampleBlock title={'Nested'}>
           <TransitionNested/>
+        </SampleBlock>
+      </Con>
+
+      <Con w={300}>
+        <SampleBlock title={'Time Function - Cubic-Bezier'}>
+          <TransitionTimeFunction/>
         </SampleBlock>
       </Con>
 
@@ -314,8 +314,8 @@ const TransitionComposition = () => {
       setVisible(!visible)
     }}>Toggle</Button>
 
-    <Con rela w={100} h={100}>
-      <Transition
+    <Con rela mt={20} w={100} h={100}>
+      {/* <Transition
         visible={visible}
         style={{position: 'absolute'}}
         from={{
@@ -357,6 +357,44 @@ const TransitionComposition = () => {
             delay: 0,
             duration: 200,
           },
+        }}>*/}
+
+      <Transition
+        visible={visible}
+        style={{position: 'absolute'}}
+        from={{
+          marginLeft: {
+            value: 0,
+            delay: 100,
+            duration: 100,
+          },
+          rotate: '0deg',
+          scale: 1,
+          background: '#3cb65d',
+          left: {
+            value: 0,
+            delay: 100,
+            duration: 200,
+          },
+        }}
+        to={{
+          marginLeft: {
+            value: -50,
+            delay: 0,
+            duration: 100,
+          },
+          backgroundColor: {
+            value: '#e80c0c',
+            delay: 100,
+            duration: 800,
+          },
+          scale: .5,
+          rotate: '180deg',
+          left: {
+            value: 200,
+            delay: 100,
+            duration: 300,
+          },
         }}>
         <Row fw
              fh
@@ -364,8 +402,6 @@ const TransitionComposition = () => {
              h={50}
              center
              jc
-             bg={'#3cb65d'}
-             rounded
              border>
         </Row>
 
