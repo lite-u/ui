@@ -6,7 +6,8 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "output-json-doc": "node ./docgen.cjs",
-    "watch-json-doc": "node ./docgen.watch.cjs"
+    "watch-json-doc": "node ./docgen.watch.cjs",
+    "PUBLISH": "npm publish --access public"
   },
   "author": "Lucas Chow",
   "main": "./dist/esm/index.js",

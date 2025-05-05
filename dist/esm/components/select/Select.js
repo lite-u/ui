@@ -113,7 +113,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
         ...defaultStyle,
         ...itemStyle,
     };
-    console.log(mergedItemStyle);
+    // console.log(mergedItemStyle)
     return _jsx(SelectContext.Provider, { value: { itemStyle: mergedItemStyle, selectValue: value, itemClick: handleItemClick }, children: _jsxs("div", { role: 'select', ref: wrapperRef, style: {
                 flex: 1,
                 // flex: 'none',

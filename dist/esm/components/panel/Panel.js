@@ -37,7 +37,6 @@ const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, 
     const boxFontSize = theme.fontSizes[size];
     const boxPadding = theme.padding[size].x;
     const primaryColor = theme.panel.primaryColor;
-    console.log(titleStyle);
     return _jsx(Container, { fw: true, fh: true, role: 'panel', ...props, children: _jsxs(Column, { fw: true, fh: true, stretch: true, children: [_jsx(Container, { role: 'panel-head', fw: true, style: {
                         background: primaryColor,
                         borderRadius: '3px 3px 0 0',
