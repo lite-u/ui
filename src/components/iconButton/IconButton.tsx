@@ -24,6 +24,12 @@ type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
    * @default false
    */
   l?: boolean;
+  /**
+   * If true, set the Button to disabled
+   * @default false
+   */
+  disabled?: boolean;
+
   style?: React.CSSProperties;
 };
 
@@ -51,6 +57,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
                                                         m = true,
                                                         l,
                                                         style = {},
+                                                        disabled = false,
                                                         type = 'button',
                                                         ...props
                                                       }) => {
@@ -77,6 +84,13 @@ export const IconButton: React.FC<IconButtonProps> = ({
     width: len,
     height: len,
     ...style,
+  }
+
+  if (disabled) {
+    styles.backgroundColor = theme.button.disabled.backgroundColor
+    styles.color = theme.button.disabled.color
+    styles.border = theme.button.disabled.border
+    styles.cursor = 'not-allowed'
   }
 
   return (
