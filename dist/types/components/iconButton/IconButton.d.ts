@@ -19,6 +19,11 @@ type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
      * @default false
      */
     l?: boolean;
+    /**
+     * If true, set the Button to disabled
+     * @default false
+     */
+    disabled?: boolean;
     style?: React.CSSProperties;
 };
 /**

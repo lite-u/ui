@@ -95,6 +95,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
 
   return (
     <ButtonBase
+      disabled={disabled}
       type={type}
       style={styles}
       {...props}

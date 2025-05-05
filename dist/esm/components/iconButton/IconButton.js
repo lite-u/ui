@@ -19,7 +19,7 @@ import ButtonBase from '../button/ButtonBase';
  *   <Icon name="search" />
  * </IconButton>
  */
-export const IconButton = ({ xs, s, m = true, l, style = {}, type = 'button', ...props }) => {
+export const IconButton = ({ xs, s, m = true, l, style = {}, disabled = false, type = 'button', ...props }) => {
     const { theme } = useLiteUIContext();
     const { fontSizes, formElements } = theme;
     const getSize = () => {
@@ -46,6 +46,12 @@ export const IconButton = ({ xs, s, m = true, l, style = {}, type = 'button', ..
         height: len,
         ...style,
     };
-    return (_jsx(ButtonBase, { type: type, style: styles, ...props }));
+    if (disabled) {
+        styles.backgroundColor = theme.button.disabled.backgroundColor;
+        styles.color = theme.button.disabled.color;
+        styles.border = theme.button.disabled.border;
+        styles.cursor = 'not-allowed';
+    }
+    return (_jsx(ButtonBase, { disabled: disabled, type: type, style: styles, ...props }));
 };
 export default IconButton;
