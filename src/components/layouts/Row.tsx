@@ -2,7 +2,7 @@ import Flex, {FlexProps} from './Flex'
 import {ContainerProps} from '../container/Container'
 import {CSSProperties} from 'react'
 
-interface RowProps extends Omit<ContainerProps, 'wrap' | 'start'> {
+export interface RowProps extends Omit<ContainerProps, 'wrap' | 'start'> {
   /**
    * Align items to the start vertically.
    * @default true
