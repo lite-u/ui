@@ -2,7 +2,7 @@ import Flex, {FlexProps} from './Flex'
 import {ContainerProps} from '../container/Container'
 import {CSSProperties} from 'react'
 
-interface RowProps extends ContainerProps {
+interface RowProps extends Omit<ContainerProps, 'wrap' | 'start'> {
   /**
    * Align items to the start vertically.
    * @default true
@@ -67,8 +67,6 @@ interface RowProps extends ContainerProps {
   space?: CSSProperties['gap'],
 }
 
-type RowComponentProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap' | 'start'> & RowProps;
-
 /**
  * Row component
  *
@@ -88,23 +86,23 @@ type RowComponentProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap' | 'start'>
  *   <span>3</span>
  * </Row>
  */
-const Row: React.FC<RowComponentProps> = ({
-                                            children,
-                                            wrap = false,
-                                            around = false,
-                                            jc = false,
-                                            js = false,
-                                            je = false,
-                                            between = false,
-                                            start = true,
-                                            center = false,
-                                            stretch = false,
-                                            end = false,
-                                            role = 'row',
-                                            space = 0,
-                                            style = {},
-                                            ...props
-                                          }) => {
+const Row: React.FC<RowProps> = ({
+                                   children,
+                                   wrap = false,
+                                   around = false,
+                                   jc = false,
+                                   js = false,
+                                   je = false,
+                                   between = false,
+                                   start = true,
+                                   center = false,
+                                   stretch = false,
+                                   end = false,
+                                   role = 'row',
+                                   space = 0,
+                                   style = {},
+                                   ...props
+                                 }) => {
 
   let styles: React.CSSProperties = {
     display: 'flex',

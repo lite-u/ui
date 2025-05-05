@@ -12,7 +12,7 @@ import MenuPage from '../../samples/MenuPage.tsx'
 import MenuItemPage from '../../samples/MenuItemPage.tsx'
 import DropPage from '../../samples/DropPage.tsx'
 import TransitionSamples from '../../samples/TransitionPage.tsx'
-import TooltipSamples from '../../samples/TooltipSamples.tsx'
+import TooltipPage from '../../samples/TooltipPage.tsx'
 import {ReactElement} from 'react'
 import TableRowPage from '../../samples/TableRowPage.tsx'
 import ButtonPage from '../../samples/ButtonPage.tsx'
@@ -139,7 +139,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'tooltip',
     name: 'Tooltip',
     apiNameKey: 'Tooltip',
-    comp: <TooltipSamples/>,
+    comp: <TooltipPage/>,
   },
   collapse: {
     to: 'collapse',

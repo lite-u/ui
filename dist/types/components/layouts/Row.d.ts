@@ -1,6 +1,6 @@
 import { ContainerProps } from '../container/Container';
 import { CSSProperties } from 'react';
-interface RowProps extends ContainerProps {
+interface RowProps extends Omit<ContainerProps, 'wrap' | 'start'> {
     /**
      * Align items to the start vertically.
      * @default true
@@ -57,7 +57,6 @@ interface RowProps extends ContainerProps {
      */
     space?: CSSProperties['gap'];
 }
-type RowComponentProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap' | 'start'> & RowProps;
 /**
  * Row component
  *
@@ -77,5 +76,5 @@ type RowComponentProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap' | 'start'>
  *   <span>3</span>
  * </Row>
  */
-declare const Row: React.FC<RowComponentProps>;
+declare const Row: React.FC<RowProps>;
 export default Row;
