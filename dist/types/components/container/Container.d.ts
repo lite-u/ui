@@ -79,7 +79,7 @@ export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
      * If true, sets position to relative.
      * @default \-
      */
-    rel?: boolean;
+    rela?: boolean;
     /**
      * If true, sets position to fixed.
      * @default \-

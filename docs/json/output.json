@@ -499,6 +499,12 @@
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
       },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
+      },
       "fixed": {
         "type": "boolean",
         "required": false,
@@ -777,6 +783,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
+      },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
       },
       "fixed": {
         "type": "boolean",
@@ -1087,6 +1099,12 @@
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
       },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
+      },
       "fixed": {
         "type": "boolean",
         "required": false,
@@ -1374,6 +1392,12 @@
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
       },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
+      },
       "fixed": {
         "type": "boolean",
         "required": false,
@@ -1612,6 +1636,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
+      },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
       },
       "fixed": {
         "type": "boolean",
@@ -2036,6 +2066,12 @@
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
       },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
+      },
       "fixed": {
         "type": "boolean",
         "required": false,
@@ -2260,6 +2296,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "If true, sets position to absolute."
+      },
+      "rela": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "If true, sets position to relative."
       },
       "fixed": {
         "type": "boolean",

@@ -269,7 +269,7 @@ const TransitionNested = () => {
       <Transition
         visible={visible}
         delay={100}
-        duration={100}
+        duration={200}
         exitDuration={100}
         from={{scale: 1, opacity: .8}}
         to={{scale: .8, opacity: 1}}
@@ -278,14 +278,12 @@ const TransitionNested = () => {
           console.log('onAnimationEntered')
         }}
         onAnimationExited={() => {
-          setTimeout(() => {
-            setVisible(!visible)
-          }, 1000)
+          setVisible(true)
         }}>
         <Transition
           visible={visible}
           delay={0}
-          duration={100}
+          duration={500}
           exitDuration={100}
           from={{scale: 1, opacity: .5}}
           to={{scale: 1.2, opacity: 1}}>
@@ -304,36 +302,48 @@ const TransitionComposition = () => {
       setVisible(!visible)
     }}>Toggle</Button>
 
-    <Con rel w={100} h={100}>
+    <Con rela w={100} h={100}>
       <Transition
         visible={visible}
         style={{position: 'absolute'}}
         from={{
-          translate: {
-            value: '0 0',
-            delay: 200,
+          top: {
+            value: 0,
+            delay: 100,
             duration: 200,
           },
-          // scale: .3,
-          // opacity: .8,
-          marginTop: {
-            value: 30,
-            delay: 200,
-            duration: 100,
+          left: {
+            value: 0,
+            delay: 100,
+            duration: 200,
+          },
+          translate: {
+            value: '0 0',
+            delay: 100,
+            duration: 200,
           },
         }}
         to={{
           translate: {
-            value: '100px 0px',
+            value: '120px -120px',
             delay: 0,
             duration: 200,
           },
-          // scale: .8,
-          // opacity: 1,
-          marginTop: {
-            value: 0,
+          top: {
+            value: 500,
             delay: 200,
             duration: 100,
+          },
+          left: {
+            value: 500,
+            delay: 200,
+            duration: 100,
+          },
+
+          marginLeft: {
+            value: 140,
+            delay: 0,
+            duration: 200,
           },
         }}>
         <Row fw
