@@ -183,7 +183,7 @@ const Select: React.FC<SelectProps> = ({
     ...defaultStyle,
     ...itemStyle,
   }
-  console.log(mergedItemStyle)
+  // console.log(mergedItemStyle)
   return <SelectContext.Provider value={{itemStyle: mergedItemStyle, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}

@@ -108,7 +108,7 @@ const Panel: React.FC<{
   const boxPadding = theme.padding[size as keyof typeof theme['padding']].x
   const primaryColor = theme.panel.primaryColor
 
-  console.log(titleStyle)
+  // console.log(titleStyle)
   return <Container fw fh role={'panel'} {...props}>
     <Column fw fh stretch>
       <Container role={'panel-head'}
