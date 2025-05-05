@@ -49,8 +49,8 @@ const TransitionSample: React.FC = () => {
       </Con>
 
       <Con w={'auto'}>
-        <SampleBlock title={'Nested'}>
-          <TransitionNested/>
+        <SampleBlock title={'Callback Function'}>
+          <TransitionCallback/>
         </SampleBlock>
       </Con>
 
@@ -253,11 +253,11 @@ const TransitionTimeFunction = () => {
           to={{
             translate: {
               value: '100px 0',
-              duration: 400,
+              duration: 800,
             },
             transform: {
               value: 'skewX(-20deg)',
-              duration: 400,
+              duration: 800,
             },
           }}>
           <Row fw fh mt={10} w={50} h={50} center jc bg={'#61984d'} rounded border/>
@@ -267,13 +267,20 @@ const TransitionTimeFunction = () => {
   </Con>
 }
 
-const TransitionNested = () => {
+const TransitionCallback = () => {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => {
-      setVisible(true)
-    })
+    let timer = setInterval(() => {
+      if (!visible) {
+        console.log('start')
+        setVisible(true)
+      }
+    }, 1000)
+
+    return () => {
+      clearInterval(timer)
+    }
   }, [])
 
   return <Con ml={10}>
@@ -287,10 +294,10 @@ const TransitionNested = () => {
         to={{scale: .8, opacity: 1}}
         onAnimationEntered={() => {
           setVisible(false)
-          console.log('onAnimationEntered')
+          // console.log('onAnimationEntered')
         }}
         onAnimationExited={() => {
-          setVisible(true)
+          // setVisible(true)
         }}>
         <Transition
           visible={visible}
