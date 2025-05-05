@@ -60,6 +60,12 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
+      <Con w={'auto'}>
+        <SampleBlock title={'Composition'}>
+          <TransitionComposition/>
+        </SampleBlock>
+      </Con>
+
 
     </Row>
 
@@ -273,7 +279,7 @@ const TransitionNested = () => {
         }}
         onAnimationExited={() => {
           setTimeout(() => {
-            setVisible(true)
+            setVisible(!visible)
           }, 1000)
         }}>
         <Transition
@@ -283,16 +289,73 @@ const TransitionNested = () => {
           exitDuration={100}
           from={{scale: 1, opacity: .5}}
           to={{scale: 1.2, opacity: 1}}>
-          <Row fw
-               fh
-               w={100}
-               h={100}
-               center
-               jc
-               fz={100}>
-            ❤️
-          </Row>
+          <Row fw fh w={100} h={100} center jc fz={100}>❤️</Row>
         </Transition>
+      </Transition>
+    </Con>
+  </Con>
+}
+
+const TransitionComposition = () => {
+  const [visible, setVisible] = useState(false)
+
+  return <Con ml={10}>
+    <Button s onClick={() => {
+      setVisible(!visible)
+    }}>Toggle</Button>
+
+    <Con w={100} h={100} style={{position: 'relative'}}>
+      <Transition
+        visible={visible}
+        style={{position: 'absolute'}}
+        from={{
+          translate: {
+            value: '0 0',
+            delay: 200,
+            duration: 200,
+          },
+          // scale: .3,
+          // opacity: .8,
+          marginTop: {
+            value: 30,
+            delay: 200,
+            duration: 100,
+          },
+        }}
+        to={{
+          translate: {
+            value: '100px 0px',
+            delay: 0,
+            duration: 200,
+          },
+          // scale: .8,
+          // opacity: 1,
+          marginTop: {
+            value: 0,
+            delay: 200,
+            duration: 100,
+          },
+        }}>
+        <Row fw
+             fh
+             w={50}
+             h={50}
+             center
+             jc
+             bg={'#3cb65d'}
+             rounded
+             border>
+        </Row>
+
+        {/*<Transition
+          visible={visible}
+          delay={0}
+          duration={100}
+          exitDuration={100}
+          from={{scale: 1, opacity: .5}}
+          to={{scale: 1.2, opacity: 1}}>
+          <Row fw fh w={100} h={100} center jc fz={100}>❤️</Row>
+        </Transition>*/}
       </Transition>
     </Con>
   </Con>

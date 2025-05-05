@@ -77,6 +77,11 @@ export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
    */
   abs?: boolean,
   /**
+   * If true, sets position to relative.
+   * @default \-
+   */
+  rel?: boolean,
+  /**
    * If true, sets position to fixed.
    * @default \-
    */
@@ -234,6 +239,7 @@ const Container: React.FC<ContainerProps> = ({
                                                rounded,
                                                ib,
                                                abs,
+                                               rel,
                                                fixed,
                                                t,
                                                r,
@@ -386,6 +392,10 @@ const Container: React.FC<ContainerProps> = ({
 
   if (abs) {
     styles.position = 'absolute'
+  }
+
+  if (rel) {
+    styles.position = 'relative'
   }
 
   if (fixed) {
