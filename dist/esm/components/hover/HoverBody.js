@@ -5,7 +5,7 @@ const HoverBody = ({ children, style = {} }) => {
     const { show, persisted } = useContext(HoverContext);
     if (!show && !persisted)
         return;
-    let styles = persisted ? { display: show ? 'block' : 'none' } : {};
+    let styles = persisted ? { display: show ? 'flex' : 'none' } : {};
     return _jsx("div", { style: {
             ...style,
             ...styles,

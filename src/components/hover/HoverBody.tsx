@@ -5,7 +5,7 @@ const HoverBody: FC<{ children: ReactNode, style?: CSSProperties }> = ({children
   const {show, persisted} = useContext(HoverContext)
 
   if (!show && !persisted) return
-  let styles = persisted ? {display: show ? 'block' : 'none'} : {}
+  let styles = persisted ? {display: show ? 'flex' : 'none'} : {}
   return <div
     style={{
       ...style,

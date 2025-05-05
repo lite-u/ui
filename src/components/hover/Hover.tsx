@@ -1,4 +1,4 @@
-import {Children, createContext, FC, isValidElement, ReactNode, useEffect, useRef, useState} from 'react'
+import {Children, createContext, CSSProperties, FC, isValidElement, ReactNode, useEffect, useRef, useState} from 'react'
 import HoverHead from './HoverHead'
 import HoverBody from './HoverBody'
 
@@ -20,11 +20,13 @@ const Hover: FC<{
   delay?: number,
   onlyTriggerByHead?: boolean
   persistMode?: boolean
+  style?: CSSProperties
 }> = ({
         children,
         delay = 0,
         onlyTriggerByHead = false,
         persistMode = false,
+        style = {},
       }) => {
   const [isShow, setIsShow] = useState(false)
   const filterChildren: ReactNode[] = []
@@ -69,6 +71,7 @@ const Hover: FC<{
       onMouseLeave: onlyTriggerByHead ? handlerLeave : null,
     }}>
     <div
+      style={style}
       onMouseEnter={() => {
         if (onlyTriggerByHead) return
         handleEnter()

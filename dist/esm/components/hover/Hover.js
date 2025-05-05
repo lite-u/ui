@@ -8,7 +8,7 @@ export const HoverContext = createContext({
     onMouseEnter: () => { },
     onMouseLeave: () => { },
 });
-const Hover = ({ children, delay = 0, onlyTriggerByHead = false, persistMode = false, }) => {
+const Hover = ({ children, delay = 0, onlyTriggerByHead = false, persistMode = false, style = {}, }) => {
     const [isShow, setIsShow] = useState(false);
     const filterChildren = [];
     const leaveTimer = useRef(0);
@@ -43,7 +43,7 @@ const Hover = ({ children, delay = 0, onlyTriggerByHead = false, persistMode = f
             show: isShow,
             onMouseEnter: onlyTriggerByHead ? handleEnter : null,
             onMouseLeave: onlyTriggerByHead ? handlerLeave : null,
-        }, children: _jsx("div", { onMouseEnter: () => {
+        }, children: _jsx("div", { style: style, onMouseEnter: () => {
                 if (onlyTriggerByHead)
                     return;
                 handleEnter();

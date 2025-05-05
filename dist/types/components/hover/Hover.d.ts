@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { CSSProperties, FC, ReactNode } from 'react';
 type HoverContextType = {
     show: boolean;
     persisted: boolean;
@@ -11,5 +11,6 @@ declare const Hover: FC<{
     delay?: number;
     onlyTriggerByHead?: boolean;
     persistMode?: boolean;
+    style?: CSSProperties;
 }>;
 export default Hover;
