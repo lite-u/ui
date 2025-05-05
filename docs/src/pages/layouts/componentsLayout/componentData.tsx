@@ -18,6 +18,7 @@ import TableRowPage from '../../samples/TableRowPage.tsx'
 import ButtonPage from '../../samples/ButtonPage.tsx'
 import ParagraphPage from '../../samples/ParagraphPage.tsx'
 import ColumnPage from '../../samples/ColumnPage.tsx'
+import CollapsePage from '../../samples/CollapsePage.tsx'
 
 export type COMPONENT_ROUTE_MAP_Type = Record<string, { to: string, name: string, comp: ReactElement }>
 const COMPONENT_ROUTE_MAP = {
@@ -123,12 +124,12 @@ const COMPONENT_ROUTE_MAP = {
     apiNameKey: 'Drop',
     comp: <DropPage/>,
   },
-/*  notification: {
-    to: 'notification',
-    name: 'Notification',
-    apiNameKey: 'Notification',
-    comp: <NotificationPage/>,
-  },*/
+  /*  notification: {
+      to: 'notification',
+      name: 'Notification',
+      apiNameKey: 'Notification',
+      comp: <NotificationPage/>,
+    },*/
   transition: {
     to: 'transition',
     name: 'Transition',
@@ -145,7 +146,7 @@ const COMPONENT_ROUTE_MAP = {
     to: 'collapse',
     name: 'Collapse',
     apiNameKey: 'Collapse',
-    // comp: <TooltipSamples/>,
+    comp: <CollapsePage/>,
   },
 }
 

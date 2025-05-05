@@ -11,9 +11,9 @@ const Collapse = ({ open = true, head, children, onToggle, headStyle, contentSty
         const r = containerRef.current.getBoundingClientRect();
         setContainerHeight(r.height);
     }, [containerRef.current, children]);
-    return _jsxs("div", { role: 'collapse', children: [_jsx(Con, { role: 'collapse-switch', 
+    return _jsxs("div", { role: 'collapse', style: { flex: 1 }, children: [_jsx(Con, { role: 'collapse-switch', 
                 // fw
-                w: 'auto', style: {
+                w: '100%', style: {
                     display: 'inline-block', cursor: 'pointer', userSelect: 'none',
                     ...headStyle,
                 }, onClick: () => {

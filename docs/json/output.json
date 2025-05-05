@@ -2447,32 +2447,32 @@
       "head": {
         "type": "ReactNode",
         "required": true,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "The clickable header element that toggles the collapse."
       },
       "headStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "Inline styles applied to the clickable header element."
       },
       "contentStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "Inline styles applied to the collapsible content container."
       },
       "duration": {
         "type": "number",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "Duration of the enter transition in milliseconds."
       },
-      "leaveDuration": {
+      "exitDuration": {
         "type": "number",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "\\-",
+        "description": "Duration of the leave transition in milliseconds."
       }
     }
   },

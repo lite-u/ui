@@ -2,7 +2,6 @@ import {Button, Con, Flex, Row, Transition} from '@lite-u/ui'
 import {useEffect, useState} from 'react'
 import {Col} from '../../../../src'
 import SampleBlock from '../SampleBlock.tsx'
-// import TransitionB from '@ui/components/transition/TransitionB.tsx'
 
 const TransitionSample: React.FC = () => {
   return <Col>
