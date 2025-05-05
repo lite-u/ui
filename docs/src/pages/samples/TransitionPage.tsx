@@ -48,7 +48,7 @@ const TransitionSample: React.FC = () => {
         </SampleBlock>
       </Con>
 
-      <Con w={'auto'}>
+      <Con w={300}>
         <SampleBlock title={'Time Function - Cubic-Bezier'}>
           <TransitionTimeFunction/>
         </SampleBlock>
@@ -68,7 +68,6 @@ const TransitionSample: React.FC = () => {
 
 
     </Row>
-
     {/*<TransitionFixed/>*/}
     {/*<TransitionSample2/>*/}
     {/*<TransitionSample3/>*/}
@@ -235,21 +234,34 @@ const TransitionTimeFunction = () => {
     <Con w={100} h={50}>
       <Transition
         visible={visible}
-        duration={1000}
         effect={'cubic-bezier(0.9, 0.5, 0.1, 1)'}
-        from={{translate: '0 0'}}
-        to={{translate: '100px 0'}}>
-        <Row fw
-             fh
-             mt={10}
-             w={50}
-             h={50}
-             center
-             jc
-             bg={'#8e7f34'}
-             rounded
-             border>
-        </Row>
+        from={{
+          translate: '0 0',
+          transform: {
+            value: 'skewX(-20deg)',
+            delay: 100,
+          },
+        }}
+        to={{
+          translate: '100px 0',
+          transform: 'skewX(0deg)',
+        }}>
+        <Transition
+          visible={visible}
+          effect={'cubic-bezier(0.9, 0.5, 0.1, 1)'}
+          from={{translate: '0 0', transform: 'skewX(20deg)'}}
+          to={{
+            translate: {
+              value: '100px 0',
+              duration: 400,
+            },
+            transform: {
+              value: 'skewX(-20deg)',
+              duration: 400,
+            },
+          }}>
+          <Row fw fh mt={10} w={50} h={50} center jc bg={'#61984d'} rounded border/>
+        </Transition>
       </Transition>
     </Con>
   </Con>
