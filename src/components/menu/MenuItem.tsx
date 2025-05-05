@@ -117,7 +117,8 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
                 exitDuration={hoverLeaveDuration}
                 duration={hoverEnterDuration}
                 from={{
-                  backgroundColor: '#fff',
+                  ...style,
+                  // backgroundColor: style.backgroundColor || '#fff',
                 }}
                 to={hoverStyle}>
       {children}

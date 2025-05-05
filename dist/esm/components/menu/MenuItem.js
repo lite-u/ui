@@ -61,7 +61,8 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
                 ...styles,
                 ...style,
             }, exitDuration: hoverLeaveDuration, duration: hoverEnterDuration, from: {
-                backgroundColor: '#fff',
+                ...style,
+                // backgroundColor: style.backgroundColor || '#fff',
             }, to: hoverStyle, children: children }) });
 };
 export default MenuItem;
