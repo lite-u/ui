@@ -304,7 +304,7 @@ const TransitionComposition = () => {
       setVisible(!visible)
     }}>Toggle</Button>
 
-    <Con w={100} h={100} style={{position: 'relative'}}>
+    <Con rel w={100} h={100}>
       <Transition
         visible={visible}
         style={{position: 'absolute'}}

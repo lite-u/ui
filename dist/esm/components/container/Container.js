@@ -20,7 +20,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
  *   <h2>Content</h2>
  * </Container>
  */
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, color, border, rounded, ib, abs, fixed, t, r, b, l, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, color, border, rounded, ib, abs, rela, fixed, t, r, b, l, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -116,6 +116,9 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     }
     if (abs) {
         styles.position = 'absolute';
+    }
+    if (rela) {
+        styles.position = 'relative';
     }
     if (fixed) {
         styles.position = 'fixed';
