@@ -3,15 +3,31 @@ import { useEffect, useRef, useState } from 'react';
 import useElementMoveDetect from '../../hooks/useElementMoveDetect';
 import { createPortal } from 'react-dom';
 import { Transition } from '../../index';
-export const Tooltip = ({ title, color, bgColor, position = 't', 
+/**
+ * Tooltip component
+ *
+ * @brief
+ * Displays a floating label with helpful information when the user hovers over or focuses on the target element.
+ *
+ * @intro
+ * Renders a customizable tooltip using React Portals for positioning and transition animations. It calculates the correct position based on the specified direction and adjusts dynamically if the target element moves.
+ *
+ * @example
+ * import { Tooltip } from '@lite-u/ui'
+ *
+ * <Tooltip title="Hello" placement="t">
+ *   <button>Hover me</button>
+ * </Tooltip>
+ */
+export const Tooltip = ({ title, color = '#fff', bgColor = '#333', placement = 't', 
 // delay = 100,
 children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
     const tooltipRef = useRef(null);
     const targetRef = useRef(null);
-    const backgroundColor = bgColor || '#333';
-    const textColor = color || '#fff';
+    const backgroundColor = bgColor;
+    const textColor = color;
     const [realTimeStyle, setRealTimeStyle] = useState({});
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);
@@ -22,8 +38,8 @@ children, }) => {
     });
     useEffect(() => {
         calcPosition();
-        if (position) {
-            setLocalPosition(position);
+        if (placement) {
+            setLocalPosition(placement);
             return;
         }
         /*if (isVisible && targetRef.current && tooltipRef.current) {
@@ -59,7 +75,7 @@ children, }) => {
             }
           }
         }*/
-    }, [isVisible, targetRef.current, position]);
+    }, [isVisible, targetRef.current, placement]);
     const calcPosition = () => {
         const firstChild = targetRef.current?.firstElementChild;
         // const maxWidth = window.innerWidth

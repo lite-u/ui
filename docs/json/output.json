@@ -1963,19 +1963,23 @@
     }
   },
   "Tooltip": {
-    "tags": {},
+    "tags": {
+      "brief": "Displays a floating label with helpful information when the user hovers over or focuses on the target element.",
+      "intro": "Renders a customizable tooltip using React Portals for positioning and transition animations. It calculates the correct position based on the specified direction and adjusts dynamically if the target element moves.",
+      "example": "import { Tooltip } from '@lite-u/ui'\n\n<Tooltip title=\"Hello\" placement=\"t\">\n  <button>Hover me</button>\n</Tooltip>"
+    },
     "props": {
       "bgColor": {
         "type": "string",
         "required": false,
-        "defaultValue": "",
-        "description": ""
+        "defaultValue": "#333",
+        "description": "The background color of the tooltip. Defaults to a neutral color."
       },
-      "position": {
-        "type": "TooltipPosition",
+      "placement": {
+        "type": "TooltipPlacement",
         "required": false,
         "defaultValue": "t",
-        "description": ""
+        "description": "The placement of the tooltip relative to its children. Can be one of:\n`t` , `r` , `b` , `l` , `tl` , `tr` , `bl` , `br`"
       }
     }
   },

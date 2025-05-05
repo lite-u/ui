@@ -50,7 +50,7 @@ const CodeWrap: React.FC<React.HTMLProps<HTMLDivElement> & {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-        <Tooltip position={'t'} title={copied ? 'Copied' : 'Copy'}>
+        <Tooltip placement={'t'} title={copied ? 'Copied' : 'Copy'}>
           <IconButton s
                       title={copied ? 'Copied' : 'Copy'}
                       onClick={handleCopy}
