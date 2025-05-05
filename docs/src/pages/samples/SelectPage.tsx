@@ -102,7 +102,7 @@ const SelectPage: React.FC = () => {
       </Con>
 
       <Con w={200}>
-        <SampleBlock title={'onChange'}>
+        <SampleBlock title={'onSelectChange'}>
           <Col space={10} w={100}>
             <Select s
                     selectValue={selectValue}

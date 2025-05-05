@@ -148,6 +148,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
                     }, ...props, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, exitDuration: animationLeaveDuration, style: {
                                     width: 14,
                                     height: 14,
+                                    flex: 0
                                 }, from: {
                                     rotate: '0deg',
                                 }, to: {

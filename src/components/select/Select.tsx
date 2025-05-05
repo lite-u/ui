@@ -243,6 +243,7 @@ const Select: React.FC<SelectProps> = ({
                       style={{
                         width: 14,
                         height: 14,
+                        flex:0
                       }}
                       from={{
                         rotate: '0deg',
