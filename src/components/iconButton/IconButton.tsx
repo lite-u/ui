@@ -1,5 +1,6 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
 import ButtonBase from '../button/ButtonBase'
+import {CSSProperties} from 'react'
 
 type SizeVariant = 'xs' | 'sm' | 'md' | 'lg';
 
@@ -30,7 +31,7 @@ type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
    */
   disabled?: boolean;
 
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 };
 
 /**
