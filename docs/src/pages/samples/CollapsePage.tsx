@@ -8,7 +8,8 @@ const CollapsePage: React.FC = () => {
         <SampleBlock title={'Default Opened'}>
           <Con w={200}>
             <Row between border>
-              <Collapse head={<MenuItem hoverStyle={{backgroundColor: '#012a57', color: 'orange'}} style={{backgroundColor: '#aa7474', color: '#fff'}}>toggle</MenuItem>}>
+              <Collapse head={<MenuItem hoverStyle={{backgroundColor: '#012a57', color: 'orange'}}
+                                        style={{backgroundColor: '#aa7474', color: '#fff'}}>toggle</MenuItem>}>
                 <Menu>
                   <MenuItem>1</MenuItem>
                   <MenuItem>2</MenuItem>
