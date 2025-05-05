@@ -8,7 +8,7 @@
     "output-json-doc": "node ./docgen.cjs",
     "watch-json-doc": "node ./docgen.watch.cjs"
   },
-  "author": "",
+  "author": "Lucas Chow",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/types/index.d.ts",
