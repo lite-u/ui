@@ -57,7 +57,7 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
  * A simple and easy-to-use table component with a minimal design.
  *
  * @intro
- * Table accepts [TableRow](./tablerow) Component as children only
+ * Table accepts `TableRow` Component as children only
  *
  * @example
  *

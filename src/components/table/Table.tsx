@@ -1,5 +1,5 @@
 import TableBase from './TableBase'
-import {Children, createContext, CSSProperties, ReactNode, useContext} from 'react'
+import {Children, createContext, CSSProperties, isValidElement, ReactNode, useContext} from 'react'
 import TableRow from './TableRow'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
@@ -111,8 +111,7 @@ const Table: TableProps = ({
   const filteredChildren: ReactNode[] = []
 
   Children.forEach(children, (child) => {
-    // @ts-ignore
-    if (child.type !== TableRow) {
+    if (!isValidElement(child) || child.type !== TableRow) {
       // @ts-ignore
       console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`)
       return

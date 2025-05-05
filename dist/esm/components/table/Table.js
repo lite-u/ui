@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import TableBase from './TableBase';
-import { Children, createContext, useContext } from 'react';
+import { Children, createContext, isValidElement, useContext } from 'react';
 import TableRow from './TableRow';
 import { useLiteUIContext } from '../../LiteUIProvider';
 const TableContext = createContext({
@@ -15,7 +15,7 @@ const TableContext = createContext({
  * A simple and easy-to-use table component with a minimal design.
  *
  * @intro
- * Table accepts [TableRow](./tablerow) Component as children only
+ * Table accepts `TableRow` Component as children only
  *
  * @example
  *
@@ -37,8 +37,7 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
     // console.log(theme.)
     const filteredChildren = [];
     Children.forEach(children, (child) => {
-        // @ts-ignore
-        if (child.type !== TableRow) {
+        if (!isValidElement(child) || child.type !== TableRow) {
             // @ts-ignore
             console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`);
             return;

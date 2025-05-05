@@ -26,6 +26,9 @@ import Interactable from './components/interactive/Interactable'
 import Collapse from './components/collapse/Collapse'
 import ButtonBase from './components/button/ButtonBase'
 import NotificationContext, {useNotification} from './components/notification/NotificationContext'
+import Hover from './components/hover/Hover'
+import HoverHead from './components/hover/HoverHead'
+import HoverBody from './components/hover/HoverBody'
 
 export {
   Select,
@@ -59,6 +62,9 @@ export {
   Interactable,
   Table,
   TableRow,
+  Hover,
+  HoverHead,
+  HoverBody
 }
 export type {ButtonProps} from './components/button/Button'
 export default LiteUIProvider

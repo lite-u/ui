@@ -2655,7 +2655,7 @@
   "Table": {
     "tags": {
       "brief": "A simple and easy-to-use table component with a minimal design.",
-      "intro": "Table accepts [TableRow](./tablerow) Component as children only",
+      "intro": "Table accepts `TableRow` Component as children only",
       "example": "import { Table, TableRow } from '@lite-u/ui'\n\n<Table>\n  <TableRow head>\n    <span>th cell 0</span>\n    <span>th cell 1</span>\n  </TableRow>\n  <TableRow>\n    <span>td cell 0</span>\n    <span>td cell 1</span>\n  </TableRow>\n</Table>"
     },
     "props": {
