@@ -1,10 +1,10 @@
 import {ThemeType} from './type'
 
-const primaryColor = '#0a2e71'
+const primaryColor = '#133f90'
 const secondaryColor = '#007bff'
 const successColor = '#28a745'
 const errorColor = '#dc3545'
-const warningColor = '#ffc107'
+const warningColor = '#fb9e08'
 
 export const liteTheme: ThemeType = {
   colors: {
@@ -67,9 +67,9 @@ export const liteTheme: ThemeType = {
       border: 'none',
     },
     neutral: {
-      backgroundColor: '#cfcfcf',
-      color: '#000000',
-      border: primaryColor,
+      backgroundColor: 'transparent',
+      color: '#333',
+      border: `1px solid ${primaryColor}`,
     },
     disabled: {
       backgroundColor: '#cfcfcf',
