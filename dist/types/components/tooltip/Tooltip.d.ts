@@ -27,12 +27,12 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
      * Duration of the transition entering, in milliseconds.
      * @default 200
      */
-    animationEnterDuration: number;
+    animationEnterDuration?: number;
     /**
      * Duration of the transition leaving, in milliseconds.
      * @default 100
      */
-    animationExitDuration: number;
+    animationExitDuration?: number;
     children: ReactNode;
 };
 /**
