@@ -64,37 +64,44 @@ function Interactable<T extends PolymorphicTag>({
     ...(focused ? focus : {}),
     ...(pressed ? active : {}),
   }
-
   return (
     <Tag
       {...rest}
-      /*      onKeyDown={(e: KeyboardEvent<HTMLElementTagNameMap[T]>) => {
-              setHovered(true)
-              onKeyDown?.(e)
-            }}*/
       onMouseEnter={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        // @ts-ignore
+        if (rest?.disabled) return
         setHovered(true)
         onMouseEnter?.(e)
       }}
       onMouseLeave={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        // @ts-ignore
+        if (rest?.disabled) return
         setHovered(false)
         onMouseLeave?.(e)
       }}
       onFocus={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
+        // @ts-ignore
+        if (rest?.disabled) return
         setFocused(true)
         onFocus?.(e)
       }}
       onBlur={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
+        // @ts-ignore
+        if (rest?.disabled) return
         setFocused(false)
         onBlur?.(e)
       }}
       onPointerDown={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
+        // @ts-ignore
+        if (rest?.disabled) return
         // @ts-ignore
         e.target?.setPointerCapture(e.pointerId)
         setPressed(true)
         onPointerDown?.(e)
       }}
       onPointerUp={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
+        // @ts-ignore
+        if (rest?.disabled) return
         // @ts-ignore
         e.target?.releasePointerCapture(e.pointerId)
         setPressed(false)

@@ -55,6 +55,7 @@ export const Button = ({ xs, s, m = true, l, primary, warn, error, neutral = tru
         styles.color = theme.button.disabled.color;
         styles.border = theme.button.disabled.border;
         styles.cursor = 'not-allowed';
+        styles.pointerEvents = 'visible';
     }
     return (_jsx(ButtonBase, { disabled: disabled, type: type, style: styles, ...props, children: children }));
 };

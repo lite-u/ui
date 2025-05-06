@@ -131,6 +131,7 @@ export const Button: React.FC<ButtonProps> = ({
     styles.color = theme.button.disabled.color
     styles.border = theme.button.disabled.border
     styles.cursor = 'not-allowed'
+    styles.pointerEvents = 'visible'
   }
 
   return (
