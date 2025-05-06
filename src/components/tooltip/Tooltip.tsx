@@ -4,11 +4,11 @@ import {createPortal} from 'react-dom'
 import {Transition} from '../../index'
 
 type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
-type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
+type ToolTipProps = HTMLProps<HTMLDivElement> & {
   /**
    * The title of the tooltip.
    */
-  title: React.ReactNode;
+  title: ReactNode;
 
   /**
    * The background color of the tooltip. Defaults to a neutral color.

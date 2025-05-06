@@ -65,7 +65,7 @@ export const liteTheme = {
         },
         neutral: {
             backgroundColor: 'transparent',
-            color: '#333',
+            color: primaryColor,
             border: `1px solid ${primaryColor}`,
         },
         disabled: {
