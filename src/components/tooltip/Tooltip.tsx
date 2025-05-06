@@ -1,4 +1,4 @@
-import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
+import {CSSProperties, HTMLProps, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
 import useElementMoveDetect from '../../hooks/useElementMoveDetect'
 import {createPortal} from 'react-dom'
 import {Transition} from '../../index'
