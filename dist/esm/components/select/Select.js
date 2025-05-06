@@ -24,7 +24,7 @@ import SelectItem from './SelectItem';
  *   <SelectItem value={'3'}>3</SelectItem>
  * </Select>
  */
-const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSelectChange, children, onKeyDown, ...props }) => {
+const Select = ({ label, style, itemStyle = {}, xs, s, m, l, disabled, selectValue, onSelectChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -88,6 +88,8 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
         };
     }, [children, selectValue, size]);
     const handleItemClick = (newValue) => {
+        if (disabled)
+            return;
         setValue(newValue);
         if (newValue !== value) {
             onSelectChange && onSelectChange(newValue);
@@ -96,6 +98,8 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
         isOpenedRef.current = false;
     };
     const handleOpen = () => {
+        if (disabled)
+            return;
         const maxHeight = window.innerHeight;
         const rect = wrapperRef.current?.getBoundingClientRect();
         const newPosition = {};
@@ -123,14 +127,15 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
                 // height: defaultStyle.height,
                 // borderRadius: defaultStyle.borderRadius,
                 // boxShadow: '0 0 1px 0 #000',
-                cursor: 'pointer',
+                cursor: disabled ? 'not-allowed' : 'pointer',
                 // boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
-            }, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: 0, style: {
+            }, children: [_jsx(Interactable, { tag: 'div', role: 'placeholder', tabIndex: disabled ? -1 : 0, style: {
                         userSelect: 'none',
                         border: '1px solid #dfdfdf',
                         ...defaultStyle,
+                        ...disabled ? { color: '#bababa' } : {},
                         ...style,
                         // height: '100%',
                         // borderRadius: defaultStyle.borderRadius,
@@ -148,7 +153,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, selectValue, onSele
                     }, ...props, children: _jsxs(Row, { fh: true, between: true, center: true, pl: defaultStyle.padding, pr: defaultStyle.padding, children: [_jsx("span", { children: value }), _jsx(Transition, { visible: openSelect, duration: animationDuration, exitDuration: animationLeaveDuration, style: {
                                     width: 14,
                                     height: 14,
-                                    flex: 0
+                                    flex: 0,
                                 }, from: {
                                     rotate: '0deg',
                                 }, to: {

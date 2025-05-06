@@ -78,6 +78,7 @@ const Select: React.FC<SelectProps> = ({
                                          s,
                                          m,
                                          l,
+                                         disabled,
                                          selectValue,
                                          onSelectChange,
                                          children,
@@ -155,6 +156,7 @@ const Select: React.FC<SelectProps> = ({
   }, [children, selectValue, size])
 
   const handleItemClick = (newValue: string | number) => {
+    if (disabled) return
     setValue(newValue)
     if (newValue !== value) {
       onSelectChange && onSelectChange(newValue)
@@ -164,6 +166,7 @@ const Select: React.FC<SelectProps> = ({
   }
 
   const handleOpen = () => {
+    if (disabled) return
     const maxHeight = window.innerHeight
     const rect = wrapperRef.current?.getBoundingClientRect()
     const newPosition: { top?: string, bottom?: string } = {}
@@ -196,7 +199,7 @@ const Select: React.FC<SelectProps> = ({
            // height: defaultStyle.height,
            // borderRadius: defaultStyle.borderRadius,
            // boxShadow: '0 0 1px 0 #000',
-           cursor: 'pointer',
+           cursor: disabled ? 'not-allowed' : 'pointer',
            // boxSizing: 'border-box',
            ...style,
            position: 'relative',
@@ -205,11 +208,12 @@ const Select: React.FC<SelectProps> = ({
       <Interactable
         tag={'div'}
         role={'placeholder'}
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         style={{
           userSelect: 'none',
           border: '1px solid #dfdfdf',
           ...defaultStyle,
+          ...disabled ? {color: '#bababa'} : {},
           ...style,
           // height: '100%',
           // borderRadius: defaultStyle.borderRadius,
@@ -243,7 +247,7 @@ const Select: React.FC<SelectProps> = ({
                       style={{
                         width: 14,
                         height: 14,
-                        flex:0
+                        flex: 0,
                       }}
                       from={{
                         rotate: '0deg',
