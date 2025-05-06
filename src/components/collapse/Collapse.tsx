@@ -80,10 +80,9 @@ const Collapse: React.FC<CollapseProps> = ({
   }, [containerRef.current, children])
 
   return <div role={'collapse'} style={{flex: 1}}>
-    <Con role={'collapse-switch'}
-      // fw
-         w={'100%'}
+    <div role={'collapse-switch'}
          style={{
+           width:'100%',
            display: 'inline-block', cursor: 'pointer', userSelect: 'none',
            ...headStyle,
          }}
@@ -92,7 +91,7 @@ const Collapse: React.FC<CollapseProps> = ({
            onToggle?.(!isOpen)
          }}>
       {head}
-    </Con>
+    </div>
 
     <Transition
       visible={isOpen}

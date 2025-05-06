@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
-import { Con, Transition } from '../../index';
+import { Transition } from '../../index';
 /**
  * Collapse component
  *
@@ -28,9 +28,8 @@ const Collapse = ({ open = true, head, children, onToggle, headStyle, contentSty
         const r = containerRef.current.getBoundingClientRect();
         setContainerHeight(r.height);
     }, [containerRef.current, children]);
-    return _jsxs("div", { role: 'collapse', style: { flex: 1 }, children: [_jsx(Con, { role: 'collapse-switch', 
-                // fw
-                w: '100%', style: {
+    return _jsxs("div", { role: 'collapse', style: { flex: 1 }, children: [_jsx("div", { role: 'collapse-switch', style: {
+                    width: '100%',
                     display: 'inline-block', cursor: 'pointer', userSelect: 'none',
                     ...headStyle,
                 }, onClick: () => {
