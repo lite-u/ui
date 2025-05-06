@@ -191,6 +191,11 @@ export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
      */
     h?: CSSProperties['height'];
     /**
+     * Flex of the container.
+     * @default \-
+     */
+    flex?: CSSProperties['flex'];
+    /**
      * ARIA role attribute for the container.
      * @default 'container'
      */

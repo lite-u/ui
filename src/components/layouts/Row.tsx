@@ -109,8 +109,10 @@ const Row: React.FC<RowProps> = ({
     flex: 1,
     flexDirection: 'row',
     boxSizing: 'border-box',
-    width: 'auto', height: 'auto', ...style,
+    width: 'auto',
+    height: 'auto',
     gap: space,
+    ...style,
   }
 
   const flexProps: FlexProps = {

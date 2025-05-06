@@ -20,7 +20,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
  *   <h2>Content</h2>
  * </Container>
  */
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, textColor, border, rounded, ib, abs, rela, fixed, t, r, b, l, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, textColor, border, rounded, ib, abs, rela, fixed, t, r, b, l, borderColor = '#dfdfdf', flex, w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
@@ -134,6 +134,9 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     }
     if (typeof l === 'string' || typeof l === 'number') {
         styles.left = l;
+    }
+    if (typeof flex === 'string' || typeof flex === 'number') {
+        styles.flex = flex;
     }
     return _jsx("div", { role: role, style: styles, ...props, children: children });
 };

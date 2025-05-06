@@ -195,6 +195,11 @@ export type ContainerProps = React.HTMLProps<HTMLDivElement> & {
    */
   h?: CSSProperties['height']
   /**
+   * Flex of the container.
+   * @default \-
+   */
+  flex?: CSSProperties['flex']
+  /**
    * ARIA role attribute for the container.
    * @default 'container'
    */
@@ -246,6 +251,7 @@ const Container: React.FC<ContainerProps> = ({
                                                b,
                                                l,
                                                borderColor = '#dfdfdf',
+                                               flex,
                                                w,
                                                h,
                                                maxW,
@@ -416,6 +422,10 @@ const Container: React.FC<ContainerProps> = ({
 
   if (typeof l === 'string' || typeof l === 'number') {
     styles.left = l
+  }
+
+  if (typeof flex === 'string' || typeof flex === 'number') {
+    styles.flex = flex
   }
 
   return <div

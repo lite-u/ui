@@ -636,6 +636,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
+      },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
       }
     }
   },
@@ -747,6 +753,12 @@
         "required": false,
         "defaultValue": "#dfdfdf",
         "description": "Color of the border."
+      },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
       },
       "box": {
         "type": "boolean",
@@ -1051,6 +1063,12 @@
         "defaultValue": "#dfdfdf",
         "description": "Color of the border."
       },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
+      },
       "box": {
         "type": "boolean",
         "required": false,
@@ -1349,6 +1367,12 @@
         "required": false,
         "defaultValue": "#dfdfdf",
         "description": "Color of the border."
+      },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
       },
       "box": {
         "type": "boolean",
@@ -1810,6 +1834,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
+      },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
       }
     }
   },
@@ -2273,6 +2303,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
+      },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
       }
     }
   },
@@ -2510,6 +2546,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Height of the container."
+      },
+      "flex": {
+        "type": "Flex<string | number>",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Flex of the container."
       }
     }
   },

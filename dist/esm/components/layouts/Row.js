@@ -25,8 +25,10 @@ const Row = ({ children, wrap = false, around = false, jc = false, js = false, j
         flex: 1,
         flexDirection: 'row',
         boxSizing: 'border-box',
-        width: 'auto', height: 'auto', ...style,
+        width: 'auto',
+        height: 'auto',
         gap: space,
+        ...style,
     };
     const flexProps = {
         ...props,
