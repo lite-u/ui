@@ -188,7 +188,7 @@ const Select: React.FC<SelectProps> = ({
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           flex: 1,
+           flex: 0,
            // flex: 'none',
            ...defaultStyle,
            padding: 0,

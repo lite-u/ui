@@ -2,7 +2,7 @@ import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from '
 import {Con, Transition} from '../../index'
 import {TransitionProps} from '../transition/Transition'
 
-type CollapseProps = React.HTMLProps<HTMLDivElement> & {
+type CollapseProps = Omit<React.HTMLProps<HTMLDivElement>, 'style'> & {
   /**
    * The clickable header element that toggles the collapse.
    * @default \-
@@ -40,8 +40,6 @@ type CollapseProps = React.HTMLProps<HTMLDivElement> & {
   onToggle?: (isOpen: boolean) => void,
   ref?: RefObject<HTMLDivElement>,
 }
-
-
 
 /**
  * Collapse component
