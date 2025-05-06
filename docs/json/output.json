@@ -2543,6 +2543,12 @@
         "required": false,
         "defaultValue": "\\-",
         "description": "Duration of the leave transition in milliseconds."
+      },
+      "onToggle": {
+        "type": "(isOpen: boolean) => void",
+        "required": false,
+        "defaultValue": "\\-",
+        "description": "Callback fired when the collapse is toggled. Receives the new open state."
       }
     }
   },

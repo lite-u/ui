@@ -2,7 +2,7 @@ import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from '
 import {Transition} from '../../index'
 import {TransitionProps} from '../transition/Transition'
 
-type CollapseProps = Omit<React.HTMLProps<HTMLDivElement>, 'style'> & {
+type CollapseProps = Omit<React.HTMLProps<HTMLDivElement>, 'style' | 'onToggle'> & {
   /**
    * The clickable header element that toggles the collapse.
    * @default \-
