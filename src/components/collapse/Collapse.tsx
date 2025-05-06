@@ -1,5 +1,5 @@
 import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
-import {Con, Transition} from '../../index'
+import {Transition} from '../../index'
 import {TransitionProps} from '../transition/Transition'
 
 type CollapseProps = Omit<React.HTMLProps<HTMLDivElement>, 'style'> & {
@@ -82,7 +82,7 @@ const Collapse: React.FC<CollapseProps> = ({
   return <div role={'collapse'} style={{flex: 1}}>
     <div role={'collapse-switch'}
          style={{
-           width:'100%',
+           width: '100%',
            display: 'inline-block', cursor: 'pointer', userSelect: 'none',
            ...headStyle,
          }}
