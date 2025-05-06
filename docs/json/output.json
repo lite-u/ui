@@ -2626,14 +2626,14 @@
         "defaultValue": "",
         "description": ""
       },
-      "onMouseDown": {
-        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "onPointerDown": {
+        "type": "(PointerEventHandler<HTMLElementTagNameMap[T]> & PointerEventHandler<HTMLObjectElement>) | ... 59 more ... | (PointerEventHandler<...> & PointerEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
-      "onMouseUp": {
-        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+      "onPointerUp": {
+        "type": "(PointerEventHandler<HTMLElementTagNameMap[T]> & PointerEventHandler<HTMLObjectElement>) | ... 59 more ... | (PointerEventHandler<...> & PointerEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""

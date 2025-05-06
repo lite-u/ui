@@ -3,7 +3,7 @@ import { useState, } from 'react';
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
-function Interactable({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, onKeyDown, 
+function Interactable({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onPointerDown, onPointerUp, onKeyDown, 
 // onClick,
 ...rest }) {
     const Tag = tag;
@@ -33,12 +33,27 @@ function Interactable({ tag, hover, focus, active, style, children, onMouseEnter
         }, onBlur: (e) => {
             setFocused(false);
             onBlur?.(e);
-        }, onMouseDown: (e) => {
+        }, onPointerDown: (e) => {
+            // @ts-ignore
+            e.target?.setPointerCapture(e.pointerId);
             setPressed(true);
-            onMouseDown?.(e);
-        }, onMouseUp: (e) => {
+            onPointerDown?.(e);
+        }, onPointerUp: (e) => {
+            // @ts-ignore
+            e.target?.releasePointerCapture(e.pointerId);
             setPressed(false);
-            onMouseUp?.(e);
-        }, style: computedStyle, children: children }));
+            onPointerUp?.(e);
+        }, 
+        /*   onMouseDown={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+             // (e.target as HTMLElement).setPointerCapture(e.pointerId)
+             console.log('mousedown')
+             setPressed(true)
+             onMouseDown?.(e)
+           }}
+           onMouseUp={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+             setPressed(false)
+             onMouseUp?.(e)
+           }}*/
+        style: computedStyle, children: children }));
 }
 export default Interactable;
