@@ -52,18 +52,22 @@ export type TransitionProps = HTMLProps<HTMLDivElement> & {
     delay?: number;
     /**
      * Called when the enter transition finishes.
+     * @default \-
      */
     onAnimationEntered?: VoidFunction;
     /**
      * Called when the exit transition finishes.
+     * @default \-
      */
     onAnimationExited?: VoidFunction;
     /**
      * Called if the enter transition is canceled (e.g., unmount during enter).
+     * @default \-
      */
     onAnimationEnterCancel?: VoidFunction;
     /**
      * Called if the exit transition is canceled (e.g., re-enter during exit).
+     * @default \-
      */
     onAnimationExitCancel?: VoidFunction;
     children: ReactNode;

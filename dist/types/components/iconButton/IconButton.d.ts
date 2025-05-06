@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * Applies the extra small size variant to the button.
@@ -24,7 +25,7 @@ type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
      * @default false
      */
     disabled?: boolean;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 };
 /**
  * IconButton component
