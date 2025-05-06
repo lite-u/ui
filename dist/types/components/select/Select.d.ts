@@ -1,4 +1,4 @@
-type SelectProps = React.HTMLProps<HTMLDivElement> & {
+type SelectProps = Omit<React.HTMLProps<HTMLDivElement>, 'disabled'> & {
     /**
      * Extra small size variant for the select.
      * @default false
@@ -19,6 +19,11 @@ type SelectProps = React.HTMLProps<HTMLDivElement> & {
      * @default false
      */
     l?: boolean;
+    /**
+     * Set Select to disabled.
+     * @default false
+     */
+    disabled?: boolean;
     /**
      * Inline styles to customize the select element.
      */

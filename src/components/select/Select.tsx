@@ -5,7 +5,7 @@ import Interactable from '../interactive/Interactable'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import SelectItem from './SelectItem'
 
-type SelectProps = React.HTMLProps<HTMLDivElement> & {
+type SelectProps = Omit<React.HTMLProps<HTMLDivElement>, 'disabled'> & {
   /**
    * Extra small size variant for the select.
    * @default false
@@ -29,6 +29,11 @@ type SelectProps = React.HTMLProps<HTMLDivElement> & {
    * @default false
    */
   l?: boolean
+  /**
+   * Set Select to disabled.
+   * @default false
+   */
+  disabled?: boolean
   /**
    * Inline styles to customize the select element.
    */
@@ -78,7 +83,7 @@ const Select: React.FC<SelectProps> = ({
                                          s,
                                          m,
                                          l,
-                                         disabled,
+                                         disabled = false,
                                          selectValue,
                                          onSelectChange,
                                          children,

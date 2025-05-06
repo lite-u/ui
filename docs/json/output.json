@@ -30,6 +30,12 @@
         "defaultValue": "false",
         "description": "Large size variant for the select."
       },
+      "disabled": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Set Select to disabled."
+      },
       "itemStyle": {
         "type": "CSSProperties",
         "required": false,

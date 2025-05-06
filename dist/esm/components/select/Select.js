@@ -24,7 +24,7 @@ import SelectItem from './SelectItem';
  *   <SelectItem value={'3'}>3</SelectItem>
  * </Select>
  */
-const Select = ({ label, style, itemStyle = {}, xs, s, m, l, disabled, selectValue, onSelectChange, children, onKeyDown, ...props }) => {
+const Select = ({ label, style, itemStyle = {}, xs, s, m, l, disabled = false, selectValue, onSelectChange, children, onKeyDown, ...props }) => {
     const [openSelect, setOpenSelect] = useState(false);
     const containerRef = useRef(null);
     const wrapperRef = useRef(null);
