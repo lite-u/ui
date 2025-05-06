@@ -2016,6 +2016,18 @@
         "required": false,
         "defaultValue": "t",
         "description": "The placement of the tooltip relative to its children. Can be one of:\n`t` , `r` , `b` , `l` , `tl` , `tr` , `bl` , `br`"
+      },
+      "animationEnterDuration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "100",
+        "description": "Duration of the transition entering, in milliseconds."
+      },
+      "animationExitDuration": {
+        "type": "number",
+        "required": false,
+        "defaultValue": "100",
+        "description": "Duration of the transition leaving, in milliseconds."
       }
     }
   },

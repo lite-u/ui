@@ -19,9 +19,7 @@ import { Transition } from '../../index';
  *   <button>Hover me</button>
  * </Tooltip>
  */
-export const Tooltip = ({ title, textColor = '#fff', bgColor = '#333', placement = 't', 
-// delay = 100,
-children, }) => {
+export const Tooltip = ({ title, textColor = '#fff', bgColor = '#333', placement = 't', animationEnterDuration = 100, animationExitDuration = 100, children, }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [localPosition, setLocalPosition] = useState();
     const tooltipRef = useRef(null);
@@ -30,8 +28,8 @@ children, }) => {
     const [realTimeStyle, setRealTimeStyle] = useState({});
     const [animationVisible, setAnimationVisible] = useState(false);
     const leavingTimerRef = useRef(0);
-    const animationEnterDuration = 200;
-    const animationExitDuration = 100;
+    // const animationEnterDuration = 200
+    // const animationExitDuration = 100
     useElementMoveDetect(targetRef, () => {
         calcPosition();
     });

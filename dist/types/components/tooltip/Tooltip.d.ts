@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br';
 type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
     /**
@@ -22,7 +23,17 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
      * @default t
      */
     placement?: TooltipPlacement;
-    children: React.ReactElement;
+    /**
+     * Duration of the transition entering, in milliseconds.
+     * @default 200
+     */
+    animationEnterDuration: number;
+    /**
+     * Duration of the transition leaving, in milliseconds.
+     * @default 100
+     */
+    animationExitDuration: number;
+    children: ReactNode;
 };
 /**
  * Tooltip component

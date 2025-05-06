@@ -1,4 +1,4 @@
-import {CSSProperties, RefObject, useEffect, useRef, useState} from 'react'
+import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
 import useElementMoveDetect from '../../hooks/useElementMoveDetect'
 import {createPortal} from 'react-dom'
 import {Transition} from '../../index'
@@ -30,7 +30,17 @@ type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
    * @default t
    */
   placement?: TooltipPlacement;
-  children: React.ReactElement;
+  /**
+   * Duration of the transition entering, in milliseconds.
+   * @default 200
+   */
+  animationEnterDuration:number
+  /**
+   * Duration of the transition leaving, in milliseconds.
+   * @default 100
+   */
+  animationExitDuration:number
+  children: ReactNode;
 };
 
 /**
@@ -54,7 +64,8 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   textColor = '#fff',
                                                   bgColor = '#333',
                                                   placement = 't',
-                                                  // delay = 100,
+                                                  animationEnterDuration=100,
+                                                  animationExitDuration=100,
                                                   children,
                                                 }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -65,8 +76,8 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   const [realTimeStyle, setRealTimeStyle] = useState<CSSProperties>({})
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)
-  const animationEnterDuration = 200
-  const animationExitDuration = 100
+  // const animationEnterDuration = 200
+  // const animationExitDuration = 100
 
   useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
     calcPosition()
