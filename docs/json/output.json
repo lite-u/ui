@@ -1999,6 +1999,12 @@
       "example": "import { Tooltip } from '@lite-u/ui'\n\n<Tooltip title=\"Hello\" placement=\"t\">\n  <button>Hover me</button>\n</Tooltip>"
     },
     "props": {
+      "title": {
+        "type": "ReactNode",
+        "required": true,
+        "defaultValue": "",
+        "description": "The title of the tooltip."
+      },
       "bgColor": {
         "type": "string",
         "required": false,

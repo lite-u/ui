@@ -267,6 +267,7 @@ export const Tooltip = ({ title, textColor = '#fff', bgColor = '#333', placement
                         borderRadius: 4,
                         fontSize: 12,
                         color: textColor,
+                        whiteSpace: 'nowrap',
                         ...getPositionStyles(),
                     }, children: [title, _jsx("div", { style: {
                                 content: '',

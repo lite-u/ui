@@ -4,7 +4,7 @@ import {createPortal} from 'react-dom'
 import {Transition} from '../../index'
 
 type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
-type ToolTipProps = HTMLProps<HTMLDivElement> & {
+type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
   /**
    * The title of the tooltip.
    */
@@ -34,12 +34,12 @@ type ToolTipProps = HTMLProps<HTMLDivElement> & {
    * Duration of the transition entering, in milliseconds.
    * @default 200
    */
-  animationEnterDuration?:number
+  animationEnterDuration?: number
   /**
    * Duration of the transition leaving, in milliseconds.
    * @default 100
    */
-  animationExitDuration?:number
+  animationExitDuration?: number
   children: ReactNode;
 };
 
@@ -64,8 +64,8 @@ export const Tooltip: React.FC<ToolTipProps> = ({
                                                   textColor = '#fff',
                                                   bgColor = '#333',
                                                   placement = 't',
-                                                  animationEnterDuration=100,
-                                                  animationExitDuration=100,
+                                                  animationEnterDuration = 100,
+                                                  animationExitDuration = 100,
                                                   children,
                                                 }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -358,6 +358,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
               borderRadius: 4,
               fontSize: 12,
               color: textColor,
+              whiteSpace:'nowrap',
               ...getPositionStyles(),
             }}
           >
