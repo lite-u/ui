@@ -1,6 +1,6 @@
 import {CSSProperties, KeyboardEvent, MouseEvent, ReactNode, useContext} from 'react'
 import SelectContext from './SelectContext'
-import Interactable from '../interactive/Interactable'
+import Interactable from '../interactable/Interactable'
 
 /**
  * SelectItem component

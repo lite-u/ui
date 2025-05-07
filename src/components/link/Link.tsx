@@ -1,5 +1,5 @@
 import {ReactNode} from 'react'
-import Interactable from '../interactive/Interactable'
+import Interactable from '../interactable/Interactable'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
 /**
