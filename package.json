@@ -1,7 +1,7 @@
 {
   "name": "@lite-u/ui",
   "type": "module",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
@@ -25,6 +25,10 @@
     "./notification": {
       "import": "./dist/esm/components/notification/NotificationContext.js",
       "types": "./dist/types/components/notification/NotificationContext.d.ts"
+    },
+    "./notificationProvider": {
+      "import": "./dist/esm/components/notification/NotificationProvider.js",
+      "types": "./dist/types/components/notification/NotificationProvider.d.ts"
     },
     "./LiteUIProvider": {
       "import": "./dist/esm/LiteUIProvider.js",

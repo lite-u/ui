@@ -1,6 +1,5 @@
 import {FC, ReactNode, useRef, useState} from 'react'
 import Transition from '../transition/Transition'
-import Container from '../container/Container'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import {createPortal} from 'react-dom'
 import NotificationContext, {NotificationItemProps} from './NotificationContext'
@@ -131,7 +130,7 @@ const NotificationProvider: FC<{
               exitDuration={animationExitDuration}
               style={{overflow: 'visible'}}
             >
-              <Container style={{
+              <div style={{
                 background: '#fff',
                 padding: 10,
                 textAlign: 'center',
@@ -139,7 +138,7 @@ const NotificationProvider: FC<{
                 fontSize: theme.fontSizes.sm,
                 boxShadow: color + ' 0 0 3px 0',
                 color,
-              }}>{comp}</Container>
+              }}>{comp}</div>
             </Transition>
           </div>
         }), document.body,

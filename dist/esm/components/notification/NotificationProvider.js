@@ -1,7 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useState } from 'react';
 import Transition from '../transition/Transition';
-import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
 import NotificationContext from './NotificationContext';
@@ -98,7 +97,7 @@ const NotificationProvider = ({ children }) => {
                             scale: 0,
                         }, to: {
                             scale: 1,
-                        }, exitDuration: animationExitDuration, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
+                        }, exitDuration: animationExitDuration, style: { overflow: 'visible' }, children: _jsx("div", { style: {
                                 background: '#fff',
                                 padding: 10,
                                 textAlign: 'center',
