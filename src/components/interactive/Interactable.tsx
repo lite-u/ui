@@ -6,6 +6,7 @@ import React, {
   MouseEventHandler,
   PointerEvent,
   PointerEventHandler,
+  ReactNode,
   useState,
 } from 'react'
 import {JSX} from 'react/jsx-runtime'
@@ -20,8 +21,8 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
   focus?: CSSProperties;
   active?: CSSProperties;
   style?: CSSProperties;
-  children?: React.ReactNode;
-  // onMouseEnter?: (e: React.MouseEvent<ElementTypeFor<T>>) => void;
+  disabled?: boolean;
+  children?: ReactNode;
 
   onMouseEnter?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onMouseLeave?: MouseEventHandler<HTMLElementTagNameMap[T]>
@@ -31,13 +32,14 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
   onPointerUp?: PointerEventHandler<HTMLElementTagNameMap[T]>
   onClick?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onKeyDown?: KeyboardEventHandler<HTMLElementTagNameMap[T]>
-} & IntrinsicElements[T];
+} & Omit<IntrinsicElements[T], 'disabled'>;
 
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
 function Interactable<T extends PolymorphicTag>({
                                                   tag = 'div',
+                                                  disabled = false,
                                                   hover,
                                                   focus,
                                                   active,
@@ -58,7 +60,7 @@ function Interactable<T extends PolymorphicTag>({
   const [focused, setFocused] = useState(false)
   const [pressed, setPressed] = useState(false)
 
-  console.log(hovered, focused, pressed)
+  // console.log(hovered, focused, pressed)
 
   const computedStyle: CSSProperties = {
     ...style,
@@ -76,55 +78,39 @@ function Interactable<T extends PolymorphicTag>({
     <Tag
       {...rest}
       onMouseEnter={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
-        // @ts-ignore
-        if (rest?.disabled) return
+        if (disabled) return
         setHovered(true)
         onMouseEnter?.(e)
       }}
       onMouseLeave={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
-        // @ts-ignore
-        if (rest?.disabled) return
+        if (disabled) return
         setHovered(false)
         onMouseLeave?.(e)
       }}
       onFocus={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
-        // @ts-ignore
-        if (rest?.disabled) return
+        if (disabled) return
         setFocused(true)
         onFocus?.(e)
       }}
       onBlur={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
-        // @ts-ignore
-        if (rest?.disabled) return
+        if (disabled) return
         setFocused(false)
         onBlur?.(e)
       }}
       onPointerDown={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
-        // @ts-ignore
-        if (rest?.disabled) return
+        if (disabled) return
         // @ts-ignore
         e.target?.setPointerCapture(e.pointerId)
         setPressed(true)
         onPointerDown?.(e)
       }}
       onPointerUp={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
-        // @ts-ignore
-        if (rest?.disabled) return
+        if (disabled) return
         // @ts-ignore
         e.target?.releasePointerCapture(e.pointerId)
         setPressed(false)
         onPointerUp?.(e)
       }}
-      /*   onMouseDown={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
-           // (e.target as HTMLElement).setPointerCapture(e.pointerId)
-           console.log('mousedown')
-           setPressed(true)
-           onMouseDown?.(e)
-         }}
-         onMouseUp={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
-           setPressed(false)
-           onMouseUp?.(e)
-         }}*/
       style={computedStyle}
     >
       {children}

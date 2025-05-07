@@ -2674,50 +2674,56 @@
         "defaultValue": "",
         "description": ""
       },
+      "disabled": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": ""
+      },
       "onMouseEnter": {
-        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "type": "MouseEventHandler<HTMLElementTagNameMap[T]> & (MouseEventHandler<HTMLDivElement> | ... 59 more ... | MouseEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onMouseLeave": {
-        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "type": "MouseEventHandler<HTMLElementTagNameMap[T]> & (MouseEventHandler<HTMLDivElement> | ... 59 more ... | MouseEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onFocus": {
-        "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
+        "type": "FocusEventHandler<HTMLElementTagNameMap[T]> & (FocusEventHandler<HTMLDivElement> | ... 59 more ... | FocusEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onBlur": {
-        "type": "(FocusEventHandler<HTMLElementTagNameMap[T]> & FocusEventHandler<HTMLObjectElement>) | ... 59 more ... | (FocusEventHandler<...> & FocusEventHandler<...>)",
+        "type": "FocusEventHandler<HTMLElementTagNameMap[T]> & (FocusEventHandler<HTMLDivElement> | ... 59 more ... | FocusEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onPointerDown": {
-        "type": "(PointerEventHandler<HTMLElementTagNameMap[T]> & PointerEventHandler<HTMLObjectElement>) | ... 59 more ... | (PointerEventHandler<...> & PointerEventHandler<...>)",
+        "type": "PointerEventHandler<HTMLElementTagNameMap[T]> & (PointerEventHandler<HTMLDivElement> | ... 59 more ... | PointerEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onPointerUp": {
-        "type": "(PointerEventHandler<HTMLElementTagNameMap[T]> & PointerEventHandler<HTMLObjectElement>) | ... 59 more ... | (PointerEventHandler<...> & PointerEventHandler<...>)",
+        "type": "PointerEventHandler<HTMLElementTagNameMap[T]> & (PointerEventHandler<HTMLDivElement> | ... 59 more ... | PointerEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onClick": {
-        "type": "(MouseEventHandler<HTMLElementTagNameMap[T]> & MouseEventHandler<HTMLObjectElement>) | ... 59 more ... | (MouseEventHandler<...> & MouseEventHandler<...>)",
+        "type": "MouseEventHandler<HTMLElementTagNameMap[T]> & (MouseEventHandler<HTMLDivElement> | ... 59 more ... | MouseEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
       },
       "onKeyDown": {
-        "type": "(KeyboardEventHandler<HTMLElementTagNameMap[T]> & KeyboardEventHandler<HTMLObjectElement>) | ... 59 more ... | (KeyboardEventHandler<...> & KeyboardEventHandler<...>)",
+        "type": "KeyboardEventHandler<HTMLElementTagNameMap[T]> & (KeyboardEventHandler<HTMLDivElement> | ... 59 more ... | KeyboardEventHandler<...>)",
         "required": false,
         "defaultValue": "",
         "description": ""
