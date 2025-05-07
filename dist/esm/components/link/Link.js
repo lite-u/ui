@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import Interactable from '../interactive/Interactable';
+import Interactable from '../interactable/Interactable';
 import { useLiteUIContext } from '../../LiteUIProvider';
 /**
  * Link component

@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Children, useEffect, useRef, useState } from 'react';
 import SelectContext from './SelectContext';
 import { Row, Transition } from '../../index';
-import Interactable from '../interactive/Interactable';
+import Interactable from '../interactable/Interactable';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import SelectItem from './SelectItem';
 /**

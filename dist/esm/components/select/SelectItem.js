@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useContext } from 'react';
 import SelectContext from './SelectContext';
-import Interactable from '../interactive/Interactable';
+import Interactable from '../interactable/Interactable';
 /**
  * SelectItem component
  *
