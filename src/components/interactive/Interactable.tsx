@@ -124,4 +124,5 @@ function Interactable<T extends PolymorphicTag>({
   )
 }
 
+export const IA = Interactable
 export default Interactable

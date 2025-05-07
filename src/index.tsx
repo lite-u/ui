@@ -22,7 +22,7 @@ import Tooltip from './components/tooltip/Tooltip'
 import IconButton from './components/iconButton/IconButton'
 import Table from './components/table/Table'
 import TableRow from './components/table/TableRow'
-import Interactable from './components/interactive/Interactable'
+import Interactable, {IA} from './components/interactive/Interactable'
 import Collapse from './components/collapse/Collapse'
 import ButtonBase from './components/button/ButtonBase'
 import NotificationContext, {useNotification} from './components/notification/NotificationContext'
@@ -60,11 +60,12 @@ export {
   NotificationContext,
   NotificationProvider,
   Interactable,
+  IA,
   Table,
   TableRow,
   Hover,
   HoverHead,
-  HoverBody
+  HoverBody,
 }
 export type {ButtonProps} from './components/button/Button'
 export default LiteUIProvider
