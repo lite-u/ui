@@ -5,8 +5,9 @@ import {SpinnerControl} from './Spinner'
 
 const scientificBelow = 1e-6
 const scientificAbove = 1e+6
-export   type InputNumberProps = HTMLProps<HTMLInputElement> & {
+export   type InputNumberProps = Omit<HTMLProps<HTMLInputElement>, 'disabled'> & {
   // style: React.CSSProperties,
+  disabled: boolean
   value: number,
   step: number
   intervalTime?: number
@@ -19,6 +20,7 @@ const InputNumber: React.FC<InputNumberProps> = ({
                                                    onKeyDown,
                                                    onChange,
                                                    intervalTime = 100,
+                                                   disabled = false,
                                                    ref,
                                                    ...props
                                                  }) => {
