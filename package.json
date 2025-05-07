@@ -22,10 +22,6 @@
       "import": "./dist/esm/index.js",
       "types": "./dist/types/index.d.ts"
     },
-    "./notificationProvider": {
-      "import": "./dist/esm/components/notification/NotificationProvider.js",
-      "types": "./dist/types/components/notification/NotificationProvider.d.ts"
-    },
     "./LiteUIProvider": {
       "import": "./dist/esm/LiteUIProvider.js",
       "types": "./dist/types/LiteUIProvider.d.ts"
@@ -33,110 +29,6 @@
     "./button": {
       "import": "./dist/esm/components/button/Button.js",
       "types": "./dist/types/components/button/Button.d.ts"
-    },
-    "./collapse": {
-      "import": "./dist/esm/components/collapse/Collapse.js",
-      "types": "./dist/types/components/collapse/Collapse.d.ts"
-    },
-    "./container": {
-      "import": "./dist/esm/components/container/Container.js",
-      "types": "./dist/types/components/container/Container.d.ts"
-    },
-    "./drop": {
-      "import": "./dist/esm/components/drop/Drop.js",
-      "types": "./dist/types/components/drop/Drop.d.ts"
-    },
-    "./hover": {
-      "import": "./dist/esm/components/hover/Hover.js",
-      "types": "./dist/types/components/hover/Hover.d.ts"
-    },
-    "./hoverHead": {
-      "import": "./dist/esm/components/hover/HoverHead.js",
-      "types": "./dist/types/components/hover/HoverHead.d.ts"
-    },
-    "./hoverBody": {
-      "import": "./dist/esm/components/hover/HoverBody.js",
-      "types": "./dist/types/components/hover/HoverBody.d.ts"
-    },
-    "./iconButton": {
-      "import": "./dist/esm/components/iconButton/IconButton.js",
-      "types": "./dist/types/components/iconButton/IconButton.d.ts"
-    },
-    "./input": {
-      "import": "./dist/esm/components/input/Input.js",
-      "types": "./dist/types/components/input/Input.d.ts"
-    },
-    "./interactive": {
-      "import": "./dist/esm/components/interactive/Interactive.js",
-      "types": "./dist/types/components/interactive/Interactive.d.ts"
-    },
-    "./layouts": {
-      "import": "./dist/esm/components/layouts/Layouts.js",
-      "types": "./dist/types/components/layouts/Layouts.d.ts"
-    },
-    "./column": {
-      "import": "./dist/esm/components/layouts/Column.js",
-      "types": "./dist/types/components/layouts/Column.d.ts"
-    },
-    "./row": {
-      "import": "./dist/esm/components/layouts/Row.js",
-      "types": "./dist/types/components/layouts/Row.d.ts"
-    },
-    "./link": {
-      "import": "./dist/esm/components/link/Link.js",
-      "types": "./dist/types/components/link/Link.d.ts"
-    },
-    "./menu": {
-      "import": "./dist/esm/components/menu/Menu.js",
-      "types": "./dist/types/components/menu/Menu.d.ts"
-    },
-    "./menuItem": {
-      "import": "./dist/esm/components/menu/MenuItem.js",
-      "types": "./dist/types/components/menu/MenuItem.d.ts"
-    },
-    "./modal": {
-      "import": "./dist/esm/components/modal/Modal.js",
-      "types": "./dist/types/components/modal/Modal.d.ts"
-    },
-    "./notification": {
-      "import": "./dist/esm/components/notification/NotificationContext.js",
-      "types": "./dist/types/components/notification/NotificationContext.d.ts"
-    },
-    "./panel": {
-      "import": "./dist/esm/components/panel/Panel.js",
-      "types": "./dist/types/components/panel/Panel.d.ts"
-    },
-    "./paragraph": {
-      "import": "./dist/esm/components/paragraph/Paragraph.js",
-      "types": "./dist/types/components/paragraph/Paragraph.d.ts"
-    },
-    "./select": {
-      "import": "./dist/esm/components/select/Select.js",
-      "types": "./dist/types/components/select/Select.d.ts"
-    },
-    "./selectItem": {
-      "import": "./dist/esm/components/select/SelectItem.js",
-      "types": "./dist/types/components/select/SelectItem.d.ts"
-    },
-    "./table": {
-      "import": "./dist/esm/components/table/Table.js",
-      "types": "./dist/types/components/table/Table.d.ts"
-    },
-    "./tableRow": {
-      "import": "./dist/esm/components/table/TableRow.js",
-      "types": "./dist/types/components/table/TableRow.d.ts"
-    },
-    "./title": {
-      "import": "./dist/esm/components/title/Title.js",
-      "types": "./dist/types/components/title/Title.d.ts"
-    },
-    "./tooltip": {
-      "import": "./dist/esm/components/tooltip/Tooltip.js",
-      "types": "./dist/types/components/tooltip/Tooltip.d.ts"
-    },
-    "./transition": {
-      "import": "./dist/esm/components/transition/Transition.js",
-      "types": "./dist/types/components/transition/Transition.d.ts"
     }
   },
   "files": [
