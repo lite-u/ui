@@ -1,24 +1,57 @@
-import {createContext, useContext} from 'react'
+import {createContext, ReactNode, useContext} from 'react'
 
-export interface NotificationProps {
+export interface NotificationItemProps {
   id: string
-  text: string
-  type: 'info' | 'warn' | 'error'
+  comp: ReactNode
+  type: 'info' | 'suc' | 'warn' | 'error'
   anim: boolean
   timer: number
 }
 
 interface NotificationContextType {
-  notifications: NotificationProps[],
-  add: (text: string, type?: 'info' | 'error' | 'warn', delay?: number) => void,
-  remove: (id: string) => void,
+  /**
+   * List of currently displayed notifications.
+   */
+  notifications: NotificationItemProps[],
+  /**
+   * Adds a new notification.
+   *
+   * @param comp - The content of the notification.
+   * @param type - Notification type: "info", "suc", "warn", or "error".
+   * @param delay - Time in ms before auto-removal. If false, notification persists.
+   * @returns A unique ID for the notification.
+   */
+  add: (comp: ReactNode, type?: NotificationItemProps['type'], delay?: number | false) => string,
+  /**
+   * Removes a notification by ID.
+   *
+   * @param id - ID of the notification to remove.
+   */
+  remove: (id: NotificationItemProps['id']) => void,
 }
 
-const initialState: NotificationContextType = {
+/**
+ * NotificationContext
+ *
+ * @brief
+ * React context for global toast notification state and actions.
+ *
+ * @intro
+ * Provides access to a list of active notifications and functions to add or remove them.
+ * Each notification can include content, type (info, success, warning, error), and an optional timeout.
+ *
+ * @example
+ * const { add, remove } = useNotification()
+ * add('Upload complete', 'suc', 3000)
+ */
+/**
+ * Shape of the notification context including list of notifications and management functions.
+ */
+const NotificationContext = createContext({
   notifications: [],
-  add: () => { },
+  add: () => '',
   remove: () => {},
-}
+} as NotificationContextType)
 
-export const NotificationContext = createContext(initialState)
+export default NotificationContext
 export const useNotification = () => useContext(NotificationContext)

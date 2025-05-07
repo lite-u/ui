@@ -4,6 +4,9 @@ import React, {
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
+  PointerEvent,
+  PointerEventHandler,
+  ReactNode,
   useState,
 } from 'react'
 import {JSX} from 'react/jsx-runtime'
@@ -18,24 +21,25 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
   focus?: CSSProperties;
   active?: CSSProperties;
   style?: CSSProperties;
-  children?: React.ReactNode;
-  // onMouseEnter?: (e: React.MouseEvent<ElementTypeFor<T>>) => void;
+  disabled?: boolean;
+  children?: ReactNode;
 
   onMouseEnter?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onMouseLeave?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onFocus?: FocusEventHandler<HTMLElementTagNameMap[T]>
   onBlur?: FocusEventHandler<HTMLElementTagNameMap[T]>
-  onMouseDown?: MouseEventHandler<HTMLElementTagNameMap[T]>
-  onMouseUp?: MouseEventHandler<HTMLElementTagNameMap[T]>
+  onPointerDown?: PointerEventHandler<HTMLElementTagNameMap[T]>
+  onPointerUp?: PointerEventHandler<HTMLElementTagNameMap[T]>
   onClick?: MouseEventHandler<HTMLElementTagNameMap[T]>
   onKeyDown?: KeyboardEventHandler<HTMLElementTagNameMap[T]>
-} & IntrinsicElements[T];
+} & Omit<IntrinsicElements[T], 'disabled'>;
 
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
 function Interactable<T extends PolymorphicTag>({
-                                                  tag,
+                                                  tag = 'div',
+                                                  disabled = false,
                                                   hover,
                                                   focus,
                                                   active,
@@ -45,8 +49,8 @@ function Interactable<T extends PolymorphicTag>({
                                                   onMouseLeave,
                                                   onFocus,
                                                   onBlur,
-                                                  onMouseDown,
-                                                  onMouseUp,
+                                                  onPointerDown,
+                                                  onPointerUp,
                                                   onKeyDown,
                                                   // onClick,
                                                   ...rest
@@ -58,41 +62,60 @@ function Interactable<T extends PolymorphicTag>({
 
   const computedStyle: CSSProperties = {
     ...style,
-    ...(hovered ? hover : {}),
-    ...(focused ? focus : {}),
-    ...(pressed ? active : {}),
+  }
+
+  if (pressed) {
+    Object.assign(computedStyle, active)
+  } else if (focused) {
+    Object.assign(computedStyle, focus)
+  } else if (hovered) {
+    Object.assign(computedStyle, hover)
   }
 
   return (
     <Tag
       {...rest}
-      /*      onKeyDown={(e: KeyboardEvent<HTMLElementTagNameMap[T]>) => {
-              setHovered(true)
-              onKeyDown?.(e)
-            }}*/
       onMouseEnter={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        if (disabled) return
+
         setHovered(true)
         onMouseEnter?.(e)
       }}
       onMouseLeave={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+        if (disabled) return
+
         setHovered(false)
         onMouseLeave?.(e)
       }}
       onFocus={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
+        if (disabled) return
+
         setFocused(true)
         onFocus?.(e)
       }}
       onBlur={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
+        if (disabled) return
+
         setFocused(false)
         onBlur?.(e)
       }}
-      onMouseDown={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+      onPointerDown={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
+        if (disabled) return
+
+        const target = e.target as HTMLElementTagNameMap[T]
+
+        target.setPointerCapture(e.pointerId)
         setPressed(true)
-        onMouseDown?.(e)
+        onPointerDown?.(e)
       }}
-      onMouseUp={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
+      onPointerUp={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
+        if (disabled) return
+
+        const target = e.target as HTMLElementTagNameMap[T]
+
+        target.releasePointerCapture(e.pointerId)
         setPressed(false)
-        onMouseUp?.(e)
+        onPointerUp?.(e)
       }}
       style={computedStyle}
     >
@@ -101,4 +124,5 @@ function Interactable<T extends PolymorphicTag>({
   )
 }
 
+export const IA = Interactable
 export default Interactable

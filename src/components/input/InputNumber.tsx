@@ -1,6 +1,6 @@
 // import {useTheme} from '../../themes/ThemeContext'
 
-import {HTMLProps, useEffect, useRef, useState} from 'react'
+import {HTMLProps, useEffect, useImperativeHandle, useRef, useState} from 'react'
 import {SpinnerControl} from './Spinner'
 
 const scientificBelow = 1e-6
@@ -10,6 +10,7 @@ export   type InputNumberProps = HTMLProps<HTMLInputElement> & {
   value: number,
   step: number
   intervalTime?: number
+  ref: React.Ref<HTMLInputElement>
 }
 const InputNumber: React.FC<InputNumberProps> = ({
                                                    style = {},
@@ -18,6 +19,7 @@ const InputNumber: React.FC<InputNumberProps> = ({
                                                    onKeyDown,
                                                    onChange,
                                                    intervalTime = 100,
+                                                   ref,
                                                    ...props
                                                  }) => {
   // const theme = useTheme()
@@ -33,6 +35,8 @@ const InputNumber: React.FC<InputNumberProps> = ({
   const decrement = () => setLocalValue(prev => {
     return parseFloat((prev - localStep).toFixed(precision))
   })
+
+  useImperativeHandle(ref, () => inputRef.current!)
 
   useEffect(() => {
     if (!isNaN(value)) {
@@ -75,7 +79,6 @@ const InputNumber: React.FC<InputNumberProps> = ({
       overflow: 'hidden',
       ...style,
       padding: 0,
-
     }} {...props}>
     <input
       role={'input-number'}

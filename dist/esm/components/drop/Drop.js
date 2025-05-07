@@ -1,6 +1,28 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useCallback, useRef } from 'react';
 import Con from '../container/Container';
+/**
+ * Drop component
+ *
+ * @brief
+ * A drag-and-drop file drop zone with file type validation and customizable events.
+ *
+ * @intro
+ * In React, applying visual cues during drag-over can sometimes cause flickering—especially when styles update frequently. The Drop component simplifies handling such interactions by managing drag-over feedback smoothly and supporting MIME-type restrictions. It also provides hooks for custom logic when files are dropped, making it an easy and reliable way to implement drag-and-drop functionality.
+ *
+ * \
+ * ⚠️ `Caution`: Safari `CANNOT` detect files during the drag phase, so use `onDropped` ONLY for any functionality that needs to work reliably across all browsers.
+ *
+ * @example
+ * import { Drop } from '@lite-u/ui'
+ *
+ * <Drop accepts={['image/png']}
+ *   onDragIsOver={(f) => {})
+ *   onDropped={(e, isValid) => console.log(e, isValid)}
+ * >
+ *   <p>Drop image files here</p>
+ * </Drop>
+ */
 export const Drop = ({ accepts = [], onDragIsOver, onDragIsLeave, children, onDropped, style = {}, 
 // native events
 onDrop, onDragEnter, onDragLeave, onDragOver, ...props }) => {
@@ -65,6 +87,6 @@ onDrop, onDragEnter, onDragLeave, onDragOver, ...props }) => {
     const styles = {
         ...style,
     };
-    return _jsx(Con, { fw: true, fh: true, "data-role": 'drop', style: styles, ...props, onDragEnter: handleDragEnter, onDragLeave: handleDragLeave, onDragOver: handleDragOver, onDrop: handleDrop, children: children });
+    return _jsx(Con, { fw: true, fh: true, role: 'drop', style: styles, onDragEnter: handleDragEnter, onDragLeave: handleDragLeave, onDragOver: handleDragOver, onDrop: handleDrop, ...props, children: children });
 };
 export default Drop;

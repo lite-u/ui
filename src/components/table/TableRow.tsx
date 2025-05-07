@@ -3,10 +3,45 @@ import {useTableContext} from './Table'
 
 export type TableRowProps = React.FC<React.HTMLProps<HTMLTableRowElement> & {
   children: ReactNode,
+  /**
+   * If true, renders the row using `<th>` elements instead of `<td>`, and wrap into `<thead>` rather than `<tbody>`.
+   * @default false
+   */
   head?: boolean,
   style?: {}
 }>
 
+/**
+ * TableRow component
+ *
+ * @brief
+ * Represents a table row for use within the Table component.
+ *
+ * @intro
+ * Renders a styled `<tr>` element with automatically applied context-based row and cell styling.
+ *
+ * Can optionally render as a header row using the `head` prop.
+ *
+ * TableRow with `head` prop: recognized as a `thead` row
+ *
+ * TableRow without `head` prop: recognized as a `tbody` row
+ *
+ * TableRow doesn’t require `td`(or `th`) — its children are automatically wrapped in <td>(or `th`) tags.
+ *
+ * @example
+ * import { Table, TableRow } from '@lite-u/ui'
+ *
+ * <Table>
+ *     <TableRow head>
+ *       <h1>th cell 0</h1>
+ *       <h2>th cell 1</h2>
+ *     </TableRow>
+ *     <TableRow>
+ *       <div>td cell 0</div>
+ *       <p>td cell 1</p>
+ *     </TableRow>
+ * </Table>
+ */
 const TableRow: TableRowProps = ({
                                    children,
                                    head = false,
@@ -15,26 +50,31 @@ const TableRow: TableRowProps = ({
                                    onMouseLeave,
                                    ...props
                                  }) => {
-  const [bodyRowStyle, setBodyRowStyle] = useState<CSSProperties>({})
-  const {storedRowStyle, storedCellStyle} = useTableContext()
+  const [bodyRowHoverStyle, setBodyRowHoverStyle] = useState<CSSProperties>({})
+  const {storedRowHoveredStyle, storedRowStyle, storedCellStyle} = useTableContext()
 
   const handleMouseEnter = () => {
     if (!head) {
-      setBodyRowStyle({
-        backgroundColor: '#dfdfdf',
-      })
+      setBodyRowHoverStyle(storedRowHoveredStyle)
     }
   }
 
   const handleMouseLeave = () => {
-    setBodyRowStyle({})
+    setBodyRowHoverStyle({})
   }
+  // console.log(theme.)
+  // const filteredChildren: ReactNode[] = []
+  let filteredChildren: ReactNode[] = []
 
-  let nodes: ReactNode[] = Children.toArray(children)
+  Children.forEach(children, (child) => {
+    // @ts-ignore
+    if (child.type) {
+      filteredChildren.push(child)
+    }
+  })
 
   const rowStyle = {
     ...storedRowStyle,
-    ...bodyRowStyle,
   }
 
   const cellStyle = {
@@ -62,12 +102,13 @@ const TableRow: TableRowProps = ({
     }}
     style={{
       textAlign: 'center',
-      height: 40,
+      // height: 40,
       ...rowStyle,
       ...style,
+      ...bodyRowHoverStyle,
     }} {...props}>
     {
-      nodes?.map((child, index) => {
+      filteredChildren?.map((child, index) => {
         return head ?
           <th style={cellStyle} key={index}>
             <div style={cellDivStyle}>{child}</div>

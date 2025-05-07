@@ -1,14 +1,19 @@
 {
   "name": "@lite-u/ui",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.1.12",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "output-md-doc": "npx typedoc",
-    "output-json-doc": "node ./docgen.cjs"
+    "output-json-doc": "node ./docgen.cjs",
+    "watch-json-doc": "node ./docgen.watch.cjs",
+    "PUBLISH": "npm publish --access public"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lite-u/ui.git"
+  },
+  "author": "Lucas Chow",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/types/index.d.ts",
@@ -17,21 +22,13 @@
       "import": "./dist/esm/index.js",
       "types": "./dist/types/index.d.ts"
     },
-    "./NotificationProvider": {
-      "import": "./dist/esm/components/notification/NotificationProvider.js",
-      "types": "./dist/types/notification/NotificationProvider.d.ts"
+    "./notification": {
+      "import": "./dist/esm/components/notification/NotificationContext.js",
+      "types": "./dist/types/components/notification/NotificationContext.d.ts"
     },
     "./LiteUIProvider": {
       "import": "./dist/esm/LiteUIProvider.js",
       "types": "./dist/types/LiteUIProvider.d.ts"
-    },
-    "./input": {
-      "import": "./dist/esm/components/input/index.js",
-      "types": "./dist/types/components/input/index.d.ts"
-    },
-    "./button": {
-      "import": "./dist/esm/components/button/index.js",
-      "types": "./dist/types/components/button/index.d.ts"
     }
   },
   "files": [
@@ -40,16 +37,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dedent": "^1.5.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-element-to-jsx-string": "^17.0.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "react-docgen-typescript": "^2.2.2",
-    "typedoc": "^0.28.3",
-    "typedoc-plugin-markdown": "^4.6.3"
+    "react-docgen-typescript": "^2.2.2"
   }
 }

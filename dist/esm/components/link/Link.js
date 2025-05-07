@@ -1,6 +1,22 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import Interactable from '../interactive/Interactable';
 import { useLiteUIContext } from '../../LiteUIProvider';
+/**
+ * Link component
+ *
+ * @brief
+ * Represents a hyperlink component with consistent styling and optional behavior controls.
+ *
+ * @intro
+ * Renders a styled `<a>` element for internal or external navigation, supporting accessibility and customization options.
+ *
+ * @example
+ * import { Link } from '@lite-u/ui'
+ *
+ * <Link href="https://example.com" target="_blank">
+ *     Visit Example
+ * </Link>
+ */
 const Link = ({ children, fw = true, fh = true, style = {}, ...props }) => {
     const { theme } = useLiteUIContext();
     return _jsx(Interactable, { tag: 'a', hover: {

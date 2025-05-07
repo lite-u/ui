@@ -1,30 +1,45 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useState } from 'react';
-import { Transition } from '../../index';
-import { NotificationContext } from './NotificationContext';
+import Transition from '../transition/Transition';
 import Container from '../container/Container';
 import { useLiteUIContext } from '../../LiteUIProvider';
 import { createPortal } from 'react-dom';
+import NotificationContext from './NotificationContext';
+/**
+ * NotificationProvider component
+ *
+ * @brief
+ * Provides notification context and renders toasts with animation and auto-dismiss(optional) behavior.
+ *
+ * @intro
+ * Wraps an application with a notification system. Allows components to trigger toast messages
+ * with customizable content, type, and duration. Renders floating notifications using portals
+ * with enter/exit animations, and removes them after a timeout(optional).
+ *
+ * @example
+ * import { useNotification } from '@lite-u/ui'
+ *
+ * const NotificationSampleSimple: React.FC = () => {
+ *    const { add, remove } = useNotification()
+ *
+ *    return <div onClick={()=>add('hello')}></div>
+ * }
+ */
 const NotificationProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([]);
     const notificationsRef = useRef(new Map());
-    const animationExitDuration = 300;
-    /*
-      useEffect(() => {
-  
-      }, [])
-    */
+    const animationExitDuration = 150;
     const { theme } = useLiteUIContext();
     const updateNotifications = () => {
         const arr = Array.from(notificationsRef.current.values());
         setNotifications(arr);
     };
-    const addNotification = (text, type = 'info', delay = 2000) => {
+    const addNotification = (comp, type = 'info', delay = 2000) => {
         const id = type + '-' + Date.now();
         const n = {
             id,
             type,
-            text,
+            comp,
             anim: false,
             timer: NaN,
         };
@@ -37,42 +52,43 @@ const NotificationProvider = ({ children }) => {
                 updateNotifications();
             }
         }, 0);
+        if (typeof delay === 'number') {
+            n.timer = window.setTimeout(() => {
+                removeNotification(id);
+            }, delay);
+        }
         // handle animation exit
-        n.timer = setTimeout(() => {
-            const n = notificationsRef.current.get(id);
-            if (n) {
-                n.anim = false;
-                updateNotifications();
-                setTimeout(() => {
-                    removeNotification(id);
-                }, animationExitDuration);
-            }
-        }, delay);
         updateNotifications();
+        return id;
     };
     const removeNotification = (id) => {
         const n = notificationsRef.current.get(id);
         if (n) {
-            clearTimeout(n.timer);
-            notificationsRef.current.delete(id);
+            n.anim = false;
             updateNotifications();
-            return true;
+            n.timer = window.setTimeout(() => {
+                notificationsRef.current.delete(id);
+                updateNotifications();
+            }, animationExitDuration);
         }
         return false;
     };
-    return (_jsxs(NotificationContext.Provider, { value: {
+    return _jsxs(NotificationContext.Provider, { value: {
             notifications,
             add: addNotification,
             remove: removeNotification,
-        }, children: [children, createPortal(notifications.map(({ id, text, type, anim }, index) => {
-                let color = '#000';
+        }, children: [children, createPortal(notifications.map(({ id, comp, type, anim }, index) => {
+                let color = '#666';
                 if (type === 'error') {
                     color = theme.colors.error;
                 }
                 if (type === 'warn') {
                     color = theme.colors.warn;
                 }
-                return _jsx("div", { style: {
+                if (type === 'suc') {
+                    color = theme.colors.success;
+                }
+                return _jsx("div", { role: 'notification', style: {
                         position: 'fixed',
                         top: '50%',
                         left: '50%',
@@ -82,7 +98,7 @@ const NotificationProvider = ({ children }) => {
                             scale: 0,
                         }, to: {
                             scale: 1,
-                        }, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
+                        }, exitDuration: animationExitDuration, style: { overflow: 'visible' }, children: _jsx(Container, { style: {
                                 background: '#fff',
                                 padding: 10,
                                 textAlign: 'center',
@@ -90,7 +106,7 @@ const NotificationProvider = ({ children }) => {
                                 fontSize: theme.fontSizes.sm,
                                 boxShadow: color + ' 0 0 3px 0',
                                 color,
-                            }, children: text }) }) }, id);
-            }), document.body)] }));
+                            }, children: comp }) }) }, id);
+            }), document.body)] });
 };
 export default NotificationProvider;

@@ -1,49 +1,68 @@
 import TableBase from './TableBase'
-import {Children, createContext, CSSProperties, ReactNode, useContext} from 'react'
+import {Children, createContext, CSSProperties, isValidElement, ReactNode, useContext} from 'react'
 import TableRow from './TableRow'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
 const TableContext = createContext<{
   storedRowStyle: CSSProperties,
   storedCellStyle: CSSProperties,
+  storedRowHoveredStyle: CSSProperties,
 }>({
   storedRowStyle: {},
   storedCellStyle: {},
+  storedRowHoveredStyle: {},
 })
 
 export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
+  /**
+   * Render the table with extra small (`xs`) size styling.
+   * @default false
+   */
   xs?: boolean,
+  /**
+   * Render the table with small (`s`) size styling.
+   * @default false
+   */
   s?: boolean,
+  /**
+   * Render the table with medium (`s`) size styling.
+   * @default false
+   */
   m?: boolean,
+  /**
+   * Render the table with large (`l`) size styling.
+   * @default false
+   */
   l?: boolean,
-
   /**
    * Whether the table should take up the full width of its parent
    * @default false
    */
   fw?: boolean,
-
   /**
    * Whether the table should take up the full height of its parent
    * @default false
    */
   fh?: boolean,
-
   /**
-   * Whether the table layout should be fixed
+   * Whether the [tableLayout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) should be set to `fixed`
    * @default false
    */
   fixed?: boolean,
-
   /**
-   * Style object for table rows
+   * Convenience way to style all table rows
+   *
    */
   rowStyle?: CSSProperties,
-
+  /**
+   * Convenience way to style Hovered body rows
+   */
+  rowHoverStyle?: CSSProperties,
   /**
    * Style object for table cells
    */
   cellStyle?: CSSProperties
+
   children: ReactNode
 }>
 
@@ -54,15 +73,12 @@ export type TableProps = React.FC<React.HTMLProps<HTMLTableElement> & {
  * A simple and easy-to-use table component with a minimal design.
  *
  * @intro
- *
- * Table accepts [TableRow](./tablerow) Component as children only
- *
- * <TableRow> with head prop: recognized as a thead row
- *
- * <TableRow> without head prop: recognized as a tbody row
- *
+ * Table accepts `TableRow` Component as children only
  *
  * @example
+ *
+ * import { Table, TableRow } from '@lite-u/ui'
+ *
  * <Table>
  *   <TableRow head>
  *     <span>th cell 0</span>
@@ -85,10 +101,8 @@ const Table: TableProps = ({
                              fh = false,
                              fixed = false,
                              style = {},
-                             rowStyle = {
-                               borderBottom: '1px solid #b5b5b5',
-                               color: '#292929',
-                             },
+                             rowStyle = {},
+                             rowHoverStyle = {},
                              cellStyle = {},
                              ...props
                            }) => {
@@ -97,8 +111,7 @@ const Table: TableProps = ({
   const filteredChildren: ReactNode[] = []
 
   Children.forEach(children, (child) => {
-    // @ts-ignore
-    if (child.type !== TableRow) {
+    if (!isValidElement(child) || child.type !== TableRow) {
       // @ts-ignore
       console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`)
       return
@@ -141,7 +154,14 @@ const Table: TableProps = ({
     sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`
   }
 
+  const storedRowHoveredStyle: CSSProperties = {
+    backgroundColor: '#dfdfdf',
+    ...rowHoverStyle,
+  }
+
   const storedRowStyle: CSSProperties = {
+    borderBottom: '1px solid #b5b5b5',
+    color: '#292929',
     ...sizedRowStyle,
     ...rowStyle,
   }
@@ -154,6 +174,7 @@ const Table: TableProps = ({
   return <TableContext.Provider value={{
     storedRowStyle,
     storedCellStyle,
+    storedRowHoveredStyle,
   }}>
     <TableBase
       style={{...tableStyle, ...style}}

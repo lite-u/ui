@@ -1,12 +1,34 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import Flex from './Flex';
-const Row = ({ children, wrap = false, around = false, jc = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
+/**
+ * Row component
+ *
+ * @brief
+ * A horizontal flex container with shorthand alignment and spacing props.
+ *
+ * @intro
+ * A layout component built on top of `Flex`, providing horizontal flow and useful alignment helpers like `start`, `center`, `stretch`, `wrap`, and `space`.
+ * Supports extended `ContainerProps`.
+ *
+ * @example
+ * import { Container } from '@lite-u/ui'
+ *
+ * <Row center space={10} wrap>
+ *   <span>1</span>
+ *   <span>2</span>
+ *   <span>3</span>
+ * </Row>
+ */
+const Row = ({ children, wrap = false, around = false, jc = false, js = false, je = false, between = false, start = true, center = false, stretch = false, end = false, role = 'row', space = 0, style = {}, ...props }) => {
     let styles = {
         display: 'flex',
+        flex: 1,
         flexDirection: 'row',
         boxSizing: 'border-box',
-        width: 'auto', height: 'auto', ...style,
+        width: 'auto',
+        height: 'auto',
         gap: space,
+        ...style,
     };
     const flexProps = {
         ...props,
@@ -16,6 +38,12 @@ const Row = ({ children, wrap = false, around = false, jc = false, between = fal
     }
     if (jc) {
         flexProps.justifyContent = 'center';
+    }
+    if (js) {
+        flexProps.justifyContent = 'start';
+    }
+    if (je) {
+        flexProps.justifyContent = 'end';
     }
     if (between) {
         flexProps.justifyContent = 'space-between';

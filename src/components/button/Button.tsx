@@ -6,37 +6,50 @@ type Variant = 'primary' | 'error' | 'warn' | 'neutral';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   /**
-   * If true, renders the button in extra small size (height: 20px, min-width: 30px).
+   * Extra small button. Sizing depends on theme.
+   * @default false
    */
   xs?: boolean;
   /**
-   * If true, renders the button in small size (height: 25px, min-width: 40px).
+   * Small button. Sizing depends on theme.
+   * @default false
    */
   s?: boolean;
   /**
-   * If true, renders the button in medium size. Exact dimensions depend on the theme. Default is true.
+   * Medium button. Sizing depends on theme.
+   * @default true
    */
   m?: boolean;
   /**
-   * If true, renders the button in large size (height: 40px, min-width: 60px).
+   * Large button. Sizing depends on theme.
+   * @default false
    */
   l?: boolean;
   /**
    * If true, applies the primary color style.
+   * @default false
    */
   primary?: boolean;
   /**
-   * If true, applies the neutral color style. Default is true.
+   * If true, applies the neutral color style.
+   * @default true
    */
   neutral?: boolean;
   /**
    * If true, applies the warning color style.
+   * @default false
    */
   warn?: boolean;
   /**
    * If true, applies the error color style.
+   * @default false
    */
   error?: boolean;
+  /**
+   * If true, set the Button to disabled
+   * @default false
+   */
+  disabled?: boolean;
   /**
    * Custom inline styles for the button.
    */
@@ -47,6 +60,21 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
 };
 
+/**
+ * Button component
+ *
+ * @brief A customizable button component that supports size and color variants.
+ *
+ * @intro Supports four sizes (xs, s, m, l) and four variants (primary, neutral, warn, error).
+ *
+ * @example
+ *
+ * import { Button } from '@lite-u/ui'
+ *
+ * <Button>Default</Button>
+ * <Button primary xs>Confirm</Button>
+ * <Button error l>Delete</Button>
+ */
 export const Button: React.FC<ButtonProps> = ({
                                                 xs,
                                                 s,
@@ -56,6 +84,7 @@ export const Button: React.FC<ButtonProps> = ({
                                                 warn,
                                                 error,
                                                 neutral = true,
+                                                disabled = false,
                                                 style = {},
                                                 children,
                                                 type = 'button',
@@ -84,38 +113,29 @@ export const Button: React.FC<ButtonProps> = ({
   }
   const size = getSize()
   const variant = getVariant()
-  const sizeStyles: Record<SizeVariant, React.CSSProperties> = {
-    xs: {
-      minWidth: 30,
-      height: 20,
-    },
-    sm: {
-      minWidth: 40,
-      height: 25,
-    },
-    md: {
-      minWidth: 50,
-      height: 30,
-    },
-    lg: {
-      minWidth: 60,
-      height: 40,
-    },
-  }
 
   const styles: React.CSSProperties = {
     cursor: 'pointer',
+    userSelect: 'none',
     fontSize: fontSizes[size],
     padding: `0 ${padding[size].x}px`,
     borderRadius: `${borderRadius[size]}px`,
     borderWidth: 0,
     ...button[variant],
-    ...sizeStyles[size],
+    ...theme.formElements[size],
     ...style,
   }
 
+  if (disabled) {
+    styles.backgroundColor = theme.button.disabled.backgroundColor
+    styles.color = theme.button.disabled.color
+    styles.border = theme.button.disabled.border
+    styles.cursor = 'not-allowed'
+    styles.pointerEvents = 'visible'
+  }
+
   return (
-    <ButtonBase type={type} style={styles} {...props}>{children}</ButtonBase>
+    <ButtonBase disabled={disabled} type={type} style={styles} {...props}>{children}</ButtonBase>
   )
 }
 

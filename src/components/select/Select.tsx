@@ -1,105 +1,177 @@
-import React, {CSSProperties, HTMLProps, useEffect, useRef, useState} from 'react'
+import {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
 import {Row, Transition} from '../../index'
 import Interactable from '../interactive/Interactable'
+import {useLiteUIContext} from '../../LiteUIProvider'
+import SelectItem from './SelectItem'
 
-export type SelectSize = 'sm' | 'md' | 'lg'
-const Select: React.FC<HTMLProps<HTMLDivElement> & {
-  label?: string
-  children?: React.ReactNode
-  defaultValue?: string | number
-  onChange?: (value: string | number) => void
-  sm?: boolean
-  md?: boolean
-  lg?: boolean
-  size?: SelectSize
-  style?: {},
+type SelectProps = Omit<React.HTMLProps<HTMLDivElement>, 'disabled'> & {
+  /**
+   * Extra small size variant for the select.
+   * @default false
+   */
+  xs?: boolean
+
+  /**
+   * Small size variant for the select.
+   * @default false
+   */
+  s?: boolean
+
+  /**
+   * Medium size variant for the select.
+   * @default true
+   */
+  m?: boolean
+
+  /**
+   * Large size variant for the select.
+   * @default false
+   */
+  l?: boolean
+  /**
+   * Set Select to disabled.
+   * @default false
+   */
+  disabled?: boolean
+  /**
+   * Inline styles to customize the select element.
+   */
+  style?: React.CSSProperties
+  /**
+   * Custom styles applied to each `SelectItem` within the dropdown.
+   */
+  itemStyle?: React.CSSProperties
+  /**
+   * The initial selected value of the select component.
+   * @default \-
+   */
+  selectValue?: string | number
+  /**
+   * Callback fired when the selected value changes.
+   * Receives the new value as a string or number.
+   * @default \-
+   * */
+  onSelectChange?: (value: string | number) => void
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>
-}> = ({
-        label,
-        style,
-        sm,
-        md,
-        lg,
-        size = 'md' as SelectSize,
-        defaultValue = '',
-        onChange,
-        children,
-        onKeyDown,
-        ...props
-      }) => {
+}
+
+/**
+ * Select component
+ *
+ * @brief
+ * A styled dropdown (select) component.
+ *
+ * @intro
+ * Renders a `<select>` like element styled according to theme context. Supports multiple sizes
+ * and validation states.
+ *
+ * @example
+ * import { Select } from '@lite-u/ui'
+ *
+ * <Select s defaultValue={'2'}>
+ *   <SelectItem value={'1'}>1</SelectItem>
+ *   <SelectItem value={'2'}>2</SelectItem>
+ *   <SelectItem value={'3'}>3</SelectItem>
+ * </Select>
+ */
+const Select: React.FC<SelectProps> = ({
+                                         label,
+                                         style,
+                                         itemStyle = {},
+                                         xs,
+                                         s,
+                                         m,
+                                         l,
+                                         disabled = false,
+                                         selectValue,
+                                         onSelectChange,
+                                         children,
+                                         onKeyDown,
+                                         ...props
+                                       }) => {
   const [openSelect, setOpenSelect] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState<{ top?: string, bottom?: string }>({})
   const [wrapperHeight, setWrapperHeight] = useState(0)
-  const [value, setValue] = useState(defaultValue)
+  const [value, setValue] = useState<number | string>(selectValue || '')
   const animationDuration = 100
-  const sizeStyle: Record<SelectSize, CSSProperties> = {
-    sm: {
-      width: 40,
-      height: 20,
-      padding: 6,
-      borderRadius: 2,
-      fontSize: 12,
-    },
-    md: {
-      width: 60,
-      height: 30,
-      padding: 10,
-      borderRadius: 3,
-      fontSize: 14,
-    },
-    lg: {
-      width: 100,
-      height: 40,
-      padding: 12,
-      borderRadius: 4,
-      fontSize: 16,
-    },
+  const animationLeaveDuration = 100
+  const getSize = () => {
+    if (xs) return 'xs'
+    if (s) return 'sm'
+    if (l) return 'lg'
+    return 'md'
+  }
+  const {theme} = useLiteUIContext()
+  const size = getSize()
+  const isOpenedRef = useRef<boolean>(false)
+  const defaultStyle: CSSProperties = {
+    ...theme.formElements[size],
+    padding: `0 ${theme.padding[size].y}px`,
+    fontSize: theme.fontSizes[size],
+    borderRadius: theme.borderRadius[size],
+    boxSizing: 'border-box',
   }
 
-  if (md) {
-    size = 'md'
-  }
+  const filteredChildren: ReactNode[] = []
 
-  if (sm) {
-    size = 'sm'
-  }
+  Children.forEach(children, (child) => {
+    // @ts-ignore
+    if (child.type !== SelectItem) {
+      // @ts-ignore
+      console.error(`<Select> only accepts <SelectItem> as children. Found: <${child.type}>`)
+      return
+    }
 
-  if (lg) {
-    size = 'lg'
-  }
+    filteredChildren.push(child)
+  })
 
-  const itemStyle = sizeStyle[size]
+  const close: EventListener = (e) => {
+    const target = e.target as HTMLElement
+    const inside = wrapperRef?.current?.contains(target)
+
+    if (!inside && isOpenedRef.current) {
+      setOpenSelect(false)
+    }
+  }
 
   useEffect(() => {
     const maxHeight = window.innerHeight
 
-    setValue(defaultValue)
-    // setItemStyle(sizeStyle[size])
-    // console.log(containerRef.current)
+    // @ts-ignore
+    setValue(selectValue)
+
     if (containerRef.current) {
       const h = containerRef.current.offsetHeight
 
-      // console.log(h)
       if (h > maxHeight) {
         setWrapperHeight(300)
       } else {
         setWrapperHeight(h)
       }
     }
-  }, [children, defaultValue, size])
+
+    window.addEventListener('click', close)
+
+    return () => {
+      window.removeEventListener('click', close)
+    }
+  }, [children, selectValue, size])
 
   const handleItemClick = (newValue: string | number) => {
+    if (disabled) return
     setValue(newValue)
     if (newValue !== value) {
-      onChange && onChange(newValue)
+      onSelectChange && onSelectChange(newValue)
     }
     setOpenSelect(false)
+    isOpenedRef.current = false
   }
 
   const handleOpen = () => {
+    if (disabled) return
     const maxHeight = window.innerHeight
     const rect = wrapperRef.current?.getBoundingClientRect()
     const newPosition: { top?: string, bottom?: string } = {}
@@ -112,35 +184,50 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
 
     setPosition(newPosition)
     setOpenSelect(!openSelect)
+    isOpenedRef.current = !openSelect
   }
 
-  return <SelectContext.Provider value={{itemStyle, selectValue: value, itemClick: handleItemClick}}>
+  const mergedItemStyle = {
+    ...defaultStyle,
+    ...itemStyle,
+  }
+  // console.log(mergedItemStyle)
+  return <SelectContext.Provider value={{itemStyle: mergedItemStyle, selectValue: value, itemClick: handleItemClick}}>
     <div role={'select'}
          ref={wrapperRef}
          style={{
-           width: itemStyle.width,
-           height: itemStyle.height,
-           borderRadius: itemStyle.borderRadius,
-           boxShadow: '0 0 1px 0 #000',
-           cursor: 'pointer',
-           boxSizing: 'border-box',
+           flex: 0,
+           // flex: 'none',
+           ...defaultStyle,
+           padding: 0,
+           // minWidth: defaultStyle.minWidth,
+           // height: defaultStyle.height,
+           // borderRadius: defaultStyle.borderRadius,
+           // boxShadow: '0 0 1px 0 #000',
+           cursor: disabled ? 'not-allowed' : 'pointer',
+           // boxSizing: 'border-box',
            ...style,
            position: 'relative',
-         }}
-         {...props}>
+         }}>
 
       <Interactable
         tag={'div'}
         role={'placeholder'}
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         style={{
-          height: '100%',
-          borderRadius: itemStyle.borderRadius,
-          fontSize: itemStyle.fontSize,
           userSelect: 'none',
+          border: '1px solid #dfdfdf',
+          ...defaultStyle,
+          ...disabled ? {color: '#bababa'} : {},
+          ...style,
+          // height: '100%',
+          // borderRadius: defaultStyle.borderRadius,
+          // fontSize: defaultStyle.fontSize,
         }}
         onClick={() => {
+          // e.stopPropagation()
           handleOpen()
+          return false
         }}
         onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
           if (e.code.toLowerCase() === 'space') {
@@ -149,24 +236,38 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
           }
 
           onKeyDown && onKeyDown(e)
-        }}>
+        }}
+
+        {...props}
+      >
         <Row fh
              between
              center
-             pl={itemStyle.padding}
-             pr={itemStyle.padding}>
+             pl={defaultStyle.padding}
+             pr={defaultStyle.padding}>
           <span>{value}</span>
           <Transition visible={openSelect}
                       duration={animationDuration}
+                      exitDuration={animationLeaveDuration}
+                      style={{
+                        width: 14,
+                        height: 14,
+                        flex: 0,
+                      }}
                       from={{
                         rotate: '0deg',
                       }}
                       to={{
                         rotate: '180deg',
                       }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/*<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 9l6 6 6-6" stroke="black" strokeWidth="2" fill="none" strokeLinecap="round"
                     strokeLinejoin="round"/>
+            </svg>*/}
+
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"
+                 strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
             </svg>
           </Transition>
         </Row>
@@ -174,6 +275,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
 
       <Transition visible={openSelect}
                   duration={animationDuration}
+                  exitDuration={animationLeaveDuration}
                   from={{
                     height: 0,
                   }}
@@ -184,6 +286,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                     position: 'absolute',
                     // top: '100%',
                     left: 0,
+                    zIndex: 1000,
                     overflow: 'hidden',
                     width: '100%',
                     height: wrapperHeight,
@@ -207,7 +310,7 @@ const Select: React.FC<HTMLProps<HTMLDivElement> & {
                  backgroundColor: '#fff',
                  height: 'auto',
                }}>
-            {children}
+            {filteredChildren}
           </div>
         </div>
       </Transition>

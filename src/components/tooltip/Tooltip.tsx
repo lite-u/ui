@@ -1,37 +1,83 @@
-import {CSSProperties, RefObject, useEffect, useRef, useState} from 'react'
+import {CSSProperties, HTMLProps, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
 import useElementMoveDetect from '../../hooks/useElementMoveDetect'
 import {createPortal} from 'react-dom'
 import {Transition} from '../../index'
 
-type TooltipPosition = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
-type ToolTipProps = React.HTMLProps<HTMLDivElement> & {
-  title: string
-  bgColor?: string
-  color?: string
-  // delay?: number
-  position?: TooltipPosition
-  children: React.ReactElement;
+type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
+type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
+  /**
+   * The title of the tooltip.
+   */
+  title: ReactNode;
+
+  /**
+   * The background color of the tooltip. Defaults to a neutral color.
+   * @default '#333'
+   */
+  bgColor?: string;
+
+  /**
+   * The text color of the tooltip. Defaults to a readable color.
+   * @default '#fff'
+   *
+   */
+  textColor?: string;
+
+  /**
+   * The placement of the tooltip relative to its children. Can be one of:
+   * `t` , `r` , `b` , `l` , `tl` , `tr` , `bl` , `br`
+   *
+   * @default t
+   */
+  placement?: TooltipPlacement;
+  /**
+   * Duration of the transition entering, in milliseconds.
+   * @default 200
+   */
+  animationEnterDuration?: number
+  /**
+   * Duration of the transition leaving, in milliseconds.
+   * @default 100
+   */
+  animationExitDuration?: number
+  children: ReactNode;
 };
 
+/**
+ * Tooltip component
+ *
+ * @brief
+ * Displays a floating label with helpful information when the user hovers over or focuses on the target element.
+ *
+ * @intro
+ * Renders a customizable tooltip using React Portals for positioning and transition animations. It calculates the correct position based on the specified direction and adjusts dynamically if the target element moves.
+ *
+ * @example
+ * import { Tooltip } from '@lite-u/ui'
+ *
+ * <Tooltip title="Hello" placement="t">
+ *   <button>Hover me</button>
+ * </Tooltip>
+ */
 export const Tooltip: React.FC<ToolTipProps> = ({
                                                   title,
-                                                  color,
-                                                  bgColor,
-                                                  position = 't',
-                                                  // delay = 100,
+                                                  textColor = '#fff',
+                                                  bgColor = '#333',
+                                                  placement = 't',
+                                                  animationEnterDuration = 100,
+                                                  animationExitDuration = 100,
                                                   children,
                                                 }) => {
   const [isVisible, setIsVisible] = useState(false)
-  const [localPosition, setLocalPosition] = useState<TooltipPosition | null>()
+  const [localPosition, setLocalPosition] = useState<TooltipPlacement | null>()
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const targetRef = useRef<HTMLDivElement>(null)
-  const backgroundColor = bgColor || '#333'
-  const textColor = color || '#fff'
+  const backgroundColor = bgColor
   const [realTimeStyle, setRealTimeStyle] = useState<CSSProperties>({})
   const [animationVisible, setAnimationVisible] = useState(false)
   const leavingTimerRef = useRef<number>(0)
-  const animationEnterDuration = 200
-  const animationExitDuration = 100
+  // const animationEnterDuration = 200
+  // const animationExitDuration = 100
 
   useElementMoveDetect(targetRef as RefObject<HTMLElement>, () => {
     calcPosition()
@@ -40,8 +86,8 @@ export const Tooltip: React.FC<ToolTipProps> = ({
   useEffect(() => {
     calcPosition()
 
-    if (position) {
-      setLocalPosition(position)
+    if (placement) {
+      setLocalPosition(placement)
       return
     }
 
@@ -78,7 +124,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
         }
       }
     }*/
-  }, [isVisible, targetRef.current, position])
+  }, [isVisible, targetRef.current, placement])
 
   const calcPosition = () => {
     const firstChild = targetRef.current?.firstElementChild
@@ -293,6 +339,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
           duration={animationEnterDuration}
           style={{
             position: 'fixed',
+            zIndex: 9999,
             // width: 'auto',
             // height: 'auto',
             ...realTimeStyle,
@@ -311,6 +358,7 @@ export const Tooltip: React.FC<ToolTipProps> = ({
               borderRadius: 4,
               fontSize: 12,
               color: textColor,
+              whiteSpace:'nowrap',
               ...getPositionStyles(),
             }}
           >

@@ -3,7 +3,7 @@ import { useState, } from 'react';
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
-function Interactable({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onMouseDown, onMouseUp, onKeyDown, 
+function Interactable({ tag = 'div', disabled = false, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onPointerDown, onPointerUp, onKeyDown, 
 // onClick,
 ...rest }) {
     const Tag = tag;
@@ -12,33 +12,51 @@ function Interactable({ tag, hover, focus, active, style, children, onMouseEnter
     const [pressed, setPressed] = useState(false);
     const computedStyle = {
         ...style,
-        ...(hovered ? hover : {}),
-        ...(focused ? focus : {}),
-        ...(pressed ? active : {}),
     };
-    return (_jsx(Tag, { ...rest, 
-        /*      onKeyDown={(e: KeyboardEvent<HTMLElementTagNameMap[T]>) => {
-                setHovered(true)
-                onKeyDown?.(e)
-              }}*/
-        onMouseEnter: (e) => {
+    if (pressed) {
+        Object.assign(computedStyle, active);
+    }
+    else if (focused) {
+        Object.assign(computedStyle, focus);
+    }
+    else if (hovered) {
+        Object.assign(computedStyle, hover);
+    }
+    return (_jsx(Tag, { ...rest, onMouseEnter: (e) => {
+            if (disabled)
+                return;
             setHovered(true);
             onMouseEnter?.(e);
         }, onMouseLeave: (e) => {
+            if (disabled)
+                return;
             setHovered(false);
             onMouseLeave?.(e);
         }, onFocus: (e) => {
+            if (disabled)
+                return;
             setFocused(true);
             onFocus?.(e);
         }, onBlur: (e) => {
+            if (disabled)
+                return;
             setFocused(false);
             onBlur?.(e);
-        }, onMouseDown: (e) => {
+        }, onPointerDown: (e) => {
+            if (disabled)
+                return;
+            const target = e.target;
+            target.setPointerCapture(e.pointerId);
             setPressed(true);
-            onMouseDown?.(e);
-        }, onMouseUp: (e) => {
+            onPointerDown?.(e);
+        }, onPointerUp: (e) => {
+            if (disabled)
+                return;
+            const target = e.target;
+            target.releasePointerCapture(e.pointerId);
             setPressed(false);
-            onMouseUp?.(e);
+            onPointerUp?.(e);
         }, style: computedStyle, children: children }));
 }
+export const IA = Interactable;
 export default Interactable;

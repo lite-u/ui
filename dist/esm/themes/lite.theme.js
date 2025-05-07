@@ -1,8 +1,8 @@
-const primaryColor = '#0a2e71';
+const primaryColor = '#133f90';
 const secondaryColor = '#007bff';
 const successColor = '#28a745';
 const errorColor = '#dc3545';
-const warningColor = '#ffc107';
+const warningColor = '#fb9e08';
 export const liteTheme = {
     colors: {
         primary: primaryColor,
@@ -10,16 +10,6 @@ export const liteTheme = {
         success: successColor,
         warn: warningColor,
         error: errorColor,
-        /*    neutralLight: '#f8f9fa',
-            neutralDark: '#343a40',
-            neutralGray: '#6c757d',
-            neutralBorder: '#ccc',
-            backgroundLight: '#ffffff',
-            backgroundDark: '#212529',
-            textPrimary: '#212529',
-            textSecondary: '#6c757d',
-            textError: '#dc3545',
-            textSuccess: '#28a745',*/
     },
     fontSizes: {
         xs: 12,
@@ -74,9 +64,14 @@ export const liteTheme = {
             border: 'none',
         },
         neutral: {
+            backgroundColor: 'transparent',
+            color: primaryColor,
+            border: `1px solid ${primaryColor}`,
+        },
+        disabled: {
             backgroundColor: '#cfcfcf',
-            color: '#000000',
-            border: primaryColor,
+            color: '#e1e1e1',
+            border: 'none',
         },
     },
     input: {

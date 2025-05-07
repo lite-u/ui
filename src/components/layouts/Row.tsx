@@ -2,42 +2,117 @@ import Flex, {FlexProps} from './Flex'
 import {ContainerProps} from '../container/Container'
 import {CSSProperties} from 'react'
 
-interface RowProps extends ContainerProps {
-  // align items
+export interface RowProps extends Omit<ContainerProps, 'wrap' | 'start'> {
+  /**
+   * Align items to the start vertically.
+   * @default true
+   */
   start?: boolean,
+
+  /**
+   * Align items to the center vertically.
+   * @default false
+   */
   center?: boolean,
+
+  /**
+   * Stretch items to fill the container vertically.
+   * @default false
+   */
   stretch?: boolean,
+
+  /**
+   * Align items to the end vertically.
+   * @default false
+   */
   end?: boolean,
+
+  /**
+   * If true, allows child elements to wrap onto multiple lines.
+   * @default false
+   */
   wrap?: boolean,
-  // justify-content
+
+  /**
+   * Justify content with space around.
+   * @default false
+   */
   around?: boolean,
+
+  /**
+   * Justify content to the center horizontally.
+   * @default false
+   */
   jc?: boolean,
+  /**
+   * Justifies children to the start horizontally.
+   * @default false
+   */
+  js?: boolean,
+  /**
+   * Justifies children to the end horizontally.
+   * @default false
+   */
+  je?: boolean,
+  /**
+   * Justify content with space between items.
+   * @default false
+   */
   between?: boolean,
-  space?: CSSProperties['gap']
+
+  /**
+   * Gap between child elements.
+   * @default 0
+   */
+  space?: CSSProperties['gap'],
 }
 
-const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap'> & RowProps> = ({
-                                                                                   children,
-                                                                                   wrap = false,
-                                                                                   around = false,
-                                                                                   jc = false,
-                                                                                   between = false,
-                                                                                   start = true,
-                                                                                   center = false,
-                                                                                   stretch = false,
-                                                                                   end = false,
-                                                                                   role = 'row',
-                                                                                   space = 0,
-                                                                                   style = {},
-                                                                                   ...props
-                                                                                 }) => {
+/**
+ * Row component
+ *
+ * @brief
+ * A horizontal flex container with shorthand alignment and spacing props.
+ *
+ * @intro
+ * A layout component built on top of `Flex`, providing horizontal flow and useful alignment helpers like `start`, `center`, `stretch`, `wrap`, and `space`.
+ * Supports extended `ContainerProps`.
+ *
+ * @example
+ * import { Container } from '@lite-u/ui'
+ *
+ * <Row center space={10} wrap>
+ *   <span>1</span>
+ *   <span>2</span>
+ *   <span>3</span>
+ * </Row>
+ */
+const Row: React.FC<RowProps> = ({
+                                   children,
+                                   wrap = false,
+                                   around = false,
+                                   jc = false,
+                                   js = false,
+                                   je = false,
+                                   between = false,
+                                   start = true,
+                                   center = false,
+                                   stretch = false,
+                                   end = false,
+                                   role = 'row',
+                                   space = 0,
+                                   style = {},
+                                   ...props
+                                 }) => {
 
   let styles: React.CSSProperties = {
     display: 'flex',
+    flex: 1,
     flexDirection: 'row',
     boxSizing: 'border-box',
-    width: 'auto', height: 'auto', ...style,
+    width: 'auto',
+    height: 'auto',
     gap: space,
+    ...style,
   }
 
   const flexProps: FlexProps = {
@@ -50,6 +125,14 @@ const Row: React.FC<Omit<React.HTMLProps<HTMLDivElement>, 'wrap'> & RowProps> = 
 
   if (jc) {
     flexProps.justifyContent = 'center'
+  }
+
+  if (js) {
+    flexProps.justifyContent = 'start'
+  }
+
+  if (je) {
+    flexProps.justifyContent = 'end'
   }
 
   if (between) {

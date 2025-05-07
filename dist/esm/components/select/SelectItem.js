@@ -2,6 +2,24 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useContext } from 'react';
 import SelectContext from './SelectContext';
 import Interactable from '../interactive/Interactable';
+/**
+ * SelectItem component
+ *
+ * @brief
+ * An individual selectable item used within the Select dropdown.
+ *
+ * @intro
+ * Displays a styled item that responds to click and keyboard interactions. Automatically highlights when selected.
+ * Must be used inside a `Select` component to inherit context.
+ *
+ * @example
+ * import { Select, SelectItem } from '@lite-u/ui'
+ *
+ * <Select>
+ *   <SelectItem value="1">Option 1</SelectItem>
+ *   <SelectItem value="2">Option 2</SelectItem>
+ * </Select>
+ */
 const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ...props }) => {
     const context = useContext(SelectContext);
     if (!context)
@@ -12,14 +30,13 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         bgStyle.backgroundColor = '#dfdfdf';
     }
     const styles = {
-        padding: itemStyle.padding,
-        height: itemStyle.height,
-        fontSize: itemStyle.fontSize,
-        boxSizing: 'border-box',
+        ...itemStyle,
+        // boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         whiteSpace: 'nowrap',
+        borderRadius: 0,
         ...bgStyle,
         ...style,
     };

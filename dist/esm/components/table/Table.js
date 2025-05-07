@@ -1,11 +1,12 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import TableBase from './TableBase';
-import { Children, createContext, useContext } from 'react';
+import { Children, createContext, isValidElement, useContext } from 'react';
 import TableRow from './TableRow';
 import { useLiteUIContext } from '../../LiteUIProvider';
 const TableContext = createContext({
     storedRowStyle: {},
     storedCellStyle: {},
+    storedRowHoveredStyle: {},
 });
 /**
  * Table
@@ -14,15 +15,12 @@ const TableContext = createContext({
  * A simple and easy-to-use table component with a minimal design.
  *
  * @intro
- *
- * Table accepts [TableRow](./tablerow) Component as children only
- *
- * <TableRow> with head prop: recognized as a thead row
- *
- * <TableRow> without head prop: recognized as a tbody row
- *
+ * Table accepts `TableRow` Component as children only
  *
  * @example
+ *
+ * import { Table, TableRow } from '@lite-u/ui'
+ *
  * <Table>
  *   <TableRow head>
  *     <span>th cell 0</span>
@@ -34,16 +32,12 @@ const TableContext = createContext({
  *   </TableRow>
  * </Table>
  */
-const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {
-    borderBottom: '1px solid #b5b5b5',
-    color: '#292929',
-}, cellStyle = {}, ...props }) => {
+const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed = false, style = {}, rowStyle = {}, rowHoverStyle = {}, cellStyle = {}, ...props }) => {
     const { theme } = useLiteUIContext();
     // console.log(theme.)
     const filteredChildren = [];
     Children.forEach(children, (child) => {
-        // @ts-ignore
-        if (child.type !== TableRow) {
+        if (!isValidElement(child) || child.type !== TableRow) {
             // @ts-ignore
             console.error(`<Table> only accepts <TableRow> as children. Found: <${child.type}>`);
             return;
@@ -78,7 +72,13 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
         sizedRowStyle.height = theme.table.row.lg.height;
         sizedCellStyle.padding = `${theme.padding.lg.y}px ${theme.padding.lg.x}px`;
     }
+    const storedRowHoveredStyle = {
+        backgroundColor: '#dfdfdf',
+        ...rowHoverStyle,
+    };
     const storedRowStyle = {
+        borderBottom: '1px solid #b5b5b5',
+        color: '#292929',
         ...sizedRowStyle,
         ...rowStyle,
     };
@@ -89,6 +89,7 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
     return _jsx(TableContext.Provider, { value: {
             storedRowStyle,
             storedCellStyle,
+            storedRowHoveredStyle,
         }, children: _jsx(TableBase, { style: { ...tableStyle, ...style }, ...props, children: filteredChildren }) });
 };
 export const useTableContext = () => useContext(TableContext);

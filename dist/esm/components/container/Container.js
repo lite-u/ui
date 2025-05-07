@@ -1,8 +1,30 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl = true, tc = false, tr = false, bg, color, border, rounded, ib, borderColor = '#dfdfdf', w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
+/**
+ * Container component
+ *
+ * @brief
+ * A flexible layout and style container that adapts to various UI layout needs.
+ *
+ * @intro
+ * Provides dynamic box, margin, padding, overflow, and size styling through a rich set of shorthand props.
+ * Useful as a base layout block across components or pages.
+ * `Con` is an Alias of Container
+ *
+ * @example
+ *
+ * import { Container } from '@lite-u/ui'
+ * // Con is an Alias of Container
+ * import { Con } from '@lite-u/ui'
+ *
+ * <Container p={20} bg="#f9f9f9" fw fh>
+ *   <h2>Content</h2>
+ * </Container>
+ */
+const Container = ({ children, ovh = false, ova = false, box = true, fw = true, fh = false, tl, tc, tr, fz, bg, textColor, border, rounded, ib, abs, rela, fixed, t, r, b, l, borderColor = '#dfdfdf', flex, w, h, maxW, maxH, minW, minH, p, m, pt, pr, pb, pl, mt, mr, mb, ml, style = {}, role = 'container', ...props }) => {
     let styles = {
         width: 'auto',
         height: 'auto',
+        fontSize: fz,
         ...style,
     };
     if (fw) {
@@ -65,8 +87,8 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     if (bg) {
         styles.background = bg;
     }
-    if (color) {
-        styles.color = color;
+    if (textColor) {
+        styles.color = textColor;
     }
     if (ovh) {
         styles.overflow = 'hidden';
@@ -91,6 +113,30 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     }
     if (ib) {
         styles.display = 'inline-block';
+    }
+    if (abs) {
+        styles.position = 'absolute';
+    }
+    if (rela) {
+        styles.position = 'relative';
+    }
+    if (fixed) {
+        styles.position = 'fixed';
+    }
+    if (typeof t === 'string' || typeof t === 'number') {
+        styles.top = t;
+    }
+    if (typeof r === 'string' || typeof r === 'number') {
+        styles.right = r;
+    }
+    if (typeof b === 'string' || typeof b === 'number') {
+        styles.borderRadius = b;
+    }
+    if (typeof l === 'string' || typeof l === 'number') {
+        styles.left = l;
+    }
+    if (typeof flex === 'string' || typeof flex === 'number') {
+        styles.flex = flex;
     }
     return _jsx("div", { role: role, style: styles, ...props, children: children });
 };

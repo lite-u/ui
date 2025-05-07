@@ -1,6 +1,9 @@
-import React from 'react';
 import { ThemeType } from './themes/type';
-export declare const LiteUIContext: React.Context<{
+/**
+ * List of LiteUIContext
+ * @default []
+ */
+export declare const LiteUIContext: import("react").Context<{
     theme: ThemeType;
     setTheme: (mode: "lite") => void;
 }>;

@@ -1,10 +1,10 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // import {useTheme} from '../../themes/ThemeContext'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { SpinnerControl } from './Spinner';
 const scientificBelow = 1e-6;
 const scientificAbove = 1e+6;
-const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, intervalTime = 100, ...props }) => {
+const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, intervalTime = 100, ref, ...props }) => {
     // const theme = useTheme()
     const [localValue, setLocalValue] = useState(0);
     const inputRef = useRef(null);
@@ -16,6 +16,7 @@ const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, interva
     const decrement = () => setLocalValue(prev => {
         return parseFloat((prev - localStep).toFixed(precision));
     });
+    useImperativeHandle(ref, () => inputRef.current);
     useEffect(() => {
         if (!isNaN(value)) {
             setLocalValue(value);
