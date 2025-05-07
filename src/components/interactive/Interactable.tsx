@@ -60,8 +60,6 @@ function Interactable<T extends PolymorphicTag>({
   const [focused, setFocused] = useState(false)
   const [pressed, setPressed] = useState(false)
 
-  // console.log(hovered, focused, pressed)
-
   const computedStyle: CSSProperties = {
     ...style,
   }
@@ -79,35 +77,43 @@ function Interactable<T extends PolymorphicTag>({
       {...rest}
       onMouseEnter={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
         if (disabled) return
+
         setHovered(true)
         onMouseEnter?.(e)
       }}
       onMouseLeave={(e: React.MouseEvent<HTMLElementTagNameMap[T]>) => {
         if (disabled) return
+
         setHovered(false)
         onMouseLeave?.(e)
       }}
       onFocus={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
         if (disabled) return
+
         setFocused(true)
         onFocus?.(e)
       }}
       onBlur={(e: React.FocusEvent<HTMLElementTagNameMap[T]>) => {
         if (disabled) return
+
         setFocused(false)
         onBlur?.(e)
       }}
       onPointerDown={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
         if (disabled) return
-        // @ts-ignore
-        e.target?.setPointerCapture(e.pointerId)
+
+        const target = e.target as HTMLElementTagNameMap[T]
+
+        target.setPointerCapture(e.pointerId)
         setPressed(true)
         onPointerDown?.(e)
       }}
       onPointerUp={(e: PointerEvent<HTMLElementTagNameMap[T]>) => {
         if (disabled) return
-        // @ts-ignore
-        e.target?.releasePointerCapture(e.pointerId)
+
+        const target = e.target as HTMLElementTagNameMap[T]
+
+        target.releasePointerCapture(e.pointerId)
         setPressed(false)
         onPointerUp?.(e)
       }}

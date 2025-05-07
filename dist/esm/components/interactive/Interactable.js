@@ -10,7 +10,6 @@ function Interactable({ tag = 'div', disabled = false, hover, focus, active, sty
     const [hovered, setHovered] = useState(false);
     const [focused, setFocused] = useState(false);
     const [pressed, setPressed] = useState(false);
-    // console.log(hovered, focused, pressed)
     const computedStyle = {
         ...style,
     };
@@ -46,15 +45,15 @@ function Interactable({ tag = 'div', disabled = false, hover, focus, active, sty
         }, onPointerDown: (e) => {
             if (disabled)
                 return;
-            // @ts-ignore
-            e.target?.setPointerCapture(e.pointerId);
+            const target = e.target;
+            target.setPointerCapture(e.pointerId);
             setPressed(true);
             onPointerDown?.(e);
         }, onPointerUp: (e) => {
             if (disabled)
                 return;
-            // @ts-ignore
-            e.target?.releasePointerCapture(e.pointerId);
+            const target = e.target;
+            target.releasePointerCapture(e.pointerId);
             setPressed(false);
             onPointerUp?.(e);
         }, style: computedStyle, children: children }));
