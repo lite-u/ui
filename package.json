@@ -22,6 +22,10 @@
       "import": "./dist/esm/index.js",
       "types": "./dist/types/index.d.ts"
     },
+    "./button": {
+      "import": "./dist/esm/components/button/Button.js",
+      "types": "./dist/types/components/button/Button.d.ts"
+    },
     "./notification": {
       "import": "./dist/esm/components/notification/NotificationContext.js",
       "types": "./dist/types/components/notification/NotificationContext.d.ts"
