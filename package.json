@@ -99,8 +99,8 @@
       "types": "./dist/types/components/modal/Modal.d.ts"
     },
     "./notification": {
-      "import": "./dist/esm/components/notification/Notification.js",
-      "types": "./dist/types/components/notification/Notification.d.ts"
+      "import": "./dist/esm/components/notification/NotificationContext.js",
+      "types": "./dist/types/components/notification/NotificationContext.d.ts"
     },
     "./panel": {
       "import": "./dist/esm/components/panel/Panel.js",
