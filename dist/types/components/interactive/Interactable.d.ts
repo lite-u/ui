@@ -2,7 +2,7 @@ import { CSSProperties, FocusEventHandler, KeyboardEventHandler, MouseEventHandl
 import { JSX } from 'react/jsx-runtime';
 import IntrinsicElements = JSX.IntrinsicElements;
 type PolymorphicTag = keyof HTMLElementTagNameMap;
-type InteractableBaseProps<T extends PolymorphicTag> = {
+export type InteractableBaseProps<T extends PolymorphicTag> = {
     tag?: PolymorphicTag;
     hover?: CSSProperties;
     focus?: CSSProperties;

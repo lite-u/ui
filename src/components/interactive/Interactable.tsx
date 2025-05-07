@@ -15,7 +15,7 @@ import IntrinsicElements = JSX.IntrinsicElements
 type PolymorphicTag = keyof HTMLElementTagNameMap;
 // type ElementTypeFor<T extends PolymorphicTag> = HTMLElementTagNameMap[T];
 
-type InteractableBaseProps<T extends PolymorphicTag> = {
+export type InteractableBaseProps<T extends PolymorphicTag> = {
   tag?: PolymorphicTag;
   hover?: CSSProperties;
   focus?: CSSProperties;

@@ -66,7 +66,14 @@
   },
   "ButtonBase": {
     "tags": {},
-    "props": {}
+    "props": {
+      "type": {
+        "type": "\"button\" | \"reset\" | \"submit\"",
+        "required": false,
+        "defaultValue": "button",
+        "description": ""
+      }
+    }
   },
   "Button": {
     "tags": {
