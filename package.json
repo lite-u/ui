@@ -70,6 +70,14 @@
       "import": "./dist/esm/components/layouts/Layouts.js",
       "types": "./dist/types/components/layouts/Layouts.d.ts"
     },
+    "./column": {
+      "import": "./dist/esm/components/layouts/Column.js",
+      "types": "./dist/types/components/layouts/Column.d.ts"
+    },
+    "./row": {
+      "import": "./dist/esm/components/layouts/Row.js",
+      "types": "./dist/types/components/layouts/Row.d.ts"
+    },
     "./link": {
       "import": "./dist/esm/components/link/Link.js",
       "types": "./dist/types/components/link/Link.d.ts"
