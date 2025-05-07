@@ -37,7 +37,7 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
  * A polymorphic component that adapts to the given `tag`.
  */
 function Interactable<T extends PolymorphicTag>({
-                                                  tag,
+                                                  tag = 'div',
                                                   hover,
                                                   focus,
                                                   active,
@@ -58,12 +58,20 @@ function Interactable<T extends PolymorphicTag>({
   const [focused, setFocused] = useState(false)
   const [pressed, setPressed] = useState(false)
 
+  console.log(hovered, focused, pressed)
+
   const computedStyle: CSSProperties = {
     ...style,
-    ...(hovered ? hover : {}),
-    ...(focused ? focus : {}),
-    ...(pressed ? active : {}),
   }
+
+  if (pressed) {
+    Object.assign(computedStyle, active)
+  } else if (focused) {
+    Object.assign(computedStyle, focus)
+  } else if (hovered) {
+    Object.assign(computedStyle, hover)
+  }
+
   return (
     <Tag
       {...rest}

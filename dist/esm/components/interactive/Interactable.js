@@ -3,19 +3,26 @@ import { useState, } from 'react';
 /**
  * A polymorphic component that adapts to the given `tag`.
  */
-function Interactable({ tag, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onPointerDown, onPointerUp, onKeyDown, 
+function Interactable({ tag = 'div', hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onPointerDown, onPointerUp, onKeyDown, 
 // onClick,
 ...rest }) {
     const Tag = tag;
     const [hovered, setHovered] = useState(false);
     const [focused, setFocused] = useState(false);
     const [pressed, setPressed] = useState(false);
+    console.log(hovered, focused, pressed);
     const computedStyle = {
         ...style,
-        ...(hovered ? hover : {}),
-        ...(focused ? focus : {}),
-        ...(pressed ? active : {}),
     };
+    if (pressed) {
+        Object.assign(computedStyle, active);
+    }
+    else if (focused) {
+        Object.assign(computedStyle, focus);
+    }
+    else if (hovered) {
+        Object.assign(computedStyle, hover);
+    }
     return (_jsx(Tag, { ...rest, onMouseEnter: (e) => {
             // @ts-ignore
             if (rest?.disabled)

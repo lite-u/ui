@@ -2647,7 +2647,7 @@
       "tag": {
         "type": "keyof HTMLElementTagNameMap",
         "required": false,
-        "defaultValue": "",
+        "defaultValue": "div",
         "description": ""
       },
       "hover": {
