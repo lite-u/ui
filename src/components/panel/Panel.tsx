@@ -113,6 +113,8 @@ const Panel: React.FC<{
       <Container role={'panel-head'}
                  fw
                  style={{
+                   margin: 0,
+                   padding: 0,
                    background: primaryColor,
                    borderRadius: '3px 3px 0 0',
                    color: '#fff',
