@@ -121,6 +121,8 @@ const Table: TableProps = ({
   })
 
   const tableStyle: CSSProperties = {
+    margin: 0,
+    padding: 0,
     width: fw ? '100%' : 'auto',
     height: fh ? '100%' : 'auto',
     borderCollapse: 'collapse',

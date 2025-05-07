@@ -78,6 +78,8 @@ const TableRow: TableRowProps = ({
   }
 
   const cellStyle = {
+    margin:0,
+    padding:0,
     // padding: '6px 10px',
     // border: '1px solid #b5b5b5',
     ...storedCellStyle,
