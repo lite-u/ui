@@ -23,4 +23,5 @@ type InteractableBaseProps<T extends PolymorphicTag> = {
  * A polymorphic component that adapts to the given `tag`.
  */
 declare function Interactable<T extends PolymorphicTag>({ tag, disabled, hover, focus, active, style, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onPointerDown, onPointerUp, onKeyDown, ...rest }: InteractableBaseProps<T>): JSX.Element;
+export declare const IA: typeof Interactable;
 export default Interactable;

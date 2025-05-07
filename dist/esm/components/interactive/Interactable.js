@@ -58,4 +58,5 @@ function Interactable({ tag = 'div', disabled = false, hover, focus, active, sty
             onPointerUp?.(e);
         }, style: computedStyle, children: children }));
 }
+export const IA = Interactable;
 export default Interactable;
