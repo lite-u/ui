@@ -1,6 +1,5 @@
 import {CSSProperties, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
-import {Transition} from '../../index'
-import {TransitionProps} from '../transition/Transition'
+import Transition, {TransitionProps} from '../transition/Transition'
 
 type CollapseProps = Omit<React.HTMLProps<HTMLDivElement>, 'style' | 'onToggle'> & {
   /**

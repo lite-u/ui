@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from 'react';
 import { useLiteUIContext } from '../../LiteUIProvider';
-import { Transition } from '../../index';
+import Transition from '../transition/Transition';
 /**
  * MenuItem component
  *

@@ -1,5 +1,4 @@
-import {Interactable} from '../../index'
-import {InteractableBaseProps} from '../interactable/Interactable'
+import Interactable, {InteractableBaseProps} from '../interactable/Interactable'
 
 type ButtonBaseProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   type?: 'button' | 'reset' | 'submit'

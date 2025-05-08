@@ -1,9 +1,10 @@
 import {Children, CSSProperties, ReactNode, useEffect, useRef, useState} from 'react'
 import SelectContext from './SelectContext'
-import {Row, Transition} from '../../index'
 import Interactable from '../interactable/Interactable'
 import {useLiteUIContext} from '../../LiteUIProvider'
 import SelectItem from './SelectItem'
+import Row from '../layouts/Row'
+import Transition from '../transition/Transition'
 
 type SelectProps = Omit<React.HTMLProps<HTMLDivElement>, 'disabled'> & {
   /**

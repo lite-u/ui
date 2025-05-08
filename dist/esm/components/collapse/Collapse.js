@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from 'react';
-import { Transition } from '../../index';
+import Transition from '../transition/Transition';
 /**
  * Collapse component
  *

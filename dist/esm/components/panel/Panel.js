@@ -1,7 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
-import { Column } from '../../index';
 import Container from '../container/Container';
+import Column from '../layouts/Column';
+import Paragraph from '../paragraph/Paragraph';
 /**
  * Panel component
  *
@@ -44,7 +45,7 @@ const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, 
                         borderRadius: '3px 3px 0 0',
                         color: '#fff',
                         ...titleStyle,
-                    }, className: titleClass, children: _jsx("p", { style: { fontSize: headFontSize, padding: headPadding }, children: title }) }), _jsx(Container, { role: 'panel-content', fw: true, bg: '#fff', style: {
+                    }, className: titleClass, children: _jsx(Paragraph, { style: { fontSize: headFontSize, padding: headPadding }, children: title }) }), _jsx(Container, { role: 'panel-content', fw: true, bg: '#fff', style: {
                         overflow: 'auto',
                         border: `1px solid ${primaryColor}`,
                         borderTop: 'none',

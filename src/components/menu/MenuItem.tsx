@@ -1,7 +1,6 @@
 import {CSSProperties, useState} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {Transition} from '../../index'
-import {FromType} from '../transition/Transition'
+import Transition, {FromType} from '../transition/Transition'
 
 /**
  * MenuItem component

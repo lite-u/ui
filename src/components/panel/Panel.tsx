@@ -1,6 +1,7 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {Column} from '../../index'
 import Container, {ContainerProps} from '../container/Container'
+import Column from '../layouts/Column'
+import Paragraph from '../paragraph/Paragraph'
 
 /**
  * Panel component
@@ -121,7 +122,7 @@ const Panel: React.FC<{
                    ...titleStyle,
                  }}
                  className={titleClass}>
-        <p style={{fontSize: headFontSize, padding: headPadding}}>{title}</p>
+        <Paragraph style={{fontSize: headFontSize, padding: headPadding}}>{title}</Paragraph>
       </Container>
 
       <Container role={'panel-content'}

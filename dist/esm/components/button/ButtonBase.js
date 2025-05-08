@@ -1,5 +1,5 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Interactable } from '../../index';
+import Interactable from '../interactable/Interactable';
 export const ButtonBase = ({ type = 'button', ...props }) => {
     const IAprops = {
         tag: 'button',

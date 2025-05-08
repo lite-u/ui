@@ -1,7 +1,7 @@
 import {CSSProperties, HTMLProps, ReactNode, RefObject, useEffect, useRef, useState} from 'react'
 import useElementMoveDetect from '../../hooks/useElementMoveDetect'
 import {createPortal} from 'react-dom'
-import {Transition} from '../../index'
+import Transition from '../transition/Transition';
 
 type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
 type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
