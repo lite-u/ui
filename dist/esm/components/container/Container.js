@@ -24,9 +24,11 @@ const Container = ({ children, ovh = false, ova = false, box = true, fw = true, 
     let styles = {
         width: 'auto',
         height: 'auto',
-        fontSize: fz,
         ...style,
     };
+    if (typeof fz === 'string' || typeof fz === 'number') {
+        styles.fontSize = fz;
+    }
     if (fw) {
         styles.width = '100%';
     }

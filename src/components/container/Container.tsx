@@ -272,12 +272,14 @@ const Container: React.FC<ContainerProps> = ({
                                                role = 'container',
                                                ...props
                                              }) => {
-
   let styles: React.CSSProperties = {
     width: 'auto',
     height: 'auto',
-    fontSize: fz,
     ...style,
+  }
+
+  if (typeof fz === 'string' || typeof fz === 'number') {
+    styles.fontSize = fz
   }
 
   if (fw) {
