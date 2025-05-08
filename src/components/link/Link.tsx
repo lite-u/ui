@@ -26,19 +26,19 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
 
   /**
    * If true, the link will take up the full width of its container.
-   * @default true
+   * @default \-
    */
   fw?: boolean,
 
   /**
    * If true, the link will take up the full height of its container.
-   * @default true
+   * @default \-
    */
   fh?: boolean,
 }> = ({
         children,
-        fw = true,
-        fh = true,
+        fw,
+        fh,
         style = {},
         ...props
       }) => {
@@ -54,7 +54,7 @@ const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
                          width: fw ? '100%' : 'auto',
                          height: fh ? '100%' : 'auto',
                          ...style,
-                         display: 'flex',
+                         display: 'inline-flex',
                          flexDirection: 'column',
                          justifyContent: 'space-around',
                        }}
