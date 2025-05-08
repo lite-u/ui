@@ -232,6 +232,12 @@
         "defaultValue": "true",
         "description": "Applies neutral styling to the input field."
       },
+      "disabled": {
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Set Input disabled."
+      },
       "labelStyle": {
         "type": "{}",
         "required": false,

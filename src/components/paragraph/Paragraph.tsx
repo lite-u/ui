@@ -56,6 +56,8 @@ const Paragraph: React.FC<ParagraphProps> = ({
   const styles: CSSProperties = {
     flex: 1,
     fontSize: theme.title.h6,
+    margin: 0,
+    padding: 0,
     paddingTop: theme.padding.md.x,
     paddingBottom: theme.padding.md.x,
   }
