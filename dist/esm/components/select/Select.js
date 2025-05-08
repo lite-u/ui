@@ -52,6 +52,9 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, disabled = false, s
         borderRadius: theme.borderRadius[size],
         boxSizing: 'border-box',
     };
+    if (disabled) {
+        Object.assign(defaultStyle, theme.select.disabled);
+    }
     const filteredChildren = [];
     Children.forEach(children, (child) => {
         // @ts-ignore
@@ -127,7 +130,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, disabled = false, s
                 // height: defaultStyle.height,
                 // borderRadius: defaultStyle.borderRadius,
                 // boxShadow: '0 0 1px 0 #000',
-                cursor: disabled ? 'not-allowed' : 'pointer',
+                // cursor: disabled ? 'not-allowed' : 'pointer',
                 // boxSizing: 'border-box',
                 ...style,
                 position: 'relative',
@@ -135,7 +138,7 @@ const Select = ({ label, style, itemStyle = {}, xs, s, m, l, disabled = false, s
                         userSelect: 'none',
                         border: '1px solid #dfdfdf',
                         ...defaultStyle,
-                        ...disabled ? { color: '#bababa' } : {},
+                        // ...disabled ? {color: '#bababa'} : {},
                         ...style,
                         // height: '100%',
                         // borderRadius: defaultStyle.borderRadius,

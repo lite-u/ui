@@ -114,7 +114,9 @@ const Select: React.FC<SelectProps> = ({
     borderRadius: theme.borderRadius[size],
     boxSizing: 'border-box',
   }
-
+  if (disabled) {
+    Object.assign(defaultStyle, theme.select.disabled)
+  }
   const filteredChildren: ReactNode[] = []
 
   Children.forEach(children, (child) => {
@@ -204,7 +206,7 @@ const Select: React.FC<SelectProps> = ({
            // height: defaultStyle.height,
            // borderRadius: defaultStyle.borderRadius,
            // boxShadow: '0 0 1px 0 #000',
-           cursor: disabled ? 'not-allowed' : 'pointer',
+           // cursor: disabled ? 'not-allowed' : 'pointer',
            // boxSizing: 'border-box',
            ...style,
            position: 'relative',
@@ -218,7 +220,7 @@ const Select: React.FC<SelectProps> = ({
           userSelect: 'none',
           border: '1px solid #dfdfdf',
           ...defaultStyle,
-          ...disabled ? {color: '#bababa'} : {},
+          // ...disabled ? {color: '#bababa'} : {},
           ...style,
           // height: '100%',
           // borderRadius: defaultStyle.borderRadius,
