@@ -1,12 +1,12 @@
 import {CSSProperties} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
 
-type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColor'> & {
+type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColor' | 'size'> & {
   /**
    * Custom font size for the paragraph text.
-   * @default 16
+   * @default inherit
    */
-  size?: number,
+  size?: CSSProperties['fontSize'],
   /**
    * Text color of the paragraph.
    * @default inherit
@@ -45,7 +45,7 @@ type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColo
  */
 const Paragraph: React.FC<ParagraphProps> = ({
                                                children,
-                                               size = 16,
+                                               size = 'inherit',
                                                style = {},
                                                textColor,
                                                center = false,
@@ -58,8 +58,8 @@ const Paragraph: React.FC<ParagraphProps> = ({
     fontSize: theme.title.h6,
     margin: 0,
     padding: 0,
-    paddingTop: theme.padding.md.x,
-    paddingBottom: theme.padding.md.x,
+    // paddingTop: theme.padding.md.x,
+    // paddingBottom: theme.padding.md.x,
   }
 
   if (center) {
@@ -70,7 +70,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
     styles.color = textColor
   }
 
-  if (!isNaN(size)) {
+  if (typeof size === 'string' || typeof size === 'number') {
     styles.fontSize = size
   }
 

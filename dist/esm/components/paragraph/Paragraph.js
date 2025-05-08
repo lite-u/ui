@@ -19,15 +19,15 @@ import { useLiteUIContext } from '../../LiteUIProvider';
  *   This is a centered paragraph with custom styling.
  * </Paragraph>
  */
-const Paragraph = ({ children, size = 16, style = {}, textColor, center = false, wb = 'break-word', ...props }) => {
+const Paragraph = ({ children, size = 'inherit', style = {}, textColor, center = false, wb = 'break-word', ...props }) => {
     const { theme } = useLiteUIContext();
     const styles = {
         flex: 1,
         fontSize: theme.title.h6,
         margin: 0,
         padding: 0,
-        paddingTop: theme.padding.md.x,
-        paddingBottom: theme.padding.md.x,
+        // paddingTop: theme.padding.md.x,
+        // paddingBottom: theme.padding.md.x,
     };
     if (center) {
         styles.textAlign = 'center';
@@ -35,7 +35,7 @@ const Paragraph = ({ children, size = 16, style = {}, textColor, center = false,
     if (textColor) {
         styles.color = textColor;
     }
-    if (!isNaN(size)) {
+    if (typeof size === 'string' || typeof size === 'number') {
         styles.fontSize = size;
     }
     if (wb) {

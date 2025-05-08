@@ -1,10 +1,10 @@
 import { CSSProperties } from 'react';
-type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColor'> & {
+type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColor' | 'size'> & {
     /**
      * Custom font size for the paragraph text.
-     * @default 16
+     * @default inherit
      */
-    size?: number;
+    size?: CSSProperties['fontSize'];
     /**
      * Text color of the paragraph.
      * @default inherit
