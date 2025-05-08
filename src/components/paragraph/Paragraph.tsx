@@ -1,5 +1,4 @@
 import {CSSProperties} from 'react'
-import {useLiteUIContext} from '../../LiteUIProvider'
 
 type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColor' | 'size'> & {
   /**
