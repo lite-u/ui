@@ -4,7 +4,7 @@ import {createPortal} from 'react-dom'
 import Transition from '../transition/Transition';
 
 type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br'
-type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
+type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'head'> & {
   /**
    * The title of the tooltip.
    */

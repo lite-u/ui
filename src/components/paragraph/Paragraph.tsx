@@ -52,14 +52,11 @@ const Paragraph: React.FC<ParagraphProps> = ({
                                                wb = 'break-word',
                                                ...props
                                              }) => {
-  const {theme} = useLiteUIContext()
   const styles: CSSProperties = {
     flex: 1,
-    fontSize: theme.title.h6,
+    fontSize: 'inherit',
     margin: 0,
     padding: 0,
-    // paddingTop: theme.padding.md.x,
-    // paddingBottom: theme.padding.md.x,
   }
 
   if (center) {

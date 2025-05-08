@@ -1,6 +1,6 @@
 import { HTMLProps, ReactNode } from 'react';
 type TooltipPlacement = 't' | 'r' | 'b' | 'l' | 'tl' | 'tr' | 'bl' | 'br';
-type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
+type ToolTipProps = Omit<HTMLProps<HTMLDivElement>, 'head'> & {
     /**
      * The title of the tooltip.
      */

@@ -2,7 +2,6 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useLiteUIContext } from '../../LiteUIProvider';
 import Container from '../container/Container';
 import Column from '../layouts/Column';
-import Paragraph from '../paragraph/Paragraph';
 /**
  * Panel component
  *
@@ -21,7 +20,7 @@ import Paragraph from '../paragraph/Paragraph';
  *   <p>This is a section of content within a panel.</p>
  * </Panel>
  */
-const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, contentStyle = {}, children, ...props }) => {
+const Panel = ({ xs, s, m, l, head, headStyle = {}, contentStyle = {}, children, ...props }) => {
     const { theme } = useLiteUIContext();
     let size = 'md';
     if (xs) {
@@ -38,14 +37,16 @@ const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, 
     const boxFontSize = theme.fontSizes[size];
     const boxPadding = theme.padding[size].x;
     const primaryColor = theme.panel.primaryColor;
-    return _jsx(Container, { fw: true, fh: true, role: 'panel', ...props, children: _jsxs(Column, { fw: true, fh: true, stretch: true, children: [_jsx(Container, { role: 'panel-head', fw: true, style: {
+    return _jsx(Container, { fw: true, fh: true, role: 'panel', ...props, children: _jsxs(Column, { fw: true, fh: true, stretch: true, children: [_jsx(Container, { role: 'panel-head-wrap', fw: true, style: {
                         margin: 0,
-                        padding: 0,
+                        // padding: 0,
                         background: primaryColor,
                         borderRadius: '3px 3px 0 0',
                         color: '#fff',
-                        ...titleStyle,
-                    }, className: titleClass, children: _jsx(Paragraph, { size: headFontSize, style: { padding: headPadding }, children: title }) }), _jsx(Container, { role: 'panel-content', fw: true, bg: '#fff', style: {
+                        padding: headPadding,
+                        fontSize: headFontSize,
+                        ...headStyle,
+                    }, children: head }), _jsx(Container, { role: 'panel-content', fw: true, bg: '#fff', style: {
                         overflow: 'auto',
                         border: `1px solid ${primaryColor}`,
                         borderTop: 'none',
@@ -53,6 +54,6 @@ const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, 
                         fontSize: boxFontSize,
                         padding: boxPadding,
                         ...contentStyle,
-                    }, className: contentClass, children: children })] }) });
+                    }, children: children })] }) });
 };
 export default Panel;

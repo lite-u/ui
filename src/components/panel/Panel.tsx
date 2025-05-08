@@ -1,27 +1,9 @@
 import {useLiteUIContext} from '../../LiteUIProvider'
-import Container, {ContainerProps} from '../container/Container'
+import Container from '../container/Container'
 import Column from '../layouts/Column'
-import Paragraph from '../paragraph/Paragraph'
+import {CSSProperties, ReactNode} from 'react'
 
-/**
- * Panel component
- *
- * @brief
- * A flexible container component used to group and visually separate content within the layout.
- *
- * @intro
- * Provides a styled block container with customizable margin, padding, and background options.
- * Commonly used to structure and emphasize content sections in a UI.
- *
- * @example
- * import { Panel } from '@lite-u/ui'
- *
- * <Panel p={20} bg="#fff">
- *   <h2>Section Title</h2>
- *   <p>This is a section of content within a panel.</p>
- * </Panel>
- */
-const Panel: React.FC<{
+type PanelProps = {
   /**
    * If true, sets the panel size to extra small (`xs`).
    * @default false
@@ -47,47 +29,53 @@ const Panel: React.FC<{
   l?: boolean,
 
   /**
-   * The title text displayed in the panel header.
+   * The head part displayed in the panel header.
    * @default \-
    */
-  title: string,
+  head: ReactNode,
 
   /**
-   * Optional custom styles for the title container.
+   * Optional custom styles for the head container.
    * @default {}
    */
-  titleStyle?: React.CSSProperties,
-
-  /**
-   * Optional class name for the title container.
-   * @default \-
-   */
-  titleClass?: string,
+  headStyle?: CSSProperties,
 
   /**
    * Optional custom styles for the panel content container.
    * @default {}
    */
-  contentStyle?: React.CSSProperties,
+  contentStyle?: CSSProperties,
+}
 
-  /**
-   * Optional class name for the panel content container.
-   * @default \-
-   */
-  contentClass?: string,
-} & ContainerProps & React.HTMLProps<HTMLDivElement>> = ({
-                                                           xs,
-                                                           s,
-                                                           m,
-                                                           l,
-                                                           title,
-                                                           titleClass,
-                                                           titleStyle = {},
-                                                           contentClass,
-                                                           contentStyle = {},
-                                                           children,
-                                                           ...props
-                                                         }) => {
+/**
+ * Panel component
+ *
+ * @brief
+ * A flexible container component used to group and visually separate content within the layout.
+ *
+ * @intro
+ * Provides a styled block container with customizable margin, padding, and background options.
+ * Commonly used to structure and emphasize content sections in a UI.
+ *
+ * @example
+ * import { Panel } from '@lite-u/ui'
+ *
+ * <Panel p={20} bg="#fff">
+ *   <h2>Section Title</h2>
+ *   <p>This is a section of content within a panel.</p>
+ * </Panel>
+ */
+const Panel: React.FC<PanelProps & React.HTMLProps<HTMLDivElement>> = ({
+                                                                         xs,
+                                                                         s,
+                                                                         m,
+                                                                         l,
+                                                                         head,
+                                                                         headStyle = {},
+                                                                         contentStyle = {},
+                                                                         children,
+                                                                         ...props
+                                                                       }) => {
   const {theme} = useLiteUIContext()
   let size = 'md'
 
@@ -111,19 +99,18 @@ const Panel: React.FC<{
 
   return <Container fw fh role={'panel'} {...props}>
     <Column fw fh stretch>
-      <Container role={'panel-head'}
+      <Container role={'panel-head-wrap'}
                  fw
                  style={{
                    margin: 0,
-                   padding: 0,
+                   // padding: 0,
                    background: primaryColor,
                    borderRadius: '3px 3px 0 0',
                    color: '#fff',
-                   ...titleStyle,
-                 }}
-                 className={titleClass}>
-        <Paragraph size={headFontSize} style={{padding: headPadding}}>{title}</Paragraph>
-      </Container>
+                   padding: headPadding,
+                   fontSize: headFontSize,
+                   ...headStyle,
+                 }}>{head}</Container>
 
       <Container role={'panel-content'}
                  fw
@@ -136,8 +123,7 @@ const Panel: React.FC<{
                    fontSize: boxFontSize,
                    padding: boxPadding,
                    ...contentStyle,
-                 }}
-                 className={contentClass}>
+                 }}>
         {children}
       </Container>
     </Column>

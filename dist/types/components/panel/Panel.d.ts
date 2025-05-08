@@ -1,23 +1,5 @@
-import { ContainerProps } from '../container/Container';
-/**
- * Panel component
- *
- * @brief
- * A flexible container component used to group and visually separate content within the layout.
- *
- * @intro
- * Provides a styled block container with customizable margin, padding, and background options.
- * Commonly used to structure and emphasize content sections in a UI.
- *
- * @example
- * import { Panel } from '@lite-u/ui'
- *
- * <Panel p={20} bg="#fff">
- *   <h2>Section Title</h2>
- *   <p>This is a section of content within a panel.</p>
- * </Panel>
- */
-declare const Panel: React.FC<{
+import { CSSProperties, ReactNode } from 'react';
+type PanelProps = {
     /**
      * If true, sets the panel size to extra small (`xs`).
      * @default false
@@ -39,29 +21,38 @@ declare const Panel: React.FC<{
      */
     l?: boolean;
     /**
-     * The title text displayed in the panel header.
+     * The head part displayed in the panel header.
      * @default \-
      */
-    title: string;
+    head: ReactNode;
     /**
-     * Optional custom styles for the title container.
+     * Optional custom styles for the head container.
      * @default {}
      */
-    titleStyle?: React.CSSProperties;
-    /**
-     * Optional class name for the title container.
-     * @default \-
-     */
-    titleClass?: string;
+    headStyle?: CSSProperties;
     /**
      * Optional custom styles for the panel content container.
      * @default {}
      */
-    contentStyle?: React.CSSProperties;
-    /**
-     * Optional class name for the panel content container.
-     * @default \-
-     */
-    contentClass?: string;
-} & ContainerProps & React.HTMLProps<HTMLDivElement>>;
+    contentStyle?: CSSProperties;
+};
+/**
+ * Panel component
+ *
+ * @brief
+ * A flexible container component used to group and visually separate content within the layout.
+ *
+ * @intro
+ * Provides a styled block container with customizable margin, padding, and background options.
+ * Commonly used to structure and emphasize content sections in a UI.
+ *
+ * @example
+ * import { Panel } from '@lite-u/ui'
+ *
+ * <Panel p={20} bg="#fff">
+ *   <h2>Section Title</h2>
+ *   <p>This is a section of content within a panel.</p>
+ * </Panel>
+ */
+declare const Panel: React.FC<PanelProps & React.HTMLProps<HTMLDivElement>>;
 export default Panel;
