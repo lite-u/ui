@@ -22,12 +22,12 @@ declare const Link: React.FC<React.HTMLProps<HTMLAnchorElement> & {
     children: ReactNode;
     /**
      * If true, the link will take up the full width of its container.
-     * @default true
+     * @default \-
      */
     fw?: boolean;
     /**
      * If true, the link will take up the full height of its container.
-     * @default true
+     * @default \-
      */
     fh?: boolean;
 }>;
