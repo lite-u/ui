@@ -19,7 +19,7 @@ import { useLiteUIContext } from '../../LiteUIProvider';
  *   This is a centered paragraph with custom styling.
  * </Paragraph>
  */
-const Paragraph = ({ children, size = 'inherit', style = {}, textColor, center = false, wb = 'break-word', ...props }) => {
+const Paragraph = ({ children, size, style = {}, textColor, center = false, wb = 'break-word', ...props }) => {
     const { theme } = useLiteUIContext();
     const styles = {
         flex: 1,
@@ -41,7 +41,7 @@ const Paragraph = ({ children, size = 'inherit', style = {}, textColor, center =
     if (wb) {
         styles.wordBreak = wb;
     }
-    return _jsx("p", { style: { ...style, ...styles }, ...props, children: children });
+    return _jsx("p", { style: { ...styles, ...style }, ...props, children: children });
 };
 export const P = Paragraph;
 export default Paragraph;

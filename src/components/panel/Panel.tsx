@@ -108,7 +108,7 @@ const Panel: React.FC<{
   const boxFontSize = theme.fontSizes[size as keyof typeof theme['fontSizes']]
   const boxPadding = theme.padding[size as keyof typeof theme['padding']].x
   const primaryColor = theme.panel.primaryColor
-
+  console.log(headPadding)
   return <Container fw fh role={'panel'} {...props}>
     <Column fw fh stretch>
       <Container role={'panel-head'}
@@ -122,7 +122,7 @@ const Panel: React.FC<{
                    ...titleStyle,
                  }}
                  className={titleClass}>
-        <Paragraph style={{fontSize: headFontSize, padding: headPadding}}>{title}</Paragraph>
+        <Paragraph size={headFontSize} style={{padding: headPadding}}>{title}</Paragraph>
       </Container>
 
       <Container role={'panel-content'}

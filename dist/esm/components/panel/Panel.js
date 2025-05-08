@@ -38,6 +38,7 @@ const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, 
     const boxFontSize = theme.fontSizes[size];
     const boxPadding = theme.padding[size].x;
     const primaryColor = theme.panel.primaryColor;
+    console.log(headPadding);
     return _jsx(Container, { fw: true, fh: true, role: 'panel', ...props, children: _jsxs(Column, { fw: true, fh: true, stretch: true, children: [_jsx(Container, { role: 'panel-head', fw: true, style: {
                         margin: 0,
                         padding: 0,
@@ -45,7 +46,7 @@ const Panel = ({ xs, s, m, l, title, titleClass, titleStyle = {}, contentClass, 
                         borderRadius: '3px 3px 0 0',
                         color: '#fff',
                         ...titleStyle,
-                    }, className: titleClass, children: _jsx(Paragraph, { style: { fontSize: headFontSize, padding: headPadding }, children: title }) }), _jsx(Container, { role: 'panel-content', fw: true, bg: '#fff', style: {
+                    }, className: titleClass, children: _jsx(Paragraph, { size: headFontSize, style: { padding: headPadding }, children: title }) }), _jsx(Container, { role: 'panel-content', fw: true, bg: '#fff', style: {
                         overflow: 'auto',
                         border: `1px solid ${primaryColor}`,
                         borderTop: 'none',

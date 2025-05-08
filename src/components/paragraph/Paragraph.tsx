@@ -45,7 +45,7 @@ type ParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 'textColo
  */
 const Paragraph: React.FC<ParagraphProps> = ({
                                                children,
-                                               size = 'inherit',
+                                               size,
                                                style = {},
                                                textColor,
                                                center = false,
@@ -78,7 +78,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
     styles.wordBreak = wb
   }
 
-  return <p style={{...style, ...styles}} {...props}>
+  return <p style={{...styles, ...style}} {...props}>
     {children}
   </p>
 }
