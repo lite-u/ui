@@ -56,11 +56,15 @@ const TableRow = ({ children, head = false, style = {}, onMouseEnter, onMouseLea
         ...storedRowStyle,
     };
     const cellStyle = {
+        margin: 0,
+        padding: 0,
         // padding: '6px 10px',
         // border: '1px solid #b5b5b5',
         ...storedCellStyle,
     };
     const cellDivStyle = {
+        margin: 0,
+        padding: 0,
         width: '100%',
         height: '100%',
         display: 'inline-flex',

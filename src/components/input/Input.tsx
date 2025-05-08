@@ -1,26 +1,9 @@
 import InputNumber, {InputNumberProps} from './InputNumber'
 import InputText from './InputText'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import {CSSProperties, useImperativeHandle, useRef} from 'react'
+import {CSSProperties, InputHTMLAttributes, Ref, useImperativeHandle, useRef} from 'react'
 
-/**
- * Input component
- *
- * @brief
- * A stylized input field supporting text and number types with size and color variants.
- *
- * @intro
- * Renders either a text or number input with support for theming, sizing, and validation states.
- * Styling is pulled from the Lite UI theme context and adjusted according to provided props.
- *
- * @example
- * import { Input } from '@lite-u/ui'
- *
- * <Input placeholder="Your name" />
- * <Input number step={0.1} error />
- * <Input label="Username" s primary />
- */
-const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'disabled'> & {
   /**
    * Optional label to display as the `<label>`.
    * @default ''
@@ -72,6 +55,11 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
    */
   neutral?: boolean
   /**
+   * Set Input disabled.
+   * @default true
+   */
+  disabled?: boolean
+  /**
    * Inline styles to customize the input field.
    */
   style?: {}
@@ -79,24 +67,44 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
    * Inline styles to customize the label.
    */
   labelStyle?: {}
-  ref?: React.Ref<HTMLInputElement>
-}> = ({
-        type = 'text',
-        number,
-        label,
-        xs,
-        s,
-        m = true,
-        l,
-        style = {},
-        labelStyle = {},
-        primary,
-        neutral = true,
-        warn,
-        error,
-        ref,
-        ...props
-      }) => {
+  ref?: Ref<HTMLInputElement>
+}
+
+/**
+ * Input component
+ *
+ * @brief
+ * A stylized input field supporting text and number types with size and color variants.
+ *
+ * @intro
+ * Renders either a text or number input with support for theming, sizing, and validation states.
+ * Styling is pulled from the Lite UI theme context and adjusted according to provided props.
+ *
+ * @example
+ * import { Input } from '@lite-u/ui'
+ *
+ * <Input placeholder="Your name" />
+ * <Input number step={0.1} error />
+ * <Input label="Username" s primary />
+ */
+const Input: React.FC<InputProps> = ({
+                                       type = 'text',
+                                       number,
+                                       label,
+                                       xs,
+                                       s,
+                                       m = true,
+                                       l,
+                                       style = {},
+                                       labelStyle = {},
+                                       primary,
+                                       neutral = true,
+                                       disabled = false,
+                                       warn,
+                                       error,
+                                       ref,
+                                       ...props
+                                     }) => {
   const {theme} = useLiteUIContext()
   const getSize = () => {
     if (xs) return 'xs'
@@ -132,11 +140,15 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
     Object.assign(styles, theme.input.error)
   }
 
+  if (disabled) {
+    Object.assign(styles, theme.input.disabled)
+  }
+
   Object.assign(styles, style)
 
-  if (number) {
-    type = 'number'
-  }
+  /*  if (number) {
+      type = 'number'
+    }*/
 
   return <div>
     {label &&
@@ -152,9 +164,9 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
 
     {
       number ?
-        <InputNumber ref={inputRef} style={styles} {...props as Omit<InputNumberProps, 'ref'>}/>
+        <InputNumber disabled={disabled} ref={inputRef} style={styles} {...props as Omit<InputNumberProps, 'ref'>}/>
         :
-        <InputText ref={inputRef} style={styles} {...props}/>
+        <InputText disabled={disabled} ref={inputRef} style={styles} {...props}/>
     }
   </div>
 }

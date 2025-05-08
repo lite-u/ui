@@ -1,14 +1,15 @@
 import React, {useRef} from 'react'
-import {Button} from '../../index'
+import Interactable from '../interactable/Interactable'
 
 type SpinnerControlProps = {
   intervalTime?: number
   onStep: (dir: 'up' | 'down') => void;
+  disabled?: boolean
 };
 
-export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalTime = 100}) => {
+export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, disabled, intervalTime = 100}) => {
   const intervalRef = useRef<number | null>(null)
-
+  console.log(disabled)
   const startHold = (dir: 'up' | 'down') => {
     onStep(dir) // fire immediately
     intervalRef.current = window.setInterval(() => {
@@ -22,7 +23,25 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalT
       intervalRef.current = null
     }
   }
-
+  const buttonStyle = {
+    padding: 0,
+    margin: 0,
+    height: '50%',
+    flex: 1,
+    borderRadius: 0,
+    color: '#000',
+    backgroundColor: '#dfdfdf',
+    cursor: disabled ? 'not-allowed' : 'pointer',
+    // boxShadow: '0 0 1px 0 #000',
+    fontSize: '1em',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    border: 'none',
+  }
+  const buttonActiveStyle = {
+    backgroundColor: '#aaaaaa',
+    color: '#fff',
+  }
   return (
     <div role={'input-number-spinner-wrapper'} style={{
       position: 'absolute',
@@ -36,59 +55,37 @@ export const SpinnerControl: React.FC<SpinnerControlProps> = ({onStep, intervalT
       justifyContent: 'stretch',
       // color: '#000',
     }}>
-      <Button
+      <Interactable
+        tag={'button'}
         role={'input-number-spinner-up'}
-        xs
+        disabled={disabled}
+        style={buttonStyle}
+        active={buttonActiveStyle}
         onMouseDown={() => startHold('up')}
         onMouseUp={stopHold}
         onMouseLeave={stopHold}
-        style={{
-          // width: '100%',
-          height: '50%',
-          flex: 1,
-          padding: 0,
-          borderRadius: 0,
-          color: '#000',
-          background: '#dfdfdf',
-          boxShadow: '0 0 1px 0 #fff',
-          fontSize: '1em',
-          display: 'inline-flex',
-          justifyContent: 'center',
-          border: 'none',
-          // cursor: 'pointer',
-        }}
       >
         <svg style={{height: '100%'}} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              strokeWidth="1"
              strokeLinecap="round" strokeLinejoin="round">
           <polyline points="18 15 12 9 6 15"/>
         </svg>
-      </Button>
-      <Button
+      </Interactable>
+      <Interactable
+        tag={'button'}
         role={'input-number-spinner-down'}
-        xs
+        disabled={disabled}
         onMouseDown={() => startHold('down')}
         onMouseUp={stopHold}
         onMouseLeave={stopHold}
-        style={{
-          // width: '100%',
-          height: '50%',
-          flex: 1,
-          padding: 0,
-          borderRadius: 0,
-          color: '#000',
-          background: '#dfdfdf',
-          fontSize: '1em',
-          display: 'inline-flex',
-          justifyContent: 'center',
-          border: 'none',
-        }}
+        style={buttonStyle}
+        active={buttonActiveStyle}
       >
         <svg style={{height: '100%'}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"
              strokeLinecap="round" strokeLinejoin="round">
           <polyline points="6 9 12 15 18 9"/>
         </svg>
-      </Button>
+      </Interactable>
     </div>
   )
 }

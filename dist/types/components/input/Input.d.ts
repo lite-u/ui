@@ -1,21 +1,5 @@
-/**
- * Input component
- *
- * @brief
- * A stylized input field supporting text and number types with size and color variants.
- *
- * @intro
- * Renders either a text or number input with support for theming, sizing, and validation states.
- * Styling is pulled from the Lite UI theme context and adjusted according to provided props.
- *
- * @example
- * import { Input } from '@lite-u/ui'
- *
- * <Input placeholder="Your name" />
- * <Input number step={0.1} error />
- * <Input label="Username" s primary />
- */
-declare const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
+import { InputHTMLAttributes, Ref } from 'react';
+type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'disabled'> & {
     /**
      * Optional label to display as the `<label>`.
      * @default ''
@@ -67,6 +51,11 @@ declare const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
      */
     neutral?: boolean;
     /**
+     * Set Input disabled.
+     * @default true
+     */
+    disabled?: boolean;
+    /**
      * Inline styles to customize the input field.
      */
     style?: {};
@@ -74,6 +63,24 @@ declare const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement> & {
      * Inline styles to customize the label.
      */
     labelStyle?: {};
-    ref?: React.Ref<HTMLInputElement>;
-}>;
+    ref?: Ref<HTMLInputElement>;
+};
+/**
+ * Input component
+ *
+ * @brief
+ * A stylized input field supporting text and number types with size and color variants.
+ *
+ * @intro
+ * Renders either a text or number input with support for theming, sizing, and validation states.
+ * Styling is pulled from the Lite UI theme context and adjusted according to provided props.
+ *
+ * @example
+ * import { Input } from '@lite-u/ui'
+ *
+ * <Input placeholder="Your name" />
+ * <Input number step={0.1} error />
+ * <Input label="Username" s primary />
+ */
+declare const Input: React.FC<InputProps>;
 export default Input;

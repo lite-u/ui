@@ -87,24 +87,42 @@ export type ThemeType = {
             border: string;
             color: string;
             outline: string;
+            borderColor: string;
         };
         warn: {
             backgroundColor: string;
             border: string;
             color: string;
             outline: string;
+            borderColor: string;
         };
         error: {
             backgroundColor: string;
             border: string;
             color: string;
             outline: string;
+            borderColor: string;
         };
         neutral: {
             backgroundColor: string;
             border: string;
             color: string;
             outline: string;
+            borderColor: string;
+        };
+        disabled: {
+            backgroundColor: string;
+            borderColor: string;
+            color: string;
+            cursor: 'not-allowed';
+        };
+    };
+    select: {
+        disabled: {
+            backgroundColor: string;
+            borderColor: string;
+            color: string;
+            cursor: 'not-allowed';
         };
     };
     menu: {

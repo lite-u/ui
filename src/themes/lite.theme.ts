@@ -5,7 +5,8 @@ const secondaryColor = '#007bff'
 const successColor = '#28a745'
 const errorColor = '#dc3545'
 const warningColor = '#fb9e08'
-
+const disabledBg = '#cfcfcf'
+const disabledColor = '#e1e1e1'
 export const liteTheme: ThemeType = {
   colors: {
     primary: primaryColor,
@@ -72,8 +73,8 @@ export const liteTheme: ThemeType = {
       border: `1px solid ${primaryColor}`,
     },
     disabled: {
-      backgroundColor: '#cfcfcf',
-      color: '#e1e1e1',
+      backgroundColor: disabledBg,
+      color: disabledColor,
       border: 'none',
     },
   },
@@ -81,12 +82,14 @@ export const liteTheme: ThemeType = {
     primary: {
       backgroundColor: '#ffffff',
       border: '1px solid #007bff',
+      borderColor:'#007bff',
       color: '#007bff',
       outline: 'none',
     },
     warn: {
       backgroundColor: '#fff8e1',
       border: '1px solid #ffc107',
+      borderColor:'#ffc107',
       color: '#ffc107',
       // borderRadius: 6,
       outline: 'none',
@@ -94,6 +97,7 @@ export const liteTheme: ThemeType = {
     error: {
       backgroundColor: '#fff0f0',
       border: '1px solid #dc3545',
+      borderColor:'#dc3545',
       color: errorColor,
       // borderRadius: 6,
       outline: 'none',
@@ -101,10 +105,25 @@ export const liteTheme: ThemeType = {
     neutral: {
       backgroundColor: '#f8f9fa',
       border: '1px solid #ccc',
+      borderColor:'#ccc',
       color: '#212529',
       // borderRadius: 6,
       outline: 'none',
     },
+    disabled: {
+      backgroundColor: disabledBg,
+      color: disabledColor,
+      borderColor: disabledColor,
+      cursor:'not-allowed'
+    },
+  },
+  select:{
+    disabled:{
+      backgroundColor: disabledBg,
+      color: disabledColor,
+      borderColor: disabledColor,
+      cursor:'not-allowed'
+    }
   },
   menu: {
     gap: 8,

@@ -45,6 +45,8 @@ const Table = ({ children = [], xs, s, m = true, l, fw = true, fh = false, fixed
         filteredChildren.push(child);
     });
     const tableStyle = {
+        margin: 0,
+        padding: 0,
         width: fw ? '100%' : 'auto',
         height: fh ? '100%' : 'auto',
         borderCollapse: 'collapse',

@@ -4,7 +4,7 @@ import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { SpinnerControl } from './Spinner';
 const scientificBelow = 1e-6;
 const scientificAbove = 1e+6;
-const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, intervalTime = 100, ref, ...props }) => {
+const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, intervalTime = 100, disabled = false, ref, ...props }) => {
     // const theme = useTheme()
     const [localValue, setLocalValue] = useState(0);
     const inputRef = useRef(null);
@@ -50,14 +50,17 @@ const InputNumber = ({ style = {}, step = 1, value, onKeyDown, onChange, interva
             overflow: 'hidden',
             ...style,
             padding: 0,
-        }, ...props, children: [_jsx("input", { role: 'input-number', ref: inputRef, type: 'number', value: localValue, onChange: handleChange, onKeyDown: handleKeyDown, style: {
+        }, ...props, children: [_jsx("input", { role: 'input-number', ref: inputRef, type: 'number', disabled: disabled, value: localValue, onChange: handleChange, onKeyDown: handleKeyDown, style: {
                     padding: style.padding,
                     outline: 'none',
                     backgroundColor: 'transparent',
                     border: 'none',
                     color: style.color,
+                    cursor: disabled ? 'not-allowed' : 'inherit',
                     // ...style,
-                }, ...props }), _jsx(SpinnerControl, { intervalTime: intervalTime, onStep: (dir) => {
+                }, ...props }), _jsx(SpinnerControl, { intervalTime: intervalTime, disabled: disabled, onStep: (dir) => {
+                    if (disabled)
+                        return;
                     if (dir === 'up') {
                         increment();
                     }

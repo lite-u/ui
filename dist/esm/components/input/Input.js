@@ -20,7 +20,7 @@ import { useImperativeHandle, useRef } from 'react';
  * <Input number step={0.1} error />
  * <Input label="Username" s primary />
  */
-const Input = ({ type = 'text', number, label, xs, s, m = true, l, style = {}, labelStyle = {}, primary, neutral = true, warn, error, ref, ...props }) => {
+const Input = ({ type = 'text', number, label, xs, s, m = true, l, style = {}, labelStyle = {}, primary, neutral = true, disabled = false, warn, error, ref, ...props }) => {
     const { theme } = useLiteUIContext();
     const getSize = () => {
         if (xs)
@@ -53,10 +53,13 @@ const Input = ({ type = 'text', number, label, xs, s, m = true, l, style = {}, l
     if (error) {
         Object.assign(styles, theme.input.error);
     }
-    Object.assign(styles, style);
-    if (number) {
-        type = 'number';
+    if (disabled) {
+        Object.assign(styles, theme.input.disabled);
     }
+    Object.assign(styles, style);
+    /*  if (number) {
+        type = 'number'
+      }*/
     return _jsxs("div", { children: [label &&
                 _jsx("label", { style: {
                         display: 'inline-block',
@@ -66,8 +69,8 @@ const Input = ({ type = 'text', number, label, xs, s, m = true, l, style = {}, l
                     }, onClick: () => {
                         inputRef.current?.focus();
                     }, children: label }), number ?
-                _jsx(InputNumber, { ref: inputRef, style: styles, ...props })
+                _jsx(InputNumber, { disabled: disabled, ref: inputRef, style: styles, ...props })
                 :
-                    _jsx(InputText, { ref: inputRef, style: styles, ...props })] });
+                    _jsx(InputText, { disabled: disabled, ref: inputRef, style: styles, ...props })] });
 };
 export default Input;
