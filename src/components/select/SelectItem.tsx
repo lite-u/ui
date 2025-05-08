@@ -59,6 +59,7 @@ const SelectItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     alignItems: 'center',
     whiteSpace: 'nowrap',
     borderRadius: 0,
+    minWidth: '100%',
     ...bgStyle,
     ...style,
   }

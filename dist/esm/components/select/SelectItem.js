@@ -37,6 +37,7 @@ const SelectItem = ({ label, value, children, onClick, onKeyDown, style = {}, ..
         alignItems: 'center',
         whiteSpace: 'nowrap',
         borderRadius: 0,
+        minWidth: '100%',
         ...bgStyle,
         ...style,
     };
