@@ -44,6 +44,9 @@ export const IconButton = ({ xs, s, m = true, l, style = {}, disabled = false, t
         overflow: 'hidden',
         width: len,
         height: len,
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         ...style,
     };
     if (disabled) {
