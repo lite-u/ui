@@ -84,6 +84,9 @@ export const IconButton: React.FC<IconButtonProps> = ({
     overflow: 'hidden',
     width: len,
     height: len,
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     ...style,
   }
 
