@@ -57,12 +57,8 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         s,
         m = true,
         l,
-        activeStyle = {
-          backgroundColor: '#dfdfdf',
-        },
-        hoverStyle = {
-          backgroundColor: '#dfdfdf',
-        },
+        activeStyle = {backgroundColor: '#dfdfdf'},
+        hoverStyle = {backgroundColor: '#dfdfdf'},
         ...props
       }) => {
   const getSize = () => {

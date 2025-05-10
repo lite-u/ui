@@ -1790,13 +1790,13 @@
       "activeStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
+        "defaultValue": "{backgroundColor: '#dfdfdf'}",
         "description": "CSS styles to apply on active."
       },
       "hoverStyle": {
         "type": "CSSProperties",
         "required": false,
-        "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
+        "defaultValue": "{backgroundColor: '#dfdfdf'}",
         "description": "CSS styles to apply on hover."
       }
     }

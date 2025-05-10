@@ -18,11 +18,7 @@ import Interactable from '../interactable/Interactable';
  *   Settings
  * </MenuItem>
  */
-const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = {
-    backgroundColor: '#dfdfdf',
-}, hoverStyle = {
-    backgroundColor: '#dfdfdf',
-}, ...props }) => {
+const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = { backgroundColor: '#dfdfdf' }, hoverStyle = { backgroundColor: '#dfdfdf' }, ...props }) => {
     const getSize = () => {
         if (xs)
             return 'xs';
