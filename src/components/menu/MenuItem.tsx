@@ -50,16 +50,6 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
    * @default { backgroundColor: '#dfdfdf' }
    */
   hoverStyle?: CSSProperties
-  /**
-   * Duration of the hover transition entering, in milliseconds.
-   * @default 300
-   */
-  hoverEnterDuration?: number
-  /**
-   * Duration of the hover transition leaving, in milliseconds.
-   * @default 500
-   */
-  hoverLeaveDuration?: number
 }> = ({
         children,
         style = {},

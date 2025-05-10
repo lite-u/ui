@@ -1798,18 +1798,6 @@
         "required": false,
         "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
         "description": "CSS styles to apply on hover."
-      },
-      "hoverEnterDuration": {
-        "type": "number",
-        "required": false,
-        "defaultValue": "200",
-        "description": "Duration of the hover transition entering, in milliseconds."
-      },
-      "hoverLeaveDuration": {
-        "type": "number",
-        "required": false,
-        "defaultValue": "300",
-        "description": "Duration of the hover transition leaving, in milliseconds."
       }
     }
   },
