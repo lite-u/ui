@@ -22,7 +22,7 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = {
     backgroundColor: '#dfdfdf',
 }, hoverStyle = {
     backgroundColor: '#dfdfdf',
-}, hoverEnterDuration = 200, hoverLeaveDuration = 300, ...props }) => {
+}, ...props }) => {
     const getSize = () => {
         if (xs)
             return 'xs';
@@ -35,6 +35,10 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = {
     const { theme } = useLiteUIContext();
     const size = getSize();
     const styles = {
+        justifyContent: 'center',
+        transition: 'background-color 100ms linear',
+        userSelect: 'none',
+        width: '100%',
         minWidth: 100,
         height: theme.formElements[size].height,
         padding: theme.padding[size].y,
@@ -49,12 +53,6 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = {
         textOverflow: 'ellipsis',
     };
     return _jsx(Interactable, { role: 'menu-item', active: activeStyle, hover: hoverStyle, style: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            transition: 'background-color 100ms linear',
-            userSelect: 'none',
-            width: '100%',
             ...styles,
             ...style,
         }, ...props, children: children });

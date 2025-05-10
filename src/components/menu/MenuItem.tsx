@@ -63,8 +63,6 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         hoverStyle = {
           backgroundColor: '#dfdfdf',
         },
-        hoverEnterDuration = 200,
-        hoverLeaveDuration = 300,
         ...props
       }) => {
   const getSize = () => {
@@ -76,6 +74,10 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   const {theme} = useLiteUIContext()
   const size = getSize()
   const styles: CSSProperties = {
+    justifyContent: 'center',
+    transition: 'background-color 100ms linear',
+    userSelect: 'none',
+    width: '100%',
     minWidth: 100,
     height: theme.formElements[size].height,
     padding: theme.padding[size].y,
@@ -95,12 +97,6 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     active={activeStyle}
     hover={hoverStyle}
     style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      transition: 'background-color 100ms linear',
-      userSelect: 'none',
-      width: '100%',
       ...styles,
       ...style,
     }}
