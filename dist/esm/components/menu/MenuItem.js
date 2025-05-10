@@ -50,6 +50,8 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = {
     };
     return _jsx(Interactable, { role: 'menu-item', active: activeStyle, hover: hoverStyle, style: {
             display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             transition: 'background-color 100ms linear',
             userSelect: 'none',
             width: '100%',

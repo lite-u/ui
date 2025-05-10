@@ -106,6 +106,8 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     hover={hoverStyle}
     style={{
       display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       transition: 'background-color 100ms linear',
       userSelect: 'none',
       width: '100%',
