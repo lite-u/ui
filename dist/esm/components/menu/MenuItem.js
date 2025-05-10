@@ -1,7 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useState } from 'react';
 import { useLiteUIContext } from '../../LiteUIProvider';
-import Transition from '../transition/Transition';
+import Interactable from '../interactable/Interactable';
 /**
  * MenuItem component
  *
@@ -19,10 +18,9 @@ import Transition from '../transition/Transition';
  *   Settings
  * </MenuItem>
  */
-const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
+const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle, hoverStyle = {
     backgroundColor: '#dfdfdf',
 }, hoverEnterDuration = 200, hoverLeaveDuration = 300, ...props }) => {
-    const [visible, setVisible] = useState(false);
     const getSize = () => {
         if (xs)
             return 'xs';
@@ -48,21 +46,11 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, hoverStyle = {
         // overflow: 'hidden',
         textOverflow: 'ellipsis',
     };
-    return _jsx("div", { role: 'menu-item', onMouseOver: () => {
-            setVisible(true);
-        }, onMouseLeave: () => {
-            setVisible(false);
-        }, style: {
+    return _jsx(Interactable, { role: 'menu-item', active: activeStyle, hover: hoverStyle, style: {
             display: 'flex',
-            // overflow: 'hidden',
-            // ...styles,
-            // ...style,
-        }, ...props, children: _jsx(Transition, { visible: visible, style: {
-                ...styles,
-                ...style,
-            }, exitDuration: hoverLeaveDuration, duration: hoverEnterDuration, from: {
-                ...style,
-                // backgroundColor: style.backgroundColor || '#fff',
-            }, to: hoverStyle, children: children }) });
+            transition: 'background-color 300ms linear',
+            ...styles,
+            ...style,
+        }, ...props, children: children });
 };
 export default MenuItem;

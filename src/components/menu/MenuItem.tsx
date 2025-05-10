@@ -1,6 +1,6 @@
-import {CSSProperties, useState} from 'react'
+import {CSSProperties} from 'react'
 import {useLiteUIContext} from '../../LiteUIProvider'
-import Transition, {FromType} from '../transition/Transition'
+import Interactable from '../interactable/Interactable'
 
 /**
  * MenuItem component
@@ -41,10 +41,15 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
    */
   l?: boolean,
   /**
-   * CSS styles to apply on hover transition.
+   * CSS styles to apply on active.
+   * @default \-
+   */
+  activeStyle?: CSSProperties
+  /**
+   * CSS styles to apply on hover.
    * @default { backgroundColor: '#dfdfdf' }
    */
-  hoverStyle?: FromType
+  hoverStyle?: CSSProperties
   /**
    * Duration of the hover transition entering, in milliseconds.
    * @default 300
@@ -62,6 +67,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         s,
         m = true,
         l,
+        activeStyle,
         hoverStyle = {
           backgroundColor: '#dfdfdf',
         },
@@ -69,7 +75,6 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         hoverLeaveDuration = 300,
         ...props
       }) => {
-  const [visible, setVisible] = useState(false)
   const getSize = () => {
     if (xs) return 'xs'
     if (s) return 'sm'
@@ -93,36 +98,19 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     textOverflow: 'ellipsis',
   }
 
-  return <div
+  return <Interactable
     role={'menu-item'}
-    onMouseOver={() => {
-      setVisible(true)
-    }}
-    onMouseLeave={() => {
-      setVisible(false)
-    }}
+    active={activeStyle}
+    hover={hoverStyle}
     style={{
       display: 'flex',
-      // overflow: 'hidden',
-      // ...styles,
-      // ...style,
+      transition: 'background-color 300ms linear',
+      ...styles,
+      ...style,
     }}
     {...props}>
-    <Transition visible={visible}
-                style={{
-                  ...styles,
-                  ...style,
-                }}
-                exitDuration={hoverLeaveDuration}
-                duration={hoverEnterDuration}
-                from={{
-                  ...style,
-                  // backgroundColor: style.backgroundColor || '#fff',
-                }}
-                to={hoverStyle}>
-      {children}
-    </Transition>
-  </div>
+    {children}
+  </Interactable>
 }
 
 export default MenuItem

@@ -1,4 +1,4 @@
-import { FromType } from '../transition/Transition';
+import { CSSProperties } from 'react';
 /**
  * MenuItem component
  *
@@ -38,10 +38,15 @@ declare const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
      */
     l?: boolean;
     /**
-     * CSS styles to apply on hover transition.
+     * CSS styles to apply on active.
+     * @default \-
+     */
+    activeStyle?: CSSProperties;
+    /**
+     * CSS styles to apply on hover.
      * @default { backgroundColor: '#dfdfdf' }
      */
-    hoverStyle?: FromType;
+    hoverStyle?: CSSProperties;
     /**
      * Duration of the hover transition entering, in milliseconds.
      * @default 300
