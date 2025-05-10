@@ -39,7 +39,7 @@ declare const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     l?: boolean;
     /**
      * CSS styles to apply on active.
-     * @default \-
+     * @default { backgroundColor: '#dfdfdf' }
      */
     activeStyle?: CSSProperties;
     /**

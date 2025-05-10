@@ -18,7 +18,9 @@ import Interactable from '../interactable/Interactable';
  *   Settings
  * </MenuItem>
  */
-const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle, hoverStyle = {
+const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle = {
+    backgroundColor: '#dfdfdf',
+}, hoverStyle = {
     backgroundColor: '#dfdfdf',
 }, hoverEnterDuration = 200, hoverLeaveDuration = 300, ...props }) => {
     const getSize = () => {
@@ -48,7 +50,9 @@ const MenuItem = ({ children, style = {}, xs, s, m = true, l, activeStyle, hover
     };
     return _jsx(Interactable, { role: 'menu-item', active: activeStyle, hover: hoverStyle, style: {
             display: 'flex',
-            transition: 'background-color 300ms linear',
+            transition: 'background-color 100ms linear',
+            userSelect: 'none',
+            width: '100%',
             ...styles,
             ...style,
         }, ...props, children: children });

@@ -42,7 +42,7 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
   l?: boolean,
   /**
    * CSS styles to apply on active.
-   * @default \-
+   * @default { backgroundColor: '#dfdfdf' }
    */
   activeStyle?: CSSProperties
   /**
@@ -67,7 +67,9 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
         s,
         m = true,
         l,
-        activeStyle,
+        activeStyle = {
+          backgroundColor: '#dfdfdf',
+        },
         hoverStyle = {
           backgroundColor: '#dfdfdf',
         },
@@ -104,7 +106,9 @@ const MenuItem: React.FC<React.HTMLProps<HTMLDivElement> & {
     hover={hoverStyle}
     style={{
       display: 'flex',
-      transition: 'background-color 300ms linear',
+      transition: 'background-color 100ms linear',
+      userSelect: 'none',
+      width: '100%',
       ...styles,
       ...style,
     }}

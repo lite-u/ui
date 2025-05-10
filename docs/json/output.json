@@ -1787,11 +1787,17 @@
         "defaultValue": "false",
         "description": "Renders the item in large size."
       },
-      "hoverStyle": {
-        "type": "FromType",
+      "activeStyle": {
+        "type": "CSSProperties",
         "required": false,
         "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
-        "description": "CSS styles to apply on hover transition."
+        "description": "CSS styles to apply on active."
+      },
+      "hoverStyle": {
+        "type": "CSSProperties",
+        "required": false,
+        "defaultValue": "{\n          backgroundColor: '#dfdfdf',\n        }",
+        "description": "CSS styles to apply on hover."
       },
       "hoverEnterDuration": {
         "type": "number",
